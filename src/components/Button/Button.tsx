@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/utils'
-import { ButtonProps } from '@/types'
 import './Button.css'
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(

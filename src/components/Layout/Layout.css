@@ -80,6 +80,16 @@
   gap: 16px;
 }
 
+.myui-layout-header__theme-btn:hover {
+  background-color: var(--bg-secondary, #f9fafb) !important;
+  border-color: var(--border-color-hover, #d1d5db) !important;
+  transform: scale(1.05);
+}
+
+.myui-layout-header__theme-btn:active {
+  transform: scale(0.95);
+}
+
 .myui-layout-header__github {
   display: flex;
   align-items: center;
@@ -257,5 +267,4 @@
 
 .myui-layout-sidebar::-webkit-scrollbar-thumb:hover {
   background: var(--border-color-hover, #d1d5db);
-}
 }

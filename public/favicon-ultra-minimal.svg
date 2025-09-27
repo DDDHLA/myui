@@ -1,0 +1,20 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 纯净渐变 -->
+    <linearGradient id="clean" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 圆角背景 -->
+  <rect width="32" height="32" rx="10" fill="url(#clean)"/>
+  
+  <!-- 极简 M 字母 -->
+  <path d="M10 12 L10 20 L13 16 L16 20 L19 16 L22 20 L22 12" 
+        stroke="white" 
+        stroke-width="1.8" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"/>
+</svg>

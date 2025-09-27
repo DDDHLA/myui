@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTheme } from '@/hooks'
 import { cn } from '@/utils'
 import './Layout.css'
 
@@ -19,6 +20,60 @@ interface HeaderProps {
   onMenuToggle: () => void
 }
 
+// 主题切换按钮组件
+function ThemeToggle() {
+  const { theme, toggleTheme } = useTheme()
+  
+  const handleClick = () => {
+    console.log('主题切换前:', theme)
+    toggleTheme()
+    console.log('主题切换后:', theme === 'light' ? 'dark' : 'light')
+  }
+  
+  return (
+    <button
+      onClick={handleClick}
+      className="myui-layout-header__theme-btn"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '40px',
+        height: '40px',
+        borderRadius: '10px',
+        border: '1px solid var(--border-color, #e5e7eb)',
+        background: 'var(--bg-primary, #ffffff)',
+        color: 'var(--text-primary, #333333)',
+        cursor: 'pointer',
+        transition: 'all 0.2s ease-in-out'
+      }}
+      title={theme === 'light' ? '切换到深色模式' : '切换到浅色模式'}
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        {theme === 'light' ? (
+          <path
+            d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        ) : (
+          <circle
+            cx="12"
+            cy="12"
+            r="5"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        )}
+      </svg>
+    </button>
+  )
+}
+
 // 头部组件
 function Header({ onMenuToggle }: HeaderProps) {
   return (
@@ -35,6 +90,9 @@ function Header({ onMenuToggle }: HeaderProps) {
         <div className="myui-layout-header__brand">
           <h1>MyUI</h1>
           <span>现代化的 React 组件库，提供高质量的组件和设计规范</span>
+        </div>
+        <div className="myui-layout-header__actions">
+          <ThemeToggle />
         </div>
       </div>
     </header>

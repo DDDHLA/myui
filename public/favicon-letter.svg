@@ -1,0 +1,22 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景圆形 -->
+  <circle cx="16" cy="16" r="16" fill="url(#gradient)"/>
+  
+  <!-- 字母 M -->
+  <path d="M8 8v16l4-6 4 6 4-6 4 6V8h-2v12l-2-3-2 3-2-3-2 3V8H8z" 
+        fill="white" 
+        stroke="white" 
+        stroke-width="0.5" 
+        stroke-linejoin="round"/>
+  
+  <!-- 装饰性圆点 -->
+  <circle cx="24" cy="10" r="1" fill="white" opacity="0.6"/>
+  <circle cx="26" cy="22" r="0.8" fill="white" opacity="0.4"/>
+</svg>

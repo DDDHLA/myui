@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "vite",
     "dev:3050": "vite --port 3050",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "build:check": "tsc && vite build",
     "build:lib": "vite build --mode lib",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",

@@ -1,0 +1,83 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 苹果风格的深度渐变 -->
+    <linearGradient id="appleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#00f2fe;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 玻璃质感 -->
+    <linearGradient id="glassEffect" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.5" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.3" />
+    </linearGradient>
+    
+    <!-- 字母艺术渐变 -->
+    <linearGradient id="letterArt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f1f5f9;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:0.9" />
+    </linearGradient>
+    
+    <!-- 高端阴影 -->
+    <filter id="premiumShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.2"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    
+    <!-- 内发光 -->
+    <filter id="innerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 主背景 - 苹果式圆角 -->
+  <rect width="32" height="32" rx="8" fill="url(#appleGradient)" filter="url(#premiumShadow)"/>
+  
+  <!-- 玻璃质感层 -->
+  <rect width="32" height="32" rx="8" fill="url(#glassEffect)"/>
+  
+  <!-- 艺术化的 M 字母 -->
+  <g transform="translate(16, 16)">
+    <!-- 主体结构 -->
+    <path d="M-8 -6 L-8 8 M-8 -6 Q-4 2 0 0 Q4 2 8 -6 M8 -6 L8 8" 
+          stroke="url(#letterArt)" 
+          stroke-width="2.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          fill="none"
+          filter="url(#innerGlow)"/>
+    
+    <!-- 艺术装饰点 -->
+    <circle cx="-8" cy="-6" r="1" fill="white" opacity="0.8"/>
+    <circle cx="8" cy="-6" r="1" fill="white" opacity="0.8"/>
+    <circle cx="0" cy="0" r="0.8" fill="white" opacity="0.9"/>
+    
+    <!-- 底部连接线 -->
+    <path d="M-6 8 Q0 6 6 8" 
+          stroke="white" 
+          stroke-width="1" 
+          stroke-linecap="round" 
+          opacity="0.4" 
+          fill="none"/>
+  </g>
+  
+  <!-- 边缘高光 -->
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" 
+        stroke="rgba(255,255,255,0.3)" 
+        stroke-width="1" 
+        fill="none"/>
+        
+  <!-- 内边缘阴影 -->
+  <rect x="2" y="2" width="28" height="28" rx="6" 
+        stroke="rgba(0,0,0,0.1)" 
+        stroke-width="0.5" 
+        fill="none"/>
+</svg>

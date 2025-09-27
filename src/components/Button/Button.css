@@ -141,7 +141,8 @@
 }
 
 .myui-button--outline:hover:not(:disabled) {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary, #3b82f6) !important;
+  border-color: var(--color-primary, #3b82f6) !important;
   color: #ffffff !important;
 }
 
@@ -153,7 +154,7 @@
 }
 
 .myui-button--ghost:hover:not(:disabled) {
-  background-color: var(--color-primary-light, #dbeafe);
+  background-color: var(--color-primary-light, #dbeafe) !important;
   color: var(--color-primary, #3b82f6) !important;
 }
 
@@ -168,9 +169,9 @@
 
 .myui-button--link:hover:not(:disabled) {
   color: var(--color-primary-hover, #2563eb) !important;
+  text-decoration: none;
+  background-color: transparent !important;
 }
-
-/* 全宽 */
 .myui-button--full-width {
   width: 100%;
 }

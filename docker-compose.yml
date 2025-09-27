@@ -1,0 +1,9 @@
+services:
+  myui:
+    build: .
+    container_name: MyUi
+    ports:
+      - "5174:5174"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production

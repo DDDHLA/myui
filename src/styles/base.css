@@ -29,10 +29,11 @@ html {
 }
 body {
   color: var(--text-primary);
-  background-color: var(--bg-primary);
+  background: var(--bg-page);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
-  transition: color var(--transition-normal), background-color var(--transition-normal);
+  transition: color var(--transition-normal), background var(--transition-normal);
+  min-height: 100vh;
 }
 
 /* 表单元素重置 */
