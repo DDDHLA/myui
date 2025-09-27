@@ -1,0 +1,239 @@
+/* Button 组件样式 */
+.myui-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2, 0.5rem);
+  font-family: var(--font-family-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  border: var(--border-width, 1px) solid transparent;
+  border-radius: var(--border-radius, 8px);
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms ease-in-out);
+  user-select: none;
+  white-space: nowrap;
+  outline: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  /* 移除默认背景色，让变体自己定义 */
+}
+
+.myui-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+}
+
+.myui-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* 尺寸变体 */
+.myui-button--sm {
+  padding: var(--spacing-2, 0.5rem) var(--spacing-3, 0.75rem);
+  font-size: var(--font-size-sm, 0.875rem);
+  line-height: var(--line-height-tight, 1.25);
+}
+
+.myui-button--md {
+  padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+  font-size: var(--font-size-base, 1rem);
+  line-height: var(--line-height-tight, 1.25);
+}
+
+.myui-button--lg {
+  padding: var(--spacing-4, 1rem) var(--spacing-6, 1.5rem);
+  font-size: var(--font-size-lg, 1.125rem);
+  line-height: var(--line-height-tight, 1.25);
+}
+
+/* 颜色变体 */
+.myui-button--primary {
+  background-color: var(--color-primary, #3b82f6) !important;
+  color: #ffffff !important;
+  border-color: var(--color-primary, #3b82f6) !important;
+}
+
+.myui-button--primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover, #2563eb) !important;
+  border-color: var(--color-primary-hover, #2563eb) !important;
+  color: #ffffff !important;
+}
+
+.myui-button--primary:active:not(:disabled) {
+  background-color: var(--color-primary-active, #1d4ed8) !important;
+  border-color: var(--color-primary-active, #1d4ed8) !important;
+  color: #ffffff !important;
+}
+
+.myui-button--secondary {
+  background-color: var(--color-secondary, #64748b) !important;
+  color: #ffffff !important;
+  border-color: var(--color-secondary, #64748b) !important;
+}
+
+.myui-button--secondary:hover:not(:disabled) {
+  background-color: var(--color-secondary-hover, #475569) !important;
+  border-color: var(--color-secondary-hover, #475569) !important;
+  color: #ffffff !important;
+}
+
+.myui-button--secondary:active:not(:disabled) {
+  background-color: var(--color-secondary-active, #334155) !important;
+  border-color: var(--color-secondary-active, #334155) !important;
+  color: #ffffff !important;
+}
+
+.myui-button--success {
+  background-color: var(--color-success, #10b981) !important;
+  color: #ffffff !important;
+  border-color: var(--color-success, #10b981) !important;
+}
+
+.myui-button--success:hover:not(:disabled) {
+  background-color: var(--color-success-hover, #059669) !important;
+  border-color: var(--color-success-hover, #059669) !important;
+  color: #ffffff !important;
+}
+
+.myui-button--danger {
+  background-color: var(--color-danger, #ef4444) !important;
+  color: #ffffff !important;
+  border-color: var(--color-danger, #ef4444) !important;
+}
+
+.myui-button--danger:hover:not(:disabled) {
+  background-color: var(--color-danger-hover, #dc2626) !important;
+  border-color: var(--color-danger-hover, #dc2626) !important;
+  color: #ffffff !important;
+}
+
+.myui-button--warning {
+  background-color: var(--color-warning, #f59e0b) !important;
+  color: #ffffff !important;
+  border-color: var(--color-warning, #f59e0b) !important;
+}
+
+.myui-button--warning:hover:not(:disabled) {
+  background-color: var(--color-warning-hover, #d97706) !important;
+  border-color: var(--color-warning-hover, #d97706) !important;
+  color: #ffffff !important;
+}
+
+.myui-button--info {
+  background-color: var(--color-info, #06b6d4) !important;
+  color: #ffffff !important;
+  border-color: var(--color-info, #06b6d4) !important;
+}
+
+.myui-button--info:hover:not(:disabled) {
+  background-color: var(--color-info-hover, #0891b2) !important;
+  border-color: var(--color-info-hover, #0891b2) !important;
+  color: #ffffff !important;
+}
+
+/* 轮廓变体 */
+.myui-button--outline {
+  background-color: transparent;
+  color: var(--color-primary, #3b82f6) !important;
+  border-color: var(--color-primary, #3b82f6);
+}
+
+.myui-button--outline:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: #ffffff !important;
+}
+
+/* 幽灵变体 */
+.myui-button--ghost {
+  background-color: transparent;
+  color: var(--color-primary, #3b82f6) !important;
+  border-color: transparent;
+}
+
+.myui-button--ghost:hover:not(:disabled) {
+  background-color: var(--color-primary-light, #dbeafe);
+  color: var(--color-primary, #3b82f6) !important;
+}
+
+/* 链接变体 */
+.myui-button--link {
+  background-color: transparent;
+  color: var(--color-primary, #3b82f6) !important;
+  border-color: transparent;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.myui-button--link:hover:not(:disabled) {
+  color: var(--color-primary-hover, #2563eb) !important;
+}
+
+/* 全宽 */
+.myui-button--full-width {
+  width: 100%;
+}
+
+/* 禁用状态 */
+.myui-button--disabled,
+.myui-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 按钮内容 */
+.myui-button__content {
+  color: inherit;
+}
+
+/* 加载状态 */
+.myui-button--loading {
+  cursor: wait;
+}
+
+.myui-button--loading .myui-button__content {
+  opacity: 0.7;
+}
+
+/* 加载动画 */
+.myui-button__spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.myui-button__spinner-icon {
+  width: 1em;
+  height: 1em;
+  animation: myui-spin 1s linear infinite;
+}
+
+@keyframes myui-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 图标 */
+.myui-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myui-button__icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* 焦点状态 */
+.myui-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

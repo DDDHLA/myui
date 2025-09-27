@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮样式测试</title>
+    <style>
+        /* 直接嵌入的 CSS 测试 */
+        .test-button {
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        
+        .test-button--primary {
+            background-color: #3b82f6;
+            color: #ffffff;
+            border-color: #3b82f6;
+        }
+        
+        .test-button--outline {
+            background-color: transparent;
+            color: #3b82f6;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <h1>按钮样式测试</h1>
+    
+    <h2>直接 HTML 按钮</h2>
+    <button class="test-button test-button--primary">主要按钮</button>
+    <button class="test-button test-button--outline">轮廓按钮</button>
+    
+    <h2>内联样式按钮</h2>
+    <button style="padding: 0.75rem 1rem; background-color: #3b82f6; color: white; border: 1px solid #3b82f6; border-radius: 8px;">内联样式按钮</button>
+    
+    <h2>测试文字颜色</h2>
+    <div style="color: #3b82f6;">这是蓝色文字</div>
+    <div style="color: white; background-color: #3b82f6; padding: 10px;">这是白色文字在蓝色背景上</div>
+</body>
+</html>

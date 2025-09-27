@@ -1,0 +1,137 @@
+/* Card 组件样式 */
+.myui-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary, #ffffff);
+  border-radius: var(--border-radius-lg, 12px);
+  transition: all var(--transition-normal, 200ms ease-in-out);
+  overflow: hidden;
+}
+
+/* 变体样式 */
+.myui-card--default {
+  background-color: var(--bg-primary, #ffffff);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.myui-card--outlined {
+  background-color: var(--bg-primary, #ffffff);
+  border: var(--border-width, 1px) solid var(--border-color, #e5e7eb);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.myui-card--outlined:hover {
+  border-color: var(--border-color-hover, #d1d5db);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.myui-card--elevated {
+  background-color: var(--bg-primary, #ffffff);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.myui-card--elevated:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* 内边距变体 */
+.myui-card--padding-none {
+  padding: 0;
+}
+
+.myui-card--padding-sm .myui-card__content {
+  padding: var(--spacing-4);
+}
+
+.myui-card--padding-md .myui-card__content {
+  padding: var(--spacing-6);
+}
+
+.myui-card--padding-lg .myui-card__content {
+  padding: var(--spacing-8);
+}
+
+/* Header 样式 */
+.myui-card__header {
+  padding: var(--spacing-6);
+  padding-bottom: 0;
+  border-bottom: var(--border-width) solid var(--border-color);
+  margin-bottom: var(--spacing-6);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.myui-card--padding-sm .myui-card__header {
+  padding: var(--spacing-4);
+  padding-bottom: 0;
+  margin-bottom: var(--spacing-4);
+}
+
+.myui-card--padding-lg .myui-card__header {
+  padding: var(--spacing-8);
+  padding-bottom: 0;
+  margin-bottom: var(--spacing-8);
+}
+
+.myui-card--padding-none .myui-card__header {
+  padding: var(--spacing-6);
+  margin-bottom: 0;
+}
+
+/* Content 样式 */
+.myui-card__content {
+  flex: 1;
+  color: var(--text-primary);
+}
+
+.myui-card--padding-none .myui-card__content {
+  padding: 0;
+}
+
+/* Footer 样式 */
+.myui-card__footer {
+  padding: var(--spacing-6);
+  padding-top: 0;
+  border-top: var(--border-width) solid var(--border-color);
+  margin-top: var(--spacing-6);
+  color: var(--text-secondary);
+}
+
+.myui-card--padding-sm .myui-card__footer {
+  padding: var(--spacing-4);
+  padding-top: 0;
+  margin-top: var(--spacing-4);
+}
+
+.myui-card--padding-lg .myui-card__footer {
+  padding: var(--spacing-8);
+  padding-top: 0;
+  margin-top: var(--spacing-8);
+}
+
+.myui-card--padding-none .myui-card__footer {
+  padding: var(--spacing-6);
+  margin-top: 0;
+}
+
+/* 当没有内容时隐藏分隔线 */
+.myui-card__header:only-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.myui-card__footer:only-child {
+  border-top: none;
+  margin-top: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .myui-card--padding-lg .myui-card__content,
+  .myui-card--padding-lg .myui-card__header,
+  .myui-card--padding-lg .myui-card__footer {
+    padding-left: var(--spacing-6);
+    padding-right: var(--spacing-6);
+  }
+}

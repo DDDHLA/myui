@@ -1,0 +1,179 @@
+/* Input 组件样式 */
+.myui-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.myui-input-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.myui-input-label--disabled {
+  color: var(--text-tertiary);
+}
+
+.myui-input-label--error {
+  color: var(--color-danger);
+}
+
+.myui-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-primary, #ffffff);
+  border: var(--border-width, 1px) solid var(--border-color, #d1d5db);
+  border-radius: var(--border-radius, 8px);
+  transition: all var(--transition-fast, 150ms ease-in-out);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.myui-input-container:hover:not(.myui-input-container--disabled) {
+  border-color: var(--border-color-hover, #9ca3af);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.myui-input-container--focused {
+  border-color: var(--color-primary, #3b82f6) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.myui-input-container--error {
+  border-color: var(--color-danger, #ef4444) !important;
+  box-shadow: 0 1px 2px 0 rgba(239, 68, 68, 0.05);
+}
+
+.myui-input-container--error.myui-input-container--focused {
+  border-color: var(--color-danger, #ef4444) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1), 0 1px 3px 0 rgba(239, 68, 68, 0.1);
+}
+
+.myui-input-container--disabled {
+  background-color: var(--bg-secondary, #f9fafb);
+  border-color: var(--border-color, #e5e7eb);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 尺寸变体 */
+.myui-input-container--sm {
+  padding: var(--spacing-2, 0.5rem) var(--spacing-3, 0.75rem);
+  gap: var(--spacing-2, 0.5rem);
+  min-height: 2rem;
+}
+
+.myui-input-container--md {
+  padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+  gap: var(--spacing-2, 0.5rem);
+  min-height: 2.5rem;
+}
+
+.myui-input-container--lg {
+  padding: var(--spacing-4, 1rem) var(--spacing-5, 1.25rem);
+  gap: var(--spacing-3, 0.75rem);
+  min-height: 3rem;
+}
+
+/* 输入框 */
+.myui-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-family-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  color: var(--text-primary, #111827);
+  transition: color var(--transition-fast, 150ms ease-in-out);
+  width: 100%;
+  min-width: 0;
+}
+
+.myui-input-container--sm .myui-input {
+  font-size: var(--font-size-sm, 0.875rem);
+  line-height: var(--line-height-tight, 1.25);
+}
+
+.myui-input-container--md .myui-input {
+  font-size: var(--font-size-base, 1rem);
+  line-height: var(--line-height-tight, 1.25);
+}
+
+.myui-input-container--lg .myui-input {
+  font-size: var(--font-size-lg, 1.125rem);
+  line-height: var(--line-height-tight, 1.25);
+}
+
+.myui-input::placeholder {
+  color: var(--text-tertiary, #9ca3af);
+  opacity: 1;
+}
+
+.myui-input:disabled {
+  cursor: not-allowed;
+  color: var(--text-tertiary, #9ca3af);
+}
+
+/* 图标 */
+.myui-input-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  transition: color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.myui-input-container--focused .myui-input-icon {
+  color: var(--color-primary);
+}
+
+.myui-input-container--error .myui-input-icon {
+  color: var(--color-danger);
+}
+
+.myui-input-container--disabled .myui-input-icon {
+  color: var(--text-tertiary);
+}
+
+.myui-input-icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+.myui-input-container--sm .myui-input-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.myui-input-container--md .myui-input-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.myui-input-container--lg .myui-input-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* 辅助文本 */
+.myui-input-helper-text {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.myui-input-helper-text--error {
+  color: var(--color-danger);
+}
+
+/* 带图标时的间距调整 */
+.myui-input-container--with-left-icon .myui-input {
+  padding-left: 0;
+}
+
+.myui-input-container--with-right-icon .myui-input {
+  padding-right: 0;
+}

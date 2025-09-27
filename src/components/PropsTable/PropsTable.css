@@ -1,0 +1,196 @@
+/* PropsTable 属性表格样式 */
+.myui-props-table {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.myui-props-table__title {
+  margin: 0 0 16px 0;
+  font-size: var(--font-size-xl, 1.25rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--text-primary, #333333);
+}
+
+.myui-props-table__wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: var(--border-radius, 8px);
+  background-color: var(--bg-primary, #ffffff);
+}
+
+.myui-props-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+.myui-props-table__table thead {
+  background-color: var(--bg-secondary, #f9fafb);
+}
+
+.myui-props-table__table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--text-primary, #333333);
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  white-space: nowrap;
+}
+
+.myui-props-table__table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  vertical-align: top;
+}
+
+.myui-props-table__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.myui-props-table__table tbody tr:hover {
+  background-color: var(--bg-secondary, #f9fafb);
+}
+
+.myui-props-table__prop-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-family-mono, 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', monospace);
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--color-primary, #3b82f6);
+  background-color: var(--color-primary-light, #dbeafe);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-sm, 4px);
+  white-space: nowrap;
+}
+
+.myui-props-table__required {
+  color: var(--color-danger, #ef4444);
+  font-weight: var(--font-weight-bold, 700);
+}
+
+.myui-props-table__description {
+  color: var(--text-primary, #333333);
+  line-height: var(--line-height-relaxed, 1.75);
+  min-width: 200px;
+}
+
+.myui-props-table__type {
+  font-family: var(--font-family-mono, 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', monospace);
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--color-success, #10b981);
+  background-color: var(--color-success-light, #d1fae5);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-sm, 4px);
+  white-space: nowrap;
+}
+
+.myui-props-table__default {
+  font-family: var(--font-family-mono, 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', monospace);
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--color-warning, #f59e0b);
+  background-color: var(--color-warning-light, #fef3c7);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-sm, 4px);
+  white-space: nowrap;
+}
+
+.myui-props-table__no-default {
+  color: var(--text-tertiary, #9ca3af);
+  font-style: italic;
+}
+
+/* 列宽设置 */
+.myui-props-table__table th:nth-child(1),
+.myui-props-table__table td:nth-child(1) {
+  width: 20%;
+  min-width: 120px;
+}
+
+.myui-props-table__table th:nth-child(2),
+.myui-props-table__table td:nth-child(2) {
+  width: 40%;
+  min-width: 200px;
+}
+
+.myui-props-table__table th:nth-child(3),
+.myui-props-table__table td:nth-child(3) {
+  width: 25%;
+  min-width: 120px;
+}
+
+.myui-props-table__table th:nth-child(4),
+.myui-props-table__table td:nth-child(4) {
+  width: 15%;
+  min-width: 100px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .myui-props-table__wrapper {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    margin: 0 -16px;
+  }
+  
+  .myui-props-table__table {
+    font-size: var(--font-size-xs, 0.75rem);
+  }
+  
+  .myui-props-table__table th,
+  .myui-props-table__table td {
+    padding: 8px 12px;
+    word-break: break-word;
+  }
+  
+  .myui-props-table__table th:nth-child(1),
+  .myui-props-table__table td:nth-child(1) {
+    min-width: 80px;
+    width: 20%;
+  }
+  
+  .myui-props-table__table th:nth-child(2),
+  .myui-props-table__table td:nth-child(2) {
+    min-width: 120px;
+    width: 35%;
+  }
+  
+  .myui-props-table__table th:nth-child(3),
+  .myui-props-table__table td:nth-child(3) {
+    min-width: 80px;
+    width: 25%;
+  }
+  
+  .myui-props-table__table th:nth-child(4),
+  .myui-props-table__table td:nth-child(4) {
+    min-width: 60px;
+    width: 20%;
+  }
+  
+  .myui-props-table__prop-name,
+  .myui-props-table__type,
+  .myui-props-table__default {
+    font-size: 0.6rem;
+    padding: 1px 4px;
+  }
+}
+
+/* 滚动条样式 */
+.myui-props-table__wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.myui-props-table__wrapper::-webkit-scrollbar-track {
+  background: var(--bg-secondary, #f9fafb);
+  border-radius: 4px;
+}
+
+.myui-props-table__wrapper::-webkit-scrollbar-thumb {
+  background: var(--border-color, #e5e7eb);
+  border-radius: 4px;
+}
+
+.myui-props-table__wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color-hover, #d1d5db);
+}
