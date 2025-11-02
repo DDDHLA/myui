@@ -1,6 +1,8 @@
 import React from 'react'
 import { ThemeProvider, Button, Input, Card, useTheme } from './components'
-import './styles/index.css'
+import { docLayoutStyles, docHeadingStyles } from './styles/docStyles'
+import './styles/globals.css'
+import CardDemo from './CardDemo'
 
 // 主题切换按钮组件
 function ThemeToggle() {
@@ -43,22 +45,36 @@ function ThemeToggle() {
 function ComponentShowcase() {
   const [inputValue, setInputValue] = React.useState('')
   const [loading, setLoading] = React.useState(false)
+  const [showCardDemo, setShowCardDemo] = React.useState(false)
 
   const handleLoadingDemo = () => {
     setLoading(true)
     setTimeout(() => setLoading(false), 2000)
   }
 
+  if (showCardDemo) {
+    return (
+      <>
+        <div style={{ padding: '1rem', position: 'fixed', top: 0, right: 0, zIndex: 1000 }}>
+          <Button onClick={() => setShowCardDemo(false)} variant="outline">
+            返回组件展示
+          </Button>
+        </div>
+        <CardDemo />
+      </>
+    )
+  }
+
   return (
-    <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+    <div style={docLayoutStyles.container}>
       <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h1 style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>
+        <h1 style={{ ...docHeadingStyles.h1, margin: 0 }}>
           MyUI 组件库
         </h1>
         <ThemeToggle />
       </div>
 
-      <div style={{ display: 'grid', gap: '2rem' }}>
+      <div style={{ ...docLayoutStyles.grid, gap: '2rem' }}>
         {/* Button 组件展示 */}
         <Card header={<h2>Button 按钮组件</h2>} variant="outlined">
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
@@ -194,6 +210,17 @@ function ComponentShowcase() {
             </Card>
           </div>
         </Card>
+      </div>
+      
+      <h1 style={docHeadingStyles.h1}>MyUI 组件库示例</h1>
+      <p style={{ marginBottom: '2rem', color: 'var(--text-secondary)' }}>
+        一个现代化的 React 组件库，支持主题切换和 TypeScript
+      </p>
+      
+      <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem' }}>
+        <Button onClick={() => setShowCardDemo(true)} variant="primary">
+          查看完整Card组件演示
+        </Button>
       </div>
       
       <div style={{ marginTop: '3rem', textAlign: 'center', color: 'var(--text-secondary)' }}>

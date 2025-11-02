@@ -15,10 +15,10 @@
   left: 0;
   right: 0;
   height: 64px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--bg-primary, #ffffff);
   border-bottom: 1px solid var(--border-color, #e5e7eb);
   backdrop-filter: blur(8px);
-  z-index: 1000;
+  z-index: 100;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
@@ -125,7 +125,7 @@
   bottom: 0;
   overflow-y: auto;
   transition: all var(--transition-normal, 250ms ease-in-out);
-  z-index: var(--z-sticky, 1020);
+  z-index: 50;
 }
 
 .myui-layout-sidebar--collapsed {

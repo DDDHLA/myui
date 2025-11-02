@@ -28,52 +28,27 @@ export function useThemeState() {
     
     // 优先从 localStorage 读取
     const stored = localStorage.getItem('myui-theme') as Theme
-    console.log('从 localStorage 读取的主题:', stored)
     if (stored && ['light', 'dark'].includes(stored)) {
-      console.log('使用存储的主题:', stored)
       return stored
     }
     
     // 其次检查系统偏好
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      console.log('使用系统深色主题')
       return 'dark'
     }
     
-    console.log('使用默认浅色主题')
     return 'light'
   })
 
   const toggleTheme = () => {
-    console.log('toggleTheme 被调用，当前主题:', theme)
-    setTheme(prev => {
-      const newTheme = prev === 'light' ? 'dark' : 'light'
-      console.log('切换到新主题:', newTheme)
-      return newTheme
-    })
+    setTheme(prev => prev === 'light' ? 'dark' : 'light')
   }
 
-  // 初始化时立即应用主题
+  // 应用主题到 DOM 并持久化
   useEffect(() => {
     const root = document.documentElement
-    console.log('初始化应用主题:', theme)
     root.setAttribute('data-theme', theme)
     localStorage.setItem('myui-theme', theme)
-  }, [])
-
-  // 应用主题到 DOM
-  useEffect(() => {
-    const root = document.documentElement
-    console.log('设置主题到 DOM:', theme)
-    console.log('当前 data-theme 属性:', root.getAttribute('data-theme'))
-    root.setAttribute('data-theme', theme)
-    localStorage.setItem('myui-theme', theme)
-    console.log('设置后 data-theme 属性:', root.getAttribute('data-theme'))
-    
-    // 强制重新计算样式
-    root.style.display = 'none'
-    root.offsetHeight // 触发重排
-    root.style.display = ''
   }, [theme])
 
   // 监听系统主题变化

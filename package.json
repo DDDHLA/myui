@@ -34,6 +34,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@types/node": "^20.10.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -56,6 +57,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.0",
-    "framer-motion": "^11.0.0"
+    "framer-motion": "^11.0.0",
+    "react-router-dom": "^6.22.0"
   }
 }

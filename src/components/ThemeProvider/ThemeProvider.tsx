@@ -12,8 +12,6 @@ interface ThemeProviderProps {
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const themeState = useThemeState()
 
-  console.log('ThemeProvider 渲染，当前主题状态:', themeState)
-
   return (
     <ThemeContext.Provider value={themeState}>
       {children}

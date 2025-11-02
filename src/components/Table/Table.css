@@ -1,0 +1,325 @@
+/* Table 组件样式 */
+.myui-table-wrapper {
+  width: 100%;
+}
+
+.myui-table-container {
+  position: relative;
+  overflow: auto;
+}
+
+.myui-table-container--scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+.myui-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: var(--bg-primary, #ffffff);
+  color: var(--text-primary, #1f2937);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 表头样式 */
+.myui-table__thead {
+  background-color: var(--bg-secondary, #f9fafb);
+}
+
+.myui-table__th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary, #1f2937);
+  border-bottom: 2px solid var(--border-color, #e5e7eb);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.myui-table__th--center {
+  text-align: center;
+}
+
+.myui-table__th--right {
+  text-align: right;
+}
+
+.myui-table__th--sortable {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.myui-table__th--sortable:hover {
+  background-color: var(--bg-hover, #f3f4f6);
+}
+
+.myui-table__th-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.myui-table__sort-icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 4px;
+  color: var(--text-secondary, #6b7280);
+}
+
+.myui-table__sort-icon svg {
+  display: block;
+}
+
+/* 表体样式 */
+.myui-table__tbody {
+  background-color: var(--bg-primary, #ffffff);
+}
+
+.myui-table__tr {
+  transition: background-color 0.2s;
+}
+
+.myui-table__tr--selected {
+  background-color: rgba(59, 130, 246, 0.08);
+}
+
+.myui-table__td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  vertical-align: middle;
+}
+
+.myui-table__td--center {
+  text-align: center;
+}
+
+.myui-table__td--right {
+  text-align: right;
+}
+
+/* 尺寸变体 */
+.myui-table--sm .myui-table__th,
+.myui-table--sm .myui-table__td {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.myui-table--md .myui-table__th,
+.myui-table--md .myui-table__td {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.myui-table--lg .myui-table__th,
+.myui-table--lg .myui-table__td {
+  padding: 16px 20px;
+  font-size: 16px;
+}
+
+/* 边框样式 */
+.myui-table--bordered {
+  border: 1px solid var(--border-color, #e5e7eb);
+}
+
+.myui-table--bordered .myui-table__th,
+.myui-table--bordered .myui-table__td {
+  border-right: 1px solid var(--border-color, #e5e7eb);
+}
+
+.myui-table--bordered .myui-table__th:last-child,
+.myui-table--bordered .myui-table__td:last-child {
+  border-right: none;
+}
+
+/* 斑马纹样式 */
+.myui-table--striped .myui-table__tbody .myui-table__tr:nth-child(even) {
+  background-color: var(--bg-secondary, #f9fafb);
+}
+
+/* 悬停效果 */
+.myui-table--hoverable .myui-table__tbody .myui-table__tr:hover {
+  background-color: var(--bg-hover, #f3f4f6);
+}
+
+/* 复选框样式 */
+.myui-table__checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--color-primary, #3b82f6);
+}
+
+/* 加载状态 */
+.myui-table__loading {
+  padding: 48px 24px !important;
+  text-align: center;
+  color: var(--text-secondary, #6b7280);
+}
+
+.myui-table__loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.myui-table__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-color, #e5e7eb);
+  border-top-color: var(--color-primary, #3b82f6);
+  border-radius: 50%;
+  animation: myui-table-spin 0.8s linear infinite;
+}
+
+@keyframes myui-table-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 空状态 */
+.myui-table__empty {
+  padding: 48px 24px !important;
+  text-align: center;
+  color: var(--text-secondary, #6b7280);
+}
+
+.myui-table__empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.myui-table__empty-content svg {
+  color: var(--text-tertiary, #9ca3af);
+}
+
+.myui-table__empty-content p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* 分页样式 */
+.myui-table__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 0;
+  margin-top: 16px;
+}
+
+.myui-table__pagination-btn {
+  padding: 6px 16px;
+  background-color: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 6px;
+  color: var(--text-primary, #1f2937);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.myui-table__pagination-btn:hover:not(:disabled) {
+  border-color: var(--color-primary, #3b82f6);
+  color: var(--color-primary, #3b82f6);
+}
+
+.myui-table__pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.myui-table__pagination-info {
+  color: var(--text-secondary, #6b7280);
+  font-size: 14px;
+}
+
+.myui-table__pagination-size {
+  padding: 6px 12px;
+  background-color: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 6px;
+  color: var(--text-primary, #1f2937);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.myui-table__pagination-size:hover {
+  border-color: var(--color-primary, #3b82f6);
+}
+
+.myui-table__pagination-size:focus {
+  outline: none;
+  border-color: var(--color-primary, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* 固定列样式 */
+.myui-table__th--fixed-left,
+.myui-table__td--fixed-left {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: inherit;
+}
+
+.myui-table__th--fixed-right,
+.myui-table__td--fixed-right {
+  position: sticky;
+  right: 0;
+  z-index: 2;
+  background-color: inherit;
+}
+
+.myui-table__th--fixed-left,
+.myui-table__th--fixed-right {
+  z-index: 3;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .myui-table__th,
+  .myui-table__td {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .myui-table__pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .myui-table__pagination-info {
+    order: -1;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .myui-table {
+    border: 1px solid #000;
+  }
+
+  .myui-table__th,
+  .myui-table__td {
+    border: 1px solid #000;
+  }
+
+  .myui-table__pagination {
+    display: none;
+  }
+
+  .myui-table__checkbox {
+    display: none;
+  }
+}

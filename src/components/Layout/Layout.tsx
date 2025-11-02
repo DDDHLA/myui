@@ -134,6 +134,13 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Card 卡片', key: 'card' },
         { title: 'Table 表格', key: 'table' }
       ]
+    },
+    {
+      title: '反馈',
+      key: 'feedback',
+      items: [
+        { title: 'Modal 弹窗', key: 'modal' }
+      ]
     }
   ]
 

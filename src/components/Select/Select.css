@@ -1,0 +1,344 @@
+/* Select 组件样式 */
+.myui-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: 14px;
+  z-index: 1;
+}
+
+/* 选择器容器 */
+.myui-select__selector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 4px 32px 4px 12px;
+  background-color: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.myui-select__selector:hover:not(.myui-select--disabled .myui-select__selector) {
+  border-color: var(--color-primary, #3b82f6);
+}
+
+.myui-select--open .myui-select__selector {
+  border-color: var(--color-primary, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.myui-select--disabled .myui-select__selector {
+  background-color: var(--bg-secondary, #f3f4f6);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.myui-select--error .myui-select__selector {
+  border-color: #dc2626;
+}
+
+.myui-select--error.myui-select--open .myui-select__selector {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* 占位符 */
+.myui-select__placeholder {
+  color: var(--text-tertiary, #9ca3af);
+}
+
+/* 选中的值 */
+.myui-select__value {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-primary, #1f2937);
+}
+
+/* 搜索输入框 */
+.myui-select__search {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary, #1f2937);
+  font-size: inherit;
+  padding: 0;
+}
+
+.myui-select__search::placeholder {
+  color: var(--text-tertiary, #9ca3af);
+}
+
+/* 标签（多选） */
+.myui-select__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex: 1;
+}
+
+.myui-select__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background-color: var(--bg-secondary, #f3f4f6);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-primary, #1f2937);
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.myui-select__tag--more {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.myui-select__tag-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.myui-select__tag-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 操作按钮区域 */
+.myui-select__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.myui-select__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--text-tertiary, #9ca3af);
+  color: white;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.myui-select__clear:hover {
+  background-color: var(--text-secondary, #6b7280);
+}
+
+.myui-select__arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-tertiary, #9ca3af);
+  transition: transform 0.2s;
+}
+
+.myui-select__arrow--open {
+  transform: rotate(180deg);
+}
+
+/* 下拉菜单 */
+.myui-select__dropdown {
+  position: fixed;
+  max-height: 300px;
+  background-color: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: auto;
+  z-index: 99999;
+  animation: myui-select-dropdown-slide 0.2s ease-out;
+  isolation: isolate;
+}
+
+@keyframes myui-select-dropdown-slide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 选项列表 */
+.myui-select__options {
+  padding: 4px 0;
+}
+
+.myui-select__option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: var(--text-primary, #1f2937);
+}
+
+.myui-select__option:hover:not(.myui-select__option--disabled) {
+  background-color: var(--bg-hover, #f3f4f6);
+}
+
+.myui-select__option--selected {
+  background-color: rgba(59, 130, 246, 0.08);
+  color: var(--color-primary, #3b82f6);
+  font-weight: 500;
+}
+
+.myui-select__option--focused {
+  background-color: var(--bg-hover, #f3f4f6);
+}
+
+.myui-select__option--disabled {
+  color: var(--text-tertiary, #9ca3af);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.myui-select__checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--color-primary, #3b82f6);
+}
+
+/* 分组 */
+.myui-select__group {
+  padding: 4px 0;
+}
+
+.myui-select__group-title {
+  padding: 8px 12px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 加载状态 */
+.myui-select__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--text-secondary, #6b7280);
+  gap: 8px;
+}
+
+.myui-select__spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color, #e5e7eb);
+  border-top-color: var(--color-primary, #3b82f6);
+  border-radius: 50%;
+  animation: myui-select-spin 0.6s linear infinite;
+}
+
+@keyframes myui-select-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 空状态 */
+.myui-select__empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-secondary, #6b7280);
+  font-size: 14px;
+}
+
+/* 尺寸变体 */
+.myui-select--sm .myui-select__selector {
+  min-height: 32px;
+  padding: 2px 28px 2px 8px;
+  font-size: 12px;
+}
+
+.myui-select--sm .myui-select__actions {
+  right: 8px;
+}
+
+.myui-select--sm .myui-select__option {
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.myui-select--md .myui-select__selector {
+  min-height: 40px;
+  padding: 4px 32px 4px 12px;
+  font-size: 14px;
+}
+
+.myui-select--lg .myui-select__selector {
+  min-height: 48px;
+  padding: 6px 36px 6px 16px;
+  font-size: 16px;
+}
+
+.myui-select--lg .myui-select__actions {
+  right: 16px;
+}
+
+.myui-select--lg .myui-select__option {
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .myui-select__dropdown {
+    max-height: 200px;
+  }
+
+  .myui-select__tag {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+}
+
+/* 滚动条样式 */
+.myui-select__dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.myui-select__dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.myui-select__dropdown::-webkit-scrollbar-thumb {
+  background-color: var(--border-color, #e5e7eb);
+  border-radius: 3px;
+}
+
+.myui-select__dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-tertiary, #9ca3af);
+}

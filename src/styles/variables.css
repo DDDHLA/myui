@@ -51,6 +51,7 @@
   --bg-primary: var(--color-white);
   --bg-secondary: var(--color-gray-50);
   --bg-tertiary: var(--color-gray-100);
+  --bg-hover: var(--color-gray-100);
   --bg-overlay: rgba(0, 0, 0, 0.5);
   --bg-page: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   
@@ -143,6 +144,7 @@
   --bg-primary: var(--color-gray-900);
   --bg-secondary: var(--color-gray-800);
   --bg-tertiary: var(--color-gray-700);
+  --bg-hover: var(--color-gray-800);
   --bg-overlay: rgba(0, 0, 0, 0.8);
   --bg-page: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   
