@@ -249,7 +249,7 @@ const Select = ({
           {maxTagCount && selectedOptions.length > maxTagCount && (
             <span className="myui-select__tag myui-select__tag--more">
               {maxTagPlaceholder 
-                ? maxTagPlaceholder(selectedOptions.slice(maxTagCount))
+                ? maxTagPlaceholder(selectedOptions.slice(maxTagCount).map(opt => opt.value))
                 : `+${selectedOptions.length - maxTagCount}`
               }
             </span>

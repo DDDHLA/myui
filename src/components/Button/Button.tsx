@@ -1,7 +1,15 @@
 import { forwardRef } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/utils'
+import type { ButtonProps } from '@/types'
 import './Button.css'
+
+// 排除与 framer-motion 冲突的事件处理器
+// 解释：onDrag、onDragEnd、onDragStart、onAnimationStart、onAnimationEnd、onAnimationIteration 是 framer-motion 的事件处理器，与 React 的事件处理器冲突
+type MotionButtonProps = Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'onDrag' | 'onDragEnd' | 'onDragStart' | 'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration'
+>
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -40,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         whileTap={!isDisabled ? { scale: 0.98 } : undefined}
         transition={{ duration: 0.1 }}
-        {...props}
+        {...(props as MotionButtonProps)}
       >
         {loading && (
           <span className="myui-button__spinner">

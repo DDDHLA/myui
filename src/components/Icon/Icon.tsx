@@ -36,7 +36,7 @@ export interface IconProps {
   /** 复制成功提示文本 */
   copyText?: string
   /** 其他 SVG 属性 */
-  [key: string]: any
+  [key: string]: unknown
 }
 
 // 内置图标集合

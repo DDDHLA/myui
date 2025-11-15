@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Input, Card, Icon } from '@/components'
 
 const OverviewDocs = () => {

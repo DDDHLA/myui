@@ -10,8 +10,7 @@ import {
   TableDocs,
   SelectDocs,
   ModalDocs,
-  TabsDocs,
-  ComingSoonPage
+  TabsDocs
 } from './pages'
 
 // 路由配置

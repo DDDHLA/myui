@@ -1,9 +1,9 @@
-import { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import { cn } from '@/utils'
 import { TableProps, TableColumn, SortOrder } from '@/types'
 import './Table.css'
 
-function Table<T extends Record<string, any>>({
+function Table<T extends Record<string, unknown>>({
   columns,
   dataSource,
   rowKey = 'id',
@@ -65,12 +65,28 @@ function Table<T extends Record<string, any>>({
     if (!sortColumn || !sortOrder) return dataSource
 
     return [...dataSource].sort((a, b) => {
-      const aValue = a[sortColumn]
-      const bValue = b[sortColumn]
+      const aValue = a[sortColumn] as unknown
+      const bValue = b[sortColumn] as unknown
 
       if (aValue === bValue) return 0
 
-      const compareResult = aValue > bValue ? 1 : -1
+      // 处理 null/undefined 值
+      if (aValue == null) return 1
+      if (bValue == null) return -1
+
+      // 尝试转换为可比较的值
+      const aNum = typeof aValue === 'number' ? aValue : Number(aValue)
+      const bNum = typeof bValue === 'number' ? bValue : Number(bValue)
+      
+      if (!isNaN(aNum) && !isNaN(bNum)) {
+        const compareResult = aNum > bNum ? 1 : -1
+        return sortOrder === 'ascend' ? compareResult : -compareResult
+      }
+
+      // 字符串比较
+      const aStr = String(aValue)
+      const bStr = String(bValue)
+      const compareResult = aStr > bStr ? 1 : -1
       return sortOrder === 'ascend' ? compareResult : -compareResult
     })
   }, [dataSource, sortColumn, sortOrder])
@@ -255,7 +271,7 @@ function Table<T extends Record<string, any>>({
                 const value = column.dataIndex ? record[column.dataIndex] : undefined
                 const content = column.render
                   ? column.render(value, record, index)
-                  : value
+                  : (value as React.ReactNode)
 
                 return (
                   <td

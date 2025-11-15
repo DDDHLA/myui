@@ -16,9 +16,8 @@
     "build:lib": "vite build --mode lib",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "type-check": "tsc --noEmit",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "lint:all": "npm run lint && npm run type-check",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "react",
@@ -45,15 +44,7 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
-    "vite-plugin-dts": "^3.8.3",
-    "@storybook/addon-essentials": "^8.0.0",
-    "@storybook/addon-interactions": "^8.0.0",
-    "@storybook/addon-links": "^8.0.0",
-    "@storybook/blocks": "^8.0.0",
-    "@storybook/react": "^8.0.0",
-    "@storybook/react-vite": "^8.0.0",
-    "@storybook/test": "^8.0.0",
-    "storybook": "^8.0.0"
+    "vite-plugin-dts": "^3.8.3"
   },
   "dependencies": {
     "clsx": "^2.1.0",

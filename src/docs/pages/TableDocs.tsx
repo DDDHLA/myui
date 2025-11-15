@@ -8,7 +8,7 @@ import { docHeadingStyles, docParagraphStyles } from '@/styles/docStyles'
 
 const TableDocs = () => {
   // 示例数据
-  interface User {
+  interface User extends Record<string, unknown> {
     id: number
     name: string
     age: number
@@ -80,18 +80,21 @@ const TableDocs = () => {
       dataIndex: 'status',
       width: 100,
       align: 'center',
-      render: (value: string) => (
-        <span style={{
-          padding: '4px 12px',
-          borderRadius: '12px',
-          fontSize: '12px',
-          fontWeight: '500',
-          backgroundColor: value === 'active' ? '#dcfce7' : '#fee2e2',
-          color: value === 'active' ? '#166534' : '#991b1b',
-        }}>
-          {value === 'active' ? '活跃' : '停用'}
-        </span>
-      ),
+      render: (value: unknown) => {
+        const status = value as 'active' | 'inactive'
+        return (
+          <span style={{
+            padding: '4px 12px',
+            borderRadius: '12px',
+            fontSize: '12px',
+            fontWeight: '500',
+            backgroundColor: status === 'active' ? '#dcfce7' : '#fee2e2',
+            color: status === 'active' ? '#166534' : '#991b1b',
+          }}>
+            {status === 'active' ? '活跃' : '停用'}
+          </span>
+        )
+      },
     },
     {
       key: 'action',
