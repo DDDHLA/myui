@@ -17,7 +17,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:all": "npm run lint && npm run type-check",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "push:all": "git push origin && git push github"
   },
   "keywords": [
     "react",
