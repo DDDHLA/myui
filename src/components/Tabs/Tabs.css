@@ -1,0 +1,310 @@
+/* Tabs 组件样式 */
+.myui-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.myui-tabs--vertical {
+  flex-direction: row;
+}
+
+/* 标签栏 */
+.myui-tabs__bar {
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.myui-tabs__bar::-webkit-scrollbar {
+  display: none;
+}
+
+.myui-tabs--vertical .myui-tabs__bar {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 1px solid var(--border-color, #e5e7eb);
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.myui-tabs--centered .myui-tabs__bar {
+  justify-content: center;
+}
+
+.myui-tabs--bordered .myui-tabs__bar {
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.myui-tabs--vertical.myui-tabs--bordered .myui-tabs__bar {
+  border-bottom: none;
+  border-right: 1px solid var(--border-color, #e5e7eb);
+}
+
+/* 标签项 */
+.myui-tabs__tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  color: var(--text-secondary, #6b7280);
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-medium, 500);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: all var(--transition-fast, 150ms ease-in-out);
+  white-space: nowrap;
+  user-select: none;
+  min-height: 48px;
+  box-sizing: border-box;
+}
+
+.myui-tabs__tab:hover:not(.myui-tabs__tab--disabled) {
+  color: var(--color-primary, #3b82f6);
+}
+
+.myui-tabs__tab--active {
+  color: var(--color-primary, #3b82f6);
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.myui-tabs__tab--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 标签尺寸 */
+.myui-tabs--xs .myui-tabs__tab {
+  padding: 6px 12px;
+  font-size: var(--font-size-xs, 0.75rem);
+  min-height: 32px;
+}
+
+.myui-tabs--sm .myui-tabs__tab {
+  padding: 8px 14px;
+  font-size: var(--font-size-sm, 0.875rem);
+  min-height: 40px;
+}
+
+.myui-tabs--md .myui-tabs__tab {
+  padding: 12px 16px;
+  font-size: var(--font-size-base, 1rem);
+  min-height: 48px;
+}
+
+.myui-tabs--lg .myui-tabs__tab {
+  padding: 16px 20px;
+  font-size: var(--font-size-lg, 1.125rem);
+  min-height: 56px;
+}
+
+/* 标签样式变体 */
+/* Line 样式 */
+.myui-tabs--line .myui-tabs__tab {
+  border-bottom: 2px solid transparent;
+}
+
+.myui-tabs--line .myui-tabs__tab--active {
+  border-bottom-color: var(--color-primary, #3b82f6);
+}
+
+/* Card 样式 */
+.myui-tabs--card .myui-tabs__bar {
+  border-bottom: none;
+  gap: 4px;
+  padding: 4px;
+  background-color: var(--bg-secondary, #f9fafb);
+  border-radius: var(--border-radius, 8px);
+}
+
+.myui-tabs--card .myui-tabs__tab {
+  border-radius: var(--border-radius-sm, 4px);
+  background-color: transparent;
+}
+
+.myui-tabs--card .myui-tabs__tab--active {
+  background-color: var(--bg-primary, #ffffff);
+  color: var(--color-primary, #3b82f6);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Button 样式 */
+.myui-tabs--button .myui-tabs__bar {
+  border-bottom: none;
+  gap: 8px;
+}
+
+.myui-tabs--button .myui-tabs__tab {
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: var(--border-radius, 8px);
+  background-color: var(--bg-primary, #ffffff);
+}
+
+.myui-tabs--button .myui-tabs__tab:hover:not(.myui-tabs__tab--disabled) {
+  border-color: var(--color-primary, #3b82f6);
+  background-color: var(--color-primary-light, #dbeafe);
+}
+
+.myui-tabs--button .myui-tabs__tab--active {
+  border-color: var(--color-primary, #3b82f6);
+  background-color: var(--color-primary, #3b82f6);
+  color: var(--text-inverse, #ffffff);
+}
+
+.myui-tabs--button .myui-tabs__tab--active:hover {
+  background-color: var(--color-primary-hover, #2563eb);
+}
+
+/* Pill 样式 */
+.myui-tabs--pill .myui-tabs__bar {
+  border-bottom: none;
+  gap: 8px;
+}
+
+.myui-tabs--pill .myui-tabs__tab {
+  border-radius: 9999px;
+  background-color: transparent;
+}
+
+.myui-tabs--pill .myui-tabs__tab:hover:not(.myui-tabs__tab--disabled) {
+  background-color: var(--bg-secondary, #f9fafb);
+}
+
+.myui-tabs--pill .myui-tabs__tab--active {
+  background-color: var(--color-primary, #3b82f6);
+  color: var(--text-inverse, #ffffff);
+}
+
+.myui-tabs--pill .myui-tabs__tab--active:hover {
+  background-color: var(--color-primary-hover, #2563eb);
+}
+
+/* 指示器 */
+.myui-tabs__indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--color-primary, #3b82f6);
+  border-radius: 1px 1px 0 0;
+}
+
+/* 标签图标 */
+.myui-tabs__tab-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.myui-tabs__tab-icon--left {
+  margin-right: 4px;
+}
+
+.myui-tabs__tab-icon--right {
+  margin-left: 4px;
+}
+
+/* 标签文本 */
+.myui-tabs__tab-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 标签徽章 */
+.myui-tabs__tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  background-color: var(--color-danger, #ef4444);
+  color: var(--text-inverse, #ffffff);
+  border-radius: 9999px;
+  margin-left: 4px;
+}
+
+.myui-tabs__tab-badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-danger, #ef4444);
+  border-radius: 50%;
+}
+
+/* 关闭按钮 */
+.myui-tabs__tab-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary, #6b7280);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all var(--transition-fast, 150ms ease-in-out);
+  flex-shrink: 0;
+}
+
+.myui-tabs__tab-close:hover {
+  background-color: var(--bg-secondary, #f9fafb);
+  color: var(--text-primary, #333333);
+}
+
+.myui-tabs__tab--active .myui-tabs__tab-close:hover {
+  background-color: var(--color-primary-light, #dbeafe);
+  color: var(--color-primary, #3b82f6);
+}
+
+/* 内容区域 */
+.myui-tabs__content {
+  padding: 24px 0;
+  min-height: 100px;
+}
+
+.myui-tabs--vertical .myui-tabs__content {
+  flex: 1;
+  padding: 0 24px;
+}
+
+.myui-tabs__panel {
+  width: 100%;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .myui-tabs__bar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .myui-tabs--vertical {
+    flex-direction: column;
+  }
+
+  .myui-tabs--vertical .myui-tabs__bar {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    min-width: auto;
+    max-width: none;
+    width: 100%;
+  }
+
+  .myui-tabs--vertical .myui-tabs__content {
+    padding: 24px 0;
+  }
+}

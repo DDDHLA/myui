@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTheme } from '@/hooks'
 import { cn } from '@/utils'
 import './Layout.css'
@@ -132,7 +132,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       key: 'data-display',
       items: [
         { title: 'Card 卡片', key: 'card' },
-        { title: 'Table 表格', key: 'table' }
+        { title: 'Table 表格', key: 'table' },
+        { title: 'Tabs 标签页', key: 'tabs' }
       ]
     },
     {
@@ -147,6 +148,10 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
   const handleMenuClick = (key: string, event: React.MouseEvent) => {
     event.preventDefault()
     onPageChange(key)
+    // 在移动端点击菜单项后自动关闭侧边栏
+    if (window.innerWidth <= 768) {
+      onToggle()
+    }
   }
 
   return (
@@ -186,14 +191,62 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
 export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
 
+  // 监听窗口大小变化，处理响应式侧边栏
+  useEffect(() => {
+    // 初始化时检查屏幕大小
+    const isMobile = window.innerWidth <= 768
+    // 桌面端默认展开，移动端默认收起
+    setSidebarCollapsed(isMobile)
+  }, []) // 只在组件挂载时执行一次
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth <= 768
+      // 从移动端切换到桌面端时，自动展开侧边栏
+      if (!isMobile && sidebarCollapsed) {
+        setSidebarCollapsed(false)
+      }
+      // 从桌面端切换到移动端时，自动收起侧边栏
+      if (isMobile && !sidebarCollapsed) {
+        setSidebarCollapsed(true)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [sidebarCollapsed]) // 依赖 sidebarCollapsed
+
   const toggleSidebar = () => {
     setSidebarCollapsed(!sidebarCollapsed)
   }
+
+  const handleOverlayClick = () => {
+    setSidebarCollapsed(true)
+  }
+
+  // 判断是否为移动端
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <div className="myui-layout">
       <Header onMenuToggle={toggleSidebar} />
       <div className="myui-layout__body">
+        {isMobile && (
+          <div 
+            className={cn('myui-layout-overlay', {
+              'myui-layout-overlay--visible': !sidebarCollapsed
+            })}
+            onClick={handleOverlayClick}
+          />
+        )}
         <Sidebar 
           collapsed={sidebarCollapsed} 
           onToggle={toggleSidebar}

@@ -10,6 +10,7 @@ import {
   TableDocs,
   SelectDocs,
   ModalDocs,
+  TabsDocs,
   ComingSoonPage
 } from './pages'
 
@@ -58,5 +59,9 @@ export const routes: RouteObject[] = [
   {
     path: '/modal',
     element: <ModalDocs />
+  },
+  {
+    path: '/tabs',
+    element: <TabsDocs />
   }
 ]

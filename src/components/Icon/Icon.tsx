@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { cn } from '@/utils'
 import './Icon.css'
 
 export interface IconProps {
   /** 图标名称 */
-  name: string
+  name?: string
+  /** 自定义 SVG 路径（与 name 二选一） */
+  path?: React.ReactNode
   /** 图标大小 */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number
   /** 图标颜色 */
@@ -15,10 +17,26 @@ export interface IconProps {
   rotate?: number
   /** 是否翻转 */
   flip?: 'horizontal' | 'vertical' | 'both'
+  /** 动画效果 */
+  animation?: 'spin' | 'pulse' | 'bounce' | 'shake' | 'ping'
+  /** 填充模式 */
+  variant?: 'outline' | 'solid' | 'duotone'
+  /** 描边宽度 */
+  strokeWidth?: number
+  /** 徽章内容（数字或点） */
+  badge?: number | boolean
+  /** 徽章位置 */
+  badgePosition?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
   /** 自定义类名 */
   className?: string
   /** 点击事件 */
   onClick?: () => void
+  /** 是否可复制（点击时复制图标代码） */
+  copyable?: boolean
+  /** 复制成功提示文本 */
+  copyText?: string
+  /** 其他 SVG 属性 */
+  [key: string]: any
 }
 
 // 内置图标集合
@@ -154,6 +172,131 @@ const ICONS = {
   ),
   'refresh': (
     <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+  ),
+
+  // 更多基础图标
+  'menu': (
+    <path d="M4 6h16M4 12h16M4 18h16" />
+  ),
+  'close': (
+    <path d="M6 18L18 6M6 6l12 12" />
+  ),
+  'filter': (
+    <path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+  ),
+  'more-vertical': (
+    <path d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+  ),
+  'more-horizontal': (
+    <path d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+  ),
+  'info': (
+    <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  ),
+  'question': (
+    <path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  ),
+  'check-circle': (
+    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  ),
+  'x-circle': (
+    <path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  ),
+  'exclamation': (
+    <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+  ),
+  'lock': (
+    <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+  ),
+  'unlock': (
+    <path d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+  ),
+  'shield': (
+    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+  ),
+  'key': (
+    <path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+  ),
+  'calendar': (
+    <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  ),
+  'clock': (
+    <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+  ),
+  'image': (
+    <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  ),
+  'camera': (
+    <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+  ),
+  'video': (
+    <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+  ),
+  'music': (
+    <path d="M9 18V5l12-2v13M9 18c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-2c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 12l12-2" />
+  ),
+  'bookmark': (
+    <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+  ),
+  'tag': (
+    <path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+  ),
+  'shopping-cart': (
+    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+  ),
+  'credit-card': (
+    <path d="M3 10h18M7 15h1m2 0h1m4 0h1m-6 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+  ),
+  'gift': (
+    <path d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+  ),
+  'trophy': (
+    <path d="M6 9H4.5a2.5 2.5 0 010-5H6m0 0h12m-12 0a2 2 0 110-4h12a2 2 0 110 4M6 9v10a2 2 0 002 2h8a2 2 0 002-2V9M6 9h12" />
+  ),
+  'thumbs-up': (
+    <path d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+  ),
+  'thumbs-down': (
+    <path d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.096c.5 0 .905-.405.905-.904 0-.715.211-1.413.608-2.008L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5" />
+  ),
+  'message': (
+    <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+  ),
+  'chat': (
+    <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+  ),
+  'send': (
+    <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+  ),
+  'save': (
+    <path d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+  ),
+  'cloud': (
+    <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+  ),
+  'wifi': (
+    <path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01M15.536 13.464a9 9 0 010 12.728M9.464 13.464a9 9 0 000 12.728M5.636 10.636a13 13 0 010 18.364M18.364 10.636a13 13 0 010 18.364" />
+  ),
+  'battery': (
+    <path d="M19 10a2 2 0 012 2v2a2 2 0 01-2 2M19 10a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-2a2 2 0 012-2M19 10V8a2 2 0 00-2-2h-1M7 6H6a2 2 0 00-2 2v8a2 2 0 002 2h1" />
+  ),
+  'zap': (
+    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+  ),
+  'sun': (
+    <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+  ),
+  'moon': (
+    <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+  ),
+  'grid': (
+    <path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+  ),
+  'list': (
+    <path d="M4 6h16M4 12h16M4 18h16" />
+  ),
+  'layout': (
+    <path d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v2a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 13a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1h-4a1 1 0 01-1-1v-6z" />
   )
 } as const
 
@@ -161,31 +304,120 @@ export type IconName = keyof typeof ICONS
 
 export const Icon: React.FC<IconProps> = ({
   name,
+  path,
   size = 'md',
   color,
   spin = false,
   rotate,
   flip,
+  animation,
+  variant = 'outline',
+  strokeWidth = 2,
+  badge,
+  badgePosition = 'top-right',
   className,
-  onClick
+  onClick,
+  copyable = false,
+  copyText,
+  ...rest
 }) => {
-  const iconPath = ICONS[name as IconName]
+  const [copied, setCopied] = useState(false)
+
+  // 支持自定义路径或内置图标
+  const iconPath = path || (name ? ICONS[name as IconName] : null)
   
-  if (!iconPath) {
+  if (!iconPath && !name) {
+    console.warn('Icon: Either "name" or "path" prop is required')
+    return null
+  }
+  
+  if (name && !ICONS[name as IconName] && !path) {
     console.warn(`Icon "${name}" not found`)
     return null
   }
 
   const sizeValue = typeof size === 'number' ? size : undefined
   
+  // 确定使用的动画
+  const activeAnimation = animation || (spin ? 'spin' : undefined)
+
+  // 生成要复制的代码
+  const generateCopyText = (): string => {
+    if (copyText) return copyText
+    
+    const props: string[] = [`name="${name}"`]
+    
+    if (size && size !== 'md') {
+      if (typeof size === 'number') {
+        props.push(`size={${size}}`)
+      } else {
+        props.push(`size="${size}"`)
+      }
+    }
+    
+    if (color) {
+      if (color.startsWith('#') || color.startsWith('rgb')) {
+        props.push(`color="${color}"`)
+      } else {
+        props.push(`color="${color}"`)
+      }
+    }
+    
+    if (variant && variant !== 'outline') {
+      props.push(`variant="${variant}"`)
+    }
+    
+    if (animation) {
+      props.push(`animation="${animation}"`)
+    } else if (spin) {
+      props.push('spin')
+    }
+    
+    if (rotate) {
+      props.push(`rotate={${rotate}}`)
+    }
+    
+    if (flip) {
+      props.push(`flip="${flip}"`)
+    }
+    
+    if (badge !== undefined) {
+      if (typeof badge === 'number') {
+        props.push(`badge={${badge}}`)
+      } else {
+        props.push('badge={true}')
+      }
+    }
+    
+    return `<Icon ${props.join(' ')} />`
+  }
+
+  // 处理点击事件
+  const handleClick = async () => {
+    if (copyable) {
+      try {
+        const textToCopy = generateCopyText()
+        await navigator.clipboard.writeText(textToCopy)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      } catch (err) {
+        console.error('复制失败:', err)
+      }
+    }
+    onClick?.()
+  }
+  
   const iconClasses = cn(
     'myui-icon',
     {
       [`myui-icon--${size}`]: typeof size === 'string',
       [`myui-icon--${color}`]: color && !color.startsWith('#') && !color.startsWith('rgb'),
-      'myui-icon--spin': spin,
+      [`myui-icon--${activeAnimation}`]: activeAnimation,
       [`myui-icon--flip-${flip}`]: flip,
-      'myui-icon--clickable': onClick
+      [`myui-icon--${variant}`]: variant,
+      'myui-icon--clickable': onClick || copyable,
+      'myui-icon--copyable': copyable,
+      'myui-icon--badge': badge !== undefined
     },
     className
   )
@@ -193,24 +425,54 @@ export const Icon: React.FC<IconProps> = ({
   const iconStyle: React.CSSProperties = {
     ...(sizeValue && { width: sizeValue, height: sizeValue }),
     ...(color && (color.startsWith('#') || color.startsWith('rgb')) && { color }),
-    ...(rotate && { transform: `rotate(${rotate}deg)` })
+    ...(rotate && !activeAnimation && { transform: `rotate(${rotate}deg)` })
   }
 
-  return (
-    <svg
-      className={iconClasses}
-      style={iconStyle}
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-      onClick={onClick}
-      role={onClick ? 'button' : undefined}
-      tabIndex={onClick ? 0 : undefined}
+  const svgContent = (
+    <span 
+      className="myui-icon-container" 
+      style={{ position: 'relative', display: 'inline-block' }}
+      title={copyable ? (copied ? '已复制！' : '点击复制代码') : undefined}
     >
-      {iconPath}
-    </svg>
+      <svg
+        className={iconClasses}
+        style={iconStyle}
+        fill={variant === 'solid' || variant === 'duotone' ? 'currentColor' : 'none'}
+        fillOpacity={variant === 'duotone' ? 0.2 : undefined}
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={variant === 'solid' ? 0 : strokeWidth}
+        onClick={handleClick}
+        role={onClick || copyable ? 'button' : undefined}
+        tabIndex={onClick || copyable ? 0 : undefined}
+        aria-label={name}
+        {...rest}
+      >
+        {iconPath}
+      </svg>
+      {copyable && copied && (
+        <span className="myui-icon-copy-tooltip">已复制！</span>
+      )}
+    </span>
   )
+
+  // 如果有徽章，包装在容器中
+  if (badge !== undefined) {
+    return (
+      <span className={cn('myui-icon-wrapper', `myui-icon-wrapper--${badgePosition}`)}>
+        {svgContent}
+        {typeof badge === 'number' ? (
+          <span className="myui-icon-badge myui-icon-badge--number">
+            {badge > 99 ? '99+' : badge}
+          </span>
+        ) : (
+          <span className="myui-icon-badge myui-icon-badge--dot" />
+        )}
+      </span>
+    )
+  }
+
+  return svgContent
 }
 
 export default Icon
