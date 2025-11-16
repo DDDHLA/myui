@@ -229,6 +229,40 @@ export interface SelectProps
   onDropdownVisibleChange?: (open: boolean) => void;
 }
 
+// Switch 组件类型
+export interface SwitchProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "onChange"> {
+  // 基础属性
+  checked?: boolean;
+  defaultChecked?: boolean;
+  onChange?: (checked: boolean, event: React.ChangeEvent<HTMLInputElement>) => void;
+
+  // 样式
+  size?: Size;
+  variant?: "primary" | "success" | "warning" | "danger";
+
+  // 文本标签
+  checkedLabel?: ReactNode;
+  uncheckedLabel?: ReactNode;
+  label?: string;
+
+  // 图标
+  checkedIcon?: ReactNode;
+  uncheckedIcon?: ReactNode;
+
+  // 状态
+  disabled?: boolean;
+  loading?: boolean;
+
+  // 颜色自定义
+  checkedColor?: string;
+  uncheckedColor?: string;
+
+  // 额外功能
+  tooltip?: string;
+  description?: string;
+}
+
 // 主题上下文类型
 export interface ThemeContextType {
   theme: Theme;

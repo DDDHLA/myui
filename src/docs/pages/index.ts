@@ -9,4 +9,5 @@ export { default as TableDocs } from "./TableDocs";
 export { default as SelectDocs } from "./SelectDocs";
 export { default as ModalDocs } from "./ModalDocs";
 export { default as TabsDocs } from "./TabsDocs";
+export { default as SwitchDocs } from "./SwitchDocs";
 export { default as ComingSoonPage } from "./ComingSoonPage";

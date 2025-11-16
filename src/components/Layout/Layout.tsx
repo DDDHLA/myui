@@ -124,7 +124,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       key: 'data-entry',
       items: [
         { title: 'Input 输入框', key: 'input' },
-        { title: 'Select 选择器', key: 'select' }
+        { title: 'Select 选择器', key: 'select' },
+        { title: 'Switch 开关', key: 'switch' }
       ]
     },
     {

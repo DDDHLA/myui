@@ -7,6 +7,7 @@ import "./Table/Table.css";
 import "./Select/Select.css";
 import "./Modal/Modal.css";
 import "./Tabs/Tabs.css";
+import "./Switch/Switch.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -34,6 +35,7 @@ export {
   type ModalPosition,
 } from "./Modal";
 export { Tabs, type TabsProps, type TabItem } from "./Tabs";
+export { Switch, type SwitchProps } from "./Switch";
 export { ThemeProvider, useTheme, type Theme } from "./ThemeProvider";
 
 // 导出 Hooks

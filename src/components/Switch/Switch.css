@@ -1,0 +1,265 @@
+/* Switch Wrapper */
+.myui-switch-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-2, 0.5rem);
+}
+
+.myui-switch-wrapper--with-label {
+  gap: var(--spacing-1, 0.25rem);
+}
+
+/* Switch Container */
+.myui-switch-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3, 0.75rem);
+  cursor: pointer;
+  user-select: none;
+}
+
+.myui-switch-container--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Hidden Input */
+.myui-switch__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Switch Track */
+.myui-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  background-color: var(--switch-unchecked-bg, var(--color-gray-300, #d1d5db));
+  border-radius: var(--border-radius-full, 9999px);
+  transition: background-color var(--transition-fast, 150ms) ease-in-out;
+  flex-shrink: 0;
+}
+
+/* Size Variants */
+.myui-switch--sm {
+  width: 36px;
+  height: 20px;
+}
+
+.myui-switch--md {
+  width: 44px;
+  height: 24px;
+}
+
+.myui-switch--lg {
+  width: 56px;
+  height: 28px;
+}
+
+/* Checked State */
+.myui-switch--checked {
+  background-color: var(--switch-checked-bg, var(--color-primary, #3b82f6));
+}
+
+.myui-switch--checked.myui-switch--success {
+  background-color: var(--switch-checked-bg, var(--color-success, #10b981));
+}
+
+.myui-switch--checked.myui-switch--warning {
+  background-color: var(--switch-checked-bg, var(--color-warning, #f59e0b));
+}
+
+.myui-switch--checked.myui-switch--danger {
+  background-color: var(--switch-checked-bg, var(--color-danger, #ef4444));
+}
+
+/* Disabled State */
+.myui-switch--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Loading State */
+.myui-switch--loading {
+  cursor: wait;
+}
+
+/* Switch Thumb */
+.myui-switch__thumb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: var(--border-radius-full, 9999px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: all var(--transition-fast, 150ms) ease-in-out;
+}
+
+.myui-switch--sm .myui-switch__thumb {
+  width: 16px;
+  height: 16px;
+}
+
+.myui-switch--md .myui-switch__thumb {
+  width: 20px;
+  height: 20px;
+}
+
+.myui-switch--lg .myui-switch__thumb {
+  width: 24px;
+  height: 24px;
+}
+
+/* Thumb Icon */
+.myui-switch__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-600, #4b5563);
+  font-size: 0.75rem;
+}
+
+.myui-switch--sm .myui-switch__icon {
+  font-size: 0.625rem;
+}
+
+.myui-switch--lg .myui-switch__icon {
+  font-size: 0.875rem;
+}
+
+/* Loading Spinner */
+.myui-switch__spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.myui-switch__spinner svg {
+  width: 12px;
+  height: 12px;
+  color: var(--color-gray-600, #4b5563);
+}
+
+.myui-switch--sm .myui-switch__spinner svg {
+  width: 10px;
+  height: 10px;
+}
+
+.myui-switch--lg .myui-switch__spinner svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Label Text inside Switch */
+.myui-switch__label-text {
+  position: absolute;
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-medium, 500);
+  color: #ffffff;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.myui-switch--checked .myui-switch__label-text {
+  left: 8px;
+}
+
+.myui-switch:not(.myui-switch--checked) .myui-switch__label-text {
+  right: 8px;
+}
+
+.myui-switch--sm .myui-switch__label-text {
+  font-size: 0.5rem;
+}
+
+.myui-switch--lg .myui-switch__label-text {
+  font-size: 0.75rem;
+}
+
+/* Label outside Switch */
+.myui-switch__label {
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-normal, 400);
+  color: var(--text-primary, var(--color-gray-900, #111827));
+  line-height: var(--line-height-normal, 1.5);
+}
+
+.myui-switch-wrapper--sm .myui-switch__label {
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+.myui-switch-wrapper--lg .myui-switch__label {
+  font-size: var(--font-size-lg, 1.125rem);
+}
+
+/* Description */
+.myui-switch__description {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--text-secondary, var(--color-gray-600, #4b5563));
+  line-height: var(--line-height-relaxed, 1.625);
+  margin-top: var(--spacing-1, 0.25rem);
+}
+
+/* Focus State */
+.myui-switch__input:focus-visible + .myui-switch {
+  outline: 2px solid var(--color-primary, #3b82f6);
+  outline-offset: 2px;
+}
+
+.myui-switch__input:focus-visible + .myui-switch.myui-switch--success {
+  outline-color: var(--color-success, #10b981);
+}
+
+.myui-switch__input:focus-visible + .myui-switch.myui-switch--warning {
+  outline-color: var(--color-warning, #f59e0b);
+}
+
+.myui-switch__input:focus-visible + .myui-switch.myui-switch--danger {
+  outline-color: var(--color-danger, #ef4444);
+}
+
+/* Hover State */
+.myui-switch:hover:not(.myui-switch--disabled):not(.myui-switch--loading) {
+  filter: brightness(0.95);
+}
+
+/* Active State */
+.myui-switch:active:not(.myui-switch--disabled):not(.myui-switch--loading) .myui-switch__thumb {
+  transform: scale(0.95);
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .myui-switch {
+  background-color: var(--switch-unchecked-bg, var(--color-gray-600, #4b5563));
+}
+
+[data-theme="dark"] .myui-switch__thumb {
+  background-color: var(--color-gray-800, #1f2937);
+}
+
+[data-theme="dark"] .myui-switch__label {
+  color: var(--text-primary, var(--color-gray-100, #f3f4f6));
+}
+
+[data-theme="dark"] .myui-switch__description {
+  color: var(--text-secondary, var(--color-gray-400, #9ca3af));
+}
+
+/* Animation for smooth transitions */
+@media (prefers-reduced-motion: reduce) {
+  .myui-switch,
+  .myui-switch__thumb {
+    transition: none;
+  }
+}
