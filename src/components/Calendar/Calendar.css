@@ -3,13 +3,16 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--color-gray-50);
-  border-radius: var(--radius-lg);
+  background: var(--bg-primary, #ffffff);
+  border-radius: var(--border-radius, 8px);
   overflow: hidden;
   font-family: var(--font-family-base);
+  border: 1px solid var(--border-color, #e5e7eb);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
   [data-theme="dark"] & {
     background: var(--color-gray-900);
+    border-color: var(--color-gray-700);
   }
 }
 
@@ -24,9 +27,8 @@
 /* 头部 */
 .myui-calendar__header {
   padding: var(--spacing-4);
-  background: white;
-  border-bottom: 1px solid var(--color-gray-200);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background: var(--bg-primary, #ffffff);
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
 
   [data-theme="dark"] & {
     background: var(--color-gray-800);
@@ -92,12 +94,12 @@
   gap: var(--spacing-4);
   padding: var(--spacing-4);
   flex: 1;
-  overflow: hidden;
+  overflow: auto;
   min-height: 0;
 }
 
 .myui-calendar__main {
-  overflow: auto;
+  overflow: visible;
   min-height: 0;
 }
 
@@ -124,7 +126,7 @@
 /* 周次标题 */
 .myui-calendar__week-header {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: var(--spacing-2);
   margin-bottom: var(--spacing-2);
 }
@@ -146,7 +148,7 @@
 /* 日期网格 */
 .myui-calendar__days-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: var(--spacing-2);
   flex: 1;
 }
@@ -157,9 +159,9 @@
   flex-direction: column;
   gap: var(--spacing-2);
   padding: var(--spacing-3);
-  background: white;
-  border: 1px solid var(--color-gray-200);
-  border-radius: var(--radius-md);
+  background: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: var(--border-radius, 8px);
   min-height: var(--calendar-day-height);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -172,8 +174,9 @@
   }
 
   &:hover {
-    border-color: var(--color-primary-300);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    border-color: var(--color-primary, #3b82f6);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+    transform: translateY(-1px);
   }
 
   &.myui-calendar__day--other-month {
@@ -302,12 +305,17 @@
 
 /* 侧边栏 */
 .myui-calendar__sidebar {
-  background: white;
-  border: 1px solid var(--color-gray-200);
-  border-radius: var(--radius-md);
+  background: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: var(--border-radius, 8px);
   overflow-y: auto;
+  overflow-x: hidden;
   padding: var(--spacing-4);
   min-width: 300px;
+  max-width: 300px;
+  word-wrap: break-word;
+  word-break: break-word;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
   [data-theme="dark"] & {
     background: var(--color-gray-800);
@@ -567,21 +575,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1050;
+  z-index: 100000;
+  backdrop-filter: blur(2px);
 }
 
 .myui-calendar__modal {
-  background: white;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  background: var(--bg-primary, #ffffff);
+  border-radius: var(--border-radius, 12px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   width: 90%;
   max-width: 500px;
   max-height: 90vh;
   overflow-y: auto;
-  z-index: 1050;
+  z-index: 100001;
+  position: relative;
+  border: 1px solid var(--border-color, #e5e7eb);
 
   [data-theme="dark"] & {
     background: var(--color-gray-800);
+    border-color: var(--color-gray-700);
   }
 }
 
@@ -669,13 +682,14 @@
 
 .myui-calendar__modal-textarea {
   padding: var(--spacing-2) var(--spacing-3);
-  border: 1px solid var(--color-gray-300);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: var(--border-radius, 8px);
   font-family: var(--font-family-base);
   font-size: var(--font-size-sm);
-  color: var(--color-gray-900);
-  background: white;
+  color: var(--text-primary, #1f2937);
+  background: var(--bg-primary, #ffffff);
   transition: all 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
   [data-theme="dark"] & {
     background: var(--color-gray-700);
@@ -683,10 +697,15 @@
     color: var(--color-gray-100);
   }
 
+  &:hover {
+    border-color: var(--border-color-hover, #9ca3af);
+  }
+
   &:focus {
     outline: none;
-    border-color: var(--color-primary-500);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: var(--color-primary, #3b82f6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1),
+      0 1px 3px 0 rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -733,6 +752,7 @@
 
   .myui-calendar__sidebar {
     min-width: unset;
+    width: 100%;
   }
 }
 
@@ -755,6 +775,11 @@
   .myui-calendar__content {
     padding: var(--spacing-2);
     gap: var(--spacing-2);
+    overflow-x: auto;
+  }
+
+  .myui-calendar__main {
+    min-width: 600px;
   }
 
   .myui-calendar__grid--sm {
@@ -779,5 +804,6 @@
 
   .myui-calendar__modal {
     width: 95%;
+    max-width: 500px;
   }
 }

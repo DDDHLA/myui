@@ -7,7 +7,7 @@ interface CalendarHeaderProps {
   currentDate: Date;
   onDateChange: (date: Date) => void;
   currentView: CalendarView;
-  onViewChange: (view: CalendarView) => void;
+  onViewChange?: (view: CalendarView) => void;
   locale: "en" | "zh" | "ja" | "ko";
 }
 
@@ -117,19 +117,21 @@ const CalendarHeader = ({
           </motion.h2>
         </div>
 
-        <div className="myui-calendar__header-views">
-          {(["month", "week", "day", "year"] as const).map((v) => (
-            <Button
-              key={v}
-              variant={currentView === v ? "primary" : "ghost"}
-              size="sm"
-              onClick={() => onViewChange(v)}
-              className="myui-calendar__header-view-btn"
-            >
-              {viewLabels[v][locale]}
-            </Button>
-          ))}
-        </div>
+        {onViewChange && (
+          <div className="myui-calendar__header-views">
+            {(["month", "week", "day", "year"] as const).map((v) => (
+              <Button
+                key={v}
+                variant={currentView === v ? "primary" : "ghost"}
+                size="sm"
+                onClick={() => onViewChange(v)}
+                className="myui-calendar__header-view-btn"
+              >
+                {viewLabels[v][locale]}
+              </Button>
+            ))}
+          </div>
+        )}
       </div>
     </motion.div>
   );

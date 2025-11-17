@@ -4,7 +4,7 @@ import {
   useCallback,
   useMemo,
 } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { cn } from "@/utils";
 import { CalendarProps, CalendarEvent, CalendarView } from "@/types";
 import CalendarHeader from "./CalendarHeader";
@@ -18,7 +18,7 @@ function getCalendarDays(year: number, month: number, startOfWeek: 0 | 1 = 1) {
   const firstDay = new Date(year, month, 1);
 
   // 计算开始星期几
-  let startDate = new Date(firstDay);
+  const startDate = new Date(firstDay);
   const dayOfWeek = firstDay.getDay();
   const offset = startOfWeek === 0 ? dayOfWeek : (dayOfWeek - 1 + 7) % 7;
   startDate.setDate(startDate.getDate() - offset);
@@ -72,13 +72,17 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       editable = true,
       showWeekends = true,
       startOfWeek = 1,
-      locale = "en",
-      miniCalendar = true,
+      locale = "zh",
       sidebar = true,
+      simple = false,
       ...props
     },
     ref
   ) => {
+    // 简单模式配置
+    const effectiveEditable = simple ? false : editable;
+    const effectiveSidebar = simple ? false : sidebar;
+
     // 状态管理
     const [currentDate, setCurrentDate] = useState(
       selectedDate ? new Date(selectedDate) : new Date()
@@ -110,12 +114,12 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     // 处理日期点击 - 打开事件创建模态框
     const handleDateClick = useCallback(
       (date: Date) => {
-        if (!editable) return;
+        if (!effectiveEditable) return;
         setSelectedEventDate(date);
         setEditingEvent(null);
         setIsModalOpen(true);
       },
-      [editable]
+      [effectiveEditable]
     );
 
     // 处理事件点击
@@ -180,13 +184,10 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     );
 
     return (
-      <motion.div
+      <div
         ref={ref}
         className={cn("myui-calendar", `myui-calendar--${variant}`, `myui-calendar--${size}`, className)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-        {...(props as any)}
+        {...props}
       >
         <div className="myui-calendar__container">
           {/* 头部 */}
@@ -194,7 +195,7 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             currentDate={currentDate}
             onDateChange={handleDateChange}
             currentView={currentView}
-            onViewChange={handleViewChange}
+            onViewChange={simple ? undefined : handleViewChange}
             locale={locale}
           />
 
@@ -215,7 +216,7 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             </div>
 
             {/* 侧边栏 */}
-            {sidebar && (
+            {effectiveSidebar && (
               <div className="myui-calendar__sidebar">
                 <EventSidebar
                   events={selectedDateEvents}
@@ -224,7 +225,7 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                   onEventDelete={handleEventDelete}
                   onCategoryFilter={setFilteredCategory}
                   filteredCategory={filteredCategory}
-                  editable={editable}
+                  editable={effectiveEditable}
                   locale={locale}
                 />
               </div>
@@ -242,12 +243,12 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
               onDelete={editingEvent ? () => handleEventDelete(editingEvent.id) : undefined}
               event={editingEvent}
               selectedDate={selectedEventDate}
-              editable={editable}
+              editable={effectiveEditable}
               locale={locale}
             />
           )}
         </AnimatePresence>
-      </motion.div>
+      </div>
     );
   }
 );

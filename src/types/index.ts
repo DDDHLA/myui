@@ -370,6 +370,7 @@ export interface CalendarProps extends HTMLAttributes<HTMLDivElement>, BaseProps
   // 额外
   miniCalendar?: boolean;
   sidebar?: boolean;
+  simple?: boolean; // 简单模式：隐藏侧边栏、禁用编辑功能，仅显示日历
 }
 
 // 主题上下文类型

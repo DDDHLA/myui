@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { Select } from "@/components/Select";
-import { CalendarEvent, EventCategory, EventReminder, SelectOption } from "@/types";
+import { CalendarEvent, EventCategory, EventReminder, SelectOption, Color } from "@/types";
 
 interface EventModalProps {
   isOpen: boolean;
@@ -86,14 +86,40 @@ const reminderOptions: Record<string, SelectOption[]> = {
   ],
 };
 
-const colorOptions: SelectOption[] = [
-  { label: "Blue (Primary)", value: "primary" },
-  { label: "Green (Success)", value: "success" },
-  { label: "Amber (Warning)", value: "warning" },
-  { label: "Red (Danger)", value: "danger" },
-  { label: "Cyan (Info)", value: "info" },
-  { label: "Gray", value: "gray" },
-];
+const colorOptions: Record<string, SelectOption[]> = {
+  en: [
+    { label: "Blue (Primary)", value: "primary" },
+    { label: "Green (Success)", value: "success" },
+    { label: "Amber (Warning)", value: "warning" },
+    { label: "Red (Danger)", value: "danger" },
+    { label: "Cyan (Info)", value: "info" },
+    { label: "Gray", value: "gray" },
+  ],
+  zh: [
+    { label: "蓝色（主要）", value: "primary" },
+    { label: "绿色（成功）", value: "success" },
+    { label: "琥珀色（警告）", value: "warning" },
+    { label: "红色（危险）", value: "danger" },
+    { label: "青色（信息）", value: "info" },
+    { label: "灰色", value: "gray" },
+  ],
+  ja: [
+    { label: "青（プライマリ）", value: "primary" },
+    { label: "緑（成功）", value: "success" },
+    { label: "琥珀（警告）", value: "warning" },
+    { label: "赤（危険）", value: "danger" },
+    { label: "シアン（情報）", value: "info" },
+    { label: "グレー", value: "gray" },
+  ],
+  ko: [
+    { label: "파란색（기본）", value: "primary" },
+    { label: "녹색（성공）", value: "success" },
+    { label: "호박색（경고）", value: "warning" },
+    { label: "빨간색（위험）", value: "danger" },
+    { label: "청록색（정보）", value: "info" },
+    { label: "회색", value: "gray" },
+  ],
+};
 
 const EventModal = ({
   isOpen,
@@ -179,6 +205,7 @@ const EventModal = ({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
+      style={{ isolation: 'isolate' }}
     >
       <motion.div
         className="myui-calendar__modal"
@@ -187,6 +214,7 @@ const EventModal = ({
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{ duration: 0.2 }}
+        style={{ isolation: 'isolate' }}
       >
         <div className="myui-calendar__modal-header">
           <h3 className="myui-calendar__modal-title">
@@ -271,7 +299,7 @@ const EventModal = ({
             <Select
               options={categoryOptions[locale]}
               value={formData.category}
-              onChange={(value: any) => setFormData({ ...formData, category: value as EventCategory })}
+              onChange={(value) => setFormData({ ...formData, category: value as EventCategory })}
               placeholder={locale === "zh" ? "选择分类" : "Select category"}
             />
           </div>
@@ -282,9 +310,9 @@ const EventModal = ({
               {locale === "zh" ? "颜色" : "Color"}
             </label>
             <Select
-              options={colorOptions}
+              options={colorOptions[locale]}
               value={formData.color}
-              onChange={(value: any) => setFormData({ ...formData, color: value as any })}
+              onChange={(value) => setFormData({ ...formData, color: value as Color })}
               placeholder={locale === "zh" ? "选择颜色" : "Select color"}
             />
           </div>
@@ -297,7 +325,7 @@ const EventModal = ({
             <Select
               options={reminderOptions[locale]}
               value={formData.reminder}
-              onChange={(value: any) => setFormData({ ...formData, reminder: value as EventReminder })}
+              onChange={(value) => setFormData({ ...formData, reminder: value as EventReminder })}
               placeholder={locale === "zh" ? "选择提醒" : "Select reminder"}
             />
           </div>

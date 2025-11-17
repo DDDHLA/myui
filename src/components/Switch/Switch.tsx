@@ -1,4 +1,4 @@
-import { forwardRef, useState, useCallback, useEffect } from 'react'
+import { forwardRef, useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { cn, generateId } from '@/utils'
 import type { SwitchProps } from '@/types'
