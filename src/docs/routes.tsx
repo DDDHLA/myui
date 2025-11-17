@@ -11,7 +11,9 @@ import {
   SelectDocs,
   ModalDocs,
   TabsDocs,
-  SwitchDocs
+  SwitchDocs,
+  SliderDocs,
+  CalendarDocs
 } from './pages'
 
 // 路由配置
@@ -67,5 +69,13 @@ export const routes: RouteObject[] = [
   {
     path: '/switch',
     element: <SwitchDocs />
+  },
+  {
+    path: '/slider',
+    element: <SliderDocs />
+  },
+  {
+    path: '/calendar',
+    element: <CalendarDocs />
   }
 ]

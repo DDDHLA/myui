@@ -8,6 +8,8 @@ import "./Select/Select.css";
 import "./Modal/Modal.css";
 import "./Tabs/Tabs.css";
 import "./Switch/Switch.css";
+import "./Slider/Slider.css";
+import "./Calendar/Calendar.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -36,6 +38,16 @@ export {
 } from "./Modal";
 export { Tabs, type TabsProps, type TabItem } from "./Tabs";
 export { Switch, type SwitchProps } from "./Switch";
+export { Slider, type SliderProps, type SliderMark } from "./Slider";
+export {
+  Calendar,
+  type CalendarProps,
+  type CalendarEvent,
+  type EventCategory,
+  type EventReminder,
+  type EventRecurrence,
+  type CalendarView,
+} from "./Calendar";
 export { ThemeProvider, useTheme, type Theme } from "./ThemeProvider";
 
 // 导出 Hooks

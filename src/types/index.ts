@@ -235,7 +235,10 @@ export interface SwitchProps
   // 基础属性
   checked?: boolean;
   defaultChecked?: boolean;
-  onChange?: (checked: boolean, event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (
+    checked: boolean,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void;
 
   // 样式
   size?: Size;
@@ -261,6 +264,112 @@ export interface SwitchProps
   // 额外功能
   tooltip?: string;
   description?: string;
+}
+
+// Slider 组件类型
+export type SliderMark = {
+  value: number;
+  label?: ReactNode;
+};
+
+export interface SliderProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> {
+  // 基础属性
+  value?: number | [number, number];
+  defaultValue?: number | [number, number];
+  onChange?: (value: number | [number, number]) => void;
+  onAfterChange?: (value: number | [number, number]) => void;
+
+  // 范围
+  min?: number;
+  max?: number;
+  step?: number | null;
+
+  // 功能
+  range?: boolean;
+  disabled?: boolean;
+  vertical?: boolean;
+  reverse?: boolean;
+  included?: boolean;
+
+  // 显示
+  marks?: Record<number, ReactNode | SliderMark>;
+  dots?: boolean;
+  tooltip?: {
+    open?: boolean;
+    formatter?: (value: number) => ReactNode;
+    placement?: "top" | "bottom" | "left" | "right";
+  };
+
+  // 样式
+  variant?: "primary" | "success" | "warning" | "danger" | "info";
+  size?: Size;
+  trackColor?: string;
+  railColor?: string;
+  handleColor?: string;
+
+  // 输入框
+  showInput?: boolean;
+  inputWidth?: number | string;
+
+  // 标签
+  label?: string;
+  description?: string;
+}
+
+// Calendar 组件类型
+export type EventCategory = 'work' | 'personal' | 'meeting' | 'birthday' | 'holiday' | 'custom';
+export type EventReminder = 'none' | '5min' | '15min' | '30min' | '1hour' | '1day';
+export type EventRecurrence = 'daily' | 'weekly' | 'monthly' | 'yearly' | 'none';
+export type CalendarView = 'month' | 'week' | 'day' | 'year';
+
+export interface CalendarEvent {
+  id: string;
+  title: string;
+  description?: string;
+  date: Date | string;
+  time?: string;
+  endTime?: string;
+  category: EventCategory;
+  color: Color;
+  reminder?: EventReminder;
+  completed?: boolean;
+  recurrence?: EventRecurrence;
+  attendees?: string[];
+  location?: string;
+}
+
+export interface CalendarProps extends HTMLAttributes<HTMLDivElement>, BaseProps {
+  // 视图
+  view?: CalendarView;
+  onViewChange?: (view: CalendarView) => void;
+
+  // 事件
+  events?: CalendarEvent[];
+  onEventCreate?: (event: Omit<CalendarEvent, 'id'>) => void;
+  onEventUpdate?: (id: string, event: Partial<CalendarEvent>) => void;
+  onEventDelete?: (id: string) => void;
+  onEventClick?: (event: CalendarEvent) => void;
+
+  // 日期选择
+  selectedDate?: Date | string;
+  onDateChange?: (date: Date) => void;
+
+  // 样式
+  size?: Size;
+  variant?: 'default' | 'compact' | 'comfortable';
+
+  // 功能
+  editable?: boolean;
+  showWeekends?: boolean;
+  startOfWeek?: 0 | 1; // 0: Sunday, 1: Monday
+
+  // 本地化
+  locale?: 'en' | 'zh' | 'ja' | 'ko';
+
+  // 额外
+  miniCalendar?: boolean;
+  sidebar?: boolean;
 }
 
 // 主题上下文类型
