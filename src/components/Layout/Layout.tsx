@@ -125,7 +125,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       items: [
         { title: 'Input 输入框', key: 'input' },
         { title: 'Select 选择器', key: 'select' },
-        { title: 'Switch 开关', key: 'switch' }
+        { title: 'Switch 开关', key: 'switch' },
+        { title: 'Slider 滑块', key: 'slider' }
       ]
     },
     {
@@ -134,7 +135,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       items: [
         { title: 'Card 卡片', key: 'card' },
         { title: 'Table 表格', key: 'table' },
-        { title: 'Tabs 标签页', key: 'tabs' }
+        { title: 'Tabs 标签页', key: 'tabs' },
+        { title: 'Calendar 日历', key: 'calendar' }
       ]
     },
     {
