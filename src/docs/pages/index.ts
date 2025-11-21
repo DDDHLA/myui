@@ -20,4 +20,5 @@ export { default as TagDocs } from "./TagDocs";
 export { default as TransferDocs } from "./TransferDocs";
 export { default as TooltipDocs } from "./TooltipDocs";
 export { default as WatermarkDocs } from "./WatermarkDocs";
+export { default as DrawerDocs } from "./DrawerDocs";
 export { default as ComingSoonPage } from "./ComingSoonPage";

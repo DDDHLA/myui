@@ -21,7 +21,8 @@ import {
   TagDocs,
   TransferDocs,
   TooltipDocs,
-  WatermarkDocs
+  WatermarkDocs,
+  DrawerDocs
 } from './pages'
 
 // 路由配置
@@ -117,5 +118,9 @@ export const routes: RouteObject[] = [
   {
     path: '/watermark',
     element: <WatermarkDocs />
+  },
+  {
+    path: '/drawer',
+    element: <DrawerDocs />
   }
 ]

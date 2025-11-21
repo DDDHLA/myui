@@ -1,0 +1,127 @@
+.myui-drawer-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Allow events to pass through by default */
+  z-index: var(--z-index-drawer, 1000);
+}
+
+.myui-drawer-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  pointer-events: auto; /* Re-enable pointer events for the mask */
+  z-index: var(--z-index-drawer-mask, 999);
+}
+
+.myui-drawer {
+  position: fixed;
+  background-color: var(--bg-primary, #ffffff);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto; /* Re-enable pointer events for the drawer content */
+  z-index: var(--z-index-drawer, 1000);
+}
+
+/* Placements */
+.myui-drawer--right {
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.myui-drawer--left {
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.myui-drawer--top {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.myui-drawer--bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.myui-drawer-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.myui-drawer-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary, rgba(0, 0, 0, 0.85));
+}
+
+.myui-drawer-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  transition: color 0.3s;
+}
+
+.myui-drawer-close-btn:hover {
+  color: var(--text-primary, rgba(0, 0, 0, 0.85));
+}
+
+.myui-drawer-body {
+  flex: 1;
+  padding: 24px;
+  overflow: auto; /* Ensure content inside drawer is scrollable */
+}
+
+.myui-drawer-footer {
+  padding: 10px 16px;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+  text-align: right;
+}
+
+/* Dark Mode */
+[data-theme='dark'] .myui-drawer {
+  background-color: var(--bg-primary-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .myui-drawer-mask {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme='dark'] .myui-drawer-header {
+  border-bottom-color: var(--border-color-dark);
+}
+
+[data-theme='dark'] .myui-drawer-close-btn {
+  color: var(--text-secondary-dark);
+}
+
+[data-theme='dark'] .myui-drawer-close-btn:hover {
+  color: var(--text-primary-dark);
+}
+
+[data-theme='dark'] .myui-drawer-title {
+  color: var(--text-primary-dark);
+}
+
+[data-theme='dark'] .myui-drawer-footer {
+  border-top-color: var(--border-color-dark);
+}

@@ -151,7 +151,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       items: [
         { title: 'Modal 弹窗', key: 'modal' },
         { title: 'Message 全局提示', key: 'message' },
-        { title: 'Tooltip 文字提示', key: 'tooltip' }
+        { title: 'Tooltip 文字提示', key: 'tooltip' },
+        { title: 'Drawer 抽屉', key: 'drawer' }
       ]
     }
   ]

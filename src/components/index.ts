@@ -17,6 +17,7 @@ import "./Transfer/style.css";
 import "./TreeSelect/TreeSelect.css";
 import "./Tooltip/style.css";
 import "./Watermark/style.css";
+import "./Drawer/style.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -66,6 +67,7 @@ export { Tag, type TagProps } from "./Tag";
 export { Transfer, type TransferProps, type TransferItem } from "./Transfer";
 export { Tooltip, type TooltipProps, type TooltipPlacement } from "./Tooltip";
 export { Watermark, type WatermarkProps } from "./Watermark";
+export { Drawer, type DrawerProps } from "./Drawer";
 
 // 导出 Hooks
 export * from "@/hooks";
