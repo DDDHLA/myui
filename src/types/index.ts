@@ -373,6 +373,84 @@ export interface CalendarProps extends HTMLAttributes<HTMLDivElement>, BaseProps
   simple?: boolean; // 简单模式：隐藏侧边栏、禁用编辑功能，仅显示日历
 }
 
+// TreeSelect 组件类型
+export interface TreeNode {
+  key: string | number;
+  label: string;
+  value: string | number;
+  children?: TreeNode[];
+  disabled?: boolean;
+  isLeaf?: boolean;
+  icon?: ReactNode;
+  selectable?: boolean;
+  checkable?: boolean;
+  disableCheckbox?: boolean;
+  // 异步加载
+  loading?: boolean;
+}
+
+export interface TreeSelectProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> {
+  // 基础属性
+  value?: string | number | (string | number)[];
+  defaultValue?: string | number | (string | number)[];
+  onChange?: (
+    value: string | number | (string | number)[],
+    selectedNodes?: TreeNode | TreeNode[]
+  ) => void;
+
+  // 数据
+  treeData: TreeNode[];
+  placeholder?: string;
+
+  // 功能
+  multiple?: boolean;
+  checkable?: boolean;
+  searchable?: boolean;
+  clearable?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
+  showCheckedStrategy?: 'all' | 'parent' | 'child'; // 回显策略
+
+  // 展开控制
+  defaultExpandAll?: boolean;
+  defaultExpandedKeys?: (string | number)[];
+  expandedKeys?: (string | number)[];
+  onExpand?: (expandedKeys: (string | number)[]) => void;
+  autoExpandParent?: boolean;
+
+  // 选中控制
+  checkStrictly?: boolean; // 父子节点是否关联
+  showLine?: boolean;
+  showIcon?: boolean;
+
+  // 搜索
+  filterTreeNode?: (inputValue: string, treeNode: TreeNode) => boolean;
+  treeNodeFilterProp?: string;
+
+  // 异步加载
+  loadData?: (node: TreeNode) => Promise<void>;
+
+  // 样式
+  size?: Size;
+  error?: boolean;
+  maxTagCount?: number;
+  maxTagPlaceholder?: (omittedValues: (string | number)[]) => ReactNode;
+  treeHeight?: number;
+
+  // 回调
+  onSearch?: (value: string) => void;
+  onClear?: () => void;
+  onDropdownVisibleChange?: (open: boolean) => void;
+  onSelect?: (value: string | number, node: TreeNode) => void;
+
+  // 文本
+  notFoundContent?: ReactNode;
+
+  // 虚拟滚动
+  virtual?: boolean;
+}
+
 // 主题上下文类型
 export interface ThemeContextType {
   theme: Theme;

@@ -9,6 +9,7 @@ import {
   CardDocs,
   TableDocs,
   SelectDocs,
+  TreeSelectDocs,
   ModalDocs,
   TabsDocs,
   SwitchDocs,
@@ -17,7 +18,10 @@ import {
   MessageDocs,
   AvatarDocs,
   BadgeDocs,
-  TagDocs
+  TagDocs,
+  TransferDocs,
+  TooltipDocs,
+  WatermarkDocs
 } from './pages'
 
 // 路由配置
@@ -53,6 +57,10 @@ export const routes: RouteObject[] = [
   {
     path: '/select',
     element: <SelectDocs />
+  },
+  {
+    path: '/tree-select',
+    element: <TreeSelectDocs />
   },
   {
     path: '/card',
@@ -97,5 +105,17 @@ export const routes: RouteObject[] = [
   {
     path: '/tag',
     element: <TagDocs />
+  },
+  {
+    path: '/transfer',
+    element: <TransferDocs />
+  },
+  {
+    path: '/tooltip',
+    element: <TooltipDocs />
+  },
+  {
+    path: '/watermark',
+    element: <WatermarkDocs />
   }
 ]

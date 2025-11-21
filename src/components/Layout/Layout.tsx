@@ -125,8 +125,10 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       items: [
         { title: 'Input 输入框', key: 'input' },
         { title: 'Select 选择器', key: 'select' },
+        { title: 'TreeSelect 树选择', key: 'tree-select' },
         { title: 'Switch 开关', key: 'switch' },
-        { title: 'Slider 滑块', key: 'slider' }
+        { title: 'Slider 滑块', key: 'slider' },
+        { title: 'Transfer 穿梭框', key: 'transfer' }
       ]
     },
     {
@@ -139,7 +141,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Calendar 日历', key: 'calendar' },
         { title: 'Avatar 头像', key: 'avatar' },
         { title: 'Badge 徽标数', key: 'badge' },
-        { title: 'Tag 标签', key: 'tag' }
+        { title: 'Tag 标签', key: 'tag' },
+        { title: 'Watermark 水印', key: 'watermark' }
       ]
     },
     {
@@ -147,7 +150,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       key: 'feedback',
       items: [
         { title: 'Modal 弹窗', key: 'modal' },
-        { title: 'Message 全局提示', key: 'message' }
+        { title: 'Message 全局提示', key: 'message' },
+        { title: 'Tooltip 文字提示', key: 'tooltip' }
       ]
     }
   ]

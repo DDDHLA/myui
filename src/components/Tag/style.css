@@ -96,3 +96,15 @@
   background: rgba(114, 46, 209, 0.15);
   border-color: rgba(114, 46, 209, 0.3);
 }
+
+.myui-tag-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}

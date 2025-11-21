@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Tag, Button } from '@/components'
 import { CodeBlock } from '@/components/CodeBlock'
 import { PropsTable } from '@/components/PropsTable'
@@ -6,6 +6,7 @@ import type { PropItem } from '@/components/PropsTable'
 import { docHeadingStyles, docParagraphStyles } from '@/styles/docStyles'
 
 const TagDocs = () => {
+  const [editableTagText, setEditableTagText] = useState('Editable Tag');
   const tagProps: PropItem[] = [
     {
       name: 'closable',
@@ -38,7 +39,20 @@ const TagDocs = () => {
       default: 'true',
       description: '是否显示标签',
       required: false
-    }
+    },
+    {
+      name: 'editable',
+      type: 'boolean',
+      default: 'false',
+      description: '标签是否可编辑',
+      required: false
+    },
+    {
+      name: 'onConfirm',
+      type: '(text: string) => void',
+      description: '编辑确认时的回调',
+      required: false
+    },
   ]
 
   const log = (e: React.MouseEvent<HTMLElement>) => {
@@ -148,6 +162,34 @@ function App() {
           <Tag icon={<span>☀</span>} color="green">Sun</Tag>
           <Tag icon={<span>☁</span>} color="blue">Cloud</Tag>
         </div>
+      </CodeBlock>
+      
+      <CodeBlock
+        title="可编辑标签"
+        description="通过设置 editable 属性，用户可以双击编辑标签文本。编辑完成后，调用 onConfirm 回调。"
+        code={`import React, { useState } from 'react';
+import { Tag } from '@myui/components';
+
+function App() {
+  const [tagText, setTagText] = useState('Editable Tag');
+
+  return (
+    <Tag
+      editable
+      onConfirm={(text) => setTagText(text)}
+    >
+      {tagText}
+    </Tag>
+  );
+}
+`}
+      >
+        <Tag
+          editable
+          onConfirm={(text) => setEditableTagText(text)}
+        >
+          {editableTagText}
+        </Tag>
       </CodeBlock>
 
       <div style={{ marginTop: '48px' }}>

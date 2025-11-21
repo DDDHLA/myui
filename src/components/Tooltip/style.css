@@ -1,0 +1,75 @@
+.myui-tooltip-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.myui-tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity 0.15s;
+  visibility: hidden;
+  /* Fix for absolute positioning inside a scrolling container */
+  position: fixed;
+}
+
+.myui-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.myui-tooltip-inner {
+  padding: 6px 12px;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: var(--border-radius, 4px);
+  max-width: 250px;
+}
+
+.myui-tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+}
+
+/* Placement Top */
+.myui-tooltip--top .myui-tooltip-arrow {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0;
+  border-top-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Placement Bottom */
+.myui-tooltip--bottom .myui-tooltip-arrow {
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 5px 5px;
+  border-bottom-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Placement Left */
+.myui-tooltip--left .myui-tooltip-arrow {
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 5px;
+  border-left-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Placement Right */
+.myui-tooltip--right .myui-tooltip-arrow {
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px 5px 5px 0;
+  border-right-color: rgba(0, 0, 0, 0.85);
+}

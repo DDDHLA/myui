@@ -228,7 +228,8 @@
   margin-left: 280px;
   transition: all var(--transition-normal, 250ms ease-in-out);
   min-width: 0;
-  overflow-x: auto;
+  overflow-y: auto; /* Changed from overflow-x */
+  height: calc(100vh - 64px); /* Constrain height for independent scrolling */
 }
 
 .myui-layout__main--sidebar-collapsed {

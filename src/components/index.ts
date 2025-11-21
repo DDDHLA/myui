@@ -13,6 +13,10 @@ import "./Calendar/Calendar.css";
 import "./Avatar/style.css";
 import "./Badge/style.css";
 import "./Tag/style.css";
+import "./Transfer/style.css";
+import "./TreeSelect/TreeSelect.css";
+import "./Tooltip/style.css";
+import "./Watermark/style.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -36,6 +40,7 @@ export {
   type SortOrder,
 } from "./Table";
 export { Select, type SelectProps, type SelectOption } from "./Select";
+export { TreeSelect, type TreeSelectProps, type TreeNode } from "./TreeSelect";
 export {
   Modal,
   type ModalProps,
@@ -58,6 +63,9 @@ export { ThemeProvider, useTheme, type Theme } from "./ThemeProvider";
 export { Avatar, AvatarGroup, type AvatarProps, type AvatarGroupProps } from "./Avatar";
 export { Badge, type BadgeProps } from "./Badge";
 export { Tag, type TagProps } from "./Tag";
+export { Transfer, type TransferProps, type TransferItem } from "./Transfer";
+export { Tooltip, type TooltipProps, type TooltipPlacement } from "./Tooltip";
+export { Watermark, type WatermarkProps } from "./Watermark";
 
 // 导出 Hooks
 export * from "@/hooks";

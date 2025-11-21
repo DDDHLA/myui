@@ -1,0 +1,447 @@
+/* TreeSelect 基础样式 */
+.myui-tree-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+/* 选择器容器 */
+.myui-tree-select__selector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 40px;
+  padding: 4px 32px 4px 12px;
+  background-color: var(--myui-bg-primary, #ffffff);
+  border: 1px solid var(--myui-border-color, #d1d5db);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.myui-tree-select__selector:hover {
+  border-color: var(--myui-primary-color, #3b82f6);
+}
+
+.myui-tree-select--open .myui-tree-select__selector {
+  border-color: var(--myui-primary-color, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.myui-tree-select--disabled .myui-tree-select__selector {
+  background-color: var(--myui-bg-disabled, #f3f4f6);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.myui-tree-select--error .myui-tree-select__selector {
+  border-color: var(--myui-danger-color, #ef4444);
+}
+
+.myui-tree-select--error .myui-tree-select__selector:hover,
+.myui-tree-select--error.myui-tree-select--open .myui-tree-select__selector {
+  border-color: var(--myui-danger-color, #ef4444);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* 尺寸变体 */
+.myui-tree-select--sm .myui-tree-select__selector {
+  min-height: 32px;
+  padding: 2px 28px 2px 8px;
+  font-size: 14px;
+}
+
+.myui-tree-select--lg .myui-tree-select__selector {
+  min-height: 48px;
+  padding: 6px 36px 6px 16px;
+  font-size: 16px;
+}
+
+/* 占位符 */
+.myui-tree-select__placeholder {
+  color: var(--myui-text-tertiary, #9ca3af);
+  user-select: none;
+}
+
+/* 选中的值 */
+.myui-tree-select__value {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--myui-text-primary, #1f2937);
+}
+
+/* 标签容器 */
+.myui-tree-select__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.myui-tree-select__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background-color: var(--myui-primary-light, #eff6ff);
+  color: var(--myui-primary-color, #3b82f6);
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.myui-tree-select--sm .myui-tree-select__tag {
+  padding: 1px 6px;
+  font-size: 12px;
+}
+
+.myui-tree-select--lg .myui-tree-select__tag {
+  padding: 3px 10px;
+  font-size: 15px;
+}
+
+.myui-tree-select__tag--more {
+  background-color: var(--myui-bg-tertiary, #f3f4f6);
+  color: var(--myui-text-secondary, #6b7280);
+}
+
+.myui-tree-select__tag-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.myui-tree-select__tag-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 搜索输入框 */
+.myui-tree-select__search {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: inherit;
+  color: var(--myui-text-primary, #1f2937);
+}
+
+.myui-tree-select__search::placeholder {
+  color: var(--myui-text-tertiary, #9ca3af);
+}
+
+/* 操作按钮区域 */
+.myui-tree-select__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.myui-tree-select__clear,
+.myui-tree-select__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--myui-text-tertiary, #9ca3af);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.myui-tree-select__clear:hover {
+  color: var(--myui-text-secondary, #6b7280);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.myui-tree-select__arrow {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+
+.myui-tree-select__arrow--open {
+  transform: rotate(180deg);
+}
+
+/* 下拉框 */
+.myui-tree-select__dropdown {
+  z-index: 1000;
+  background-color: var(--myui-bg-primary, #ffffff);
+  border: 1px solid var(--myui-border-color, #e5e7eb);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* 树容器 */
+.myui-tree-select__tree {
+  padding: 8px 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.myui-tree-select__tree::-webkit-scrollbar {
+  width: 6px;
+}
+
+.myui-tree-select__tree::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.myui-tree-select__tree::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.myui-tree-select__tree::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 树节点 */
+.myui-tree-select__tree-node-wrapper {
+  width: 100%;
+}
+
+.myui-tree-select__tree-node {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  position: relative;
+}
+
+.myui-tree-select__tree-node:hover {
+  background-color: var(--myui-bg-hover, #f9fafb);
+}
+
+.myui-tree-select__tree-node--selected {
+  background-color: var(--myui-primary-light, #eff6ff);
+  color: var(--myui-primary-color, #3b82f6);
+}
+
+.myui-tree-select__tree-node--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.myui-tree-select__tree-node--disabled:hover {
+  background-color: transparent;
+}
+
+/* 展开/折叠图标 */
+.myui-tree-select__expand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  color: var(--myui-text-secondary, #6b7280);
+}
+
+.myui-tree-select__expand-icon--expanded {
+  transform: rotate(90deg);
+}
+
+.myui-tree-select__expand-icon--leaf {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.myui-tree-select__expand-icon--loading {
+  animation: spin 1s linear infinite;
+}
+
+/* 复选框 */
+.myui-tree-select__checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.myui-tree-select__checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.myui-tree-select__checkbox-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--myui-border-color, #d1d5db);
+  border-radius: 4px;
+  background-color: var(--myui-bg-primary, #ffffff);
+  transition: all 0.2s ease;
+}
+
+.myui-tree-select__checkbox-inner svg {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.2s ease;
+}
+
+.myui-tree-select__checkbox:hover .myui-tree-select__checkbox-inner {
+  border-color: var(--myui-primary-color, #3b82f6);
+}
+
+.myui-tree-select__checkbox--checked .myui-tree-select__checkbox-inner {
+  background-color: var(--myui-primary-color, #3b82f6);
+  border-color: var(--myui-primary-color, #3b82f6);
+}
+
+.myui-tree-select__checkbox--checked .myui-tree-select__checkbox-inner svg {
+  opacity: 1;
+  transform: scale(1);
+  color: white;
+}
+
+.myui-tree-select__checkbox--indeterminate .myui-tree-select__checkbox-inner {
+  background-color: var(--myui-primary-color, #3b82f6);
+  border-color: var(--myui-primary-color, #3b82f6);
+}
+
+.myui-tree-select__checkbox--indeterminate .myui-tree-select__checkbox-inner svg {
+  opacity: 1;
+  transform: scale(1);
+  color: white;
+}
+
+.myui-tree-select__checkbox--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* 节点图标 */
+.myui-tree-select__node-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--myui-text-secondary, #6b7280);
+}
+
+/* 节点标签 */
+.myui-tree-select__node-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--myui-text-primary, #1f2937);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 加载状态 */
+.myui-tree-select__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  gap: 12px;
+  color: var(--myui-text-secondary, #6b7280);
+}
+
+.myui-tree-select__spinner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myui-tree-select__spinner {
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+.myui-tree-select__spinner circle {
+  fill: none;
+  stroke: var(--myui-primary-color, #3b82f6);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 12 30;
+}
+
+/* 空状态 */
+.myui-tree-select__empty {
+  padding: 32px;
+  text-align: center;
+  color: var(--myui-text-tertiary, #9ca3af);
+  font-size: 14px;
+}
+
+/* 旋转动画 */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 暗色主题 */
+[data-theme='dark'] .myui-tree-select__selector {
+  background-color: var(--myui-bg-primary, #1f2937);
+  border-color: var(--myui-border-color, #374151);
+}
+
+[data-theme='dark'] .myui-tree-select__dropdown {
+  background-color: var(--myui-bg-primary, #1f2937);
+  border-color: var(--myui-border-color, #374151);
+}
+
+[data-theme='dark'] .myui-tree-select__tree-node:hover {
+  background-color: var(--myui-bg-hover, #374151);
+}
+
+[data-theme='dark'] .myui-tree-select__tree-node--selected {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+[data-theme='dark'] .myui-tree-select__tag {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+[data-theme='dark'] .myui-tree-select__checkbox-inner {
+  background-color: var(--myui-bg-primary, #1f2937);
+  border-color: var(--myui-border-color, #4b5563);
+}
