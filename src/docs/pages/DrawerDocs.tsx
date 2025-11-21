@@ -36,7 +36,7 @@ const DrawerDocs = () => {
   const renderFooter = (
     <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
       <Button onClick={() => setOpenCustom(false)}>Cancel</Button>
-      <Button type="primary" onClick={() => setOpenCustom(false)}>Submit</Button>
+      <Button variant="primary" onClick={() => setOpenCustom(false)}>Submit</Button>
     </div>
   );
 
@@ -56,7 +56,7 @@ function App() {
 
   return (
     <>
-      <Button type="primary" onClick={() => setOpen(true)}>
+      <Button variant="primary" onClick={() => setOpen(true)}>
         Open Drawer
       </Button>
       <Drawer
@@ -72,7 +72,7 @@ function App() {
   );
 }`}
       >
-        <Button type="primary" onClick={() => setOpenRight(true)}>
+        <Button variant="primary" onClick={() => setOpenRight(true)}>
           Open Drawer
         </Button>
         <Drawer
@@ -153,13 +153,13 @@ function App() {
   const footer = (
     <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
       <Button onClick={() => setOpen(false)}>Cancel</Button>
-      <Button type="primary" onClick={() => setOpen(false)}>Submit</Button>
+      <Button variant="primary" onClick={() => setOpen(false)}>Submit</Button>
     </div>
   );
 
   return (
     <>
-      <Button type="primary" onClick={() => setOpen(true)}>
+      <Button variant="primary" onClick={() => setOpen(true)}>
         Open Custom Drawer
       </Button>
       <Drawer
@@ -177,7 +177,7 @@ function App() {
   );
 }`}
       >
-        <Button type="primary" onClick={() => setOpenCustom(true)}>
+        <Button variant="primary" onClick={() => setOpenCustom(true)}>
           Open Custom Drawer
         </Button>
         <Drawer
@@ -204,7 +204,7 @@ function App() {
 
   return (
     <>
-      <Button type="primary" onClick={() => setOpen(true)}>
+      <Button variant="primary" onClick={() => setOpen(true)}>
         Open Drawer
       </Button>
       <Drawer
