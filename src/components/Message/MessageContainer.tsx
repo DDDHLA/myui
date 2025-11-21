@@ -1,5 +1,5 @@
-import React, { useState, useImperativeHandle, forwardRef } from 'react';
-import Message, { MessageProps, MessageType } from './Message';
+import { useState, useImperativeHandle, forwardRef } from 'react';
+import Message, { MessageProps } from './Message';
 import './style.css';
 
 export interface MessageApi {

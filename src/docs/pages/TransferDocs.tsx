@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Transfer } from '@/components';
 import type { TransferItem } from '@/components';
 import { CodeBlock } from '@/components/CodeBlock';

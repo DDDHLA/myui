@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Drawer, Button } from '@/components';
 import { CodeBlock } from '@/components/CodeBlock';
 import { PropsTable, type PropItem } from '@/components/PropsTable';

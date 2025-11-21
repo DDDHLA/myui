@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Button } from '../Button';
 import { Input } from '../Input';
 import './style.css';
@@ -41,11 +41,11 @@ const TransferList: React.FC<TransferListProps> = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredItems = useMemo(() => 
-    items.filter(item => 
-      item.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+  const filteredItems = useMemo(() =>
+    items.filter(item =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.description?.toLowerCase().includes(searchTerm.toLowerCase())
-    ), 
+    ),
     [items, searchTerm]
   );
 
@@ -55,7 +55,7 @@ const TransferList: React.FC<TransferListProps> = ({
   const handleToggleAll = () => {
     onToggleAll(allKeys);
   };
-  
+
   return (
     <div className="myui-transfer-list">
       <div className="myui-transfer-list-header">
@@ -67,10 +67,10 @@ const TransferList: React.FC<TransferListProps> = ({
       </div>
       {showSearch && (
         <div className="myui-transfer-list-search">
-          <Input 
-            placeholder="Search here" 
-            value={searchTerm} 
-            onChange={(e) => setSearchTerm(e.target.value)} 
+          <Input
+            placeholder="Search here"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
       )}
@@ -124,19 +124,18 @@ export const Transfer: React.FC<TransferProps> = ({
     }
     setCheckedKeys(newCheckedKeys);
   };
-  
+
   const handleToggleAll = (keys: string[]) => {
-    const currentKeys = new Set(keys);
     const newCheckedKeys = new Set(checkedKeys);
-    
+
     const allSelected = keys.every(key => checkedKeys.has(key));
-    
+
     if (allSelected) {
       keys.forEach(key => newCheckedKeys.delete(key));
     } else {
       keys.forEach(key => newCheckedKeys.add(key));
     }
-    
+
     setCheckedKeys(newCheckedKeys);
   };
 
@@ -157,7 +156,7 @@ export const Transfer: React.FC<TransferProps> = ({
       const moveKeySet = new Set(moveKeys);
       nextTargetKeys = targetKeys.filter(key => !moveKeySet.has(key));
     }
-    
+
     // Clear checked keys after move
     const newCheckedKeys = new Set(checkedKeys);
     moveKeys.forEach(key => newCheckedKeys.delete(key));

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tag, Button } from '@/components'
+import { Tag } from '@/components'
 import { CodeBlock } from '@/components/CodeBlock'
 import { PropsTable } from '@/components/PropsTable'
 import type { PropItem } from '@/components/PropsTable'
@@ -163,7 +163,7 @@ function App() {
           <Tag icon={<span>☁</span>} color="blue">Cloud</Tag>
         </div>
       </CodeBlock>
-      
+
       <CodeBlock
         title="可编辑标签"
         description="通过设置 editable 属性，用户可以双击编辑标签文本。编辑完成后，调用 onConfirm 回调。"

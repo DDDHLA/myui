@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from '@/utils';
@@ -53,12 +53,12 @@ export const Drawer: React.FC<DrawerProps> = ({
 
   const drawerRef = useRef<HTMLDivElement>(null);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     if (!isControlled) {
       setInternalOpen(false);
     }
     onClose?.();
-  };
+  }, [isControlled, onClose]);
 
   // Lock body scroll only when rendering in body
   useEffect(() => {

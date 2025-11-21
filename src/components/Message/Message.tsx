@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './style.css';
 
 export type MessageType = 'success' | 'error' | 'warning' | 'info';
@@ -22,6 +22,14 @@ const Message: React.FC<MessageProps> = ({
 }) => {
   const [visible, setVisible] = useState(true);
 
+  const handleClose = useCallback(() => {
+    setVisible(false);
+    // Wait for animation to finish before removing from DOM
+    setTimeout(() => {
+      onClose?.(id);
+    }, 300);
+  }, [id, onClose]);
+
   useEffect(() => {
     if (duration > 0) {
       const timer = setTimeout(() => {
@@ -29,15 +37,7 @@ const Message: React.FC<MessageProps> = ({
       }, duration);
       return () => clearTimeout(timer);
     }
-  }, [duration]);
-
-  const handleClose = () => {
-    setVisible(false);
-    // Wait for animation to finish before removing from DOM
-    setTimeout(() => {
-      onClose?.(id);
-    }, 300);
-  };
+  }, [duration, handleClose]);
 
   const getIcon = () => {
     if (icon) return <span className="message-icon">{icon}</span>;

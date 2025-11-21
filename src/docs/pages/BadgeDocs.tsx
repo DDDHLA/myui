@@ -1,5 +1,5 @@
-import React from 'react'
-import { Badge, Avatar, Button } from '@/components'
+
+import { Badge, Avatar } from '@/components'
 import { CodeBlock } from '@/components/CodeBlock'
 import { PropsTable } from '@/components/PropsTable'
 import type { PropItem } from '@/components/PropsTable'
@@ -75,7 +75,7 @@ function App() {
       </Badge>
     </div>
   )
-}`}
+} `}
       >
         <div style={{ display: 'flex', gap: '24px' }}>
           <Badge count={5}>
@@ -109,7 +109,7 @@ function App() {
       </Badge>
     </div>
   )
-}`}
+} `}
       >
         <div style={{ display: 'flex', gap: '24px' }}>
           <Badge count={99}>
@@ -140,7 +140,7 @@ function App() {
       <Badge count={109} style={{ backgroundColor: '#52c41a' }} />
     </div>
   )
-}`}
+} `}
       >
         <div style={{ display: 'flex', gap: '16px' }}>
           <Badge count={25} />
@@ -165,7 +165,7 @@ function App() {
       </Badge>
     </div>
   )
-}`}
+} `}
       >
         <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
           <Badge dot>
@@ -192,7 +192,7 @@ function App() {
       <Badge status="warning" text="Warning" />
     </div>
   )
-}`}
+} `}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <Badge status="success" text="Success" />

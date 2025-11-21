@@ -16,14 +16,12 @@ const TreeSelect = ({
   clearable = false,
   disabled = false,
   loading = false,
-  showCheckedStrategy = 'all',
   defaultExpandAll = false,
   defaultExpandedKeys = [],
   expandedKeys: controlledExpandedKeys,
   onExpand,
   autoExpandParent = true,
   checkStrictly = false,
-  showLine = false,
   showIcon = true,
   filterTreeNode,
   treeNodeFilterProp = 'label',
@@ -38,7 +36,6 @@ const TreeSelect = ({
   onDropdownVisibleChange,
   onSelect,
   notFoundContent = '暂无数据',
-  virtual = false,
   className,
   ...props
 }: TreeSelectProps) => {
@@ -62,7 +59,7 @@ const TreeSelect = ({
     controlledExpandedKeys !== undefined ? controlledExpandedKeys : expandedKeys
 
   // 获取所有节点的扁平化列表
-  const flattenTreeData = useCallback((nodes: TreeNode[], parentKey?: string | number): Map<string | number, TreeNode & { parent?: string | number; level: number }> => {
+  const flattenTreeData = useCallback((nodes: TreeNode[]): Map<string | number, TreeNode & { parent?: string | number; level: number }> => {
     const map = new Map()
     const traverse = (nodes: TreeNode[], level = 0, parentKey?: string | number) => {
       nodes.forEach((node) => {
@@ -124,7 +121,7 @@ const TreeSelect = ({
       const allKeys = Array.from(flatNodes.keys())
       setExpandedKeys(allKeys)
     }
-  }, [defaultExpandAll, flatNodes])
+  }, [defaultExpandAll, flatNodes, currentExpandedKeys.length])
 
   // 搜索过滤
   const filteredTreeData = useMemo(() => {
@@ -136,9 +133,9 @@ const TreeSelect = ({
           const matches = filterTreeNode
             ? filterTreeNode(searchValue, node)
             : node[treeNodeFilterProp as keyof TreeNode]
-                ?.toString()
-                .toLowerCase()
-                .includes(searchValue.toLowerCase())
+              ?.toString()
+              .toLowerCase()
+              .includes(searchValue.toLowerCase())
 
           const filteredChildren = node.children ? filter(node.children) : []
 
@@ -461,7 +458,7 @@ const TreeSelect = ({
 
       const childKeys = getChildKeys(node.key)
       if (childKeys.length === 0) return false;
-      
+
       const checkedChildCount = childKeys.filter((k) => {
         const childNode = flatNodes.get(k)
         return childNode && value.includes(childNode.value)

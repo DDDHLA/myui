@@ -390,7 +390,7 @@ export interface TreeNode {
 }
 
 export interface TreeSelectProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> {
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue' | 'onSelect'> {
   // 基础属性
   value?: string | number | (string | number)[];
   defaultValue?: string | number | (string | number)[];

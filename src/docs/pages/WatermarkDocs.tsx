@@ -1,5 +1,5 @@
 import React from 'react';
-import { Watermark, Button } from '@/components';
+import { Watermark } from '@/components';
 import { CodeBlock } from '@/components/CodeBlock';
 import { PropsTable, type PropItem } from '@/components/PropsTable';
 import { docHeadingStyles, docParagraphStyles } from '@/styles/docStyles';
@@ -45,7 +45,7 @@ const WatermarkDocs = () => {
 </Watermark>`}
       >
         <Watermark text="MyUI">
-          <div style={{...demoContentStyle, height: 300}}>
+          <div style={{ ...demoContentStyle, height: 300 }}>
             <p>这是一段示例文本，水印会覆盖在上方。</p>
             <p>This is some sample content, and the watermark will be overlaid on top.</p>
           </div>
@@ -64,7 +64,7 @@ const WatermarkDocs = () => {
 </Watermark>`}
       >
         <Watermark text={['MyUI', 'Internal Use Only']}>
-          <div style={{...demoContentStyle, height: 300}}>
+          <div style={{ ...demoContentStyle, height: 300 }}>
             <p>这个例子展示了如何创建多行水印。</p>
             <p>This example shows how to create a multi-line watermark.</p>
           </div>
@@ -88,20 +88,20 @@ const WatermarkDocs = () => {
   </div>
 </Watermark>`}
       >
-        <Watermark 
+        <Watermark
           text="Custom Style"
           fontSize={24}
           fontColor="rgba(255, 0, 0, 0.2)"
           rotate={-30}
           gap={[150, 150]}
         >
-          <div style={{...demoContentStyle, height: 300}}>
+          <div style={{ ...demoContentStyle, height: 300 }}>
             <p>这里的水印具有自定义的样式。</p>
             <p>The watermark here has custom styles applied.</p>
           </div>
         </Watermark>
       </CodeBlock>
-      
+
       <div style={{ marginTop: '48px' }}>
         <h2 style={{ ...docHeadingStyles.h2, marginBottom: '24px' }}>API</h2>
         <PropsTable data={watermarkProps} />

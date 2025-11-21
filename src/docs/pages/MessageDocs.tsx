@@ -1,4 +1,3 @@
-import React from 'react'
 import { Message, Button } from '@/components'
 import { CodeBlock } from '@/components/CodeBlock'
 import { PropsTable } from '@/components/PropsTable'

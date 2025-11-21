@@ -1,4 +1,3 @@
-import React from 'react'
 import { Avatar, AvatarGroup } from '@/components'
 import { CodeBlock } from '@/components/CodeBlock'
 import { PropsTable } from '@/components/PropsTable'
@@ -64,7 +63,7 @@ function App() {
       <Avatar style={{ backgroundColor: '#fde3cf', color: '#f56a00' }}>USER</Avatar>
     </div>
   )
-}`}
+} `}
       >
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           <Avatar src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" />
@@ -88,7 +87,7 @@ function App() {
       <Avatar size="xl" icon={<span>XL</span>} />
     </div>
   )
-}`}
+} `}
       >
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           <Avatar size="sm" icon={<span>S</span>} />
@@ -110,7 +109,7 @@ function App() {
       <Avatar shape="square" icon={<span>S</span>} />
     </div>
   )
-}`}
+} `}
       >
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           <Avatar shape="circle" icon={<span>C</span>} />
@@ -132,7 +131,7 @@ function App() {
       <Avatar style={{ backgroundColor: '#87d068' }}>B</Avatar>
     </AvatarGroup>
   )
-}`}
+} `}
       >
         <AvatarGroup>
           <Avatar src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" />
