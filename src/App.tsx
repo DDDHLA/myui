@@ -3,11 +3,12 @@ import { ThemeProvider, Button, Input, Card, useTheme } from './components'
 import { docLayoutStyles, docHeadingStyles } from './styles/docStyles'
 import './styles/globals.css'
 import CardDemo from './CardDemo'
+import MessageDemo from './components/Message/MessageDemo'
 
 // 主题切换按钮组件
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
-  
+
   return (
     <Button
       variant="outline"
@@ -46,6 +47,7 @@ function ComponentShowcase() {
   const [inputValue, setInputValue] = React.useState('')
   const [loading, setLoading] = React.useState(false)
   const [showCardDemo, setShowCardDemo] = React.useState(false)
+  const [showMessageDemo, setShowMessageDemo] = React.useState(false)
 
   const handleLoadingDemo = () => {
     setLoading(true)
@@ -61,6 +63,19 @@ function ComponentShowcase() {
           </Button>
         </div>
         <CardDemo />
+      </>
+    )
+  }
+
+  if (showMessageDemo) {
+    return (
+      <>
+        <div style={{ padding: '1rem', position: 'fixed', top: 0, right: 0, zIndex: 1000 }}>
+          <Button onClick={() => setShowMessageDemo(false)} variant="outline">
+            返回组件展示
+          </Button>
+        </div>
+        <MessageDemo />
       </>
     )
   }
@@ -85,26 +100,26 @@ function ComponentShowcase() {
             <Button variant="danger">危险按钮</Button>
             <Button variant="info">信息按钮</Button>
           </div>
-          
+
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
             <Button variant="outline">轮廓按钮</Button>
             <Button variant="ghost">幽灵按钮</Button>
             <Button variant="link">链接按钮</Button>
           </div>
-          
+
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
             <Button size="sm">小按钮</Button>
             <Button size="md">中按钮</Button>
             <Button size="lg">大按钮</Button>
           </div>
-          
+
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
             <Button
               loading={loading}
               onClick={handleLoadingDemo}
               leftIcon={
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2v6m0 8v6m8-10h-6m-8 0H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M12 2v6m0 8v6m8-10h-6m-8 0H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               }
             >
@@ -124,44 +139,44 @@ function ComponentShowcase() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            
+
             <Input
               label="带图标的输入框"
               placeholder="搜索..."
               leftIcon={
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"/>
-                  <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2" />
+                  <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2" />
                 </svg>
               }
             />
-            
+
             <Input
               label="密码输入框"
               type="password"
               placeholder="请输入密码"
               rightIcon={
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" strokeWidth="2" />
+                  <circle cx="12" cy="16" r="1" fill="currentColor" />
                 </svg>
               }
             />
-            
+
             <Input
               label="错误状态"
               placeholder="输入有误"
               error
               helperText="这是一个错误提示信息"
             />
-            
+
             <Input
               label="禁用状态"
               placeholder="禁用输入框"
               disabled
               helperText="这个输入框已被禁用"
             />
-            
+
             <div style={{ display: 'flex', gap: '1rem' }}>
               <Input size="sm" placeholder="小尺寸" />
               <Input size="md" placeholder="中尺寸" />
@@ -177,18 +192,18 @@ function ComponentShowcase() {
               <h3>默认卡片</h3>
               <p>这是一个默认样式的卡片组件，没有边框和阴影。</p>
             </Card>
-            
+
             <Card variant="outlined">
               <h3>轮廓卡片</h3>
               <p>这是一个带边框的卡片组件，适合在浅色背景上使用。</p>
             </Card>
-            
+
             <Card variant="elevated">
               <h3>阴影卡片</h3>
               <p>这是一个带阴影的卡片组件，悬停时会有动画效果。</p>
             </Card>
           </div>
-          
+
           <div style={{ marginTop: '2rem' }}>
             <Card
               variant="outlined"
@@ -211,18 +226,21 @@ function ComponentShowcase() {
           </div>
         </Card>
       </div>
-      
+
       <h1 style={docHeadingStyles.h1}>MyUI 组件库示例</h1>
       <p style={{ marginBottom: '2rem', color: 'var(--text-secondary)' }}>
         一个现代化的 React 组件库，支持主题切换和 TypeScript
       </p>
-      
+
       <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem' }}>
         <Button onClick={() => setShowCardDemo(true)} variant="primary">
           查看完整Card组件演示
         </Button>
+        <Button onClick={() => setShowMessageDemo(true)} variant="primary">
+          查看Message组件演示
+        </Button>
       </div>
-      
+
       <div style={{ marginTop: '3rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
         <p>🎉 MyUI 组件库 v1.0.0 - 现代化的 React 组件库</p>
         <p>支持 TypeScript、主题切换、响应式设计</p>

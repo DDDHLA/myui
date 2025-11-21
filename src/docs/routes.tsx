@@ -13,7 +13,11 @@ import {
   TabsDocs,
   SwitchDocs,
   SliderDocs,
-  CalendarDocs
+  CalendarDocs,
+  MessageDocs,
+  AvatarDocs,
+  BadgeDocs,
+  TagDocs
 } from './pages'
 
 // 路由配置
@@ -77,5 +81,21 @@ export const routes: RouteObject[] = [
   {
     path: '/calendar',
     element: <CalendarDocs />
+  },
+  {
+    path: '/message',
+    element: <MessageDocs />
+  },
+  {
+    path: '/avatar',
+    element: <AvatarDocs />
+  },
+  {
+    path: '/badge',
+    element: <BadgeDocs />
+  },
+  {
+    path: '/tag',
+    element: <TagDocs />
   }
 ]

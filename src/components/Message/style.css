@@ -1,0 +1,122 @@
+/* Message Component Styles */
+.message-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none; /* Allow clicking through the container area */
+}
+
+.message {
+  pointer-events: auto; /* Re-enable pointer events for the message itself */
+  padding: 10px 16px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: message-slide-in 0.3s forwards;
+}
+
+.message.message-leaving {
+  animation: message-fade-out 0.3s forwards;
+}
+
+@keyframes message-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes message-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
+    margin-bottom: 10px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* Types */
+.message-success {
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+}
+.message-success .message-icon {
+  color: #52c41a;
+}
+
+.message-error {
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+}
+.message-error .message-icon {
+  color: #ff4d4f;
+}
+
+.message-warning {
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+}
+.message-warning .message-icon {
+  color: #faad14;
+}
+
+.message-info {
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+}
+.message-info .message-icon {
+  color: #1890ff;
+}
+
+/* Dark Mode Support */
+[data-theme='dark'] .message {
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme='dark'] .message-success {
+  background-color: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+[data-theme='dark'] .message-error {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+[data-theme='dark'] .message-warning {
+  background-color: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+[data-theme='dark'] .message-info {
+  background-color: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.3);
+}

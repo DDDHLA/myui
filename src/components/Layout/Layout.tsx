@@ -23,13 +23,13 @@ interface HeaderProps {
 // 主题切换按钮组件
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
-  
+
   const handleClick = () => {
     console.log('主题切换前:', theme)
     toggleTheme()
     console.log('主题切换后:', theme === 'light' ? 'dark' : 'light')
   }
-  
+
   return (
     <button
       onClick={handleClick}
@@ -79,12 +79,12 @@ function Header({ onMenuToggle }: HeaderProps) {
   return (
     <header className="myui-layout-header">
       <div className="myui-layout-header__content">
-        <button 
+        <button
           className="myui-layout-header__menu-btn"
           onClick={onMenuToggle}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
         <div className="myui-layout-header__brand">
@@ -136,14 +136,18 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Card 卡片', key: 'card' },
         { title: 'Table 表格', key: 'table' },
         { title: 'Tabs 标签页', key: 'tabs' },
-        { title: 'Calendar 日历', key: 'calendar' }
+        { title: 'Calendar 日历', key: 'calendar' },
+        { title: 'Avatar 头像', key: 'avatar' },
+        { title: 'Badge 徽标数', key: 'badge' },
+        { title: 'Tag 标签', key: 'tag' }
       ]
     },
     {
       title: '反馈',
       key: 'feedback',
       items: [
-        { title: 'Modal 弹窗', key: 'modal' }
+        { title: 'Modal 弹窗', key: 'modal' },
+        { title: 'Message 全局提示', key: 'message' }
       ]
     }
   ]
@@ -171,7 +175,7 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
               <ul className="myui-layout-sidebar__menu">
                 {section.items.map(item => (
                   <li key={item.key}>
-                    <button 
+                    <button
                       className={cn('myui-layout-sidebar__menu-item', {
                         'myui-layout-sidebar__menu-item--active': currentPage === item.key
                       })}
@@ -229,7 +233,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
 
   // 判断是否为移动端
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
-  
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768)
@@ -243,15 +247,15 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
       <Header onMenuToggle={toggleSidebar} />
       <div className="myui-layout__body">
         {isMobile && (
-          <div 
+          <div
             className={cn('myui-layout-overlay', {
               'myui-layout-overlay--visible': !sidebarCollapsed
             })}
             onClick={handleOverlayClick}
           />
         )}
-        <Sidebar 
-          collapsed={sidebarCollapsed} 
+        <Sidebar
+          collapsed={sidebarCollapsed}
           onToggle={toggleSidebar}
           currentPage={currentPage}
           onPageChange={onPageChange}

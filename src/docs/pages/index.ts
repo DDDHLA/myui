@@ -12,4 +12,8 @@ export { default as TabsDocs } from "./TabsDocs";
 export { default as SwitchDocs } from "./SwitchDocs";
 export { default as SliderDocs } from "./SliderDocs";
 export { default as CalendarDocs } from "./CalendarDocs";
+export { default as MessageDocs } from "./MessageDocs";
+export { default as AvatarDocs } from "./AvatarDocs";
+export { default as BadgeDocs } from "./BadgeDocs";
+export { default as TagDocs } from "./TagDocs";
 export { default as ComingSoonPage } from "./ComingSoonPage";

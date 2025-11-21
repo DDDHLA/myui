@@ -10,10 +10,16 @@ import "./Tabs/Tabs.css";
 import "./Switch/Switch.css";
 import "./Slider/Slider.css";
 import "./Calendar/Calendar.css";
+import "./Avatar/style.css";
+import "./Badge/style.css";
+import "./Tag/style.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
 export { Input, type InputProps } from "./Input";
+export { default as Message } from './Message';
+
+
 export {
   Card,
   CardHeader,
@@ -49,6 +55,9 @@ export {
   type CalendarView,
 } from "./Calendar";
 export { ThemeProvider, useTheme, type Theme } from "./ThemeProvider";
+export { Avatar, AvatarGroup, type AvatarProps, type AvatarGroupProps } from "./Avatar";
+export { Badge, type BadgeProps } from "./Badge";
+export { Tag, type TagProps } from "./Tag";
 
 // 导出 Hooks
 export * from "@/hooks";
