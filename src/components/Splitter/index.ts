@@ -1,0 +1,1 @@
+export { default as Splitter, SplitterPanel, type SplitterProps, type SplitterPanelProps } from './Splitter';

@@ -22,7 +22,9 @@ import {
   TransferDocs,
   TooltipDocs,
   WatermarkDocs,
-  DrawerDocs
+  DrawerDocs,
+  SplitterDocs,
+  StepsDocs
 } from './pages'
 
 // 路由配置
@@ -88,6 +90,10 @@ export const routes: RouteObject[] = [
     element: <SliderDocs />
   },
   {
+    path: '/splitter',
+    element: <SplitterDocs />
+  },
+  {
     path: '/calendar',
     element: <CalendarDocs />
   },
@@ -122,5 +128,9 @@ export const routes: RouteObject[] = [
   {
     path: '/drawer',
     element: <DrawerDocs />
+  },
+  {
+    path: '/steps',
+    element: <StepsDocs />
   }
 ]

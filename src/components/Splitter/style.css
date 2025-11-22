@@ -1,0 +1,134 @@
+/* src/components/Splitter/style.css */
+.splitter-container {
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.splitter-container.horizontal {
+  flex-direction: row;
+}
+
+.splitter-container.vertical {
+  flex-direction: column;
+}
+
+.splitter-panel {
+  flex-grow: 0;
+  flex-shrink: 0;
+  overflow: auto; /* Allow content to scroll */
+}
+
+.splitter-panel.collapsible {
+  overflow: hidden; /* Hide content when collapsed */
+}
+
+.splitter-divider {
+  flex-shrink: 0;
+  background-color: #e8e8e8; /* 更明显的分隔条颜色 */
+  position: relative;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitter-divider:hover {
+  background-color: #d0d0d0;
+}
+
+.splitter-container.horizontal > .splitter-divider {
+  width: 12px; /* 增加分隔条宽度 */
+  cursor: ew-resize;
+}
+
+.splitter-container.vertical > .splitter-divider {
+  height: 12px; /* 增加分隔条高度 */
+  cursor: ns-resize;
+}
+
+.splitter-divider-handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splitter-divider-handle::before {
+  content: '';
+  background-color: #ccc;
+  border-radius: 2px;
+}
+
+.splitter-container.horizontal .splitter-divider-handle::before {
+  width: 2px;
+  height: 24px;
+}
+
+.splitter-container.vertical .splitter-divider-handle::before {
+  width: 24px;
+  height: 2px;
+}
+
+/* Optional: Add active state for divider when dragging */
+.splitter-divider.active {
+  background-color: #c0c0c0;
+}
+
+.splitter-collapse-button {
+  position: absolute;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  padding: 4px;
+  z-index: 1; /* Ensure button is above divider handle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  color: #333;
+}
+
+.splitter-collapse-button:hover {
+  background-color: #e0e0e0;
+  border-color: #999;
+  color: #000;
+}
+
+/* Position for horizontal splitter buttons */
+.splitter-container.horizontal > .splitter-divider .splitter-collapse-button {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.splitter-container.horizontal > .splitter-divider .splitter-collapse-button:first-of-type {
+  left: 2px; /* Position for the left panel's collapse button */
+}
+
+.splitter-container.horizontal > .splitter-divider .splitter-collapse-button.right {
+  right: 2px; /* Position for the right panel's collapse button */
+  left: auto;
+}
+
+/* Position for vertical splitter buttons */
+.splitter-container.vertical > .splitter-divider .splitter-collapse-button {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.splitter-container.vertical > .splitter-divider .splitter-collapse-button:first-of-type {
+  top: 2px; /* Position for the top panel's collapse button */
+}
+
+.splitter-container.vertical > .splitter-divider .splitter-collapse-button.right {
+  bottom: 2px; /* Position for the bottom panel's collapse button (using 'right' class for consistency) */
+  top: auto;
+}

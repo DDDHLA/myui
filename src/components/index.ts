@@ -18,6 +18,8 @@ import "./TreeSelect/TreeSelect.css";
 import "./Tooltip/style.css";
 import "./Watermark/style.css";
 import "./Drawer/style.css";
+import "./Splitter/style.css";
+import "./Steps/style.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -51,6 +53,7 @@ export {
 export { Tabs, type TabsProps, type TabItem } from "./Tabs";
 export { Switch, type SwitchProps } from "./Switch";
 export { Slider, type SliderProps, type SliderMark } from "./Slider";
+export { Splitter, SplitterPanel, type SplitterProps, type SplitterPanelProps } from "./Splitter";
 export {
   Calendar,
   type CalendarProps,
@@ -68,6 +71,7 @@ export { Transfer, type TransferProps, type TransferItem } from "./Transfer";
 export { Tooltip, type TooltipProps, type TooltipPlacement } from "./Tooltip";
 export { Watermark, type WatermarkProps } from "./Watermark";
 export { Drawer, type DrawerProps } from "./Drawer";
+export { Steps, type StepsProps, type StepItem, type StepStatus } from "./Steps";
 
 // 导出 Hooks
 export * from "@/hooks";

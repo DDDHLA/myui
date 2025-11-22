@@ -131,18 +131,25 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Transfer 穿梭框', key: 'transfer' }
       ]
     },
-    {
-      title: '数据展示',
-      key: 'data-display',
-      items: [
-        { title: 'Card 卡片', key: 'card' },
-        { title: 'Table 表格', key: 'table' },
-        { title: 'Tabs 标签页', key: 'tabs' },
+            {
+              title: '数据展示',
+              key: 'data-display',
+              items: [
+                { title: 'Card 卡片', key: 'card' },
+                { title: 'Splitter 分隔面板', key: 'splitter' },
+                { title: 'Table 表格', key: 'table' },        { title: 'Tabs 标签页', key: 'tabs' },
         { title: 'Calendar 日历', key: 'calendar' },
         { title: 'Avatar 头像', key: 'avatar' },
         { title: 'Badge 徽标数', key: 'badge' },
         { title: 'Tag 标签', key: 'tag' },
         { title: 'Watermark 水印', key: 'watermark' }
+      ]
+    },
+    {
+      title: '导航',
+      key: 'navigation',
+      items: [
+        { title: 'Steps 步骤条', key: 'steps' }
       ]
     },
     {
