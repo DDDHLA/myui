@@ -1,0 +1,292 @@
+/* Pagination 分页组件样式 */
+
+.myui-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  user-select: none;
+  color: var(--text-primary);
+}
+
+/* 对齐方式 */
+.myui-pagination-align-left {
+  justify-content: flex-start;
+}
+
+.myui-pagination-align-center {
+  justify-content: center;
+}
+
+.myui-pagination-align-right {
+  justify-content: flex-end;
+}
+
+/* 尺寸 */
+.myui-pagination-small {
+  font-size: 12px;
+}
+
+.myui-pagination-small .myui-pagination-item,
+.myui-pagination-small .myui-pagination-prev,
+.myui-pagination-small .myui-pagination-next {
+  min-width: 24px;
+  height: 24px;
+  line-height: 22px;
+  font-size: 12px;
+}
+
+.myui-pagination-small .myui-pagination-quick-jumper-input,
+.myui-pagination-small .myui-pagination-size-changer {
+  height: 24px;
+  font-size: 12px;
+}
+
+/* 总数显示 */
+.myui-pagination-total {
+  color: var(--text-secondary);
+  margin-right: 8px;
+}
+
+/* 分页列表 */
+.myui-pagination-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.myui-pagination-item-wrapper {
+  display: inline-block;
+}
+
+/* 分页项通用样式 */
+.myui-pagination-item,
+.myui-pagination-prev,
+.myui-pagination-next {
+  min-width: 32px;
+  height: 32px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.myui-pagination-item:hover:not(:disabled):not(.myui-pagination-item-active),
+.myui-pagination-prev:hover:not(:disabled),
+.myui-pagination-next:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.myui-pagination-item:active:not(:disabled),
+.myui-pagination-prev:active:not(:disabled),
+.myui-pagination-next:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+/* 当前页 */
+.myui-pagination-item-active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--font-weight-medium);
+  cursor: default;
+}
+
+/* 禁用状态 */
+.myui-pagination-item:disabled,
+.myui-pagination-prev:disabled,
+.myui-pagination-next:disabled,
+.myui-pagination-item-disabled {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.myui-pagination-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* 跳转项 */
+.myui-pagination-jump {
+  position: relative;
+}
+
+.myui-pagination-item-ellipsis {
+  display: inline-block;
+  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  user-select: none;
+}
+
+.myui-pagination-item-link-icon {
+  display: none;
+  font-size: 12px;
+}
+
+.myui-pagination-jump:hover .myui-pagination-item-ellipsis {
+  display: none;
+}
+
+.myui-pagination-jump:hover .myui-pagination-item-link-icon {
+  display: inline-block;
+}
+
+/* 简单分页 */
+.myui-pagination-simple .myui-pagination-list {
+  gap: 8px;
+}
+
+.myui-pagination-simple .myui-pagination-prev,
+.myui-pagination-simple .myui-pagination-next {
+  padding: 0 12px;
+  min-width: auto;
+}
+
+.myui-pagination-simple-pager {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.myui-pagination-simple-input {
+  width: 50px;
+  height: 32px;
+  padding: 4px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  text-align: center;
+  font-size: 14px;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.myui-pagination-simple-input:hover {
+  border-color: var(--color-primary);
+}
+
+.myui-pagination-simple-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.myui-pagination-simple-input:disabled {
+  background-color: var(--bg-secondary);
+  cursor: not-allowed;
+}
+
+.myui-pagination-slash,
+.myui-pagination-total-page {
+  color: var(--text-secondary);
+}
+
+/* 每页条数选择器 */
+.myui-pagination-options {
+  display: flex;
+  align-items: center;
+}
+
+.myui-pagination-size-changer {
+  height: 32px;
+  padding: 4px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.myui-pagination-size-changer:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.myui-pagination-size-changer:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.myui-pagination-size-changer:disabled {
+  background-color: var(--bg-secondary);
+  cursor: not-allowed;
+}
+
+/* 快速跳转 */
+.myui-pagination-quick-jumper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.myui-pagination-quick-jumper-input {
+  width: 50px;
+  height: 32px;
+  padding: 4px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  text-align: center;
+  font-size: 14px;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.myui-pagination-quick-jumper-input:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.myui-pagination-quick-jumper-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.myui-pagination-quick-jumper-input:disabled {
+  background-color: var(--bg-secondary);
+  cursor: not-allowed;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .myui-pagination {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .myui-pagination-total {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .myui-pagination-item,
+  .myui-pagination-prev,
+  .myui-pagination-next {
+    min-width: 28px;
+    height: 28px;
+    line-height: 26px;
+    font-size: 12px;
+  }
+
+  .myui-pagination-quick-jumper,
+  .myui-pagination-options {
+    margin-top: 8px;
+  }
+}

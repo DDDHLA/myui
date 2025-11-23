@@ -1,0 +1,199 @@
+/* Dropdown 容器 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.dropdown__trigger {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropdown__trigger:hover {
+  opacity: 0.85;
+}
+
+.dropdown--disabled .dropdown__trigger {
+  cursor: not-allowed;
+}
+
+/* 下拉菜单 */
+.dropdown-menu {
+  position: absolute;
+  z-index: 1050;
+  min-width: 180px;
+  padding: 8px 0;
+  margin: 8px 0;
+  background-color: var(--dropdown-bg, #fff);
+  border: 1px solid var(--dropdown-border-color, #e5e7eb);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.04);
+  animation: dropdownSlideIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+/* 位置变体 */
+.dropdown-menu--bottom,
+.dropdown-menu--bottomLeft {
+  top: 100%;
+  left: 0;
+  transform-origin: top left;
+}
+
+.dropdown-menu--bottomRight {
+  top: 100%;
+  right: 0;
+  transform-origin: top right;
+}
+
+.dropdown-menu--top,
+.dropdown-menu--topLeft {
+  bottom: 100%;
+  left: 0;
+  transform-origin: bottom left;
+}
+
+.dropdown-menu--topRight {
+  bottom: 100%;
+  right: 0;
+  transform-origin: bottom right;
+}
+
+/* 菜单项 */
+.dropdown-menu__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  margin: 0 4px;
+  font-size: 14px;
+  color: var(--dropdown-item-color, rgba(0, 0, 0, 0.88));
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  border-radius: 8px;
+}
+
+.dropdown-menu__item:hover:not(.dropdown-menu__item--disabled) {
+  background-color: var(--dropdown-item-hover-bg, #f5f7fa);
+  transform: translateX(2px);
+}
+
+.dropdown-menu__item:active:not(.dropdown-menu__item--disabled) {
+  background-color: var(--dropdown-item-active-bg, #e9ecef);
+  transform: scale(0.98);
+}
+
+.dropdown-menu__item--disabled {
+  color: var(--dropdown-item-disabled-color, #bbb);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.dropdown-menu__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 16px;
+  color: var(--dropdown-icon-color, rgba(0, 0, 0, 0.65));
+}
+
+.dropdown-menu__item:hover:not(.dropdown-menu__item--disabled) .dropdown-menu__item-icon {
+  color: var(--dropdown-icon-hover-color, rgba(0, 0, 0, 0.88));
+}
+
+.dropdown-menu__item-label {
+  flex: 1;
+  font-weight: 400;
+}
+
+.dropdown-menu__item-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  color: var(--dropdown-arrow-color, #aaa);
+  transition: transform 0.2s ease;
+}
+
+.dropdown-menu__item:hover .dropdown-menu__item-arrow {
+  transform: translateX(2px);
+}
+
+/* 分割线 */
+.dropdown-menu__divider {
+  height: 1px;
+  margin: 8px 12px;
+  background-color: var(--dropdown-divider-color, #e5e7eb);
+}
+
+/* 子菜单 */
+.dropdown-menu__item--has-children {
+  position: relative;
+}
+
+.dropdown-menu--submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: -4px;
+  margin-left: 8px;
+}
+
+.dropdown-menu__item--has-children:hover > .dropdown-menu--submenu {
+  display: block;
+}
+
+/* 动画 */
+@keyframes dropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Top placement animation */
+.dropdown-menu--top,
+.dropdown-menu--topLeft,
+.dropdown-menu--topRight {
+  animation: dropdownSlideInTop 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes dropdownSlideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .dropdown-menu {
+    --dropdown-bg: rgba(31, 31, 31, 0.95);
+    --dropdown-border-color: #434343;
+    --dropdown-item-color: rgba(255, 255, 255, 0.88);
+    --dropdown-item-hover-bg: rgba(255, 255, 255, 0.08);
+    --dropdown-item-active-bg: rgba(255, 255, 255, 0.12);
+    --dropdown-item-disabled-color: #666;
+    --dropdown-divider-color: #434343;
+    --dropdown-icon-color: rgba(255, 255, 255, 0.65);
+    --dropdown-icon-hover-color: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+}

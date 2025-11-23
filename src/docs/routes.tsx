@@ -24,7 +24,13 @@ import {
   WatermarkDocs,
   DrawerDocs,
   SplitterDocs,
-  StepsDocs
+  StepsDocs,
+  PaginationDocs,
+  CheckboxDocs,
+  RadioDocs,
+  DropdownDocs,
+  AlertDocs,
+  ProgressDocs
 } from './pages'
 
 // 路由配置
@@ -132,5 +138,29 @@ export const routes: RouteObject[] = [
   {
     path: '/steps',
     element: <StepsDocs />
+  },
+  {
+    path: '/pagination',
+    element: <PaginationDocs />
+  },
+  {
+    path: '/checkbox',
+    element: <CheckboxDocs />
+  },
+  {
+    path: '/radio',
+    element: <RadioDocs />
+  },
+  {
+    path: '/dropdown',
+    element: <DropdownDocs />
+  },
+  {
+    path: '/alert',
+    element: <AlertDocs />
+  },
+  {
+    path: '/progress',
+    element: <ProgressDocs />
   }
 ]

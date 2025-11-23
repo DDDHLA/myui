@@ -124,6 +124,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       key: 'data-entry',
       items: [
         { title: 'Input 输入框', key: 'input' },
+        { title: 'Checkbox 复选框', key: 'checkbox' },
+        { title: 'Radio 单选框', key: 'radio' },
         { title: 'Select 选择器', key: 'select' },
         { title: 'TreeSelect 树选择', key: 'tree-select' },
         { title: 'Switch 开关', key: 'switch' },
@@ -149,17 +151,21 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       title: '导航',
       key: 'navigation',
       items: [
-        { title: 'Steps 步骤条', key: 'steps' }
+        { title: 'Dropdown 下拉菜单', key: 'dropdown' },
+        { title: 'Steps 步骤条', key: 'steps' },
+        { title: 'Pagination 分页', key: 'pagination' }
       ]
     },
     {
       title: '反馈',
       key: 'feedback',
       items: [
+        { title: 'Alert 警告提示', key: 'alert' },
         { title: 'Modal 弹窗', key: 'modal' },
         { title: 'Message 全局提示', key: 'message' },
         { title: 'Tooltip 文字提示', key: 'tooltip' },
-        { title: 'Drawer 抽屉', key: 'drawer' }
+        { title: 'Drawer 抽屉', key: 'drawer' },
+        { title: 'Progress 进度条', key: 'progress' }
       ]
     }
   ]

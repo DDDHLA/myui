@@ -1,0 +1,250 @@
+/* Alert 基础样式 */
+.alert {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: alertSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert--borderless {
+  border: none;
+}
+
+/* 图标容器 */
+.alert__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+/* 内容区域 */
+.alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert__title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: inherit;
+  line-height: 1.4;
+}
+
+.alert__message {
+  color: inherit;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* 操作区域 */
+.alert__action {
+  flex-shrink: 0;
+  margin-left: auto;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+/* 关闭按钮 */
+.alert__close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-left: 8px;
+  margin-top: -2px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.45;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert__close:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.08);
+  transform: scale(1.1);
+}
+
+.alert__close:active {
+  transform: scale(0.95);
+}
+
+/* Success 类型 */
+.alert--success {
+  background-color: #f6ffed;
+  border-color: #b7eb8f;
+  color: #52c41a;
+}
+
+.alert--success .alert__title {
+  color: #389e0d;
+}
+
+.alert--success .alert__message {
+  color: #135200;
+}
+
+.alert--success .alert__close:hover {
+  background-color: rgba(82, 196, 26, 0.12);
+}
+
+/* Info 类型 */
+.alert--info {
+  background-color: #e6f7ff;
+  border-color: #91d5ff;
+  color: #1890ff;
+}
+
+.alert--info .alert__title {
+  color: #096dd9;
+}
+
+.alert--info .alert__message {
+  color: #003a8c;
+}
+
+.alert--info .alert__close:hover {
+  background-color: rgba(24, 144, 255, 0.12);
+}
+
+/* Warning 类型 */
+.alert--warning {
+  background-color: #fffbe6;
+  border-color: #ffe58f;
+  color: #faad14;
+}
+
+.alert--warning .alert__title {
+  color: #d48806;
+}
+
+.alert--warning .alert__message {
+  color: #613400;
+}
+
+.alert--warning .alert__close:hover {
+  background-color: rgba(250, 173, 20, 0.12);
+}
+
+/* Error 类型 */
+.alert--error {
+  background-color: #fff2f0;
+  border-color: #ffccc7;
+  color: #ff4d4f;
+}
+
+.alert--error .alert__title {
+  color: #cf1322;
+}
+
+.alert--error .alert__message {
+  color: #a8071a;
+}
+
+.alert--error .alert__close:hover {
+  background-color: rgba(255, 77, 79, 0.12);
+}
+
+/* 无边框样式 */
+.alert--borderless.alert--success {
+  background-color: rgba(82, 196, 26, 0.06);
+}
+
+.alert--borderless.alert--info {
+  background-color: rgba(24, 144, 255, 0.06);
+}
+
+.alert--borderless.alert--warning {
+  background-color: rgba(250, 173, 20, 0.06);
+}
+
+.alert--borderless.alert--error {
+  background-color: rgba(255, 77, 79, 0.06);
+}
+
+/* 动画 */
+@keyframes alertSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .alert--success {
+    background-color: rgba(82, 196, 26, 0.15);
+    border-color: rgba(82, 196, 26, 0.35);
+  }
+
+  .alert--success .alert__title {
+    color: #73d13d;
+  }
+
+  .alert--success .alert__message {
+    color: #95de64;
+  }
+
+  .alert--info {
+    background-color: rgba(24, 144, 255, 0.15);
+    border-color: rgba(24, 144, 255, 0.35);
+  }
+
+  .alert--info .alert__title {
+    color: #40a9ff;
+  }
+
+  .alert--info .alert__message {
+    color: #69c0ff;
+  }
+
+  .alert--warning {
+    background-color: rgba(250, 173, 20, 0.15);
+    border-color: rgba(250, 173, 20, 0.35);
+  }
+
+  .alert--warning .alert__title {
+    color: #ffc53d;
+  }
+
+  .alert--warning .alert__message {
+    color: #ffd666;
+  }
+
+  .alert--error {
+    background-color: rgba(255, 77, 79, 0.15);
+    border-color: rgba(255, 77, 79, 0.35);
+  }
+
+  .alert--error .alert__title {
+    color: #ff7875;
+  }
+
+  .alert--error .alert__message {
+    color: #ffa39e;
+  }
+
+  .alert__close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
