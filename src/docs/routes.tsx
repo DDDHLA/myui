@@ -30,7 +30,9 @@ import {
   RadioDocs,
   DropdownDocs,
   AlertDocs,
-  ProgressDocs
+  ProgressDocs,
+  BreadcrumbDocs,
+  MenuDocs
 } from './pages'
 
 // 路由配置
@@ -162,5 +164,13 @@ export const routes: RouteObject[] = [
   {
     path: '/progress',
     element: <ProgressDocs />
+  },
+  {
+    path: '/breadcrumb',
+    element: <BreadcrumbDocs />
+  },
+  {
+    path: '/menu',
+    element: <MenuDocs />
   }
 ]

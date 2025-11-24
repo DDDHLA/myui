@@ -29,4 +29,6 @@ export { default as RadioDocs } from "./RadioDocs";
 export { default as DropdownDocs } from "./DropdownDocs";
 export { default as AlertDocs } from "./AlertDocs";
 export { default as ProgressDocs } from "./ProgressDocs";
+export { default as BreadcrumbDocs } from "./BreadcrumbDocs";
+export { default as MenuDocs } from "./MenuDocs";
 export { default as ComingSoonPage } from "./ComingSoonPage";

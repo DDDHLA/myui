@@ -26,6 +26,8 @@ import "./Radio/style.css";
 import "./Dropdown/style.css";
 import "./Alert/style.css";
 import "./Progress/style.css";
+import "./Breadcrumb/style.css";
+import "./Menu/style.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -84,6 +86,8 @@ export { Radio, RadioGroup, type RadioProps, type RadioGroupProps } from "./Radi
 export { Dropdown, type DropdownProps, type DropdownMenuItem } from "./Dropdown";
 export { Alert, type AlertProps } from "./Alert";
 export { Progress, type ProgressProps } from "./Progress";
+export { Breadcrumb, type BreadcrumbProps, type BreadcrumbItem } from "./Breadcrumb";
+export { Menu, type MenuProps, type MenuItem, type MenuMode } from "./Menu";
 
 // 导出 Hooks
 export * from "@/hooks";

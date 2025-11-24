@@ -151,6 +151,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
       title: '导航',
       key: 'navigation',
       items: [
+        { title: 'Breadcrumb 面包屑', key: 'breadcrumb' },
+        { title: 'Menu 菜单', key: 'menu' },
         { title: 'Dropdown 下拉菜单', key: 'dropdown' },
         { title: 'Steps 步骤条', key: 'steps' },
         { title: 'Pagination 分页', key: 'pagination' }
