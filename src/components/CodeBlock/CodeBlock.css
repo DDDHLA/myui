@@ -28,10 +28,11 @@
 }
 
 .myui-code-block__demo {
-  padding: 24px 20px;
+  padding: 32px 20px;
+  min-height: 120px;
   background-color: var(--bg-secondary, #f9fafb);
   border-bottom: 1px solid var(--border-color, #e5e7eb);
-  overflow-x: auto;
+  overflow: visible;
   word-wrap: break-word;
 }
 
@@ -72,7 +73,14 @@
 .myui-code-block__pre {
   margin: 0;
   padding: 20px;
-  font-family: var(--font-family-mono, 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', monospace);
+  font-family: var(
+    --font-family-mono,
+    "SF Mono",
+    Monaco,
+    Inconsolata,
+    "Roboto Mono",
+    monospace
+  );
   font-size: var(--font-size-sm, 0.875rem);
   line-height: var(--line-height-relaxed, 1.75);
   color: #e5e7eb;
@@ -164,32 +172,32 @@
     border-left: none;
     border-right: none;
   }
-  
+
   .myui-code-block__demo {
     padding: 16px;
     overflow-x: auto;
   }
-  
+
   .myui-code-block__demo > * {
     max-width: 100%;
     overflow-x: auto;
   }
-  
+
   .myui-code-block__actions {
     padding: 8px 16px;
     flex-wrap: wrap;
   }
-  
+
   .myui-code-block__pre {
     padding: 16px;
     font-size: var(--font-size-xs, 0.75rem);
     overflow-x: auto;
   }
-  
+
   .myui-code-block__header {
     padding: 12px 16px;
   }
-  
+
   .myui-code-block__title {
     font-size: var(--font-size-base, 1rem);
   }

@@ -1,23 +1,15 @@
-import React from 'react';
-import { Dropdown, Button, type DropdownMenuItem } from '@/components';
-import CodeBlock from '@/components/CodeBlock';
-import PropsTable from '@/components/PropsTable';
+import { Dropdown, Button, type DropdownMenuItem } from '@/components'
+import { CodeBlock } from '@/components/CodeBlock'
+import { PropsTable } from '@/components/PropsTable'
+import type { PropItem } from '@/components/PropsTable'
+import { docHeadingStyles, docParagraphStyles } from '@/styles/docStyles'
 
-const DropdownDocs: React.FC = () => {
+const DropdownDocs = () => {
   const basicMenu: DropdownMenuItem[] = [
-    {
-      key: '1',
-      label: '菜单项 1',
-    },
-    {
-      key: '2',
-      label: '菜单项 2',
-    },
-    {
-      key: '3',
-      label: '菜单项 3',
-    },
-  ];
+    { key: '1', label: '菜单项 1' },
+    { key: '2', label: '菜单项 2' },
+    { key: '3', label: '菜单项 3' }
+  ]
 
   const menuWithIcons: DropdownMenuItem[] = [
     {
@@ -38,7 +30,7 @@ const DropdownDocs: React.FC = () => {
             strokeLinecap="round"
           />
         </svg>
-      ),
+      )
     },
     {
       key: 'copy',
@@ -52,12 +44,12 @@ const DropdownDocs: React.FC = () => {
             strokeWidth="2"
           />
         </svg>
-      ),
+      )
     },
     {
       key: 'divider-1',
       label: '',
-      divider: true,
+      divider: true
     },
     {
       key: 'delete',
@@ -71,335 +63,332 @@ const DropdownDocs: React.FC = () => {
             strokeLinecap="round"
           />
         </svg>
-      ),
-    },
-  ];
+      )
+    }
+  ]
 
   const menuWithDisabled: DropdownMenuItem[] = [
-    {
-      key: '1',
-      label: '菜单项 1',
-    },
-    {
-      key: '2',
-      label: '菜单项 2（禁用）',
-      disabled: true,
-    },
-    {
-      key: '3',
-      label: '菜单项 3',
-    },
-  ];
+    { key: '1', label: '菜单项 1' },
+    { key: '2', label: '菜单项 2(禁用)', disabled: true },
+    { key: '3', label: '菜单项 3' }
+  ]
 
   const menuWithSubmenu: DropdownMenuItem[] = [
-    {
-      key: '1',
-      label: '菜单项 1',
-    },
+    { key: '1', label: '菜单项 1' },
     {
       key: '2',
       label: '更多操作',
       children: [
-        {
-          key: '2-1',
-          label: '子菜单 1',
-        },
-        {
-          key: '2-2',
-          label: '子菜单 2',
-        },
-      ],
+        { key: '2-1', label: '子菜单 1' },
+        { key: '2-2', label: '子菜单 2' }
+      ]
     },
-    {
-      key: '3',
-      label: '菜单项 3',
-    },
-  ];
+    { key: '3', label: '菜单项 3' }
+  ]
 
   const handleSelect = (key: string, item: DropdownMenuItem) => {
-    console.log('Selected:', key, item);
-  };
+    console.log('Selected:', key, item)
+  }
 
-  const dropdownProps = [
+  const dropdownProps: PropItem[] = [
     {
       name: 'menu',
       type: 'DropdownMenuItem[]',
-      default: '-',
       description: '下拉菜单选项',
+      required: true
     },
     {
       name: 'onSelect',
       type: '(key: string, item: DropdownMenuItem) => void',
-      default: '-',
-      description: '点击菜单项时的回调',
+      description: '点击菜单项时的回调'
     },
     {
       name: 'trigger',
       type: "'hover' | 'click'",
       default: "'hover'",
-      description: '触发方式',
+      description: '触发方式'
     },
     {
       name: 'placement',
       type: "'bottom' | 'bottomLeft' | 'bottomRight' | 'top' | 'topLeft' | 'topRight'",
       default: "'bottomLeft'",
-      description: '弹出位置',
+      description: '弹出位置'
     },
     {
       name: 'disabled',
       type: 'boolean',
       default: 'false',
-      description: '是否禁用',
-    },
-  ];
+      description: '是否禁用'
+    }
+  ]
 
-  const menuItemProps = [
+  const menuItemProps: PropItem[] = [
     {
       name: 'key',
       type: 'string',
-      default: '-',
       description: '菜单项的唯一标识',
+      required: true
     },
     {
       name: 'label',
       type: 'ReactNode',
-      default: '-',
       description: '菜单项显示的文本',
+      required: true
     },
     {
       name: 'icon',
       type: 'ReactNode',
-      default: '-',
-      description: '菜单项图标',
+      description: '菜单项图标'
     },
     {
       name: 'disabled',
       type: 'boolean',
       default: 'false',
-      description: '是否禁用',
+      description: '是否禁用'
     },
     {
       name: 'divider',
       type: 'boolean',
       default: 'false',
-      description: '是否为分割线',
+      description: '是否为分割线'
     },
     {
       name: 'children',
       type: 'DropdownMenuItem[]',
-      default: '-',
-      description: '子菜单',
-    },
-  ];
+      description: '子菜单'
+    }
+  ]
 
   return (
-    <div className="docs-content">
-      <h1>Dropdown 下拉菜单</h1>
-      <p className="docs-description">向下弹出的列表。</p>
+    <div>
+      <div style={{ marginBottom: '32px' }}>
+        <h1 style={docHeadingStyles.h1}>Dropdown 下拉菜单</h1>
+        <p style={docParagraphStyles.lead}>
+          向下弹出的列表。
+        </p>
+      </div>
 
-      {/* 基础用法 */}
-      <section className="docs-section">
-        <h2>基础用法</h2>
-        <p>最简单的下拉菜单。</p>
-        <div className="docs-example">
-          <Dropdown menu={basicMenu} onSelect={handleSelect}>
-            <Button>悬停显示菜单</Button>
-          </Dropdown>
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Dropdown, Button } from '@/components';
+      <CodeBlock
+        title="基础用法"
+        description="最简单的下拉菜单。"
+        code={`import { Dropdown, Button } from '@myui/components'
 
 const menu = [
   { key: '1', label: '菜单项 1' },
   { key: '2', label: '菜单项 2' },
-  { key: '3', label: '菜单项 3' },
-];
+  { key: '3', label: '菜单项 3' }
+]
 
-<Dropdown menu={menu} onSelect={(key, item) => console.log(key, item)}>
-  <Button>悬停显示菜单</Button>
-</Dropdown>`}
-        />
-      </section>
+function App() {
+  return (
+    <Dropdown menu={menu} onSelect={(key, item) => console.log(key, item)}>
+      <Button>悬停显示菜单</Button>
+    </Dropdown>
+  )
+}`}
+      >
+        <Dropdown menu={basicMenu} onSelect={handleSelect}>
+          <Button>悬停显示菜单</Button>
+        </Dropdown>
+      </CodeBlock>
 
-      {/* 触发方式 */}
-      <section className="docs-section">
-        <h2>触发方式</h2>
-        <p>通过 trigger 属性设置触发方式，可以是 hover 或 click。</p>
-        <div className="docs-example">
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <Dropdown menu={basicMenu} trigger="hover">
-              <Button>Hover</Button>
-            </Dropdown>
-            <Dropdown menu={basicMenu} trigger="click">
-              <Button>Click</Button>
-            </Dropdown>
-          </div>
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`<Dropdown menu={menu} trigger="hover">
-  <Button>Hover</Button>
-</Dropdown>
+      <CodeBlock
+        title="触发方式"
+        description="通过 trigger 属性设置触发方式,可以是 hover 或 click。"
+        code={`import { Dropdown, Button } from '@myui/components'
 
-<Dropdown menu={menu} trigger="click">
-  <Button>Click</Button>
-</Dropdown>`}
-        />
-      </section>
-
-      {/* 带图标的菜单 */}
-      <section className="docs-section">
-        <h2>带图标的菜单</h2>
-        <p>为菜单项添加图标。</p>
-        <div className="docs-example">
-          <Dropdown menu={menuWithIcons} onSelect={handleSelect}>
-            <Button>操作菜单</Button>
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '16px' }}>
+      <Dropdown menu={menu} trigger="hover">
+        <Button>Hover</Button>
+      </Dropdown>
+      <Dropdown menu={menu} trigger="click">
+        <Button>Click</Button>
+      </Dropdown>
+    </div>
+  )
+}`}
+      >
+        <div style={{ display: 'flex', gap: '16px' }}>
+          <Dropdown menu={basicMenu} trigger="hover">
+            <Button>Hover</Button>
+          </Dropdown>
+          <Dropdown menu={basicMenu} trigger="click">
+            <Button>Click</Button>
           </Dropdown>
         </div>
-        <CodeBlock
-          language="tsx"
-          code={`const menuWithIcons = [
+      </CodeBlock>
+
+      <CodeBlock
+        title="带图标的菜单"
+        description="为菜单项添加图标。"
+        code={`import { Dropdown, Button } from '@myui/components'
+
+const menuWithIcons = [
   {
     key: 'edit',
     label: '编辑',
-    icon: <EditIcon />,
+    icon: <EditIcon />
   },
   {
     key: 'copy',
     label: '复制',
-    icon: <CopyIcon />,
+    icon: <CopyIcon />
   },
   {
     key: 'divider-1',
     label: '',
-    divider: true,
+    divider: true
   },
   {
     key: 'delete',
     label: '删除',
-    icon: <DeleteIcon />,
-  },
-];
+    icon: <DeleteIcon />
+  }
+]
 
-<Dropdown menu={menuWithIcons} onSelect={handleSelect}>
-  <Button>操作菜单</Button>
-</Dropdown>`}
-        />
-      </section>
+function App() {
+  return (
+    <Dropdown menu={menuWithIcons} onSelect={handleSelect}>
+      <Button>操作菜单</Button>
+    </Dropdown>
+  )
+}`}
+      >
+        <Dropdown menu={menuWithIcons} onSelect={handleSelect}>
+          <Button>操作菜单</Button>
+        </Dropdown>
+      </CodeBlock>
 
-      {/* 禁用状态 */}
-      <section className="docs-section">
-        <h2>禁用状态</h2>
-        <p>可以禁用整个下拉菜单或单个菜单项。</p>
-        <div className="docs-example">
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <Dropdown menu={menuWithDisabled}>
-              <Button>部分禁用</Button>
-            </Dropdown>
-            <Dropdown menu={basicMenu} disabled>
-              <Button>全部禁用</Button>
-            </Dropdown>
-          </div>
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`const menuWithDisabled = [
+      <CodeBlock
+        title="禁用状态"
+        description="可以禁用整个下拉菜单或单个菜单项。"
+        code={`import { Dropdown, Button } from '@myui/components'
+
+const menuWithDisabled = [
   { key: '1', label: '菜单项 1' },
-  { key: '2', label: '菜单项 2（禁用）', disabled: true },
-  { key: '3', label: '菜单项 3' },
-];
+  { key: '2', label: '菜单项 2(禁用)', disabled: true },
+  { key: '3', label: '菜单项 3' }
+]
 
-<Dropdown menu={menuWithDisabled}>
-  <Button>部分禁用</Button>
-</Dropdown>
-
-<Dropdown menu={menu} disabled>
-  <Button>全部禁用</Button>
-</Dropdown>`}
-        />
-      </section>
-
-      {/* 弹出位置 */}
-      <section className="docs-section">
-        <h2>弹出位置</h2>
-        <p>通过 placement 属性设置弹出位置。</p>
-        <div className="docs-example">
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <Dropdown menu={basicMenu} placement="bottomLeft">
-              <Button>Bottom Left</Button>
-            </Dropdown>
-            <Dropdown menu={basicMenu} placement="bottom">
-              <Button>Bottom</Button>
-            </Dropdown>
-            <Dropdown menu={basicMenu} placement="bottomRight">
-              <Button>Bottom Right</Button>
-            </Dropdown>
-            <Dropdown menu={basicMenu} placement="topLeft">
-              <Button>Top Left</Button>
-            </Dropdown>
-            <Dropdown menu={basicMenu} placement="top">
-              <Button>Top</Button>
-            </Dropdown>
-            <Dropdown menu={basicMenu} placement="topRight">
-              <Button>Top Right</Button>
-            </Dropdown>
-          </div>
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`<Dropdown menu={menu} placement="bottomLeft">
-  <Button>Bottom Left</Button>
-</Dropdown>
-<Dropdown menu={menu} placement="top">
-  <Button>Top</Button>
-</Dropdown>`}
-        />
-      </section>
-
-      {/* 子菜单 */}
-      <section className="docs-section">
-        <h2>子菜单</h2>
-        <p>支持多级菜单。</p>
-        <div className="docs-example">
-          <Dropdown menu={menuWithSubmenu} onSelect={handleSelect}>
-            <Button>多级菜单</Button>
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '16px' }}>
+      <Dropdown menu={menuWithDisabled}>
+        <Button>部分禁用</Button>
+      </Dropdown>
+      <Dropdown menu={menu} disabled>
+        <Button>全部禁用</Button>
+      </Dropdown>
+    </div>
+  )
+}`}
+      >
+        <div style={{ display: 'flex', gap: '16px' }}>
+          <Dropdown menu={menuWithDisabled}>
+            <Button>部分禁用</Button>
+          </Dropdown>
+          <Dropdown menu={basicMenu} disabled>
+            <Button>全部禁用</Button>
           </Dropdown>
         </div>
-        <CodeBlock
-          language="tsx"
-          code={`const menuWithSubmenu = [
+      </CodeBlock>
+
+      <CodeBlock
+        title="弹出位置"
+        description="通过 placement 属性设置弹出位置。"
+        code={`import { Dropdown, Button } from '@myui/components'
+
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+      <Dropdown menu={menu} placement="bottomLeft">
+        <Button>Bottom Left</Button>
+      </Dropdown>
+      <Dropdown menu={menu} placement="bottom">
+        <Button>Bottom</Button>
+      </Dropdown>
+      <Dropdown menu={menu} placement="bottomRight">
+        <Button>Bottom Right</Button>
+      </Dropdown>
+      <Dropdown menu={menu} placement="topLeft">
+        <Button>Top Left</Button>
+      </Dropdown>
+      <Dropdown menu={menu} placement="top">
+        <Button>Top</Button>
+      </Dropdown>
+      <Dropdown menu={menu} placement="topRight">
+        <Button>Top Right</Button>
+      </Dropdown>
+    </div>
+  )
+}`}
+      >
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          <Dropdown menu={basicMenu} placement="bottomLeft">
+            <Button>Bottom Left</Button>
+          </Dropdown>
+          <Dropdown menu={basicMenu} placement="bottom">
+            <Button>Bottom</Button>
+          </Dropdown>
+          <Dropdown menu={basicMenu} placement="bottomRight">
+            <Button>Bottom Right</Button>
+          </Dropdown>
+          <Dropdown menu={basicMenu} placement="topLeft">
+            <Button>Top Left</Button>
+          </Dropdown>
+          <Dropdown menu={basicMenu} placement="top">
+            <Button>Top</Button>
+          </Dropdown>
+          <Dropdown menu={basicMenu} placement="topRight">
+            <Button>Top Right</Button>
+          </Dropdown>
+        </div>
+      </CodeBlock>
+
+      <CodeBlock
+        title="子菜单"
+        description="支持多级菜单。"
+        code={`import { Dropdown, Button } from '@myui/components'
+
+const menuWithSubmenu = [
   { key: '1', label: '菜单项 1' },
   {
     key: '2',
     label: '更多操作',
     children: [
       { key: '2-1', label: '子菜单 1' },
-      { key: '2-2', label: '子菜单 2' },
-    ],
+      { key: '2-2', label: '子菜单 2' }
+    ]
   },
-  { key: '3', label: '菜单项 3' },
-];
+  { key: '3', label: '菜单项 3' }
+]
 
-<Dropdown menu={menuWithSubmenu}>
-  <Button>多级菜单</Button>
-</Dropdown>`}
-        />
-      </section>
+function App() {
+  return (
+    <Dropdown menu={menuWithSubmenu}>
+      <Button>多级菜单</Button>
+    </Dropdown>
+  )
+}`}
+      >
+        <Dropdown menu={menuWithSubmenu} onSelect={handleSelect}>
+          <Button>多级菜单</Button>
+        </Dropdown>
+      </CodeBlock>
 
-      {/* Dropdown Props */}
-      <section className="docs-section">
-        <h2>Dropdown API</h2>
+      <div style={{ marginTop: '48px' }}>
+        <h2 style={docHeadingStyles.h2}>API</h2>
+        
+        <h3 style={docHeadingStyles.h3}>Dropdown Props</h3>
         <PropsTable data={dropdownProps} />
-      </section>
-
-      {/* DropdownMenuItem Props */}
-      <section className="docs-section">
-        <h2>DropdownMenuItem API</h2>
+        
+        <h3 style={{ ...docHeadingStyles.h3, marginTop: '32px' }}>DropdownMenuItem</h3>
         <PropsTable data={menuItemProps} />
-      </section>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default DropdownDocs;
+export default DropdownDocs

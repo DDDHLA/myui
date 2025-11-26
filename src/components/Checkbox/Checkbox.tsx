@@ -171,7 +171,7 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
 
   const value = controlledValue !== undefined ? controlledValue : uncontrolledValue;
 
-  const handleChange = (itemValue: string | number, checked: boolean) => {
+  const handleChange = React.useCallback((itemValue: string | number, checked: boolean) => {
     const newValue = checked
       ? [...value, itemValue]
       : value.filter((v) => v !== itemValue);
@@ -180,7 +180,7 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
       setUncontrolledValue(newValue);
     }
     onChange?.(newValue);
-  };
+  }, [value, controlledValue, onChange]);
 
   const contextValue = useMemo<CheckboxGroupContextValue>(
     () => ({
@@ -190,7 +190,7 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
       size,
       color,
     }),
-    [value, disabled, size, color]
+    [value, disabled, handleChange, size, color]
   );
 
   const groupClassName = [

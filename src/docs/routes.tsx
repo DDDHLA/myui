@@ -32,7 +32,8 @@ import {
   AlertDocs,
   ProgressDocs,
   BreadcrumbDocs,
-  MenuDocs
+  MenuDocs,
+  UploadDocs
 } from './pages'
 
 // 路由配置
@@ -172,5 +173,9 @@ export const routes: RouteObject[] = [
   {
     path: '/menu',
     element: <MenuDocs />
+  },
+  {
+    path: '/upload',
+    element: <UploadDocs />
   }
 ]

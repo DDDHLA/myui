@@ -28,12 +28,12 @@ import "./Alert/style.css";
 import "./Progress/style.css";
 import "./Breadcrumb/style.css";
 import "./Menu/style.css";
+import "./Upload/Upload.module.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
 export { Input, type InputProps } from "./Input";
-export { default as Message } from './Message';
-
+export { default as Message } from "./Message";
 
 export {
   Card,
@@ -61,7 +61,12 @@ export {
 export { Tabs, type TabsProps, type TabItem } from "./Tabs";
 export { Switch, type SwitchProps } from "./Switch";
 export { Slider, type SliderProps, type SliderMark } from "./Slider";
-export { Splitter, SplitterPanel, type SplitterProps, type SplitterPanelProps } from "./Splitter";
+export {
+  Splitter,
+  SplitterPanel,
+  type SplitterProps,
+  type SplitterPanelProps,
+} from "./Splitter";
 export {
   Calendar,
   type CalendarProps,
@@ -72,22 +77,57 @@ export {
   type CalendarView,
 } from "./Calendar";
 export { ThemeProvider, useTheme, type Theme } from "./ThemeProvider";
-export { Avatar, AvatarGroup, type AvatarProps, type AvatarGroupProps } from "./Avatar";
+export {
+  Avatar,
+  AvatarGroup,
+  type AvatarProps,
+  type AvatarGroupProps,
+} from "./Avatar";
 export { Badge, type BadgeProps } from "./Badge";
 export { Tag, type TagProps } from "./Tag";
 export { Transfer, type TransferProps, type TransferItem } from "./Transfer";
 export { Tooltip, type TooltipProps, type TooltipPlacement } from "./Tooltip";
 export { Watermark, type WatermarkProps } from "./Watermark";
 export { Drawer, type DrawerProps } from "./Drawer";
-export { Steps, type StepsProps, type StepItem, type StepStatus } from "./Steps";
+export {
+  Steps,
+  type StepsProps,
+  type StepItem,
+  type StepStatus,
+} from "./Steps";
 export { Pagination, type PaginationProps } from "./Pagination";
-export { Checkbox, CheckboxGroup, type CheckboxProps, type CheckboxGroupProps } from "./Checkbox";
-export { Radio, RadioGroup, type RadioProps, type RadioGroupProps } from "./Radio";
-export { Dropdown, type DropdownProps, type DropdownMenuItem } from "./Dropdown";
+export {
+  Checkbox,
+  CheckboxGroup,
+  type CheckboxProps,
+  type CheckboxGroupProps,
+} from "./Checkbox";
+export {
+  Radio,
+  RadioGroup,
+  type RadioProps,
+  type RadioGroupProps,
+} from "./Radio";
+export {
+  Dropdown,
+  type DropdownProps,
+  type DropdownMenuItem,
+} from "./Dropdown";
 export { Alert, type AlertProps } from "./Alert";
 export { Progress, type ProgressProps } from "./Progress";
-export { Breadcrumb, type BreadcrumbProps, type BreadcrumbItem } from "./Breadcrumb";
+export {
+  Breadcrumb,
+  type BreadcrumbProps,
+  type BreadcrumbItem,
+} from "./Breadcrumb";
 export { Menu, type MenuProps, type MenuItem, type MenuMode } from "./Menu";
+export {
+  Upload,
+  type UploadProps,
+  type UploadFile,
+  type UploadStatus,
+  type UploadListType,
+} from "./Upload";
 
 // 导出 Hooks
 export * from "@/hooks";

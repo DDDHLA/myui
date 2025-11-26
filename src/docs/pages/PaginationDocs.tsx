@@ -490,7 +490,7 @@ function App() {
       >
         <Pagination
           total={500}
-          itemRender={(page, type, element) => {
+          itemRender={(_page, type, element) => {
             if (type === 'prev') {
               return (
                 <button

@@ -130,7 +130,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'TreeSelect 树选择', key: 'tree-select' },
         { title: 'Switch 开关', key: 'switch' },
         { title: 'Slider 滑块', key: 'slider' },
-        { title: 'Transfer 穿梭框', key: 'transfer' }
+        { title: 'Transfer 穿梭框', key: 'transfer' },
+        { title: 'Upload 上传', key: 'upload' }
       ]
     },
             {

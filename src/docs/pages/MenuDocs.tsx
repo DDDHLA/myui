@@ -1,228 +1,213 @@
-import React, { useState } from "react";
-import { Menu, MenuItem } from "@/components";
-import { CodeBlock } from "@/components/CodeBlock";
-import { PropsTable } from "@/components/PropsTable";
+import React from 'react'
+import { Menu, MenuItem } from '@/components'
+import { CodeBlock } from '@/components/CodeBlock'
+import { PropsTable } from '@/components/PropsTable'
+import type { PropItem } from '@/components/PropsTable'
+import { docHeadingStyles, docParagraphStyles } from '@/styles/docStyles'
 
-const MenuDocs: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const [selectedKey, setSelectedKey] = useState("home");
-  const [openKeys, setOpenKeys] = useState<string[]>([]);
+const MenuDocs = () => {
+  const [collapsed, setCollapsed] = React.useState(false)
+  const [selectedKey, setSelectedKey] = React.useState('home')
+  const [openKeys, setOpenKeys] = React.useState<string[]>([])
 
   const basicItems: MenuItem[] = [
-    { key: "home", label: "首页", icon: "home" },
-    { key: "about", label: "关于", icon: "info" },
-    { key: "contact", label: "联系", icon: "mail" },
-  ];
+    { key: 'home', label: '首页', icon: 'home' },
+    { key: 'about', label: '关于', icon: 'info' },
+    { key: 'contact', label: '联系', icon: 'mail' }
+  ]
 
   const horizontalItems: MenuItem[] = [
-    { key: "home", label: "首页" },
-    { key: "products", label: "产品" },
-    { key: "about", label: "关于" },
-    { key: "contact", label: "联系" },
-  ];
+    { key: 'home', label: '首页' },
+    { key: 'products', label: '产品' },
+    { key: 'about', label: '关于' },
+    { key: 'contact', label: '联系' }
+  ]
 
   const submenuItems: MenuItem[] = [
-    { key: "home", label: "首页", icon: "home" },
+    { key: 'home', label: '首页', icon: 'home' },
     {
-      key: "products",
-      label: "产品",
-      icon: "box",
+      key: 'products',
+      label: '产品',
+      icon: 'box',
       children: [
-        { key: "product-1", label: "产品 1" },
-        { key: "product-2", label: "产品 2" },
+        { key: 'product-1', label: '产品 1' },
+        { key: 'product-2', label: '产品 2' },
         {
-          key: "product-3",
-          label: "产品分类",
+          key: 'product-3',
+          label: '产品分类',
           children: [
-            { key: "category-1", label: "分类 1" },
-            { key: "category-2", label: "分类 2" },
-          ],
-        },
-      ],
+            { key: 'category-1', label: '分类 1' },
+            { key: 'category-2', label: '分类 2' }
+          ]
+        }
+      ]
     },
-    { key: "about", label: "关于", icon: "info" },
-  ];
+    { key: 'about', label: '关于', icon: 'info' }
+  ]
 
   const dashboardItems: MenuItem[] = [
-    { key: "home", label: "首页", icon: "home" },
+    { key: 'home', label: '首页', icon: 'home' },
     {
-      key: "dashboard",
-      label: "仪表盘",
-      icon: "layout",
+      key: 'dashboard',
+      label: '仪表盘',
+      icon: 'layout',
       children: [
-        { key: "analytics", label: "数据分析" },
-        { key: "monitor", label: "监控" },
-      ],
+        { key: 'analytics', label: '数据分析' },
+        { key: 'monitor', label: '监控' }
+      ]
     },
     {
-      key: "system",
-      label: "系统管理",
-      icon: "settings",
+      key: 'system',
+      label: '系统管理',
+      icon: 'settings',
       children: [
-        { key: "users", label: "用户管理" },
-        { key: "roles", label: "角色管理" },
-      ],
-    },
-  ];
+        { key: 'users', label: '用户管理' },
+        { key: 'roles', label: '角色管理' }
+      ]
+    }
+  ]
 
   const stateItems: MenuItem[] = [
-    { key: "home", label: "首页", icon: "home" },
-    { key: "disabled", label: "禁用项", icon: "x", disabled: true },
-    { key: "delete", label: "删除", icon: "trash", danger: true },
-  ];
+    { key: 'home', label: '首页', icon: 'home' },
+    { key: 'disabled', label: '禁用项', icon: 'x', disabled: true },
+    { key: 'delete', label: '删除', icon: 'trash', danger: true }
+  ]
 
-  const menuProps = [
+  const menuProps: PropItem[] = [
     {
-      prop: "items",
-      description: "菜单项列表",
-      type: "MenuItem[]",
-      default: "-",
+      name: 'items',
+      description: '菜单项列表',
+      type: 'MenuItem[]',
+      required: true
     },
     {
-      prop: "mode",
-      description: "菜单类型",
-      type: "horizontal | vertical | inline",
-      default: "vertical",
+      name: 'mode',
+      description: '菜单类型',
+      type: "'horizontal' | 'vertical' | 'inline'",
+      default: "'vertical'"
     },
     {
-      prop: "selectedKey",
-      description: "当前选中的菜单项 key",
-      type: "string",
-      default: "-",
+      name: 'selectedKey',
+      description: '当前选中的菜单项 key',
+      type: 'string'
     },
     {
-      prop: "defaultSelectedKey",
-      description: "初始选中的菜单项 key",
-      type: "string",
-      default: "-",
+      name: 'defaultSelectedKey',
+      description: '初始选中的菜单项 key',
+      type: 'string'
     },
     {
-      prop: "openKeys",
-      description: "当前展开的子菜单 key 数组",
-      type: "string[]",
-      default: "-",
+      name: 'openKeys',
+      description: '当前展开的子菜单 key 数组',
+      type: 'string[]'
     },
     {
-      prop: "defaultOpenKeys",
-      description: "初始展开的子菜单 key 数组",
-      type: "string[]",
-      default: "[]",
+      name: 'defaultOpenKeys',
+      description: '初始展开的子菜单 key 数组',
+      type: 'string[]',
+      default: '[]'
     },
     {
-      prop: "onSelect",
-      description: "选中菜单项时的回调",
-      type: "(key: string) => void",
-      default: "-",
+      name: 'onSelect',
+      description: '选中菜单项时的回调',
+      type: '(key: string) => void'
     },
     {
-      prop: "onOpenChange",
-      description: "子菜单展开/收起时的回调",
-      type: "(openKeys: string[]) => void",
-      default: "-",
+      name: 'onOpenChange',
+      description: '子菜单展开/收起时的回调',
+      type: '(openKeys: string[]) => void'
     },
     {
-      prop: "className",
-      description: "自定义类名",
-      type: "string",
-      default: "-",
+      name: 'className',
+      description: '自定义类名',
+      type: 'string'
     },
     {
-      prop: "inlineIndent",
-      description: "inline 模式的缩进宽度",
-      type: "number",
-      default: "24",
+      name: 'inlineIndent',
+      description: 'inline 模式的缩进宽度',
+      type: 'number',
+      default: '24'
     },
     {
-      prop: "inlineCollapsed",
-      description: "inline 模式是否收起",
-      type: "boolean",
-      default: "false",
+      name: 'inlineCollapsed',
+      description: 'inline 模式是否收起',
+      type: 'boolean',
+      default: 'false'
     },
     {
-      prop: "theme",
-      description: "主题",
-      type: "light | dark",
-      default: "light",
-    },
-  ];
+      name: 'theme',
+      description: '主题',
+      type: "'light' | 'dark'",
+      default: "'light'"
+    }
+  ]
 
-  const menuItemProps = [
+  const menuItemProps: PropItem[] = [
     {
-      prop: "key",
-      description: "唯一标识",
-      type: "string",
-      default: "-",
+      name: 'key',
+      description: '唯一标识',
+      type: 'string',
+      required: true
     },
     {
-      prop: "label",
-      description: "菜单项标题",
-      type: "string",
-      default: "-",
+      name: 'label',
+      description: '菜单项标题',
+      type: 'string',
+      required: true
     },
     {
-      prop: "icon",
-      description: "图标名称",
-      type: "string",
-      default: "-",
+      name: 'icon',
+      description: '图标名称',
+      type: 'string'
     },
     {
-      prop: "disabled",
-      description: "是否禁用",
-      type: "boolean",
-      default: "false",
+      name: 'disabled',
+      description: '是否禁用',
+      type: 'boolean',
+      default: 'false'
     },
     {
-      prop: "danger",
-      description: "是否为危险项",
-      type: "boolean",
-      default: "false",
+      name: 'danger',
+      description: '是否为危险项',
+      type: 'boolean',
+      default: 'false'
     },
     {
-      prop: "path",
-      description: "链接地址",
-      type: "string",
-      default: "-",
+      name: 'path',
+      description: '链接地址',
+      type: 'string'
     },
     {
-      prop: "children",
-      description: "子菜单项",
-      type: "MenuItem[]",
-      default: "-",
+      name: 'children',
+      description: '子菜单项',
+      type: 'MenuItem[]'
     },
     {
-      prop: "onClick",
-      description: "点击回调",
-      type: "() => void",
-      default: "-",
-    },
-  ];
+      name: 'onClick',
+      description: '点击回调',
+      type: '() => void'
+    }
+  ]
 
   return (
-    <div className="docs-container">
-      <h1>Menu 菜单</h1>
-      <p className="docs-description">
-        为页面和功能提供导航的菜单列表。
-      </p>
+    <div>
+      <div style={{ marginBottom: '32px' }}>
+        <h1 style={docHeadingStyles.h1}>Menu 菜单</h1>
+        <p style={docParagraphStyles.lead}>
+          为页面和功能提供导航的菜单列表。
+        </p>
+      </div>
 
-      <section className="docs-section">
-        <h2>基本使用</h2>
-        <div className="docs-example">
-          <Menu
-            items={basicItems}
-            defaultSelectedKey="home"
-            onSelect={(key) => console.log("Selected:", key)}
-            style={{ width: 256 }}
-          />
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Menu } from '@myui/components';
+      <CodeBlock
+        title="基本使用"
+        description="最基础的垂直菜单。"
+        code={`import { Menu } from '@myui/components'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
   { key: 'about', label: '关于', icon: 'info' },
   { key: 'contact', label: '联系', icon: 'mail' }
-];
+]
 
 function App() {
   return (
@@ -231,47 +216,39 @@ function App() {
       defaultSelectedKey="home"
       onSelect={(key) => console.log('Selected:', key)}
     />
-  );
+  )
 }`}
+      >
+        <Menu
+          items={basicItems}
+          defaultSelectedKey="home"
+          onSelect={(key) => console.log('Selected:', key)}
         />
-      </section>
+      </CodeBlock>
 
-      <section className="docs-section">
-        <h2>水平菜单</h2>
-        <div className="docs-example">
-          <Menu items={horizontalItems} mode="horizontal" />
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Menu } from '@myui/components';
+      <CodeBlock
+        title="水平菜单"
+        description="水平排列的菜单。"
+        code={`import { Menu } from '@myui/components'
 
 const items = [
   { key: 'home', label: '首页' },
   { key: 'products', label: '产品' },
   { key: 'about', label: '关于' },
   { key: 'contact', label: '联系' }
-];
+]
 
 function App() {
-  return <Menu items={items} mode="horizontal" />;
+  return <Menu items={items} mode="horizontal" />
 }`}
-        />
-      </section>
+      >
+        <Menu items={horizontalItems} mode="horizontal" />
+      </CodeBlock>
 
-      <section className="docs-section">
-        <h2>子菜单</h2>
-        <div className="docs-example">
-          <Menu
-            items={submenuItems}
-            mode="inline"
-            defaultOpenKeys={["products"]}
-            defaultSelectedKey="home"
-            style={{ width: 256 }}
-          />
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Menu } from '@myui/components';
+      <CodeBlock
+        title="子菜单"
+        description="支持多级嵌套的菜单。"
+        code={`import { Menu } from '@myui/components'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -293,7 +270,7 @@ const items = [
     ]
   },
   { key: 'about', label: '关于', icon: 'info' }
-];
+]
 
 function App() {
   return (
@@ -303,23 +280,21 @@ function App() {
       defaultOpenKeys={['products']}
       defaultSelectedKey="home"
     />
-  );
+  )
 }`}
+      >
+        <Menu
+          items={submenuItems}
+          mode="inline"
+          defaultOpenKeys={['products']}
+          defaultSelectedKey="home"
         />
-      </section>
+      </CodeBlock>
 
-      <section className="docs-section">
-        <h2>内联模式</h2>
-        <div className="docs-example">
-          <Menu
-            items={dashboardItems}
-            mode="inline"
-            style={{ width: 256 }}
-          />
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Menu } from '@myui/components';
+      <CodeBlock
+        title="内联模式"
+        description="内联展开的菜单。"
+        code={`import { Menu } from '@myui/components'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -341,48 +316,20 @@ const items = [
       { key: 'roles', label: '角色管理' }
     ]
   }
-];
+]
 
 function App() {
-  return (
-    <Menu
-      items={items}
-      mode="inline"
-      style={{ width: 256 }}
-    />
-  );
+  return <Menu items={items} mode="inline" />
 }`}
-        />
-      </section>
+      >
+        <Menu items={dashboardItems} mode="inline" />
+      </CodeBlock>
 
-      <section className="docs-section">
-        <h2>折叠内联菜单</h2>
-        <div className="docs-example">
-          <div style={{ marginBottom: "16px" }}>
-            <button
-              onClick={() => setCollapsed(!collapsed)}
-              style={{
-                padding: "8px 16px",
-                border: "1px solid #d9d9d9",
-                borderRadius: "4px",
-                background: "#fff",
-                cursor: "pointer",
-              }}
-            >
-              切换折叠
-            </button>
-          </div>
-          <Menu
-            items={dashboardItems}
-            mode="inline"
-            inlineCollapsed={collapsed}
-            style={{ width: collapsed ? 64 : 256, transition: "width 0.2s" }}
-          />
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Menu } from '@myui/components';
-import { useState } from 'react';
+      <CodeBlock
+        title="折叠内联菜单"
+        description="内联菜单支持折叠功能。"
+        code={`import { Menu } from '@myui/components'
+import { useState } from 'react'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -396,10 +343,10 @@ const items = [
     ]
   },
   { key: 'settings', label: '设置', icon: 'settings' }
-];
+]
 
 function App() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false)
 
   return (
     <div>
@@ -410,27 +357,38 @@ function App() {
         items={items}
         mode="inline"
         inlineCollapsed={collapsed}
-        style={{ width: collapsed ? 64 : 256 }}
       />
     </div>
-  );
+  )
 }`}
-        />
-      </section>
-
-      <section className="docs-section">
-        <h2>深色主题</h2>
-        <div className="docs-example">
+      >
+        <div>
+          <div style={{ marginBottom: '16px' }}>
+            <button
+              onClick={() => setCollapsed(!collapsed)}
+              style={{
+                padding: '8px 16px',
+                border: '1px solid #d9d9d9',
+                borderRadius: '4px',
+                background: '#fff',
+                cursor: 'pointer'
+              }}
+            >
+              切换折叠
+            </button>
+          </div>
           <Menu
             items={dashboardItems}
             mode="inline"
-            theme="dark"
-            style={{ width: 256 }}
+            inlineCollapsed={collapsed}
           />
         </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Menu } from '@myui/components';
+      </CodeBlock>
+
+      <CodeBlock
+        title="深色主题"
+        description="深色风格的菜单。"
+        code={`import { Menu } from '@myui/components'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -444,7 +402,7 @@ const items = [
     ]
   },
   { key: 'about', label: '关于', icon: 'info' }
-];
+]
 
 function App() {
   return (
@@ -452,54 +410,36 @@ function App() {
       items={items}
       mode="inline"
       theme="dark"
-      style={{ width: 256 }}
     />
-  );
+  )
 }`}
-        />
-      </section>
+      >
+        <Menu items={dashboardItems} mode="inline" theme="dark" />
+      </CodeBlock>
 
-      <section className="docs-section">
-        <h2>禁用和危险项</h2>
-        <div className="docs-example">
-          <Menu items={stateItems} style={{ width: 256 }} />
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Menu } from '@myui/components';
+      <CodeBlock
+        title="禁用和危险项"
+        description="菜单项可以设置禁用或危险状态。"
+        code={`import { Menu } from '@myui/components'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
   { key: 'disabled', label: '禁用项', icon: 'x', disabled: true },
   { key: 'delete', label: '删除', icon: 'trash', danger: true }
-];
+]
 
 function App() {
-  return <Menu items={items} />;
+  return <Menu items={items} />
 }`}
-        />
-      </section>
+      >
+        <Menu items={stateItems} />
+      </CodeBlock>
 
-      <section className="docs-section">
-        <h2>受控模式</h2>
-        <div className="docs-example">
-          <div style={{ marginBottom: "16px" }}>
-            <p>当前选中: {selectedKey}</p>
-          </div>
-          <Menu
-            items={submenuItems}
-            mode="inline"
-            selectedKey={selectedKey}
-            openKeys={openKeys}
-            onSelect={setSelectedKey}
-            onOpenChange={setOpenKeys}
-            style={{ width: 256 }}
-          />
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Menu } from '@myui/components';
-import { useState } from 'react';
+      <CodeBlock
+        title="受控模式"
+        description="通过 selectedKey 和 openKeys 完全控制菜单状态。"
+        code={`import { Menu } from '@myui/components'
+import { useState } from 'react'
 
 const items = [
   { key: 'home', label: '首页' },
@@ -512,11 +452,11 @@ const items = [
     ]
   },
   { key: 'about', label: '关于' }
-];
+]
 
 function App() {
-  const [selectedKey, setSelectedKey] = useState('home');
-  const [openKeys, setOpenKeys] = useState<string[]>([]);
+  const [selectedKey, setSelectedKey] = useState('home')
+  const [openKeys, setOpenKeys] = useState<string[]>([])
 
   return (
     <div>
@@ -528,25 +468,37 @@ function App() {
         openKeys={openKeys}
         onSelect={setSelectedKey}
         onOpenChange={setOpenKeys}
-        style={{ width: 256 }}
       />
     </div>
-  );
+  )
 }`}
-        />
-      </section>
+      >
+        <div>
+          <div style={{ marginBottom: '16px' }}>
+            <p>当前选中: {selectedKey}</p>
+          </div>
+          <Menu
+            items={submenuItems}
+            mode="inline"
+            selectedKey={selectedKey}
+            openKeys={openKeys}
+            onSelect={setSelectedKey}
+            onOpenChange={setOpenKeys}
+          />
+        </div>
+      </CodeBlock>
 
-      <section className="docs-section">
-        <h2>Props</h2>
+      <div style={{ marginTop: '48px' }}>
+        <h2 style={docHeadingStyles.h2}>API</h2>
+        
+        <h3 style={docHeadingStyles.h3}>Menu Props</h3>
         <PropsTable data={menuProps} />
-      </section>
-
-      <section className="docs-section">
-        <h2>MenuItem</h2>
+        
+        <h3 style={{ ...docHeadingStyles.h3, marginTop: '32px' }}>MenuItem</h3>
         <PropsTable data={menuItemProps} />
-      </section>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default MenuDocs;
+export default MenuDocs

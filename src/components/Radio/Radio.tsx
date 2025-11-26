@@ -160,12 +160,12 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
 
   const value = controlledValue !== undefined ? controlledValue : uncontrolledValue;
 
-  const handleChange = (itemValue: string | number) => {
+  const handleChange = React.useCallback((itemValue: string | number) => {
     if (controlledValue === undefined) {
       setUncontrolledValue(itemValue);
     }
     onChange?.(itemValue);
-  };
+  }, [controlledValue, onChange]);
 
   const contextValue = useMemo<RadioGroupContextValue>(
     () => ({
@@ -176,7 +176,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
       color,
       name,
     }),
-    [value, disabled, size, color, name]
+    [value, disabled, handleChange, size, color, name]
   );
 
   const groupClassName = [

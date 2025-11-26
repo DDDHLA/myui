@@ -26,7 +26,7 @@
 /* 下拉菜单 */
 .dropdown-menu {
   position: absolute;
-  z-index: 1050;
+  z-index: 9999;
   min-width: 180px;
   padding: 8px 0;
   margin: 8px 0;
@@ -106,7 +106,8 @@
   color: var(--dropdown-icon-color, rgba(0, 0, 0, 0.65));
 }
 
-.dropdown-menu__item:hover:not(.dropdown-menu__item--disabled) .dropdown-menu__item-icon {
+.dropdown-menu__item:hover:not(.dropdown-menu__item--disabled)
+  .dropdown-menu__item-icon {
   color: var(--dropdown-icon-hover-color, rgba(0, 0, 0, 0.88));
 }
 

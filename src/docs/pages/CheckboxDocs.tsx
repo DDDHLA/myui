@@ -1,154 +1,144 @@
-import React, { useState } from 'react';
-import { Checkbox, CheckboxGroup } from '@/components';
-import CodeBlock from '@/components/CodeBlock';
-import PropsTable from '@/components/PropsTable';
+import React from 'react'
+import { Checkbox, CheckboxGroup } from '@/components'
+import { CodeBlock } from '@/components/CodeBlock'
+import { PropsTable } from '@/components/PropsTable'
+import type { PropItem } from '@/components/PropsTable'
+import { docHeadingStyles, docParagraphStyles } from '@/styles/docStyles'
 
-const CheckboxDocs: React.FC = () => {
-  const [checked1, setChecked1] = useState(false);
-  const [checked2, setChecked2] = useState(true);
-  const [indeterminate, setIndeterminate] = useState(true);
-  const [checkedList, setCheckedList] = useState<(string | number)[]>(['apple']);
-  const [checkAll, setCheckAll] = useState(false);
+const CheckboxDocs = () => {
+  const [checked1, setChecked1] = React.useState(false)
+  const [checked2] = React.useState(true)
+  const [indeterminate, setIndeterminate] = React.useState(true)
+  const [checkedList, setCheckedList] = React.useState<(string | number)[]>(['apple'])
+  const [checkAll, setCheckAll] = React.useState(false)
 
-  const fruits = ['apple', 'banana', 'orange', 'grape'];
+  const fruits = ['apple', 'banana', 'orange', 'grape']
 
   const handleCheckAllChange = (checked: boolean) => {
-    setCheckedList(checked ? fruits : []);
-    setCheckAll(checked);
-    setIndeterminate(false);
-  };
+    setCheckedList(checked ? fruits : [])
+    setCheckAll(checked)
+    setIndeterminate(false)
+  }
 
   const handleGroupChange = (list: (string | number)[]) => {
-    setCheckedList(list);
-    setIndeterminate(list.length > 0 && list.length < fruits.length);
-    setCheckAll(list.length === fruits.length);
-  };
+    setCheckedList(list)
+    setIndeterminate(list.length > 0 && list.length < fruits.length)
+    setCheckAll(list.length === fruits.length)
+  }
 
-  const checkboxProps = [
+  const checkboxProps: PropItem[] = [
     {
       name: 'checked',
       type: 'boolean',
-      default: '-',
-      description: '指定当前是否选中',
+      description: '指定当前是否选中'
     },
     {
       name: 'defaultChecked',
       type: 'boolean',
       default: 'false',
-      description: '初始是否选中',
+      description: '初始是否选中'
     },
     {
       name: 'disabled',
       type: 'boolean',
       default: 'false',
-      description: '是否禁用',
+      description: '是否禁用'
     },
     {
       name: 'indeterminate',
       type: 'boolean',
       default: 'false',
-      description: '设置 indeterminate 状态，只负责样式控制',
+      description: '设置 indeterminate 状态,只负责样式控制'
     },
     {
       name: 'onChange',
       type: '(checked: boolean, e: Event) => void',
-      default: '-',
-      description: '变化时的回调函数',
+      description: '变化时的回调函数'
     },
     {
       name: 'value',
       type: 'string | number',
-      default: '-',
-      description: 'Checkbox 的值，用于 CheckboxGroup',
+      description: 'Checkbox 的值,用于 CheckboxGroup'
     },
     {
       name: 'size',
       type: "'small' | 'medium' | 'large'",
       default: "'medium'",
-      description: '尺寸大小',
+      description: '尺寸大小'
     },
     {
       name: 'color',
       type: "'primary' | 'success' | 'warning' | 'danger'",
       default: "'primary'",
-      description: '颜色主题',
-    },
-  ];
+      description: '颜色主题'
+    }
+  ]
 
-  const checkboxGroupProps = [
+  const checkboxGroupProps: PropItem[] = [
     {
       name: 'value',
       type: '(string | number)[]',
-      default: '-',
-      description: '指定选中的选项',
+      description: '指定选中的选项'
     },
     {
       name: 'defaultValue',
       type: '(string | number)[]',
       default: '[]',
-      description: '默认选中的选项',
+      description: '默认选中的选项'
     },
     {
       name: 'onChange',
       type: '(value: (string | number)[]) => void',
-      default: '-',
-      description: '变化时的回调函数',
+      description: '变化时的回调函数'
     },
     {
       name: 'disabled',
       type: 'boolean',
       default: 'false',
-      description: '整组禁用',
+      description: '整组禁用'
     },
     {
       name: 'direction',
       type: "'horizontal' | 'vertical'",
       default: "'horizontal'",
-      description: '排列方向',
+      description: '排列方向'
     },
     {
       name: 'size',
       type: "'small' | 'medium' | 'large'",
       default: "'medium'",
-      description: '尺寸大小',
+      description: '尺寸大小'
     },
     {
       name: 'color',
       type: "'primary' | 'success' | 'warning' | 'danger'",
       default: "'primary'",
-      description: '颜色主题',
+      description: '颜色主题'
     },
     {
       name: 'options',
       type: 'Array<{label: string, value: string | number, disabled?: boolean}>',
-      default: '-',
-      description: '选项配置（用于快速生成）',
-    },
-  ];
+      description: '选项配置(用于快速生成)'
+    }
+  ]
 
   return (
-    <div className="docs-content">
-      <h1>Checkbox 复选框</h1>
-      <p className="docs-description">在一组可选项中进行多项选择时使用。</p>
+    <div>
+      <div style={{ marginBottom: '32px' }}>
+        <h1 style={docHeadingStyles.h1}>Checkbox 复选框</h1>
+        <p style={docParagraphStyles.lead}>
+          在一组可选项中进行多项选择时使用。
+        </p>
+      </div>
 
-      {/* 基础用法 */}
-      <section className="docs-section">
-        <h2>基础用法</h2>
-        <p>最简单的用法。</p>
-        <div className="docs-example">
-          <Checkbox
-            checked={checked1}
-            onChange={(checked) => setChecked1(checked)}
-          >
-            Checkbox
-          </Checkbox>
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`import { Checkbox } from '@/components';
+      <CodeBlock
+        title="基础用法"
+        description="最简单的用法。"
+        code={`import { Checkbox } from '@myui/components'
+import { useState } from 'react'
 
 function App() {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false)
 
   return (
     <Checkbox
@@ -157,222 +147,243 @@ function App() {
     >
       Checkbox
     </Checkbox>
-  );
+  )
 }`}
-        />
-      </section>
+      >
+        <Checkbox
+          checked={checked1}
+          onChange={(checked) => setChecked1(checked)}
+        >
+          Checkbox
+        </Checkbox>
+      </CodeBlock>
 
-      {/* 禁用状态 */}
-      <section className="docs-section">
-        <h2>禁用状态</h2>
-        <p>Checkbox 不可用状态。</p>
-        <div className="docs-example">
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <Checkbox disabled>未选中禁用</Checkbox>
-            <Checkbox disabled checked={checked2} onChange={() => {}}>
-              选中禁用
-            </Checkbox>
-          </div>
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`<Checkbox disabled>未选中禁用</Checkbox>
-<Checkbox disabled checked>选中禁用</Checkbox>`}
-        />
-      </section>
+      <CodeBlock
+        title="禁用状态"
+        description="Checkbox 不可用状态。"
+        code={`import { Checkbox } from '@myui/components'
 
-      {/* 半选状态 */}
-      <section className="docs-section">
-        <h2>全选与半选</h2>
-        <p>在实现全选效果时，通过 indeterminate 属性来表示半选状态。</p>
-        <div className="docs-example">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <Checkbox
-              indeterminate={indeterminate}
-              checked={checkAll}
-              onChange={handleCheckAllChange}
-            >
-              全选
-            </Checkbox>
-            <div style={{ paddingLeft: '24px' }}>
-              <CheckboxGroup
-                value={checkedList}
-                onChange={handleGroupChange}
-                direction="vertical"
-              >
-                {fruits.map((fruit) => (
-                  <Checkbox key={fruit} value={fruit}>
-                    {fruit}
-                  </Checkbox>
-                ))}
-              </CheckboxGroup>
-            </div>
-          </div>
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`const [checkedList, setCheckedList] = useState(['apple']);
-const [checkAll, setCheckAll] = useState(false);
-const [indeterminate, setIndeterminate] = useState(true);
-
-const fruits = ['apple', 'banana', 'orange', 'grape'];
-
-const handleCheckAllChange = (checked: boolean) => {
-  setCheckedList(checked ? fruits : []);
-  setCheckAll(checked);
-  setIndeterminate(false);
-};
-
-const handleGroupChange = (list: (string | number)[]) => {
-  setCheckedList(list);
-  setIndeterminate(list.length > 0 && list.length < fruits.length);
-  setCheckAll(list.length === fruits.length);
-};
-
-<Checkbox
-  indeterminate={indeterminate}
-  checked={checkAll}
-  onChange={handleCheckAllChange}
->
-  全选
-</Checkbox>
-<CheckboxGroup
-  value={checkedList}
-  onChange={handleGroupChange}
-  direction="vertical"
->
-  {fruits.map(fruit => (
-    <Checkbox key={fruit} value={fruit}>{fruit}</Checkbox>
-  ))}
-</CheckboxGroup>`}
-        />
-      </section>
-
-      {/* Checkbox 组 */}
-      <section className="docs-section">
-        <h2>Checkbox 组</h2>
-        <p>方便的从数组生成 Checkbox 组。</p>
-        <div className="docs-example">
-          <CheckboxGroup
-            defaultValue={['apple', 'orange']}
-            options={[
-              { label: '苹果', value: 'apple' },
-              { label: '香蕉', value: 'banana' },
-              { label: '橙子', value: 'orange' },
-              { label: '葡萄', value: 'grape', disabled: true },
-            ]}
-          />
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`<CheckboxGroup
-  defaultValue={['apple', 'orange']}
-  options={[
-    { label: '苹果', value: 'apple' },
-    { label: '香蕉', value: 'banana' },
-    { label: '橙子', value: 'orange' },
-    { label: '葡萄', value: 'grape', disabled: true },
-  ]}
-/>`}
-        />
-      </section>
-
-      {/* 垂直排列 */}
-      <section className="docs-section">
-        <h2>垂直排列</h2>
-        <p>通过 direction 属性设置垂直排列。</p>
-        <div className="docs-example">
-          <CheckboxGroup
-            defaultValue={['apple']}
-            direction="vertical"
-            options={[
-              { label: '苹果', value: 'apple' },
-              { label: '香蕉', value: 'banana' },
-              { label: '橙子', value: 'orange' },
-            ]}
-          />
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`<CheckboxGroup
-  defaultValue={['apple']}
-  direction="vertical"
-  options={[
-    { label: '苹果', value: 'apple' },
-    { label: '香蕉', value: 'banana' },
-    { label: '橙子', value: 'orange' },
-  ]}
-/>`}
-        />
-      </section>
-
-      {/* 尺寸 */}
-      <section className="docs-section">
-        <h2>三种尺寸</h2>
-        <p>提供三种尺寸：small、medium、large。</p>
-        <div className="docs-example">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <Checkbox size="small" defaultChecked>
-              Small
-            </Checkbox>
-            <Checkbox size="medium" defaultChecked>
-              Medium
-            </Checkbox>
-            <Checkbox size="large" defaultChecked>
-              Large
-            </Checkbox>
-          </div>
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`<Checkbox size="small" defaultChecked>Small</Checkbox>
-<Checkbox size="medium" defaultChecked>Medium</Checkbox>
-<Checkbox size="large" defaultChecked>Large</Checkbox>`}
-        />
-      </section>
-
-      {/* 颜色主题 */}
-      <section className="docs-section">
-        <h2>颜色主题</h2>
-        <p>提供多种颜色主题。</p>
-        <div className="docs-example">
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <Checkbox color="primary" defaultChecked>
-              Primary
-            </Checkbox>
-            <Checkbox color="success" defaultChecked>
-              Success
-            </Checkbox>
-            <Checkbox color="warning" defaultChecked>
-              Warning
-            </Checkbox>
-            <Checkbox color="danger" defaultChecked>
-              Danger
-            </Checkbox>
-          </div>
-        </div>
-        <CodeBlock
-          language="tsx"
-          code={`<Checkbox color="primary" defaultChecked>Primary</Checkbox>
-<Checkbox color="success" defaultChecked>Success</Checkbox>
-<Checkbox color="warning" defaultChecked>Warning</Checkbox>
-<Checkbox color="danger" defaultChecked>Danger</Checkbox>`}
-        />
-      </section>
-
-      {/* Checkbox Props */}
-      <section className="docs-section">
-        <h2>Checkbox API</h2>
-        <PropsTable data={checkboxProps} />
-      </section>
-
-      {/* CheckboxGroup Props */}
-      <section className="docs-section">
-        <h2>CheckboxGroup API</h2>
-        <PropsTable data={checkboxGroupProps} />
-      </section>
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '16px' }}>
+      <Checkbox disabled>未选中禁用</Checkbox>
+      <Checkbox disabled checked>选中禁用</Checkbox>
     </div>
-  );
-};
+  )
+}`}
+      >
+        <div style={{ display: 'flex', gap: '16px' }}>
+          <Checkbox disabled>未选中禁用</Checkbox>
+          <Checkbox disabled checked={checked2} onChange={() => {}}>
+            选中禁用
+          </Checkbox>
+        </div>
+      </CodeBlock>
 
-export default CheckboxDocs;
+      <CodeBlock
+        title="全选与半选"
+        description="在实现全选效果时,通过 indeterminate 属性来表示半选状态。"
+        code={`import { Checkbox, CheckboxGroup } from '@myui/components'
+import { useState } from 'react'
+
+function App() {
+  const [checkedList, setCheckedList] = useState(['apple'])
+  const [checkAll, setCheckAll] = useState(false)
+  const [indeterminate, setIndeterminate] = useState(true)
+
+  const fruits = ['apple', 'banana', 'orange', 'grape']
+
+  const handleCheckAllChange = (checked: boolean) => {
+    setCheckedList(checked ? fruits : [])
+    setCheckAll(checked)
+    setIndeterminate(false)
+  }
+
+  const handleGroupChange = (list) => {
+    setCheckedList(list)
+    setIndeterminate(list.length > 0 && list.length < fruits.length)
+    setCheckAll(list.length === fruits.length)
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <Checkbox
+        indeterminate={indeterminate}
+        checked={checkAll}
+        onChange={handleCheckAllChange}
+      >
+        全选
+      </Checkbox>
+      <div style={{ paddingLeft: '24px' }}>
+        <CheckboxGroup
+          value={checkedList}
+          onChange={handleGroupChange}
+          direction="vertical"
+        >
+          {fruits.map(fruit => (
+            <Checkbox key={fruit} value={fruit}>{fruit}</Checkbox>
+          ))}
+        </CheckboxGroup>
+      </div>
+    </div>
+  )
+}`}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <Checkbox
+            indeterminate={indeterminate}
+            checked={checkAll}
+            onChange={handleCheckAllChange}
+          >
+            全选
+          </Checkbox>
+          <div style={{ paddingLeft: '24px' }}>
+            <CheckboxGroup
+              value={checkedList}
+              onChange={handleGroupChange}
+              direction="vertical"
+            >
+              {fruits.map((fruit) => (
+                <Checkbox key={fruit} value={fruit}>
+                  {fruit}
+                </Checkbox>
+              ))}
+            </CheckboxGroup>
+          </div>
+        </div>
+      </CodeBlock>
+
+      <CodeBlock
+        title="Checkbox 组"
+        description="方便的从数组生成 Checkbox 组。"
+        code={`import { CheckboxGroup } from '@myui/components'
+
+function App() {
+  return (
+    <CheckboxGroup
+      defaultValue={['apple', 'orange']}
+      options={[
+        { label: '苹果', value: 'apple' },
+        { label: '香蕉', value: 'banana' },
+        { label: '橙子', value: 'orange' },
+        { label: '葡萄', value: 'grape', disabled: true },
+      ]}
+    />
+  )
+}`}
+      >
+        <CheckboxGroup
+          defaultValue={['apple', 'orange']}
+          options={[
+            { label: '苹果', value: 'apple' },
+            { label: '香蕉', value: 'banana' },
+            { label: '橙子', value: 'orange' },
+            { label: '葡萄', value: 'grape', disabled: true },
+          ]}
+        />
+      </CodeBlock>
+
+      <CodeBlock
+        title="垂直排列"
+        description="通过 direction 属性设置垂直排列。"
+        code={`import { CheckboxGroup } from '@myui/components'
+
+function App() {
+  return (
+    <CheckboxGroup
+      defaultValue={['apple']}
+      direction="vertical"
+      options={[
+        { label: '苹果', value: 'apple' },
+        { label: '香蕉', value: 'banana' },
+        { label: '橙子', value: 'orange' },
+      ]}
+    />
+  )
+}`}
+      >
+        <CheckboxGroup
+          defaultValue={['apple']}
+          direction="vertical"
+          options={[
+            { label: '苹果', value: 'apple' },
+            { label: '香蕉', value: 'banana' },
+            { label: '橙子', value: 'orange' },
+          ]}
+        />
+      </CodeBlock>
+
+      <CodeBlock
+        title="三种尺寸"
+        description="提供三种尺寸:small、medium、large。"
+        code={`import { Checkbox } from '@myui/components'
+
+function App() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <Checkbox size="small" defaultChecked>Small</Checkbox>
+      <Checkbox size="medium" defaultChecked>Medium</Checkbox>
+      <Checkbox size="large" defaultChecked>Large</Checkbox>
+    </div>
+  )
+}`}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <Checkbox size="small" defaultChecked>
+            Small
+          </Checkbox>
+          <Checkbox size="medium" defaultChecked>
+            Medium
+          </Checkbox>
+          <Checkbox size="large" defaultChecked>
+            Large
+          </Checkbox>
+        </div>
+      </CodeBlock>
+
+      <CodeBlock
+        title="颜色主题"
+        description="提供多种颜色主题。"
+        code={`import { Checkbox } from '@myui/components'
+
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+      <Checkbox color="primary" defaultChecked>Primary</Checkbox>
+      <Checkbox color="success" defaultChecked>Success</Checkbox>
+      <Checkbox color="warning" defaultChecked>Warning</Checkbox>
+      <Checkbox color="danger" defaultChecked>Danger</Checkbox>
+    </div>
+  )
+}`}
+      >
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          <Checkbox color="primary" defaultChecked>
+            Primary
+          </Checkbox>
+          <Checkbox color="success" defaultChecked>
+            Success
+          </Checkbox>
+          <Checkbox color="warning" defaultChecked>
+            Warning
+          </Checkbox>
+          <Checkbox color="danger" defaultChecked>
+            Danger
+          </Checkbox>
+        </div>
+      </CodeBlock>
+
+      <div style={{ marginTop: '48px' }}>
+        <h2 style={docHeadingStyles.h2}>API</h2>
+        
+        <h3 style={docHeadingStyles.h3}>Checkbox Props</h3>
+        <PropsTable data={checkboxProps} />
+        
+        <h3 style={{ ...docHeadingStyles.h3, marginTop: '32px' }}>CheckboxGroup Props</h3>
+        <PropsTable data={checkboxGroupProps} />
+      </div>
+    </div>
+  )
+}
+
+export default CheckboxDocs

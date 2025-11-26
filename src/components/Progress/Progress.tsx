@@ -42,7 +42,7 @@ const LineProgress: React.FC<ProgressProps> = ({
   showInfo = true,
   strokeWidth = 8,
   strokeColor,
-  trailColor = '#f0f0f0',
+  trailColor: _trailColor = '#f0f0f0',
   format,
 }) => {
   const actualPercent = Math.min(100, Math.max(0, percent));

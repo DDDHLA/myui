@@ -140,7 +140,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   transition: width var(--transition-normal, 250ms ease-in-out);
-  z-index: 50;
+  z-index: 10; /* 降低 z-index,确保不遮挡内容 */
 }
 
 .myui-layout-sidebar--collapsed {
@@ -226,10 +226,12 @@
 .myui-layout__main {
   flex: 1;
   margin-left: 280px;
-  transition: all var(--transition-normal, 250ms ease-in-out);
+  transition: margin-left var(--transition-normal, 250ms ease-in-out);
   min-width: 0;
-  overflow-y: auto; /* Changed from overflow-x */
-  height: calc(100vh - 64px); /* Constrain height for independent scrolling */
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+  position: relative;
+  z-index: 1; /* 确保内容在侧边栏下方 */
 }
 
 .myui-layout__main--sidebar-collapsed {
@@ -245,6 +247,8 @@
   width: 100%;
   box-sizing: border-box;
   min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* 遮罩层 */
