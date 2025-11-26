@@ -1,0 +1,201 @@
+/* Skeleton 骨架屏组件样式 */
+.skeleton {
+  display: flex;
+  gap: 16px;
+}
+
+.skeleton--with-avatar {
+  align-items: flex-start;
+}
+
+.skeleton__avatar {
+  flex-shrink: 0;
+}
+
+.skeleton__content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 头像占位 */
+.skeleton-avatar {
+  background: var(--skeleton-bg, #f0f0f0);
+  flex-shrink: 0;
+}
+
+.skeleton-avatar--circle {
+  border-radius: 50%;
+}
+
+.skeleton-avatar--square {
+  border-radius: var(--border-radius, 8px);
+}
+
+/* 标题占位 */
+.skeleton-title {
+  height: 20px;
+  background: var(--skeleton-bg, #f0f0f0);
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.skeleton--round .skeleton-title {
+  border-radius: 10px;
+}
+
+/* 段落占位 */
+.skeleton-paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-paragraph__row {
+  height: 16px;
+  background: var(--skeleton-bg, #f0f0f0);
+  border-radius: 4px;
+}
+
+.skeleton--round .skeleton-paragraph__row {
+  border-radius: 8px;
+}
+
+/* 按钮占位 */
+.skeleton-button {
+  display: inline-block;
+  background: var(--skeleton-bg, #f0f0f0);
+  border-radius: var(--border-radius, 8px);
+  vertical-align: top;
+}
+
+.skeleton-button--sm {
+  width: 64px;
+  height: 28px;
+}
+
+.skeleton-button--md {
+  width: 80px;
+  height: 36px;
+}
+
+.skeleton-button--lg {
+  width: 96px;
+  height: 44px;
+}
+
+.skeleton-button--circle {
+  border-radius: 50%;
+}
+
+.skeleton-button--circle.skeleton-button--sm {
+  width: 28px;
+}
+
+.skeleton-button--circle.skeleton-button--md {
+  width: 36px;
+}
+
+.skeleton-button--circle.skeleton-button--lg {
+  width: 44px;
+}
+
+.skeleton-button--round {
+  border-radius: 100px;
+}
+
+.skeleton-button--block {
+  display: block;
+  width: 100%;
+}
+
+/* 输入框占位 */
+.skeleton-input {
+  display: block;
+  width: 100%;
+  background: var(--skeleton-bg, #f0f0f0);
+  border-radius: var(--border-radius, 8px);
+}
+
+.skeleton-input--sm {
+  height: 28px;
+}
+
+.skeleton-input--md {
+  height: 36px;
+}
+
+.skeleton-input--lg {
+  height: 44px;
+}
+
+/* 图片占位 */
+.skeleton-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  background: var(--skeleton-bg, #f0f0f0);
+  border-radius: var(--border-radius, 8px);
+}
+
+.skeleton-image__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--skeleton-icon-color, #c0c0c0);
+}
+
+/* 动画效果 */
+.skeleton--active {
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-bg, #f0f0f0) 25%,
+    var(--skeleton-active-bg, #e8e8e8) 37%,
+    var(--skeleton-bg, #f0f0f0) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .skeleton-avatar,
+  .skeleton-title,
+  .skeleton-paragraph__row,
+  .skeleton-button,
+  .skeleton-input,
+  .skeleton-image {
+    --skeleton-bg: #3a3a3a;
+    --skeleton-active-bg: #4a4a4a;
+    --skeleton-icon-color: #5a5a5a;
+  }
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .skeleton {
+    gap: 12px;
+  }
+
+  .skeleton-title {
+    height: 18px;
+    margin-bottom: 12px;
+  }
+
+  .skeleton-paragraph {
+    gap: 10px;
+  }
+
+  .skeleton-paragraph__row {
+    height: 14px;
+  }
+}

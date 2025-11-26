@@ -131,7 +131,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Switch 开关', key: 'switch' },
         { title: 'Slider 滑块', key: 'slider' },
         { title: 'Transfer 穿梭框', key: 'transfer' },
-        { title: 'Upload 上传', key: 'upload' }
+        { title: 'Upload 上传', key: 'upload' },
+        { title: 'Rate 评分', key: 'rate' }
       ]
     },
             {
@@ -145,7 +146,9 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Avatar 头像', key: 'avatar' },
         { title: 'Badge 徽标数', key: 'badge' },
         { title: 'Tag 标签', key: 'tag' },
-        { title: 'Watermark 水印', key: 'watermark' }
+        { title: 'Watermark 水印', key: 'watermark' },
+        { title: 'Empty 空状态', key: 'empty' },
+        { title: 'Timeline 时间轴', key: 'timeline' }
       ]
     },
     {
@@ -168,7 +171,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Message 全局提示', key: 'message' },
         { title: 'Tooltip 文字提示', key: 'tooltip' },
         { title: 'Drawer 抽屉', key: 'drawer' },
-        { title: 'Progress 进度条', key: 'progress' }
+        { title: 'Progress 进度条', key: 'progress' },
+        { title: 'Skeleton 骨架屏', key: 'skeleton' }
       ]
     }
   ]

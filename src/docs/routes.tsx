@@ -33,7 +33,11 @@ import {
   ProgressDocs,
   BreadcrumbDocs,
   MenuDocs,
-  UploadDocs
+  UploadDocs,
+  RateDocs,
+  SkeletonDocs,
+  EmptyDocs,
+  TimelineDocs
 } from './pages'
 
 // 路由配置
@@ -177,5 +181,21 @@ export const routes: RouteObject[] = [
   {
     path: '/upload',
     element: <UploadDocs />
+  },
+  {
+    path: '/rate',
+    element: <RateDocs />
+  },
+  {
+    path: '/skeleton',
+    element: <SkeletonDocs />
+  },
+  {
+    path: '/empty',
+    element: <EmptyDocs />
+  },
+  {
+    path: '/timeline',
+    element: <TimelineDocs />
   }
 ]
