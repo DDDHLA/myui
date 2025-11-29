@@ -68,7 +68,8 @@ const MENU_ITEMS = [
       { title: 'Timeline 时间轴', key: 'timeline' },
       { title: 'Carousel 走马灯', key: 'carousel' },
       { title: 'Statistic 统计数值', key: 'statistic' },
-      { title: 'Collapse 折叠面板', key: 'collapse' }
+      { title: 'Collapse 折叠面板', key: 'collapse' },
+      { title: 'TypeWriter 流式输出', key: 'typewriter' }
     ]
   },
   {

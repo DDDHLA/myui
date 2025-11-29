@@ -53,4 +53,5 @@ export { default as ImageDocs } from "./ImageDocs";
 export { default as LayoutDocs } from "./LayoutDocs";
 export { default as NotificationDocs } from "./NotificationDocs";
 export { default as MentionsDocs } from "./MentionsDocs";
+export { default as TypeWriterDocs } from "./TypeWriterDocs";
 export { default as ComingSoonPage } from "./ComingSoonPage";

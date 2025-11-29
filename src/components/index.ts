@@ -50,6 +50,7 @@ import "./Image/Image.css";
 import "./Notification/Notification.css";
 import "./Layout/Layout.css";
 import "./Mentions/style.css";
+import "./TypeWriter/TypeWriter.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -224,6 +225,7 @@ export {
   type MentionOption,
   type MentionsRef,
 } from "./Mentions";
+export { default as TypeWriter, type TypeWriterProps } from "./TypeWriter";
 
 // 导出 Hooks
 export * from "@/hooks";

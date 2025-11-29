@@ -54,7 +54,8 @@ import {
   ImageDocs,
   LayoutDocs,
   NotificationDocs,
-  MentionsDocs
+  MentionsDocs,
+  TypeWriterDocs
 } from './pages'
 
 // 路由配置
@@ -282,5 +283,9 @@ export const routes: RouteObject[] = [
   {
     path: '/mentions',
     element: <MentionsDocs />
+  },
+  {
+    path: '/typewriter',
+    element: <TypeWriterDocs />
   }
 ]
