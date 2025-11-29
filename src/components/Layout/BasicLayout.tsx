@@ -320,7 +320,8 @@ export function BasicLayout({ children, currentPage, onPageChange }: BasicLayout
           collapsed={sidebarCollapsed}
           className="myui-layout-sidebar"
           style={{ 
-            overflow: 'hidden',
+            overflowX: 'hidden',
+            overflowY: 'auto',
             borderRight: sidebarCollapsed ? 'none' : undefined
           }}
         >
