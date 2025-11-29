@@ -180,7 +180,8 @@
   border: 2px solid var(--color-primary);
   border-radius: 50%;
   cursor: grab;
-  transition: all 0.15s ease-out;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out,
+    background-color 0.15s ease-out, border-color 0.15s ease-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
   will-change: left, bottom, transform;
