@@ -1,16 +1,16 @@
-# 使用 Node.js 18 作为基础镜像
-FROM node:18-alpine AS builder
+# 使用 Node.js 18 (Debian) 作为基础镜像，避免 Alpine 兼容性问题
+FROM node:18 AS builder
 
 # 设置工作目录
 WORKDIR /app
 
-# 复制 package.json 和 package-lock.json
-COPY package*.json ./
+# 复制 package.json
+COPY package.json ./
 
-# 安装依赖
-RUN npm ci
+# 安装依赖（使用 npm install 而非 npm ci，确保安装正确平台的依赖）
+RUN npm install --legacy-peer-deps
 
-# 复制源代码
+# 复制源代码（排除 node_modules）
 COPY . .
 
 # 构建应用
