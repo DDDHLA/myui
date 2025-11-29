@@ -133,7 +133,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Transfer 穿梭框', key: 'transfer' },
         { title: 'Upload 上传', key: 'upload' },
         { title: 'Rate 评分', key: 'rate' },
-        { title: 'DatePicker 日期选择器', key: 'datepicker' }
+        { title: 'DatePicker 日期选择器', key: 'datepicker' },
+        { title: 'Cascader 级联选择', key: 'cascader' }
       ]
     },
             {
@@ -149,7 +150,10 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Tag 标签', key: 'tag' },
         { title: 'Watermark 水印', key: 'watermark' },
         { title: 'Empty 空状态', key: 'empty' },
-        { title: 'Timeline 时间轴', key: 'timeline' }
+        { title: 'Timeline 时间轴', key: 'timeline' },
+        { title: 'Carousel 走马灯', key: 'carousel' },
+        { title: 'Statistic 统计数值', key: 'statistic' },
+        { title: 'Collapse 折叠面板', key: 'collapse' }
       ]
     },
     {
@@ -160,7 +164,9 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Menu 菜单', key: 'menu' },
         { title: 'Dropdown 下拉菜单', key: 'dropdown' },
         { title: 'Steps 步骤条', key: 'steps' },
-        { title: 'Pagination 分页', key: 'pagination' }
+        { title: 'Pagination 分页', key: 'pagination' },
+        { title: 'Affix 固钉', key: 'affix' },
+        { title: 'BackTop 回到顶部', key: 'backtop' }
       ]
     },
     {

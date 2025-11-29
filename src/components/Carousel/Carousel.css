@@ -1,0 +1,229 @@
+/* Carousel 走马灯组件样式 */
+.myui-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+}
+
+.myui-carousel:focus-visible {
+  outline: 2px solid var(--color-primary, #3b82f6);
+  outline-offset: 2px;
+}
+
+.myui-carousel__container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.myui-carousel__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.myui-carousel__slide:first-child {
+  position: relative;
+}
+
+.myui-carousel__slide > * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 箭头 */
+.myui-carousel__arrow {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  opacity: 0;
+}
+
+.myui-carousel:hover .myui-carousel__arrow {
+  opacity: 1;
+}
+
+.myui-carousel__arrow:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.myui-carousel__arrow:active {
+  transform: scale(0.95);
+}
+
+.myui-carousel__arrow--disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed;
+}
+
+.myui-carousel__arrow--disabled:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 水平箭头位置 */
+.myui-carousel__arrow--prev {
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.myui-carousel__arrow--next {
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 垂直箭头位置 */
+.myui-carousel--vertical .myui-carousel__arrow--prev {
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+}
+
+.myui-carousel--vertical .myui-carousel__arrow--next {
+  left: 50%;
+  bottom: 12px;
+  top: auto;
+  transform: translateX(-50%);
+}
+
+/* 指示点 */
+.myui-carousel__dots {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+/* 水平指示点位置 */
+.myui-carousel--bottom .myui-carousel__dots {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.myui-carousel--top .myui-carousel__dots {
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 垂直指示点位置 */
+.myui-carousel--left .myui-carousel__dots {
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+}
+
+.myui-carousel--right .myui-carousel__dots {
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+}
+
+.myui-carousel__dots--vertical {
+  flex-direction: column;
+}
+
+.myui-carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.myui-carousel__dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.myui-carousel__dot--active {
+  background-color: #fff;
+  transform: scale(1.2);
+}
+
+/* 水平指示点激活状态 */
+.myui-carousel--bottom .myui-carousel__dot--active,
+.myui-carousel--top .myui-carousel__dot--active {
+  width: 20px;
+  border-radius: 4px;
+  transform: none;
+}
+
+/* 垂直指示点激活状态 */
+.myui-carousel--left .myui-carousel__dot--active,
+.myui-carousel--right .myui-carousel__dot--active {
+  height: 20px;
+  border-radius: 4px;
+  transform: none;
+}
+
+/* 深色模式 */
+[data-theme="dark"] .myui-carousel__arrow {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .myui-carousel__arrow:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .myui-carousel__dot {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .myui-carousel__dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .myui-carousel__dot--active {
+  background-color: var(--color-primary, #3b82f6);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .myui-carousel__arrow {
+    width: 28px;
+    height: 28px;
+    opacity: 1;
+  }
+
+  .myui-carousel__arrow--prev {
+    left: 8px;
+  }
+
+  .myui-carousel__arrow--next {
+    right: 8px;
+  }
+
+  .myui-carousel__dots {
+    gap: 6px;
+  }
+
+  .myui-carousel__dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .myui-carousel--bottom .myui-carousel__dot--active,
+  .myui-carousel--top .myui-carousel__dot--active {
+    width: 16px;
+  }
+}

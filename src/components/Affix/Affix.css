@@ -1,0 +1,12 @@
+/* Affix 固钉组件样式 */
+.myui-affix {
+  position: relative;
+}
+
+.myui-affix__content {
+  z-index: 10;
+}
+
+.myui-affix__content--fixed {
+  z-index: 100;
+}

@@ -36,6 +36,12 @@ import "./Timeline/style.css";
 import "./Popover/Popover.css";
 import "./Popconfirm/Popconfirm.css";
 import "./DatePicker/DatePicker.css";
+import "./Carousel/Carousel.css";
+import "./Statistic/Statistic.css";
+import "./Collapse/Collapse.css";
+import "./Cascader/Cascader.css";
+import "./Affix/Affix.css";
+import "./BackTop/BackTop.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -165,6 +171,22 @@ export {
   type DatePickerProps,
   type DatePickerMode,
 } from "./DatePicker";
+export { Carousel, type CarouselProps, type CarouselRef } from "./Carousel";
+export {
+  Statistic,
+  Countdown,
+  type StatisticProps,
+  type CountdownProps,
+} from "./Statistic";
+export {
+  Collapse,
+  CollapsePanel,
+  type CollapseProps,
+  type CollapsePanelProps,
+} from "./Collapse";
+export { Cascader, type CascaderProps, type CascaderOption } from "./Cascader";
+export { Affix, type AffixProps } from "./Affix";
+export { BackTop, type BackTopProps } from "./BackTop";
 
 // 导出 Hooks
 export * from "@/hooks";

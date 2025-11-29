@@ -40,7 +40,13 @@ import {
   TimelineDocs,
   PopoverDocs,
   PopconfirmDocs,
-  DatePickerDocs
+  DatePickerDocs,
+  CarouselDocs,
+  StatisticDocs,
+  CollapseDocs,
+  CascaderDocs,
+  AffixDocs,
+  BackTopDocs
 } from './pages'
 
 // 路由配置
@@ -212,5 +218,29 @@ export const routes: RouteObject[] = [
   {
     path: '/datepicker',
     element: <DatePickerDocs />
+  },
+  {
+    path: '/carousel',
+    element: <CarouselDocs />
+  },
+  {
+    path: '/statistic',
+    element: <StatisticDocs />
+  },
+  {
+    path: '/collapse',
+    element: <CollapseDocs />
+  },
+  {
+    path: '/cascader',
+    element: <CascaderDocs />
+  },
+  {
+    path: '/affix',
+    element: <AffixDocs />
+  },
+  {
+    path: '/backtop',
+    element: <BackTopDocs />
   }
 ]

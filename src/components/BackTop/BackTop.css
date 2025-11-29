@@ -1,0 +1,76 @@
+/* BackTop 回到顶部组件样式 */
+.myui-back-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.myui-back-top:focus-visible {
+  outline: 2px solid var(--color-primary, #3b82f6);
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+.myui-back-top__default {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  color: var(--text-secondary, #6b7280);
+}
+
+.myui-back-top__default:hover {
+  background-color: var(--color-primary, #3b82f6);
+  border-color: var(--color-primary, #3b82f6);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+.myui-back-top__default:active {
+  transform: translateY(0);
+}
+
+.myui-back-top__default svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 深色模式 */
+[data-theme="dark"] .myui-back-top__default {
+  background-color: var(--bg-secondary, #1f2937);
+  border-color: var(--border-color, #374151);
+  color: var(--text-secondary, #9ca3af);
+}
+
+[data-theme="dark"] .myui-back-top__default:hover {
+  background-color: var(--color-primary, #3b82f6);
+  border-color: var(--color-primary, #3b82f6);
+  color: #fff;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .myui-back-top {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .myui-back-top__default {
+    width: 36px;
+    height: 36px;
+  }
+
+  .myui-back-top__default svg {
+    width: 18px;
+    height: 18px;
+  }
+}
