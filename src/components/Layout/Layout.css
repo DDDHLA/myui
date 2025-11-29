@@ -29,7 +29,6 @@
   height: 100%;
   padding: 0 24px;
   max-width: 100%;
-  overflow: hidden;
 }
 
 .myui-layout-header__menu-btn {
@@ -333,4 +332,126 @@
 
 .myui-layout-sidebar::-webkit-scrollbar-thumb:hover {
   background: var(--border-color-hover, #d1d5db);
+}
+
+/* 搜索组件样式 */
+.myui-search {
+  position: relative;
+  width: 240px;
+}
+
+.myui-search__input-wrapper {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  background-color: var(--bg-secondary, #f9fafb);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-lg, 12px);
+  transition: all var(--transition-fast, 150ms ease-in-out);
+}
+
+.myui-search__input-wrapper:hover {
+  background-color: var(--bg-tertiary, #f3f4f6);
+}
+
+.myui-search__input-wrapper--focused {
+  background-color: var(--bg-primary, #ffffff);
+  border-color: var(--color-primary, #3b82f6);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.myui-search__icon {
+  color: var(--text-tertiary, #9ca3af);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.myui-search__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-primary, #333333);
+  font-size: var(--font-size-sm, 0.875rem);
+  outline: none;
+  padding: 0;
+  min-width: 0;
+}
+
+.myui-search__input::placeholder {
+  color: var(--text-tertiary, #9ca3af);
+}
+
+.myui-search__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background-color: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: var(--border-radius-lg, 12px);
+  box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 100;
+  padding: 8px 0;
+}
+
+.myui-search__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.myui-search__item {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--text-primary, #333333);
+  font-size: var(--font-size-sm, 0.875rem);
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 150ms ease-in-out);
+}
+
+.myui-search__item:hover {
+  background-color: var(--bg-secondary, #f9fafb);
+  color: var(--color-primary, #3b82f6);
+}
+
+.myui-search__empty {
+  padding: 16px;
+  text-align: center;
+  color: var(--text-tertiary, #9ca3af);
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+/* 深色模式适配 */
+[data-theme="dark"] .myui-search__input-wrapper {
+  background-color: var(--bg-secondary, #374151);
+}
+
+[data-theme="dark"] .myui-search__input-wrapper:hover {
+  background-color: var(--bg-tertiary, #4b5563);
+}
+
+[data-theme="dark"] .myui-search__input-wrapper--focused {
+  background-color: var(--bg-primary, #1f2937);
+}
+
+[data-theme="dark"] .myui-search__dropdown {
+  background-color: var(--bg-primary, #1f2937);
+  border-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .myui-search__item:hover {
+  background-color: var(--bg-secondary, #374151);
+}
+
+@media (max-width: 768px) {
+  .myui-search {
+    display: none;
+  }
 }

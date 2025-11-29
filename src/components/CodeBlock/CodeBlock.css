@@ -44,13 +44,17 @@
   align-items: center;
   gap: 16px;
   padding: 12px 24px;
-  background-color: var(--bg-secondary, #f9fafb);
+  background-color: var(--bg-primary, #ffffff);
   border-bottom: 1px solid transparent;
+  border-bottom-left-radius: var(--border-radius-lg, 12px);
+  border-bottom-right-radius: var(--border-radius-lg, 12px);
 }
 
-/* 当代码展开时，Actions 底部需要有边框 */
+/* 当代码展开时，Actions 底部需要有边框且不需要圆角 */
 .myui-code-block:has(.myui-code-block__code) .myui-code-block__actions {
   border-bottom-color: var(--border-color, #e5e7eb);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .myui-code-block__action-btn {
@@ -173,6 +177,44 @@
 
 .myui-code-block__pre::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+
+/* 深色模式 */
+[data-theme="dark"] .myui-code-block {
+  background-color: var(--bg-primary, #1f2937);
+  border-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .myui-code-block:hover {
+  border-color: var(--color-primary, #3b82f6);
+}
+
+[data-theme="dark"] .myui-code-block__header {
+  border-bottom-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .myui-code-block__demo {
+  background-color: var(--bg-primary, #1f2937);
+  border-bottom-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .myui-code-block__actions {
+  background-color: var(--bg-primary, #1f2937);
+}
+
+[data-theme="dark"]
+  .myui-code-block:has(.myui-code-block__code)
+  .myui-code-block__actions {
+  border-bottom-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .myui-code-block__action-btn {
+  color: var(--text-secondary, #9ca3af);
+}
+
+[data-theme="dark"] .myui-code-block__action-btn:hover {
+  color: var(--color-primary, #3b82f6);
+  background-color: rgba(59, 130, 246, 0.15);
 }
 
 /* 响应式设计 */
