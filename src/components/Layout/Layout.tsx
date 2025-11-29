@@ -132,7 +132,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Slider 滑块', key: 'slider' },
         { title: 'Transfer 穿梭框', key: 'transfer' },
         { title: 'Upload 上传', key: 'upload' },
-        { title: 'Rate 评分', key: 'rate' }
+        { title: 'Rate 评分', key: 'rate' },
+        { title: 'DatePicker 日期选择器', key: 'datepicker' }
       ]
     },
             {
@@ -170,6 +171,8 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Modal 弹窗', key: 'modal' },
         { title: 'Message 全局提示', key: 'message' },
         { title: 'Tooltip 文字提示', key: 'tooltip' },
+        { title: 'Popover 气泡卡片', key: 'popover' },
+        { title: 'Popconfirm 气泡确认框', key: 'popconfirm' },
         { title: 'Drawer 抽屉', key: 'drawer' },
         { title: 'Progress 进度条', key: 'progress' },
         { title: 'Skeleton 骨架屏', key: 'skeleton' }

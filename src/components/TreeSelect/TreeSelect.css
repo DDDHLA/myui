@@ -3,8 +3,8 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 /* 选择器容器 */
@@ -336,7 +336,9 @@
   border-color: var(--myui-primary-color, #3b82f6);
 }
 
-.myui-tree-select__checkbox--indeterminate .myui-tree-select__checkbox-inner svg {
+.myui-tree-select__checkbox--indeterminate
+  .myui-tree-select__checkbox-inner
+  svg {
   opacity: 1;
   transform: scale(1);
   color: white;
@@ -419,29 +421,54 @@
 }
 
 /* 暗色主题 */
-[data-theme='dark'] .myui-tree-select__selector {
+[data-theme="dark"] .myui-tree-select__selector {
   background-color: var(--myui-bg-primary, #1f2937);
   border-color: var(--myui-border-color, #374151);
 }
 
-[data-theme='dark'] .myui-tree-select__dropdown {
+[data-theme="dark"] .myui-tree-select__dropdown {
   background-color: var(--myui-bg-primary, #1f2937);
   border-color: var(--myui-border-color, #374151);
 }
 
-[data-theme='dark'] .myui-tree-select__tree-node:hover {
+[data-theme="dark"] .myui-tree-select__tree-node:hover {
   background-color: var(--myui-bg-hover, #374151);
 }
 
-[data-theme='dark'] .myui-tree-select__tree-node--selected {
+[data-theme="dark"] .myui-tree-select__tree-node--selected {
   background-color: rgba(59, 130, 246, 0.2);
 }
 
-[data-theme='dark'] .myui-tree-select__tag {
+[data-theme="dark"] .myui-tree-select__tag {
   background-color: rgba(59, 130, 246, 0.2);
 }
 
-[data-theme='dark'] .myui-tree-select__checkbox-inner {
+[data-theme="dark"] .myui-tree-select__checkbox-inner {
   background-color: var(--myui-bg-primary, #1f2937);
   border-color: var(--myui-border-color, #4b5563);
+}
+
+/* 暗色主题文字颜色 */
+[data-theme="dark"] .myui-tree-select__node-label {
+  color: var(--myui-text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .myui-tree-select__value {
+  color: var(--myui-text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .myui-tree-select__search {
+  color: var(--myui-text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .myui-tree-select__placeholder {
+  color: var(--myui-text-tertiary, #6b7280);
+}
+
+[data-theme="dark"] .myui-tree-select__empty {
+  color: var(--myui-text-tertiary, #6b7280);
+}
+
+[data-theme="dark"] .myui-tree-select__loading {
+  color: var(--myui-text-secondary, #9ca3af);
 }

@@ -36,4 +36,7 @@ export { default as RateDocs } from "./RateDocs";
 export { default as SkeletonDocs } from "./SkeletonDocs";
 export { default as EmptyDocs } from "./EmptyDocs";
 export { default as TimelineDocs } from "./TimelineDocs";
+export { default as PopoverDocs } from "./PopoverDocs";
+export { default as PopconfirmDocs } from "./PopconfirmDocs";
+export { default as DatePickerDocs } from "./DatePickerDocs";
 export { default as ComingSoonPage } from "./ComingSoonPage";

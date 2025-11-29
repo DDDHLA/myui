@@ -33,6 +33,9 @@ import "./Rate/style.css";
 import "./Skeleton/style.css";
 import "./Empty/style.css";
 import "./Timeline/style.css";
+import "./Popover/Popover.css";
+import "./Popconfirm/Popconfirm.css";
+import "./DatePicker/DatePicker.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -150,6 +153,18 @@ export {
   type TimelineProps,
   type TimelineItemProps,
 } from "./Timeline";
+export {
+  Popover,
+  type PopoverProps,
+  type PopoverTrigger,
+  type PopoverPlacement,
+} from "./Popover";
+export { Popconfirm, type PopconfirmProps } from "./Popconfirm";
+export {
+  DatePicker,
+  type DatePickerProps,
+  type DatePickerMode,
+} from "./DatePicker";
 
 // 导出 Hooks
 export * from "@/hooks";

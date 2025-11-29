@@ -130,13 +130,13 @@
 
 /* 侧边栏样式 */
 .myui-layout-sidebar {
-  width: 280px;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 240px;
+  height: calc(100vh - 64px);
   background-color: var(--bg-primary, #ffffff);
   border-right: 1px solid var(--border-color, #e5e7eb);
-  position: fixed;
-  left: 0;
-  top: 64px;
-  bottom: 0;
   overflow-y: auto;
   overflow-x: hidden;
   transition: width var(--transition-normal, 250ms ease-in-out);
@@ -151,11 +151,11 @@
 
 .myui-layout-sidebar__content {
   padding: 24px 0;
-  width: 280px;
+  width: 240px;
   opacity: 1;
   transition: opacity var(--transition-fast, 150ms ease-in-out) 50ms;
   white-space: nowrap;
-  min-width: 280px;
+  min-width: 240px;
 }
 
 .myui-layout-sidebar--collapsed .myui-layout-sidebar__content {
@@ -225,9 +225,8 @@
 /* 主内容区域 */
 .myui-layout__main {
   flex: 1;
-  margin-left: 280px;
-  transition: margin-left var(--transition-normal, 250ms ease-in-out);
-  min-width: 0;
+  margin-left: 240px;
+  padding: 0;
   overflow-y: auto;
   height: calc(100vh - 64px);
   position: relative;

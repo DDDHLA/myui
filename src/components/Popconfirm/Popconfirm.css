@@ -1,0 +1,61 @@
+/* Popconfirm 样式 */
+.myui-popconfirm-content {
+  min-width: 200px;
+}
+
+.myui-popconfirm-message {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.myui-popconfirm-message-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.myui-popconfirm-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--myui-warning-color, #f59e0b);
+}
+
+.myui-popconfirm-message-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.myui-popconfirm-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--myui-text-primary, #1f2937);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.myui-popconfirm-description {
+  font-size: 13px;
+  color: var(--myui-text-secondary, #6b7280);
+  line-height: 1.5;
+}
+
+.myui-popconfirm-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* 暗色主题 */
+[data-theme="dark"] .myui-popconfirm-title {
+  color: var(--myui-text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .myui-popconfirm-description {
+  color: var(--myui-text-secondary, #d1d5db);
+}
+
+[data-theme="dark"] .myui-popconfirm-icon {
+  color: var(--myui-warning-color, #fbbf24);
+}

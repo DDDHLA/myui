@@ -19,6 +19,7 @@
 .menu-vertical,
 .menu-inline {
   border-right: 1px solid var(--border-color, #e8e8e8);
+  max-width: 150px;
 }
 
 .menu-inline {
@@ -147,7 +148,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 160px;
+  width: 100px;
   margin-top: 4px;
   background: var(--bg-color, #fff);
   border-radius: 4px;
@@ -160,7 +161,7 @@
   position: absolute;
   top: 0;
   left: 100%;
-  min-width: 160px;
+  width: 100px;
   margin-left: 4px;
   background: var(--bg-color, #fff);
   border-radius: 4px;
@@ -198,12 +199,12 @@
 
 .menu-dark .menu-item,
 .menu-dark .menu-submenu-title {
-  color: var(--dark-text, rgba(255, 255, 255, 0.65));
+  color: var(--dark-text, rgba(255, 255, 255, 0.85));
 }
 
 .menu-dark .menu-item:hover,
 .menu-dark .menu-submenu-title:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 
@@ -218,7 +219,7 @@
 }
 
 .menu-dark .menu-item-disabled {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .menu-dark .menu-inline.menu-sub {

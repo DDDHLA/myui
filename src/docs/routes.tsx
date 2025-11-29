@@ -37,7 +37,10 @@ import {
   RateDocs,
   SkeletonDocs,
   EmptyDocs,
-  TimelineDocs
+  TimelineDocs,
+  PopoverDocs,
+  PopconfirmDocs,
+  DatePickerDocs
 } from './pages'
 
 // 路由配置
@@ -197,5 +200,17 @@ export const routes: RouteObject[] = [
   {
     path: '/timeline',
     element: <TimelineDocs />
+  },
+  {
+    path: '/popover',
+    element: <PopoverDocs />
+  },
+  {
+    path: '/popconfirm',
+    element: <PopconfirmDocs />
+  },
+  {
+    path: '/datepicker',
+    element: <DatePickerDocs />
   }
 ]

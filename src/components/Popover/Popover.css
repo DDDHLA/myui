@@ -1,0 +1,188 @@
+/* Popover 基础样式 */
+.myui-popover-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.myui-popover-wrapper--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.myui-popover {
+  position: fixed;
+  z-index: 1070;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  visibility: hidden;
+  max-width: 300px;
+}
+
+.myui-popover--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.myui-popover-inner {
+  padding: 12px;
+  background-color: var(--myui-bg-primary, #ffffff);
+  border: 1px solid var(--myui-border-color, #e5e7eb);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--myui-text-primary, #1f2937);
+}
+
+.myui-popover-title {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--myui-text-primary, #1f2937);
+}
+
+.myui-popover-content {
+  color: var(--myui-text-secondary, #6b7280);
+  font-size: 14px;
+}
+
+.myui-popover-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+}
+
+/* 箭头 - Top */
+.myui-popover--top .myui-popover-arrow {
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-top-color: var(--myui-border-color, #e5e7eb);
+}
+
+.myui-popover--top .myui-popover-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 5px 5px 0;
+  border-color: transparent;
+  border-top-color: var(--myui-bg-primary, #ffffff);
+}
+
+/* 箭头 - Bottom */
+.myui-popover--bottom .myui-popover-arrow {
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 6px 6px;
+  border-bottom-color: var(--myui-border-color, #e5e7eb);
+}
+
+.myui-popover--bottom .myui-popover-arrow::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 0 5px 5px;
+  border-color: transparent;
+  border-bottom-color: var(--myui-bg-primary, #ffffff);
+}
+
+/* 箭头 - Left */
+.myui-popover--left .myui-popover-arrow {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 0 6px 6px;
+  border-left-color: var(--myui-border-color, #e5e7eb);
+}
+
+.myui-popover--left .myui-popover-arrow::after {
+  content: "";
+  position: absolute;
+  right: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent;
+  border-left-color: var(--myui-bg-primary, #ffffff);
+}
+
+/* 箭头 - Right */
+.myui-popover--right .myui-popover-arrow {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 6px 6px 0;
+  border-right-color: var(--myui-border-color, #e5e7eb);
+}
+
+.myui-popover--right .myui-popover-arrow::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 5px 5px 5px 0;
+  border-color: transparent;
+  border-right-color: var(--myui-bg-primary, #ffffff);
+}
+
+/* 暗色主题 */
+[data-theme="dark"] .myui-popover-inner {
+  background-color: var(--myui-bg-primary, #1f2937);
+  border-color: var(--myui-border-color, #374151);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .myui-popover-title {
+  color: var(--myui-text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .myui-popover-content {
+  color: var(--myui-text-secondary, #d1d5db);
+}
+
+/* 暗色主题箭头 */
+[data-theme="dark"] .myui-popover--top .myui-popover-arrow {
+  border-top-color: var(--myui-border-color, #374151);
+}
+
+[data-theme="dark"] .myui-popover--top .myui-popover-arrow::after {
+  border-top-color: var(--myui-bg-primary, #1f2937);
+}
+
+[data-theme="dark"] .myui-popover--bottom .myui-popover-arrow {
+  border-bottom-color: var(--myui-border-color, #374151);
+}
+
+[data-theme="dark"] .myui-popover--bottom .myui-popover-arrow::after {
+  border-bottom-color: var(--myui-bg-primary, #1f2937);
+}
+
+[data-theme="dark"] .myui-popover--left .myui-popover-arrow {
+  border-left-color: var(--myui-border-color, #374151);
+}
+
+[data-theme="dark"] .myui-popover--left .myui-popover-arrow::after {
+  border-left-color: var(--myui-bg-primary, #1f2937);
+}
+
+[data-theme="dark"] .myui-popover--right .myui-popover-arrow {
+  border-right-color: var(--myui-border-color, #374151);
+}
+
+[data-theme="dark"] .myui-popover--right .myui-popover-arrow::after {
+  border-right-color: var(--myui-bg-primary, #1f2937);
+}

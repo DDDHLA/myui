@@ -318,10 +318,27 @@ export interface SliderProps
 }
 
 // Calendar 组件类型
-export type EventCategory = 'work' | 'personal' | 'meeting' | 'birthday' | 'holiday' | 'custom';
-export type EventReminder = 'none' | '5min' | '15min' | '30min' | '1hour' | '1day';
-export type EventRecurrence = 'daily' | 'weekly' | 'monthly' | 'yearly' | 'none';
-export type CalendarView = 'month' | 'week' | 'day' | 'year';
+export type EventCategory =
+  | "work"
+  | "personal"
+  | "meeting"
+  | "birthday"
+  | "holiday"
+  | "custom";
+export type EventReminder =
+  | "none"
+  | "5min"
+  | "15min"
+  | "30min"
+  | "1hour"
+  | "1day";
+export type EventRecurrence =
+  | "daily"
+  | "weekly"
+  | "monthly"
+  | "yearly"
+  | "none";
+export type CalendarView = "month" | "week" | "day" | "year";
 
 export interface CalendarEvent {
   id: string;
@@ -339,14 +356,16 @@ export interface CalendarEvent {
   location?: string;
 }
 
-export interface CalendarProps extends HTMLAttributes<HTMLDivElement>, BaseProps {
+export interface CalendarProps
+  extends HTMLAttributes<HTMLDivElement>,
+    BaseProps {
   // 视图
   view?: CalendarView;
   onViewChange?: (view: CalendarView) => void;
 
   // 事件
   events?: CalendarEvent[];
-  onEventCreate?: (event: Omit<CalendarEvent, 'id'>) => void;
+  onEventCreate?: (event: Omit<CalendarEvent, "id">) => void;
   onEventUpdate?: (id: string, event: Partial<CalendarEvent>) => void;
   onEventDelete?: (id: string) => void;
   onEventClick?: (event: CalendarEvent) => void;
@@ -357,7 +376,7 @@ export interface CalendarProps extends HTMLAttributes<HTMLDivElement>, BaseProps
 
   // 样式
   size?: Size;
-  variant?: 'default' | 'compact' | 'comfortable';
+  variant?: "default" | "compact" | "comfortable";
 
   // 功能
   editable?: boolean;
@@ -365,7 +384,7 @@ export interface CalendarProps extends HTMLAttributes<HTMLDivElement>, BaseProps
   startOfWeek?: 0 | 1; // 0: Sunday, 1: Monday
 
   // 本地化
-  locale?: 'en' | 'zh' | 'ja' | 'ko';
+  locale?: "en" | "zh" | "ja" | "ko";
 
   // 额外
   miniCalendar?: boolean;
@@ -390,7 +409,10 @@ export interface TreeNode {
 }
 
 export interface TreeSelectProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue' | 'onSelect'> {
+  extends Omit<
+    HTMLAttributes<HTMLDivElement>,
+    "onChange" | "defaultValue" | "onSelect"
+  > {
   // 基础属性
   value?: string | number | (string | number)[];
   defaultValue?: string | number | (string | number)[];
@@ -410,7 +432,7 @@ export interface TreeSelectProps
   clearable?: boolean;
   disabled?: boolean;
   loading?: boolean;
-  showCheckedStrategy?: 'all' | 'parent' | 'child'; // 回显策略
+  showCheckedStrategy?: "all" | "parent" | "child"; // 回显策略
 
   // 展开控制
   defaultExpandAll?: boolean;
@@ -456,4 +478,113 @@ export interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
   setTheme: (theme: Theme) => void;
+}
+
+// Popover 组件类型
+export type PopoverTrigger = "hover" | "click" | "focus";
+export type PopoverPlacement = "top" | "bottom" | "left" | "right";
+
+export interface PopoverProps extends BaseProps {
+  title?: ReactNode;
+  content: ReactNode;
+  trigger?: PopoverTrigger;
+  placement?: PopoverPlacement;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  disabled?: boolean;
+}
+
+// Popconfirm 组件类型
+export interface PopconfirmProps extends BaseProps {
+  title?: ReactNode;
+  description?: ReactNode;
+  icon?: ReactNode;
+  okText?: string;
+  cancelText?: string;
+  okButtonProps?: ButtonProps;
+  cancelButtonProps?: ButtonProps;
+  onConfirm?: () => void | Promise<void>;
+  onCancel?: () => void;
+  placement?: PopoverPlacement;
+  disabled?: boolean;
+}
+
+// DatePicker 组件类型
+export type DatePickerMode = "date" | "month" | "year" | "week";
+
+export interface DatePickerProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> {
+  // 基础属性
+  value?: Date | string | null;
+  defaultValue?: Date | string | null;
+  onChange?: (date: Date | null, dateString: string) => void;
+
+  // 范围选择
+  range?: boolean;
+  rangeValue?: [Date | string | null, Date | string | null];
+  defaultRangeValue?: [Date | string | null, Date | string | null];
+  onRangeChange?: (
+    dates: [Date | null, Date | null],
+    dateStrings: [string, string]
+  ) => void;
+
+  // 模式
+  mode?: DatePickerMode;
+  picker?: DatePickerMode;
+
+  // 格式化
+  format?: string;
+  valueFormat?: string;
+
+  // 显示
+  placeholder?: string;
+  rangePlaceholder?: [string, string];
+  showTime?: boolean | { format?: string; defaultValue?: Date };
+  showToday?: boolean;
+  showNow?: boolean;
+
+  // 功能
+  allowClear?: boolean;
+  disabled?: boolean;
+  disabledDate?: (current: Date) => boolean;
+  disabledTime?: (current: Date | null) => {
+    disabledHours?: () => number[];
+    disabledMinutes?: (hour: number) => number[];
+    disabledSeconds?: (hour: number, minute: number) => number[];
+  };
+
+  // 预设
+  presets?: Array<{
+    label: string;
+    value: Date | [Date, Date];
+  }>;
+
+  // 样式
+  size?: Size;
+  error?: boolean;
+  bordered?: boolean;
+
+  // 弹窗
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  placement?: "bottomLeft" | "bottomRight" | "topLeft" | "topRight";
+  getPopupContainer?: (trigger: HTMLElement) => HTMLElement;
+
+  // 回调
+  onFocus?: (e: React.FocusEvent) => void;
+  onBlur?: (e: React.FocusEvent) => void;
+
+  // 本地化
+  locale?: "zh" | "en";
+
+  // 输入
+  inputReadOnly?: boolean;
+
+  // 周
+  startOfWeek?: 0 | 1;
+
+  // 标签
+  label?: string;
+  helperText?: string;
 }

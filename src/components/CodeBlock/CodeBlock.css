@@ -34,6 +34,8 @@
   border-bottom: 1px solid var(--border-color, #e5e7eb);
   overflow: visible;
   word-wrap: break-word;
+  position: relative;
+  z-index: 1;
 }
 
 .myui-code-block__actions {
