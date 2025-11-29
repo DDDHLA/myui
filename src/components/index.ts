@@ -43,6 +43,11 @@ import "./Cascader/Cascader.css";
 import "./Affix/Affix.css";
 import "./BackTop/BackTop.css";
 import "./Recorder/Recorder.module.css";
+import "./Spin/Spin.css";
+import "./Divider/Divider.css";
+import "./Space/Space.css";
+import "./Image/Image.css";
+import "./Notification/Notification.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -198,6 +203,18 @@ export {
   type AudioQuality,
   type VisualizerType,
 } from "./Recorder/Recorder";
+export { Spin, type SpinProps } from "./Spin";
+export { Divider, type DividerProps } from "./Divider";
+export { Space, type SpaceProps } from "./Space";
+export { Image, type ImageProps } from "./Image";
+export {
+  Notification,
+  notification,
+  useNotification,
+  type NotificationProps,
+  type NotificationType,
+  type NotificationPlacement,
+} from "./Notification";
 
 // 导出 Hooks
 export * from "@/hooks";

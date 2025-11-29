@@ -18,14 +18,7 @@
 }
 
 .myui-carousel__slide {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-}
-
-.myui-carousel__slide:first-child {
-  position: relative;
 }
 
 .myui-carousel__slide > * {
@@ -58,10 +51,6 @@
 
 .myui-carousel__arrow:hover {
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-.myui-carousel__arrow:active {
-  transform: scale(0.95);
 }
 
 .myui-carousel__arrow--disabled {

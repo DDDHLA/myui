@@ -134,6 +134,24 @@ const CarouselDocs: React.FC = () => {
       </CodeBlock>
 
       <CodeBlock
+        title="无限循环滚动"
+        description="设置 infinite 属性后,可以从最后一页顺滑地滑动到第一页,没有跳跃感。试试点击右箭头多次,观察从第4页到第1页的过渡效果。"
+        code={`<Carousel infinite arrows autoplay autoplaySpeed={2500}>
+  <div style={{ background: '#3b82f6', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '24px' }}>第 1 页</div>
+  <div style={{ background: '#10b981', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '24px' }}>第 2 页</div>
+  <div style={{ background: '#f59e0b', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '24px' }}>第 3 页</div>
+  <div style={{ background: '#ef4444', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '24px' }}>第 4 页</div>
+</Carousel>`}
+      >
+        <Carousel infinite arrows autoplay autoplaySpeed={2500}>
+          <div style={{ ...slideStyle, background: "#3b82f6" }}>第 1 页</div>
+          <div style={{ ...slideStyle, background: "#10b981" }}>第 2 页</div>
+          <div style={{ ...slideStyle, background: "#f59e0b" }}>第 3 页</div>
+          <div style={{ ...slideStyle, background: "#ef4444" }}>第 4 页</div>
+        </Carousel>
+      </CodeBlock>
+
+      <CodeBlock
         title="方法调用"
         description="通过 ref 调用组件方法控制轮播。"
         code={`const carouselRef = useRef<CarouselRef>(null);

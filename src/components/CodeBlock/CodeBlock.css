@@ -2,14 +2,18 @@
 .myui-code-block {
   border: 1px solid var(--border-color, #e5e7eb);
   border-radius: var(--border-radius-lg, 12px);
-  overflow: hidden;
   margin-bottom: 24px;
   background-color: var(--bg-primary, #ffffff);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all var(--transition-normal, 0.3s ease);
+}
+
+.myui-code-block:hover {
+  box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  border-color: var(--color-primary-light, #bfdbfe);
 }
 
 .myui-code-block__header {
-  padding: 16px 20px;
+  padding: 16px 24px;
   border-bottom: 1px solid var(--border-color, #e5e7eb);
 }
 
@@ -17,34 +21,36 @@
   margin: 0 0 8px 0;
   font-size: var(--font-size-lg, 1.125rem);
   font-weight: var(--font-weight-semibold, 600);
-  color: var(--text-primary, #333333);
+  color: var(--text-primary, #111827);
 }
 
 .myui-code-block__description {
   margin: 0;
   font-size: var(--font-size-sm, 0.875rem);
   color: var(--text-secondary, #6b7280);
-  line-height: var(--line-height-relaxed, 1.75);
+  line-height: 1.6;
 }
 
 .myui-code-block__demo {
-  padding: 32px 20px;
+  padding: 40px 24px;
   min-height: 120px;
-  background-color: var(--bg-secondary, #f9fafb);
+  background-color: var(--bg-primary, #ffffff);
   border-bottom: 1px solid var(--border-color, #e5e7eb);
-  overflow: visible;
-  word-wrap: break-word;
-  position: relative;
-  z-index: 1;
+  overflow-x: auto;
 }
 
 .myui-code-block__actions {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background-color: var(--bg-primary, #ffffff);
-  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  gap: 16px;
+  padding: 12px 24px;
+  background-color: var(--bg-secondary, #f9fafb);
+  border-bottom: 1px solid transparent;
+}
+
+/* 当代码展开时，Actions 底部需要有边框 */
+.myui-code-block:has(.myui-code-block__code) .myui-code-block__actions {
+  border-bottom-color: var(--border-color, #e5e7eb);
 }
 
 .myui-code-block__action-btn {
@@ -55,36 +61,35 @@
   font-size: var(--font-size-xs, 0.75rem);
   color: var(--text-secondary, #6b7280);
   background: transparent;
-  border: 1px solid var(--border-color, #e5e7eb);
-  border-radius: var(--border-radius-sm, 4px);
+  border: none;
+  border-radius: var(--border-radius, 6px);
   cursor: pointer;
   transition: all var(--transition-fast, 150ms ease-in-out);
 }
 
 .myui-code-block__action-btn:hover {
   color: var(--color-primary, #3b82f6);
-  border-color: var(--color-primary, #3b82f6);
-  background-color: var(--color-primary-light, #dbeafe);
+  background-color: var(--color-primary-light, rgba(59, 130, 246, 0.1));
+}
+
+.myui-code-block__action-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 .myui-code-block__code {
-  background-color: var(--color-gray-900, #1f2937);
-  overflow-x: auto;
+  background-color: #1e1e1e;
+  border-bottom-left-radius: var(--border-radius-lg, 12px);
+  border-bottom-right-radius: var(--border-radius-lg, 12px);
+  overflow: hidden;
 }
 
 .myui-code-block__pre {
   margin: 0;
-  padding: 20px;
-  font-family: var(
-    --font-family-mono,
-    "SF Mono",
-    Monaco,
-    Inconsolata,
-    "Roboto Mono",
-    monospace
-  );
+  padding: 24px;
+  font-family: var(--font-family-mono, monospace);
   font-size: var(--font-size-sm, 0.875rem);
-  line-height: var(--line-height-relaxed, 1.75);
+  line-height: 1.6;
   color: #e5e7eb;
   background: transparent;
   overflow-x: auto;
@@ -96,55 +101,60 @@
   font-family: inherit;
   font-size: inherit;
   white-space: pre;
-  word-wrap: normal;
-  overflow-wrap: normal;
 }
 
-/* 语法高亮样式 */
+/* 语法高亮样式 (One Dark 风格) */
 .language-tsx .token.keyword,
 .language-jsx .token.keyword,
 .language-ts .token.keyword,
 .language-js .token.keyword {
-  color: #c792ea;
+  color: #c678dd;
 }
 
 .language-tsx .token.string,
 .language-jsx .token.string,
 .language-ts .token.string,
 .language-js .token.string {
-  color: #a5d6ff;
+  color: #98c379;
 }
 
 .language-tsx .token.function,
 .language-jsx .token.function,
 .language-ts .token.function,
 .language-js .token.function {
-  color: #82aaff;
+  color: #61afef;
 }
 
 .language-tsx .token.tag,
 .language-jsx .token.tag {
-  color: #f07178;
+  color: #e06c75;
 }
 
 .language-tsx .token.attr-name,
 .language-jsx .token.attr-name {
-  color: #ffcb6b;
+  color: #d19a66;
 }
 
 .language-tsx .token.punctuation,
 .language-jsx .token.punctuation,
 .language-ts .token.punctuation,
 .language-js .token.punctuation {
-  color: #89ddff;
+  color: #abb2bf;
 }
 
 .language-tsx .token.comment,
 .language-jsx .token.comment,
 .language-ts .token.comment,
 .language-js .token.comment {
-  color: #676e95;
+  color: #5c6370;
   font-style: italic;
+}
+
+.language-tsx .token.operator,
+.language-jsx .token.operator,
+.language-ts .token.operator,
+.language-js .token.operator {
+  color: #56b6c2;
 }
 
 /* 滚动条样式 */
@@ -153,8 +163,7 @@
 }
 
 .myui-code-block__pre::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .myui-code-block__pre::-webkit-scrollbar-thumb {
@@ -169,38 +178,15 @@
 /* 响应式设计 */
 @media (max-width: 768px) {
   .myui-code-block {
-    margin: 0 -16px 24px -16px;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
+    border-radius: var(--border-radius-lg, 12px);
   }
 
   .myui-code-block__demo {
-    padding: 16px;
-    overflow-x: auto;
-  }
-
-  .myui-code-block__demo > * {
-    max-width: 100%;
-    overflow-x: auto;
+    padding: 24px 16px;
+    display: block;
   }
 
   .myui-code-block__actions {
     padding: 8px 16px;
-    flex-wrap: wrap;
-  }
-
-  .myui-code-block__pre {
-    padding: 16px;
-    font-size: var(--font-size-xs, 0.75rem);
-    overflow-x: auto;
-  }
-
-  .myui-code-block__header {
-    padding: 12px 16px;
-  }
-
-  .myui-code-block__title {
-    font-size: var(--font-size-base, 1rem);
   }
 }

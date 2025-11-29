@@ -47,7 +47,12 @@ import {
   CascaderDocs,
   AffixDocs,
   BackTopDocs,
-  RecorderDocs
+  RecorderDocs,
+  SpinDocs,
+  DividerDocs,
+  SpaceDocs,
+  ImageDocs,
+  NotificationDocs
 } from './pages'
 
 // 路由配置
@@ -247,5 +252,25 @@ export const routes: RouteObject[] = [
   {
     path: '/recorder',
     element: <RecorderDocs />
+  },
+  {
+    path: '/spin',
+    element: <SpinDocs />
+  },
+  {
+    path: '/divider',
+    element: <DividerDocs />
+  },
+  {
+    path: '/space',
+    element: <SpaceDocs />
+  },
+  {
+    path: '/image',
+    element: <ImageDocs />
+  },
+  {
+    path: '/notification',
+    element: <NotificationDocs />
   }
 ]

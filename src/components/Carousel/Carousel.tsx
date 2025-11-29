@@ -6,7 +6,6 @@ import React, {
   useRef,
   useImperativeHandle,
 } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils";
 import { Icon } from "../Icon";
 import "./Carousel.css";
@@ -16,7 +15,7 @@ export interface CarouselProps {
   children: React.ReactNode;
   /** 是否自动播放 */
   autoplay?: boolean;
-  /** 自动播放间隔（毫秒） */
+  /** 自动播放间隔(毫秒) */
   autoplaySpeed?: number;
   /** 是否显示指示点 */
   dots?: boolean;
@@ -28,7 +27,7 @@ export interface CarouselProps {
   effect?: "slide" | "fade";
   /** 是否无限循环 */
   infinite?: boolean;
-  /** 动画速度（毫秒） */
+  /** 动画速度(毫秒) */
   speed?: number;
   /** 初始索引 */
   initialSlide?: number;
@@ -81,11 +80,22 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
     const slides = React.Children.toArray(children);
     const slideCount = slides.length;
 
-    const [currentIndex, setCurrentIndex] = useState(initialSlide);
+    // 真实的幻灯片索引(0 到 slideCount-1)
+    const [realIndex, setRealIndex] = useState(initialSlide);
+    // 当前显示的索引(包括克隆元素,用于 transform 计算)
+    const [currentIndex, setCurrentIndex] = useState(
+      infinite ? initialSlide + 1 : initialSlide
+    );
     const [isPlaying, setIsPlaying] = useState(autoplay);
-    const [direction, setDirection] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+    const trackRef = useRef<HTMLDivElement>(null);
+
+    // 构建渲染的幻灯片列表(包括克隆元素)
+    const renderSlides = infinite
+      ? [slides[slideCount - 1], ...slides, slides[0]]
+      : slides;
 
     // 清除定时器
     const clearTimer = useCallback(() => {
@@ -98,36 +108,63 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
     // 切换到指定索引
     const goTo = useCallback(
       (index: number) => {
-        if (index === currentIndex) return;
+        if (isTransitioning || index === realIndex) return;
 
         const nextIndex = infinite
           ? ((index % slideCount) + slideCount) % slideCount
           : Math.max(0, Math.min(index, slideCount - 1));
 
-        if (nextIndex === currentIndex) return;
+        if (nextIndex === realIndex) return;
 
-        setDirection(nextIndex > currentIndex ? 1 : -1);
-        beforeChange?.(currentIndex, nextIndex);
-        setCurrentIndex(nextIndex);
+        beforeChange?.(realIndex, nextIndex);
+        setIsTransitioning(true);
+        setRealIndex(nextIndex);
+        setCurrentIndex(infinite ? nextIndex + 1 : nextIndex);
       },
-      [currentIndex, slideCount, infinite, beforeChange]
+      [realIndex, slideCount, infinite, beforeChange, isTransitioning]
     );
 
     // 下一张
     const next = useCallback(() => {
-      const nextIndex = infinite
-        ? (currentIndex + 1) % slideCount
-        : Math.min(currentIndex + 1, slideCount - 1);
-      goTo(nextIndex);
-    }, [currentIndex, slideCount, infinite, goTo]);
+      if (isTransitioning) return;
+
+      if (infinite) {
+        const nextRealIndex = (realIndex + 1) % slideCount;
+        beforeChange?.(realIndex, nextRealIndex);
+        setIsTransitioning(true);
+        setRealIndex(nextRealIndex);
+        setCurrentIndex(currentIndex + 1);
+      } else {
+        if (realIndex < slideCount - 1) {
+          const nextRealIndex = realIndex + 1;
+          beforeChange?.(realIndex, nextRealIndex);
+          setIsTransitioning(true);
+          setRealIndex(nextRealIndex);
+          setCurrentIndex(nextRealIndex);
+        }
+      }
+    }, [realIndex, currentIndex, slideCount, infinite, beforeChange, isTransitioning]);
 
     // 上一张
     const prev = useCallback(() => {
-      const prevIndex = infinite
-        ? (currentIndex - 1 + slideCount) % slideCount
-        : Math.max(currentIndex - 1, 0);
-      goTo(prevIndex);
-    }, [currentIndex, slideCount, infinite, goTo]);
+      if (isTransitioning) return;
+
+      if (infinite) {
+        const prevRealIndex = (realIndex - 1 + slideCount) % slideCount;
+        beforeChange?.(realIndex, prevRealIndex);
+        setIsTransitioning(true);
+        setRealIndex(prevRealIndex);
+        setCurrentIndex(currentIndex - 1);
+      } else {
+        if (realIndex > 0) {
+          const prevRealIndex = realIndex - 1;
+          beforeChange?.(realIndex, prevRealIndex);
+          setIsTransitioning(true);
+          setRealIndex(prevRealIndex);
+          setCurrentIndex(prevRealIndex);
+        }
+      }
+    }, [realIndex, currentIndex, slideCount, infinite, beforeChange, isTransitioning]);
 
     // 暂停
     const pause = useCallback(() => {
@@ -151,6 +188,32 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
       resume,
     }));
 
+    // 处理过渡结束
+    useEffect(() => {
+      const track = trackRef.current;
+      if (!track) return;
+
+      const handleTransitionEnd = () => {
+        setIsTransitioning(false);
+
+        if (infinite) {
+          // 如果滚动到了克隆的最后一个元素(索引 slideCount + 1)
+          if (currentIndex === slideCount + 1) {
+            setCurrentIndex(1); // 瞬间跳到真实的第一个元素
+          }
+          // 如果滚动到了克隆的第一个元素(索引 0)
+          else if (currentIndex === 0) {
+            setCurrentIndex(slideCount); // 瞬间跳到真实的最后一个元素
+          }
+        }
+
+        afterChange?.(realIndex);
+      };
+
+      track.addEventListener("transitionend", handleTransitionEnd);
+      return () => track.removeEventListener("transitionend", handleTransitionEnd);
+    }, [currentIndex, realIndex, slideCount, infinite, afterChange]);
+
     // 自动播放
     useEffect(() => {
       if (isPlaying && slideCount > 1) {
@@ -158,11 +221,6 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
       }
       return clearTimer;
     }, [isPlaying, autoplaySpeed, next, slideCount, clearTimer]);
-
-    // 切换后回调
-    useEffect(() => {
-      afterChange?.(currentIndex);
-    }, [currentIndex, afterChange]);
 
     // 键盘导航
     useEffect(() => {
@@ -192,32 +250,18 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
       return () => document.removeEventListener("keydown", handleKeyDown);
     }, [vertical, next, prev]);
 
-    // 动画变体
-    const slideVariants = {
-      enter: (dir: number) => ({
-        x: vertical ? 0 : dir > 0 ? "100%" : "-100%",
-        y: vertical ? (dir > 0 ? "100%" : "-100%") : 0,
-        opacity: effect === "fade" ? 0 : 1,
-      }),
-      center: {
-        x: 0,
-        y: 0,
-        opacity: 1,
-      },
-      exit: (dir: number) => ({
-        x: vertical ? 0 : dir > 0 ? "-100%" : "100%",
-        y: vertical ? (dir > 0 ? "-100%" : "100%") : 0,
-        opacity: effect === "fade" ? 0 : 1,
-      }),
-    };
-
-    const fadeVariants = {
-      enter: { opacity: 0 },
-      center: { opacity: 1 },
-      exit: { opacity: 0 },
-    };
-
     const isVerticalDots = dotPosition === "left" || dotPosition === "right";
+
+    // 计算 transform 值
+    const getTransform = () => {
+      if (effect === "fade") return "translate(0, 0)";
+      
+      if (vertical) {
+        return `translateY(-${currentIndex * 100}%)`;
+      } else {
+        return `translateX(-${currentIndex * 100}%)`;
+      }
+    };
 
     return (
       <div
@@ -236,20 +280,53 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
         onMouseLeave={autoplay ? resume : undefined}
       >
         <div className="myui-carousel__container">
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={currentIndex}
-              custom={direction}
-              variants={effect === "fade" ? fadeVariants : slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: speed / 1000, ease: "easeInOut" }}
-              className="myui-carousel__slide"
-            >
-              {slides[currentIndex]}
-            </motion.div>
-          </AnimatePresence>
+          <div
+            ref={trackRef}
+            className="myui-carousel__track"
+            style={{
+              display: "flex",
+              flexDirection: vertical ? "column" : "row",
+              transform: getTransform(),
+              transition: isTransitioning ? `transform ${speed}ms ease-in-out` : "none",
+            }}
+          >
+            {effect === "fade" ? (
+              // 淡入淡出效果:只渲染当前幻灯片
+              slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className="myui-carousel__slide"
+                  style={{
+                    flex: "0 0 100%",
+                    width: vertical ? "100%" : "100%",
+                    height: vertical ? "100%" : "auto",
+                    opacity: index === realIndex ? 1 : 0,
+                    transition: isTransitioning ? `opacity ${speed}ms ease-in-out` : "none",
+                    position: index === realIndex ? "relative" : "absolute",
+                    top: 0,
+                    left: 0,
+                  }}
+                >
+                  {slide}
+                </div>
+              ))
+            ) : (
+              // 滑动效果:渲染所有幻灯片(包括克隆的)
+              renderSlides.map((slide, index) => (
+                <div
+                  key={index}
+                  className="myui-carousel__slide"
+                  style={{
+                    flex: "0 0 100%",
+                    width: vertical ? "100%" : "100%",
+                    height: vertical ? "100%" : "auto",
+                  }}
+                >
+                  {slide}
+                </div>
+              ))
+            )}
+          </div>
         </div>
 
         {/* 箭头 */}
@@ -258,10 +335,10 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
             <button
               className={cn("myui-carousel__arrow myui-carousel__arrow--prev", {
                 "myui-carousel__arrow--disabled":
-                  !infinite && currentIndex === 0,
+                  !infinite && realIndex === 0,
               })}
               onClick={prev}
-              disabled={!infinite && currentIndex === 0}
+              disabled={!infinite && realIndex === 0}
               aria-label="上一张"
             >
               <Icon name={vertical ? "chevron-up" : "chevron-left"} />
@@ -269,10 +346,10 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
             <button
               className={cn("myui-carousel__arrow myui-carousel__arrow--next", {
                 "myui-carousel__arrow--disabled":
-                  !infinite && currentIndex === slideCount - 1,
+                  !infinite && realIndex === slideCount - 1,
               })}
               onClick={next}
-              disabled={!infinite && currentIndex === slideCount - 1}
+              disabled={!infinite && realIndex === slideCount - 1}
               aria-label="下一张"
             >
               <Icon name={vertical ? "chevron-down" : "chevron-right"} />
@@ -291,11 +368,11 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
               <button
                 key={index}
                 className={cn("myui-carousel__dot", {
-                  "myui-carousel__dot--active": index === currentIndex,
+                  "myui-carousel__dot--active": index === realIndex,
                 })}
                 onClick={() => goTo(index)}
                 aria-label={`切换到第 ${index + 1} 张`}
-                aria-current={index === currentIndex ? "true" : undefined}
+                aria-current={index === realIndex ? "true" : undefined}
               />
             ))}
           </div>

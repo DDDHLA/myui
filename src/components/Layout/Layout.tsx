@@ -178,12 +178,29 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Alert 警告提示', key: 'alert' },
         { title: 'Modal 弹窗', key: 'modal' },
         { title: 'Message 全局提示', key: 'message' },
+        { title: 'Notification 通知', key: 'notification' },
         { title: 'Tooltip 文字提示', key: 'tooltip' },
         { title: 'Popover 气泡卡片', key: 'popover' },
         { title: 'Popconfirm 气泡确认框', key: 'popconfirm' },
         { title: 'Drawer 抽屉', key: 'drawer' },
         { title: 'Progress 进度条', key: 'progress' },
-        { title: 'Skeleton 骨架屏', key: 'skeleton' }
+        { title: 'Skeleton 骨架屏', key: 'skeleton' },
+        { title: 'Spin 加载中', key: 'spin' }
+      ]
+    },
+    {
+      title: '布局',
+      key: 'layout',
+      items: [
+        { title: 'Divider 分割线', key: 'divider' },
+        { title: 'Space 间距', key: 'space' }
+      ]
+    },
+    {
+      title: '其他',
+      key: 'other',
+      items: [
+        { title: 'Image 图片', key: 'image' }
       ]
     }
   ]

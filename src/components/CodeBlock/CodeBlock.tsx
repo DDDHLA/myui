@@ -14,7 +14,7 @@ interface CodeBlockProps {
 export function CodeBlock({ 
   code, 
   language = 'tsx', 
-  title, 
+  title,
   description,
   children,
   showCopy = true 

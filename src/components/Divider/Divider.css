@@ -1,0 +1,100 @@
+/* Divider 组件样式 */
+.myui-divider {
+  --divider-color: var(--border-color, #e5e7eb);
+  --divider-text-padding: 1em;
+  --divider-orientation-margin: 0;
+}
+
+/* 水平分割线 */
+.myui-divider--horizontal {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+  border-top: 1px solid var(--divider-color);
+  border-bottom: 0;
+  clear: both;
+}
+
+/* 垂直分割线 */
+.myui-divider--vertical {
+  display: inline-block;
+  height: 1em;
+  margin: 0 8px;
+  vertical-align: middle;
+  border-left: 1px solid var(--divider-color);
+  border-top: 0;
+}
+
+/* 虚线样式 */
+.myui-divider--horizontal.myui-divider--dashed {
+  border-top-style: dashed;
+}
+
+.myui-divider--vertical.myui-divider--dashed {
+  border-left-style: dashed;
+}
+
+/* 带文本的分割线 */
+.myui-divider--with-text {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+  text-align: center;
+  border-top: 0;
+}
+
+.myui-divider--with-text::before,
+.myui-divider--with-text::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--divider-color);
+}
+
+.myui-divider--with-text.myui-divider--dashed::before,
+.myui-divider--with-text.myui-divider--dashed::after {
+  border-top-style: dashed;
+}
+
+/* 文本位置 */
+.myui-divider--text-left::before {
+  flex: 0 0 var(--divider-orientation-margin, 5%);
+}
+
+.myui-divider--text-right::after {
+  flex: 0 0 var(--divider-orientation-margin, 5%);
+}
+
+.myui-divider--text-center::before,
+.myui-divider--text-center::after {
+  flex: 1;
+}
+
+/* 文本内容 */
+.myui-divider__text {
+  display: inline-block;
+  padding: 0 var(--divider-text-padding);
+}
+
+/* 朴素样式 */
+.myui-divider--plain .myui-divider__text {
+  font-weight: normal;
+  font-size: 14px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.65));
+}
+
+/* 暗色主题 */
+[data-theme='dark'] .myui-divider {
+  --divider-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .myui-divider--with-text {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+[data-theme='dark'] .myui-divider--plain .myui-divider__text {
+  color: rgba(255, 255, 255, 0.65);
+}

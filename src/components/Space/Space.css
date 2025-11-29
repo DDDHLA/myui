@@ -1,0 +1,51 @@
+/* Space 组件样式 */
+.myui-space {
+  display: inline-flex;
+  --space-gap-horizontal: var(--spacing-4, 16px);
+  --space-gap-vertical: var(--spacing-4, 16px);
+}
+
+/* 水平方向 */
+.myui-space--horizontal {
+  flex-direction: row;
+  gap: var(--space-gap-horizontal);
+}
+
+/* 垂直方向 */
+.myui-space--vertical {
+  flex-direction: column;
+  gap: var(--space-gap-vertical);
+}
+
+/* 换行 */
+.myui-space--wrap {
+  flex-wrap: wrap;
+}
+
+/* 对齐方式 */
+.myui-space--align-start {
+  align-items: flex-start;
+}
+
+.myui-space--align-end {
+  align-items: flex-end;
+}
+
+.myui-space--align-center {
+  align-items: center;
+}
+
+.myui-space--align-baseline {
+  align-items: baseline;
+}
+
+/* 子项 */
+.myui-space__item {
+  display: inline-flex;
+}
+
+/* 分隔符 */
+.myui-space__split {
+  display: inline-flex;
+  align-items: center;
+}
