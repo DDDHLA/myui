@@ -52,4 +52,5 @@ export { default as SpaceDocs } from "./SpaceDocs";
 export { default as ImageDocs } from "./ImageDocs";
 export { default as LayoutDocs } from "./LayoutDocs";
 export { default as NotificationDocs } from "./NotificationDocs";
+export { default as MentionsDocs } from "./MentionsDocs";
 export { default as ComingSoonPage } from "./ComingSoonPage";

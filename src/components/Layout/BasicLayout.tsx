@@ -47,6 +47,7 @@ const MENU_ITEMS = [
       { title: 'Rate 评分', key: 'rate' },
       { title: 'DatePicker 日期选择器', key: 'datepicker' },
       { title: 'Cascader 级联选择', key: 'cascader' },
+      { title: 'Mentions 提及', key: 'mentions' },
       { title: 'Recorder 录音', key: 'recorder' }
     ]
   },
@@ -284,7 +285,7 @@ export function BasicLayout({ children, currentPage, onPageChange }: BasicLayout
   return (
     <Layout className="myui-basic-layout">
       <Header className="myui-layout-header">
-        <div className="myui-layout-header__content">
+        <div className="myui-layout-header__content" style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
           <button
             className="myui-layout-header__menu-btn"
             onClick={toggleSidebar}
@@ -293,11 +294,11 @@ export function BasicLayout({ children, currentPage, onPageChange }: BasicLayout
               <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </button>
-          <div className="myui-layout-header__brand">
+          <div className="myui-layout-header__brand" style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
             <h1>MyUI</h1>
             <span>现代化的 React 组件库</span>
           </div>
-          <div className="myui-layout-header__actions">
+          <div className="myui-layout-header__actions" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
             <Search onPageChange={onPageChange} />
             <ThemeToggle />
           </div>
@@ -315,9 +316,13 @@ export function BasicLayout({ children, currentPage, onPageChange }: BasicLayout
         )}
         
         <Sider 
-          width={240} 
+          width={sidebarCollapsed ? 0 : 240} 
           collapsed={sidebarCollapsed}
           className="myui-layout-sidebar"
+          style={{ 
+            overflow: 'hidden',
+            borderRight: sidebarCollapsed ? 'none' : undefined
+          }}
         >
           <div className="myui-layout-sidebar__content">
             <nav className="myui-layout-sidebar__nav">
@@ -346,9 +351,12 @@ export function BasicLayout({ children, currentPage, onPageChange }: BasicLayout
           </div>
         </Sider>
         
-        <Content className={cn('myui-layout__main', {
-          'myui-layout__main--sidebar-collapsed': sidebarCollapsed
-        })}>
+        <Content 
+          className={cn('myui-layout__main', {
+            'myui-layout__main--sidebar-collapsed': sidebarCollapsed
+          })}
+          style={{ marginLeft: sidebarCollapsed ? 0 : 240 }}
+        >
           <div className="myui-layout__content">
             {children}
           </div>

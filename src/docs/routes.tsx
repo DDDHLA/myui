@@ -53,7 +53,8 @@ import {
   SpaceDocs,
   ImageDocs,
   LayoutDocs,
-  NotificationDocs
+  NotificationDocs,
+  MentionsDocs
 } from './pages'
 
 // 路由配置
@@ -277,5 +278,9 @@ export const routes: RouteObject[] = [
   {
     path: '/notification',
     element: <NotificationDocs />
+  },
+  {
+    path: '/mentions',
+    element: <MentionsDocs />
   }
 ]

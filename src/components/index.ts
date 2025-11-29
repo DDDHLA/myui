@@ -49,6 +49,7 @@ import "./Space/Space.css";
 import "./Image/Image.css";
 import "./Notification/Notification.css";
 import "./Layout/Layout.css";
+import "./Mentions/style.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -217,6 +218,12 @@ export {
   type NotificationPlacement,
 } from "./Notification";
 export { Layout, Header, Footer, Sider, Content, BasicLayout } from "./Layout";
+export {
+  Mentions,
+  type MentionsProps,
+  type MentionOption,
+  type MentionsRef,
+} from "./Mentions";
 
 // 导出 Hooks
 export * from "@/hooks";
