@@ -134,16 +134,18 @@ function Sidebar({ collapsed, onToggle, currentPage, onPageChange }: SidebarProp
         { title: 'Upload 上传', key: 'upload' },
         { title: 'Rate 评分', key: 'rate' },
         { title: 'DatePicker 日期选择器', key: 'datepicker' },
-        { title: 'Cascader 级联选择', key: 'cascader' }
+        { title: 'Cascader 级联选择', key: 'cascader' },
+        { title: 'Recorder 录音', key: 'recorder' }
       ]
     },
-            {
-              title: '数据展示',
-              key: 'data-display',
-              items: [
-                { title: 'Card 卡片', key: 'card' },
-                { title: 'Splitter 分隔面板', key: 'splitter' },
-                { title: 'Table 表格', key: 'table' },        { title: 'Tabs 标签页', key: 'tabs' },
+    {
+      title: '数据展示',
+      key: 'data-display',
+      items: [
+        { title: 'Card 卡片', key: 'card' },
+        { title: 'Splitter 分隔面板', key: 'splitter' },
+        { title: 'Table 表格', key: 'table' },
+        { title: 'Tabs 标签页', key: 'tabs' },
         { title: 'Calendar 日历', key: 'calendar' },
         { title: 'Avatar 头像', key: 'avatar' },
         { title: 'Badge 徽标数', key: 'badge' },
