@@ -48,6 +48,7 @@ import "./Divider/Divider.css";
 import "./Space/Space.css";
 import "./Image/Image.css";
 import "./Notification/Notification.css";
+import "./Layout/Layout.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -215,6 +216,7 @@ export {
   type NotificationType,
   type NotificationPlacement,
 } from "./Notification";
+export { Layout, Header, Footer, Sider, Content, BasicLayout } from "./Layout";
 
 // 导出 Hooks
 export * from "@/hooks";

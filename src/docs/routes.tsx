@@ -52,6 +52,7 @@ import {
   DividerDocs,
   SpaceDocs,
   ImageDocs,
+  LayoutDocs,
   NotificationDocs
 } from './pages'
 
@@ -268,6 +269,10 @@ export const routes: RouteObject[] = [
   {
     path: '/image',
     element: <ImageDocs />
+  },
+  {
+    path: '/layout',
+    element: <LayoutDocs />
   },
   {
     path: '/notification',

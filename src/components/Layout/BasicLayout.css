@@ -1,5 +1,5 @@
-/* Layout 布局样式 */
-.myui-layout {
+/* 复用之前的 Layout 样式，但为了避免冲突，可能需要调整 */
+.myui-basic-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -8,7 +8,6 @@
   width: 100%;
 }
 
-/* 头部样式 */
 .myui-layout-header {
   position: fixed;
   top: 0;
@@ -50,16 +49,6 @@
   background-color: var(--bg-secondary, #f9fafb);
 }
 
-.myui-layout-header__menu-btn:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.myui-layout-header__menu-btn:active {
-  outline: none;
-  box-shadow: none;
-}
-
 .myui-layout-header__brand {
   display: flex;
   align-items: center;
@@ -91,31 +80,24 @@
   gap: 16px;
 }
 
-.myui-layout-header__theme-btn:hover {
-  background-color: var(--bg-secondary, #f9fafb) !important;
-  border-color: var(--border-color-hover, #d1d5db) !important;
-  transform: scale(1.05);
-}
-
-.myui-layout-header__theme-btn:active {
-  transform: scale(0.95);
-}
-
-.myui-layout-header__github {
+.myui-layout-header__theme-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: var(--border-radius, 8px);
+  border-radius: 10px;
+  border: 1px solid var(--border-color, #e5e7eb);
+  background: var(--bg-primary, #ffffff);
   color: var(--text-primary, #333333);
-  text-decoration: none;
-  transition: all var(--transition-fast, 150ms ease-in-out);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-.myui-layout-header__github:hover {
-  background-color: var(--bg-secondary, #f9fafb);
-  color: var(--color-primary, #3b82f6);
+.myui-layout-header__theme-btn:hover {
+  background-color: var(--bg-secondary, #f9fafb) !important;
+  border-color: var(--border-color-hover, #d1d5db) !important;
+  transform: scale(1.05);
 }
 
 /* 主体布局 */
@@ -128,79 +110,39 @@
 }
 
 /* 侧边栏样式 */
-.myui-layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: var(--bg-page, #f5f7fa);
-}
-
-.myui-layout-header {
-  background: var(--bg-header, #ffffff);
-  border-bottom: 1px solid var(--border-color, #e6e6e6);
-  height: 64px;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.myui-layout__body {
-  display: flex;
-  flex: 1;
-  position: relative;
-  min-height: 0; /* ensure children can scroll */
-}
-
 .myui-layout-sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
   width: 240px;
-  background: var(--sider-bg, #001529);
-  color: var(--sider-color, #fff);
-  transition: width 0.2s ease;
-  overflow: auto;
+  height: calc(100vh - 64px);
+  background-color: var(--bg-primary, #ffffff);
+  border-right: 1px solid var(--border-color, #e5e7eb);
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width var(--transition-normal, 250ms ease-in-out);
+  z-index: 10;
 }
 
 .myui-layout-sidebar--collapsed {
-  width: 64px;
+  width: 0;
+  border-right: none;
+  overflow: hidden;
 }
 
-.myui-layout__main {
-  flex: 1;
-  padding: 24px;
-  box-sizing: border-box;
-  min-width: 0;
+.myui-layout-sidebar__content {
+  padding: 24px 0;
+  width: 240px;
+  opacity: 1;
+  transition: opacity var(--transition-fast, 150ms ease-in-out) 50ms;
+  white-space: nowrap;
+  min-width: 240px;
 }
 
-.myui-layout__content {
-  background: var(--content-bg, #fff);
-  border-radius: 6px;
-  padding: 16px;
-  min-height: 200px;
-}
-
-.myui-layout-footer {
-  background: var(--bg-footer, #ffffff);
-  border-top: 1px solid var(--border-color, #e6e6e6);
-  padding: 16px 20px;
-  text-align: center;
-}
-
-.myui-layout-overlay {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 64px;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+.myui-layout-sidebar--collapsed .myui-layout-sidebar__content {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease;
-  z-index: 40;
-}
-
-.myui-layout-overlay--visible {
-  opacity: 1;
-  pointer-events: auto;
+  transition: opacity var(--transition-fast, 150ms ease-in-out) 0ms;
 }
 
 .myui-layout-sidebar__nav {
@@ -269,7 +211,7 @@
   overflow-y: auto;
   height: calc(100vh - 64px);
   position: relative;
-  z-index: 1; /* 确保内容在侧边栏下方 */
+  z-index: 1;
 }
 
 .myui-layout__main--sidebar-collapsed {
@@ -287,6 +229,8 @@
   min-width: 0;
   position: relative;
   z-index: 1;
+  background: transparent; /* 覆盖 Layout.css 的默认白色背景 */
+  min-height: auto;
 }
 
 /* 遮罩层 */
@@ -306,72 +250,6 @@
 .myui-layout-overlay--visible {
   display: block;
   opacity: 1;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .myui-layout-header__brand span {
-    display: none;
-  }
-
-  .myui-layout-header__content {
-    padding: 0 16px;
-  }
-
-  .myui-layout-sidebar {
-    transform: translateX(-100%);
-    width: 280px;
-  }
-
-  .myui-layout-sidebar:not(.myui-layout-sidebar--collapsed) {
-    transform: translateX(0);
-  }
-
-  .myui-layout-sidebar--collapsed {
-    transform: translateX(-100%);
-  }
-
-  .myui-layout__main {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .myui-layout__content {
-    padding: 16px;
-    min-width: 320px;
-  }
-
-  .myui-layout-overlay {
-    display: block;
-  }
-}
-
-@media (max-width: 480px) {
-  .myui-layout-header__brand h1 {
-    font-size: 20px;
-  }
-
-  .myui-layout__content {
-    padding: 12px;
-  }
-}
-
-/* 滚动条样式 */
-.myui-layout-sidebar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.myui-layout-sidebar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.myui-layout-sidebar::-webkit-scrollbar-thumb {
-  background: var(--border-color, #e5e7eb);
-  border-radius: 2px;
-}
-
-.myui-layout-sidebar::-webkit-scrollbar-thumb:hover {
-  background: var(--border-color-hover, #d1d5db);
 }
 
 /* 搜索组件样式 */
@@ -491,6 +369,37 @@
 }
 
 @media (max-width: 768px) {
+  .myui-layout-header__brand span {
+    display: none;
+  }
+
+  .myui-layout-header__content {
+    padding: 0 16px;
+  }
+
+  .myui-layout-sidebar {
+    transform: translateX(-100%);
+    width: 280px;
+  }
+
+  .myui-layout-sidebar:not(.myui-layout-sidebar--collapsed) {
+    transform: translateX(0);
+  }
+
+  .myui-layout-sidebar--collapsed {
+    transform: translateX(-100%);
+  }
+
+  .myui-layout__main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .myui-layout__content {
+    padding: 16px;
+    min-width: 320px;
+  }
+
   .myui-search {
     display: none;
   }

@@ -1,7 +1,7 @@
 // Force re-evaluation
 import { BrowserRouter, useRoutes, useNavigate, useLocation } from 'react-router-dom'
 import { ThemeProvider } from './components'
-import { Layout } from './components/Layout'
+import { BasicLayout } from './components/Layout'
 import { routes } from './docs/routes'
 
 const DocsAppContent = () => {
@@ -22,9 +22,9 @@ const DocsAppContent = () => {
   const routeElement = useRoutes(routes)
 
   return (
-    <Layout currentPage={getCurrentPage()} onPageChange={handlePageChange}>
+    <BasicLayout currentPage={getCurrentPage()} onPageChange={handlePageChange}>
       {routeElement}
-    </Layout>
+    </BasicLayout>
   )
 }
 
