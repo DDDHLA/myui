@@ -18,6 +18,22 @@ export default defineConfig(({ mode }) => {
         "@/types": resolve(__dirname, "src/types"), // 类型目录
       },
     },
+    server: {
+      allowedHosts: [
+        ".ngrok-free.app", // 允许所有 ngrok 免费域名
+        ".ngrok.app", // 允许所有 ngrok 付费域名
+        ".ngrok.io", // 允许所有 ngrok 旧版域名
+      ],
+      hmr: {
+        // 增加轮询间隔,减少请求频率
+        timeout: 60000,
+        overlay: true,
+      },
+      watch: {
+        // 减少文件监听的轮询频率
+        usePolling: false,
+      },
+    },
     ...(isLib
       ? {
           build: {
