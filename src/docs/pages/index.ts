@@ -45,4 +45,5 @@ export { default as CollapseDocs } from "./CollapseDocs";
 export { default as CascaderDocs } from "./CascaderDocs";
 export { default as AffixDocs } from "./AffixDocs";
 export { default as BackTopDocs } from "./BackTopDocs";
+export { default as RecorderDocs } from "./RecorderDocs";
 export { default as ComingSoonPage } from "./ComingSoonPage";

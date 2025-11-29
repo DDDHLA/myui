@@ -1,4 +1,4 @@
-import { Statistic, Countdown } from "./Statistic";
+import { Statistic } from "./Statistic";
 export {
   Statistic,
   Countdown,

@@ -42,6 +42,7 @@ import "./Collapse/Collapse.css";
 import "./Cascader/Cascader.css";
 import "./Affix/Affix.css";
 import "./BackTop/BackTop.css";
+import "./Recorder/Recorder.module.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -187,6 +188,16 @@ export {
 export { Cascader, type CascaderProps, type CascaderOption } from "./Cascader";
 export { Affix, type AffixProps } from "./Affix";
 export { BackTop, type BackTopProps } from "./BackTop";
+export {
+  default as Recorder,
+  type RecorderProps,
+  type Recording,
+  type RecorderMode,
+  type RecordingStatus,
+  type AudioFormat,
+  type AudioQuality,
+  type VisualizerType,
+} from "./Recorder/Recorder";
 
 // 导出 Hooks
 export * from "@/hooks";

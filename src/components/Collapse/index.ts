@@ -1,4 +1,4 @@
-import { Collapse, CollapsePanel } from "./Collapse";
+import { Collapse } from "./Collapse";
 export {
   Collapse,
   CollapsePanel,

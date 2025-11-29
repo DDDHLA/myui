@@ -46,7 +46,8 @@ import {
   CollapseDocs,
   CascaderDocs,
   AffixDocs,
-  BackTopDocs
+  BackTopDocs,
+  RecorderDocs
 } from './pages'
 
 // 路由配置
@@ -242,5 +243,9 @@ export const routes: RouteObject[] = [
   {
     path: '/backtop',
     element: <BackTopDocs />
+  },
+  {
+    path: '/recorder',
+    element: <RecorderDocs />
   }
 ]
