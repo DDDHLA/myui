@@ -1,0 +1,339 @@
+/* Tour 漫游式引导样式 */
+.myui-tour {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* 遮罩层 */
+.myui-tour__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  pointer-events: auto;
+  animation: myui-tour-fade-in 0.3s ease-in-out;
+}
+
+/* 聚光灯效果 */
+.myui-tour__spotlight {
+  position: fixed;
+  border-radius: var(--border-radius, 8px);
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+  z-index: 1001;
+}
+
+/* 弹窗 */
+.myui-tour__popup {
+  position: fixed;
+  background: var(--bg-primary, #ffffff);
+  border-radius: var(--border-radius-lg, 12px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  min-width: 300px;
+  z-index: 1002;
+  pointer-events: auto;
+  animation: myui-tour-zoom-in 0.3s ease-in-out;
+}
+
+/* 弹窗位置 */
+.myui-tour__popup--top {
+  transform: translate(-50%, -100%);
+  margin-top: -12px;
+}
+
+.myui-tour__popup--bottom {
+  transform: translate(-50%, 0);
+  margin-top: 12px;
+}
+
+.myui-tour__popup--left {
+  transform: translate(-100%, -50%);
+  margin-left: -12px;
+}
+
+.myui-tour__popup--right {
+  transform: translate(0, -50%);
+  margin-left: 12px;
+}
+
+.myui-tour__popup--center {
+  transform: translate(-50%, -50%);
+}
+
+/* 内容 */
+.myui-tour__content {
+  position: relative;
+  padding: 20px;
+}
+
+/* 关闭按钮 */
+.myui-tour__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary, #6b7280);
+  cursor: pointer;
+  border-radius: var(--border-radius, 8px);
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.myui-tour__close:hover {
+  background: var(--bg-secondary, #f3f4f6);
+  color: var(--text-primary, #1f2937);
+}
+
+/* 封面 */
+.myui-tour__cover {
+  margin-bottom: 16px;
+  border-radius: var(--border-radius, 8px);
+  overflow: hidden;
+}
+
+.myui-tour__cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 标题 */
+.myui-tour__title {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--text-primary, #1f2937);
+  margin-bottom: 12px;
+  padding-right: 32px;
+}
+
+/* 描述 */
+.myui-tour__description {
+  font-size: var(--font-size-base, 1rem);
+  color: var(--text-secondary, #6b7280);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* 底部 */
+.myui-tour__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+}
+
+/* 指示器 */
+.myui-tour__indicators {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.myui-tour__indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg-secondary, #e5e7eb);
+  transition: all 0.3s ease-in-out;
+}
+
+.myui-tour__indicator--active {
+  width: 24px;
+  border-radius: 4px;
+  background: var(--color-primary, #3b82f6);
+}
+
+/* 按钮组 */
+.myui-tour__buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* 箭头 */
+.myui-tour__arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--bg-primary, #ffffff);
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.myui-tour__popup--top .myui-tour__arrow {
+  bottom: -6px;
+  left: 50%;
+  margin-left: -6px;
+}
+
+.myui-tour__popup--bottom .myui-tour__arrow {
+  top: -6px;
+  left: 50%;
+  margin-left: -6px;
+}
+
+.myui-tour__popup--left .myui-tour__arrow {
+  right: -6px;
+  top: 50%;
+  margin-top: -6px;
+}
+
+.myui-tour__popup--right .myui-tour__arrow {
+  left: -6px;
+  top: 50%;
+  margin-top: -6px;
+}
+
+/* 动画 */
+@keyframes myui-tour-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes myui-tour-zoom-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.myui-tour__popup--top {
+  animation: myui-tour-slide-down 0.3s ease-in-out;
+}
+
+.myui-tour__popup--bottom {
+  animation: myui-tour-slide-up 0.3s ease-in-out;
+}
+
+.myui-tour__popup--left {
+  animation: myui-tour-slide-right 0.3s ease-in-out;
+}
+
+.myui-tour__popup--right {
+  animation: myui-tour-slide-left 0.3s ease-in-out;
+}
+
+@keyframes myui-tour-slide-down {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 20px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+
+@keyframes myui-tour-slide-up {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes myui-tour-slide-right {
+  from {
+    opacity: 0;
+    transform: translate(calc(-100% - 20px), -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-100%, -50%);
+  }
+}
+
+@keyframes myui-tour-slide-left {
+  from {
+    opacity: 0;
+    transform: translate(20px, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+/* 暗色主题 */
+[data-theme="dark"] .myui-tour__popup {
+  background: var(--bg-primary-dark, #1f2937);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .myui-tour__close {
+  color: var(--text-secondary-dark, #9ca3af);
+}
+
+[data-theme="dark"] .myui-tour__close:hover {
+  background: var(--bg-secondary-dark, #374151);
+  color: var(--text-primary-dark, #f3f4f6);
+}
+
+[data-theme="dark"] .myui-tour__title {
+  color: var(--text-primary-dark, #f3f4f6);
+}
+
+[data-theme="dark"] .myui-tour__description {
+  color: var(--text-secondary-dark, #9ca3af);
+}
+
+[data-theme="dark"] .myui-tour__footer {
+  border-color: var(--border-color-dark, #374151);
+}
+
+[data-theme="dark"] .myui-tour__indicator {
+  background: var(--bg-secondary-dark, #374151);
+}
+
+[data-theme="dark"] .myui-tour__arrow {
+  background: var(--bg-primary-dark, #1f2937);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .myui-tour__popup {
+    max-width: calc(100vw - 32px);
+    min-width: auto;
+  }
+
+  .myui-tour__popup--top,
+  .myui-tour__popup--bottom,
+  .myui-tour__popup--left,
+  .myui-tour__popup--right {
+    transform: translate(-50%, -50%);
+    top: 50% !important;
+    left: 50% !important;
+    margin: 0 !important;
+  }
+
+  .myui-tour__arrow {
+    display: none;
+  }
+}

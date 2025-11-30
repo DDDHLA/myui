@@ -69,6 +69,7 @@ const MENU_ITEMS = [
       { title: 'Carousel 走马灯', key: 'carousel' },
       { title: 'Statistic 统计数值', key: 'statistic' },
       { title: 'Collapse 折叠面板', key: 'collapse' },
+      { title: 'Descriptions 描述列表', key: 'descriptions' },
       { title: 'TypeWriter 流式输出', key: 'typewriter' }
     ]
   },
@@ -82,7 +83,8 @@ const MENU_ITEMS = [
       { title: 'Steps 步骤条', key: 'steps' },
       { title: 'Pagination 分页', key: 'pagination' },
       { title: 'Affix 固钉', key: 'affix' },
-      { title: 'BackTop 回到顶部', key: 'backtop' }
+      { title: 'BackTop 回到顶部', key: 'backtop' },
+      { title: 'Tour 漫游式引导', key: 'tour' }
     ]
   },
   {

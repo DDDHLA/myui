@@ -1,0 +1,187 @@
+/* Descriptions 描述列表样式 */
+.myui-descriptions {
+  font-family: var(
+    --font-family-sans,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif
+  );
+  color: var(--text-primary, #1f2937);
+  line-height: 1.5715;
+}
+
+/* 头部 */
+.myui-descriptions__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.myui-descriptions__title {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--text-primary, #1f2937);
+}
+
+.myui-descriptions__extra {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--text-secondary, #6b7280);
+}
+
+/* 表格样式 */
+.myui-descriptions__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: var(--border-radius, 8px);
+  overflow: hidden;
+  background-color: var(--bg-primary, #ffffff);
+}
+
+.myui-descriptions__label,
+.myui-descriptions__content {
+  padding: 16px 24px;
+  border-right: 1px solid var(--border-color, #e5e7eb);
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.myui-descriptions__label {
+  background-color: var(--bg-secondary, #f9fafb);
+  font-weight: var(--font-weight-medium, 500);
+  text-align: left;
+  color: var(--text-primary, #1f2937);
+  white-space: nowrap;
+  width: 180px;
+}
+
+.myui-descriptions__content {
+  background-color: var(--bg-primary, #ffffff);
+  color: var(--text-secondary, #6b7280);
+}
+
+/* 空单元格样式 */
+.myui-descriptions__content--empty {
+  background-color: transparent;
+  border-right: none;
+}
+
+/* 移除最后一行的底部边框 */
+.myui-descriptions tbody tr:last-child .myui-descriptions__label,
+.myui-descriptions tbody tr:last-child .myui-descriptions__content {
+  border-bottom: none;
+}
+
+/* 移除每行最后一个单元格的右边框 */
+.myui-descriptions__label:last-child,
+.myui-descriptions__content:last-child {
+  border-right: none;
+}
+
+/* 垂直布局 */
+.myui-descriptions--vertical .myui-descriptions__label {
+  width: auto;
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.myui-descriptions--vertical .myui-descriptions__content {
+  font-weight: normal;
+}
+
+/* 尺寸变体 - 小 */
+.myui-descriptions--small .myui-descriptions__label,
+.myui-descriptions--small .myui-descriptions__content {
+  padding: 12px 16px;
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+/* 尺寸变体 - 中 */
+.myui-descriptions--middle .myui-descriptions__label,
+.myui-descriptions--middle .myui-descriptions__content {
+  padding: 16px 24px;
+  font-size: var(--font-size-base, 1rem);
+}
+
+/* 尺寸变体 - 大 */
+.myui-descriptions--large .myui-descriptions__label,
+.myui-descriptions--large .myui-descriptions__content {
+  padding: 20px 28px;
+  font-size: var(--font-size-base, 1rem);
+}
+
+/* 暗色主题 */
+[data-theme="dark"] .myui-descriptions {
+  color: var(--text-primary-dark, #f3f4f6);
+}
+
+[data-theme="dark"] .myui-descriptions__title {
+  color: var(--text-primary-dark, #f3f4f6);
+}
+
+[data-theme="dark"] .myui-descriptions__extra {
+  color: var(--text-secondary-dark, #9ca3af);
+}
+
+[data-theme="dark"] .myui-descriptions__label {
+  color: var(--text-primary-dark, #f3f4f6);
+}
+
+[data-theme="dark"] .myui-descriptions__content {
+  color: var(--text-secondary-dark, #9ca3af);
+}
+
+[data-theme="dark"] .myui-descriptions__table {
+  border-color: var(--border-color-dark, #374151);
+  background-color: var(--bg-primary-dark, #111827);
+}
+
+[data-theme="dark"] .myui-descriptions__label,
+[data-theme="dark"] .myui-descriptions__content {
+  border-color: var(--border-color-dark, #374151);
+}
+
+[data-theme="dark"] .myui-descriptions__label {
+  background-color: var(--bg-secondary-dark, #1f2937);
+}
+
+[data-theme="dark"] .myui-descriptions__content {
+  background-color: var(--bg-primary-dark, #111827);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .myui-descriptions__label,
+  .myui-descriptions__content {
+    display: block;
+    width: 100% !important;
+  }
+
+  /* 移动端表格转为块级显示 */
+  .myui-descriptions__table,
+  .myui-descriptions tbody,
+  .myui-descriptions tr,
+  .myui-descriptions th,
+  .myui-descriptions td {
+    display: block;
+    width: 100%;
+  }
+
+  .myui-descriptions__label,
+  .myui-descriptions__content {
+    border-right: none;
+  }
+
+  .myui-descriptions__label {
+    border-bottom: none;
+    padding-bottom: 8px;
+  }
+
+  .myui-descriptions__content {
+    padding-top: 8px;
+  }
+}

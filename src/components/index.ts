@@ -51,6 +51,8 @@ import "./Notification/Notification.css";
 import "./Layout/Layout.css";
 import "./Mentions/style.css";
 import "./TypeWriter/TypeWriter.css";
+import "./Descriptions/Descriptions.css";
+import "./Tour/Tour.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -226,6 +228,12 @@ export {
   type MentionsRef,
 } from "./Mentions";
 export { default as TypeWriter, type TypeWriterProps } from "./TypeWriter";
+export {
+  Descriptions,
+  type DescriptionsProps,
+  type DescriptionItem,
+} from "./Descriptions";
+export { Tour, type TourProps, type TourStep } from "./Tour";
 
 // 导出 Hooks
 export * from "@/hooks";
