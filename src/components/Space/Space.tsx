@@ -54,7 +54,7 @@ export const Space: React.FC<SpaceProps> = ({
   }
 
   const items = childNodes.map((child, index) => {
-    const key = (child as any)?.key || `space-item-${index}`;
+    const key = (child as React.ReactElement)?.key || `space-item-${index}`;
     return (
       <React.Fragment key={key}>
         <div className="myui-space__item">{child}</div>

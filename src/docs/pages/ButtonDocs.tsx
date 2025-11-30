@@ -223,7 +223,7 @@ function App() {
       </CodeBlock>
 
       <h2 style={docHeadingStyles.h2}>块级按钮</h2>
-      <p style={docParagraphStyles}>按钮可以占满容器的宽度。</p>
+      <p style={docParagraphStyles.normal}>按钮可以占满容器的宽度。</p>
       <CodeBlock
         title="块级按钮"
         description="按钮可以占满容器的宽度。"

@@ -48,8 +48,8 @@ const TypeWriter = ({
   style,
 }: TypeWriterProps) => {
   const [displayText, setDisplayText] = useState('')
-  const [isDeleting, setIsDeleting] = useState(false)
   const [isDone, setIsDone] = useState(false)
+  const isDeletingRef = useRef(false)
   const indexRef = useRef(0)
   const timeoutRef = useRef<NodeJS.Timeout>()
 
@@ -61,9 +61,48 @@ const TypeWriter = ({
 
     // 重置状态
     setDisplayText('')
-    setIsDeleting(false)
+    isDeletingRef.current = false
     setIsDone(false)
     indexRef.current = 0
+
+    const startTyping = () => {
+      const typeNextChar = () => {
+        if (isDeletingRef.current) {
+          // 删除模式
+          if (indexRef.current > 0) {
+            indexRef.current--
+            setDisplayText(text.substring(0, indexRef.current))
+            timeoutRef.current = setTimeout(typeNextChar, deleteSpeed)
+          } else {
+            // 删除完成，重新开始打字
+            isDeletingRef.current = false
+            timeoutRef.current = setTimeout(typeNextChar, speed)
+          }
+        } else {
+          // 打字模式
+          if (indexRef.current < text.length) {
+            indexRef.current++
+            setDisplayText(text.substring(0, indexRef.current))
+            timeoutRef.current = setTimeout(typeNextChar, speed)
+          } else {
+            // 打字完成
+            setIsDone(true)
+            onComplete?.()
+            
+            if (loop) {
+              // 循环模式：暂停后开始删除
+              timeoutRef.current = setTimeout(() => {
+                isDeletingRef.current = true
+                setIsDone(false)
+                typeNextChar()
+              }, pauseTime)
+            }
+          }
+        }
+      }
+
+      typeNextChar()
+    }
 
     // 开始延迟
     if (startDelay > 0) {
@@ -79,46 +118,7 @@ const TypeWriter = ({
         clearTimeout(timeoutRef.current)
       }
     }
-  }, [text, speed, deleteSpeed, loop, pauseTime, startDelay])
-
-  const startTyping = () => {
-    const typeNextChar = () => {
-      if (isDeleting) {
-        // 删除模式
-        if (indexRef.current > 0) {
-          indexRef.current--
-          setDisplayText(text.substring(0, indexRef.current))
-          timeoutRef.current = setTimeout(typeNextChar, deleteSpeed)
-        } else {
-          // 删除完成，重新开始打字
-          setIsDeleting(false)
-          timeoutRef.current = setTimeout(typeNextChar, speed)
-        }
-      } else {
-        // 打字模式
-        if (indexRef.current < text.length) {
-          indexRef.current++
-          setDisplayText(text.substring(0, indexRef.current))
-          timeoutRef.current = setTimeout(typeNextChar, speed)
-        } else {
-          // 打字完成
-          setIsDone(true)
-          onComplete?.()
-          
-          if (loop) {
-            // 循环模式：暂停后开始删除
-            timeoutRef.current = setTimeout(() => {
-              setIsDeleting(true)
-              setIsDone(false)
-              typeNextChar()
-            }, pauseTime)
-          }
-        }
-      }
-    }
-
-    typeNextChar()
-  }
+  }, [text, speed, deleteSpeed, loop, pauseTime, startDelay, onComplete])
 
   return (
     <Component

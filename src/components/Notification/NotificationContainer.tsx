@@ -11,7 +11,6 @@ interface NotificationContainerProps {
 
 const getAnimationVariants = (placement: NotificationPlacement) => {
   const isRight = placement.includes('Right');
-  const isTop = placement.includes('top');
 
   return {
     initial: {
@@ -54,7 +53,7 @@ export const NotificationContainer: React.FC<NotificationContainerProps> = ({
           >
             <Notification
               {...notification}
-              onClose={() => onClose(notification.id)}
+              onClose={() => notification.id && onClose(notification.id)}
             />
           </motion.div>
         ))}

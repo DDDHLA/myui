@@ -24,7 +24,7 @@ export const Divider: React.FC<DividerProps> = ({
 }) => {
   const hasChildren = children !== undefined && children !== null;
 
-  const dividerStyle: React.CSSProperties = {
+  const dividerStyle: React.CSSProperties & { '--divider-orientation-margin'?: string | number } = {
     ...style,
   };
 

@@ -1321,11 +1321,11 @@ function PageRouter({ currentPage }: { currentPage: string }) {
 }
 
 function DocsApp() {
-  const [currentPage, setCurrentPage] = React.useState('overview')
+  const [currentPage] = React.useState('overview')
 
   return (
     <ThemeProvider>
-      <Layout currentPage={currentPage} onPageChange={setCurrentPage}>
+      <Layout>
         <PageRouter currentPage={currentPage} />
       </Layout>
     </ThemeProvider>

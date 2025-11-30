@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { cn } from '@/utils';
 
 export type NotificationType = 'success' | 'info' | 'warning' | 'error';
@@ -61,7 +60,7 @@ const defaultIcons = {
 };
 
 export const Notification: React.FC<NotificationProps> = ({
-  id,
+  id: _id,
   type = 'info',
   title,
   description,
