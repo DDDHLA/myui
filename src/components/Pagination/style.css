@@ -36,8 +36,7 @@
   font-size: 12px;
 }
 
-.myui-pagination-small .myui-pagination-quick-jumper-input,
-.myui-pagination-small .myui-pagination-size-changer {
+.myui-pagination-small .myui-pagination-quick-jumper-input {
   height: 24px;
   font-size: 12px;
 }
@@ -60,6 +59,7 @@
 
 .myui-pagination-item-wrapper {
   display: inline-block;
+  outline: none;
 }
 
 /* 分页项通用样式 */
@@ -79,6 +79,9 @@
   padding: 0 4px;
   font-size: 14px;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .myui-pagination-item:hover:not(:disabled):not(.myui-pagination-item-active),
@@ -86,6 +89,7 @@
 .myui-pagination-next:hover:not(:disabled) {
   border-color: var(--color-primary);
   color: var(--color-primary);
+  background-color: var(--bg-hover);
 }
 
 .myui-pagination-item:active:not(:disabled),
@@ -101,6 +105,7 @@
   color: var(--color-white);
   font-weight: var(--font-weight-medium);
   cursor: default;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
 }
 
 /* 禁用状态 */
@@ -123,6 +128,12 @@
 /* 跳转项 */
 .myui-pagination-jump {
   position: relative;
+  border: none;
+  background: transparent;
+}
+
+.myui-pagination-jump:hover {
+  background: transparent;
 }
 
 .myui-pagination-item-ellipsis {
@@ -135,6 +146,7 @@
 .myui-pagination-item-link-icon {
   display: none;
   font-size: 12px;
+  color: var(--color-primary);
 }
 
 .myui-pagination-jump:hover .myui-pagination-item-ellipsis {
@@ -199,33 +211,11 @@
 .myui-pagination-options {
   display: flex;
   align-items: center;
+  margin-left: 8px;
 }
 
-.myui-pagination-size-changer {
-  height: 32px;
-  padding: 4px 8px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-sm);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-size: 14px;
-  cursor: pointer;
-  outline: none;
-  transition: all var(--transition-fast);
-}
-
-.myui-pagination-size-changer:hover:not(:disabled) {
-  border-color: var(--color-primary);
-}
-
-.myui-pagination-size-changer:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.myui-pagination-size-changer:disabled {
-  background-color: var(--bg-secondary);
-  cursor: not-allowed;
+.myui-pagination-size-changer-select {
+  width: 110px;
 }
 
 /* 快速跳转 */
@@ -234,6 +224,7 @@
   align-items: center;
   gap: 8px;
   color: var(--text-secondary);
+  margin-left: 8px;
 }
 
 .myui-pagination-quick-jumper-input {
@@ -268,12 +259,15 @@
 @media (max-width: 768px) {
   .myui-pagination {
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 8px;
+    justify-content: center;
   }
 
   .myui-pagination-total {
     width: 100%;
-    margin-bottom: 8px;
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 4px;
   }
 
   .myui-pagination-item,
@@ -287,6 +281,11 @@
 
   .myui-pagination-quick-jumper,
   .myui-pagination-options {
-    margin-top: 8px;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .myui-pagination-size-changer-select {
+    width: 100px;
   }
 }

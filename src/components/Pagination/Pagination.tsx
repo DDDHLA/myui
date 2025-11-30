@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { Select } from '../Select';
 import './style.css';
 
 export interface PaginationProps {
@@ -196,7 +197,15 @@ export const Pagination: React.FC<PaginationProps> = ({
       <li
         key={`${type}-${page}`}
         onClick={() => !disabled && handlePageChange(page)}
+        onKeyDown={(e) => {
+          if (!disabled && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            handlePageChange(page);
+          }
+        }}
+        tabIndex={disabled ? -1 : 0}
         className="myui-pagination-item-wrapper"
+        role="presentation"
       >
         {itemRender ? itemRender(page, type, element) : element}
       </li>
@@ -217,7 +226,15 @@ export const Pagination: React.FC<PaginationProps> = ({
       <li
         key="jump-prev"
         onClick={() => !disabled && handlePageChange(jumpTo)}
+        onKeyDown={(e) => {
+          if (!disabled && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            handlePageChange(jumpTo);
+          }
+        }}
+        tabIndex={disabled ? -1 : 0}
         className="myui-pagination-item-wrapper"
+        role="presentation"
       >
         {itemRender ? itemRender(jumpTo, 'jump-prev', element) : element}
       </li>
@@ -238,7 +255,15 @@ export const Pagination: React.FC<PaginationProps> = ({
       <li
         key="jump-next"
         onClick={() => !disabled && handlePageChange(jumpTo)}
+        onKeyDown={(e) => {
+          if (!disabled && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            handlePageChange(jumpTo);
+          }
+        }}
+        tabIndex={disabled ? -1 : 0}
         className="myui-pagination-item-wrapper"
+        role="presentation"
       >
         {itemRender ? itemRender(jumpTo, 'jump-next', element) : element}
       </li>
@@ -299,6 +324,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               <button
                 className="myui-pagination-prev"
                 disabled={disabled || currentPage === 1}
+                aria-label="Previous Page"
               >
                 {prevText || '‹'}
               </button>
@@ -308,6 +334,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               className="myui-pagination-prev"
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={disabled || currentPage === 1}
+              aria-label="Previous Page"
             >
               {prevText || '‹'}
             </button>
@@ -326,6 +353,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               <button
                 className="myui-pagination-next"
                 disabled={disabled || currentPage === totalPages}
+                aria-label="Next Page"
               >
                 {nextText || '›'}
               </button>
@@ -335,6 +363,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               className="myui-pagination-next"
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={disabled || currentPage === totalPages}
+              aria-label="Next Page"
             >
               {nextText || '›'}
             </button>
@@ -372,18 +401,17 @@ export const Pagination: React.FC<PaginationProps> = ({
       {/* 每页条数选择器 */}
       {showSizeChanger && !simple && (
         <div className="myui-pagination-options">
-          <select
-            className="myui-pagination-size-changer"
+          <Select
             value={currentPageSize}
-            onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+            onChange={(value) => handlePageSizeChange(Number(value))}
             disabled={disabled}
-          >
-            {pageSizeOptions.map((size) => (
-              <option key={size} value={size}>
-                {size} 条/页
-              </option>
-            ))}
-          </select>
+            size={size === 'small' ? 'sm' : 'md'}
+            options={pageSizeOptions.map((size) => ({
+              label: `${size} 条/页`,
+              value: size,
+            }))}
+            className="myui-pagination-size-changer-select"
+          />
         </div>
       )}
 
