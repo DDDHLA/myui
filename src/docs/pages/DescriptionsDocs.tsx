@@ -37,7 +37,7 @@ const DescriptionsDocs = () => {
       <CodeBlock
         title="基础用法"
         description="简单的描述列表展示。"
-        code={`import { Descriptions } from '@myui/components'
+        code={`import { Descriptions } from '@paidaxinghaha/my-ui-react'
 
 <Descriptions
   title="用户信息"

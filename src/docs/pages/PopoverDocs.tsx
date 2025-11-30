@@ -39,7 +39,7 @@ const PopoverDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的用法,鼠标移入触发。"
-        code={`import { Popover, Button } from '@myui/components';
+        code={`import { Popover, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popover
   title="标题"
@@ -61,7 +61,7 @@ const PopoverDocs = () => {
       <CodeBlock
         title="不同触发方式"
         description="支持 hover、click、focus 三种触发方式。"
-        code={`import { Popover, Button } from '@myui/components';
+        code={`import { Popover, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popover trigger="hover" content="鼠标移入触发">
   <Button>Hover</Button>
@@ -91,7 +91,7 @@ const PopoverDocs = () => {
       <CodeBlock
         title="不同位置"
         description="支持上、下、左、右四个方向。"
-        code={`import { Popover, Button } from '@myui/components';
+        code={`import { Popover, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popover placement="top" content="Top">
   <Button>Top</Button>
@@ -128,7 +128,7 @@ const PopoverDocs = () => {
       <CodeBlock
         title="带标题"
         description="可以设置标题,使内容更清晰。"
-        code={`import { Popover, Button } from '@myui/components';
+        code={`import { Popover, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popover
   title="提示标题"
@@ -150,7 +150,7 @@ const PopoverDocs = () => {
       <CodeBlock
         title="自定义内容"
         description="content 可以是任意 ReactNode,支持复杂的内容。"
-        code={`import { Popover, Button } from '@myui/components';
+        code={`import { Popover, Button } from '@paidaxinghaha/my-ui-react';
 
 const content = (
   <div>
@@ -183,7 +183,7 @@ const content = (
       <CodeBlock
         title="受控模式"
         description="通过 open 和 onOpenChange 控制气泡的显示状态。"
-        code={`import { Popover, Button } from '@myui/components';
+        code={`import { Popover, Button } from '@paidaxinghaha/my-ui-react';
 import { useState } from 'react';
 
 function App() {
@@ -224,7 +224,7 @@ function App() {
       <CodeBlock
         title="禁用状态"
         description="设置 disabled 禁用气泡卡片。"
-        code={`import { Popover, Button } from '@myui/components';
+        code={`import { Popover, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popover content="这个气泡被禁用了" disabled>
   <Button>禁用的气泡</Button>

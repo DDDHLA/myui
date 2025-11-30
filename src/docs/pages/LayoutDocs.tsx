@@ -137,7 +137,7 @@ const LayoutDocs = () => {
       <CodeBlock
         title="上中下布局"
         description="最基本的『上-中-下』布局。一般主页采用的布局。"
-        code={`import { Layout, Header, Content, Footer } from '@myui/components'
+        code={`import { Layout, Header, Content, Footer } from '@paidaxinghaha/my-ui-react'
 
 const App = () => (
   <Layout>
@@ -157,7 +157,7 @@ const App = () => (
       <CodeBlock
         title="顶部-侧边布局-通栏"
         description="同样拥有顶部导航及侧边栏，区别是两边未留边距，多用于应用型的网站。"
-        code={`import { Layout, Header, Sider, Content, Footer } from '@myui/components'
+        code={`import { Layout, Header, Sider, Content, Footer } from '@paidaxinghaha/my-ui-react'
 
 const App = () => (
   <Layout>
@@ -183,7 +183,7 @@ const App = () => (
       <CodeBlock
         title="顶部-侧边布局（右侧边栏）"
         description="顶部-侧边布局，侧边栏在右侧。"
-        code={`import { Layout, Header, Sider, Content, Footer } from '@myui/components'
+        code={`import { Layout, Header, Sider, Content, Footer } from '@paidaxinghaha/my-ui-react'
 
 const App = () => (
   <Layout>
@@ -209,7 +209,7 @@ const App = () => (
       <CodeBlock
         title="侧边布局"
         description="侧边两列式布局。页面横向空间有限时，侧边导航可收起。侧边导航在页面布局上采用的是左右的结构，一般主导航放置于页面的左侧固定位置，辅助菜单放置于工作区顶部。"
-        code={`import { Layout, Header, Sider, Content, Footer } from '@myui/components'
+        code={`import { Layout, Header, Sider, Content, Footer } from '@paidaxinghaha/my-ui-react'
 
 const App = () => (
   <Layout hasSider>
@@ -235,7 +235,7 @@ const App = () => (
       <CodeBlock
         title="上中下布局（带侧边栏）"
         description="最常用的中后台管理系统布局，顶部固定导航，左侧固定侧边栏。"
-        code={`import { Layout, Header, Sider, Content } from '@myui/components'
+        code={`import { Layout, Header, Sider, Content } from '@paidaxinghaha/my-ui-react'
 
 const App = () => (
   <Layout>
@@ -259,7 +259,7 @@ const App = () => (
       <CodeBlock
         title="固定侧边栏"
         description="当内容较长时，使用固定侧边栏可以提供更好的体验。"
-        code={`import { Layout, Header, Sider, Content, Footer } from '@myui/components'
+        code={`import { Layout, Header, Sider, Content, Footer } from '@paidaxinghaha/my-ui-react'
 
 const App = () => (
   <Layout hasSider>
@@ -301,7 +301,7 @@ const App = () => (
       <CodeBlock
         title="三栏布局"
         description="左右两侧边栏，中间内容区域。适用于需要同时展示导航和辅助信息的场景。"
-        code={`import { Layout, Header, Sider, Content, Footer } from '@myui/components'
+        code={`import { Layout, Header, Sider, Content, Footer } from '@paidaxinghaha/my-ui-react'
 
 const App = () => (
   <Layout>

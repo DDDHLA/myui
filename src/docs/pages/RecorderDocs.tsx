@@ -97,7 +97,7 @@ const RecorderDocs = () => {
       <CodeBlock
         title="简洁模式"
         description="只显示录音按钮和时间,适合简单的录音场景。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Recorder mode="simple" />
@@ -109,7 +109,7 @@ function App() {
       <CodeBlock
         title="标准模式"
         description="带波形可视化,适合大多数录音场景。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Recorder mode="standard" />
@@ -121,7 +121,7 @@ function App() {
       <CodeBlock
         title="专业模式"
         description="完整功能面板,显示高级设置和详细信息。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Recorder mode="professional" />
@@ -133,7 +133,7 @@ function App() {
       <CodeBlock
         title="波形可视化"
         description="实时显示音频波形。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -150,7 +150,7 @@ function App() {
       <CodeBlock
         title="频谱可视化"
         description="实时显示音频频谱分析。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -167,7 +167,7 @@ function App() {
       <CodeBlock
         title="音量可视化"
         description="显示动态音量指示器。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -184,7 +184,7 @@ function App() {
       <CodeBlock
         title="设置最大时长"
         description="限制录音的最大时长,超时自动停止。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -208,7 +208,7 @@ function App() {
       <CodeBlock
         title="录音质量设置"
         description="设置不同的录音质量:低/中/高。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -239,7 +239,7 @@ function App() {
       <CodeBlock
         title="录音事件监听"
         description="监听录音的各个阶段事件。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -275,7 +275,7 @@ function App() {
       <CodeBlock
         title="隐藏录音列表"
         description="不显示录音列表,只保留录音控制功能。"
-        code={`import { Recorder } from '@myui/components'
+        code={`import { Recorder } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Recorder showRecordingList={false} />

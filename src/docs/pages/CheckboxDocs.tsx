@@ -134,7 +134,7 @@ const CheckboxDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的用法。"
-        code={`import { Checkbox } from '@myui/components'
+        code={`import { Checkbox } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -161,7 +161,7 @@ function App() {
       <CodeBlock
         title="禁用状态"
         description="Checkbox 不可用状态。"
-        code={`import { Checkbox } from '@myui/components'
+        code={`import { Checkbox } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -183,7 +183,7 @@ function App() {
       <CodeBlock
         title="全选与半选"
         description="在实现全选效果时,通过 indeterminate 属性来表示半选状态。"
-        code={`import { Checkbox, CheckboxGroup } from '@myui/components'
+        code={`import { Checkbox, CheckboxGroup } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -256,7 +256,7 @@ function App() {
       <CodeBlock
         title="Checkbox 组"
         description="方便的从数组生成 Checkbox 组。"
-        code={`import { CheckboxGroup } from '@myui/components'
+        code={`import { CheckboxGroup } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -286,7 +286,7 @@ function App() {
       <CodeBlock
         title="垂直排列"
         description="通过 direction 属性设置垂直排列。"
-        code={`import { CheckboxGroup } from '@myui/components'
+        code={`import { CheckboxGroup } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -316,7 +316,7 @@ function App() {
       <CodeBlock
         title="三种尺寸"
         description="提供三种尺寸:small、medium、large。"
-        code={`import { Checkbox } from '@myui/components'
+        code={`import { Checkbox } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -344,7 +344,7 @@ function App() {
       <CodeBlock
         title="颜色主题"
         description="提供多种颜色主题。"
-        code={`import { Checkbox } from '@myui/components'
+        code={`import { Checkbox } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

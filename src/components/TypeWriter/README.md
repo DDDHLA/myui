@@ -15,7 +15,7 @@
 ## 基础用法
 
 ```tsx
-import { TypeWriter } from '@myui/components'
+import { TypeWriter } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

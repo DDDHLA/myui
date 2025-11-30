@@ -88,7 +88,7 @@ const DatePickerDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最基本的日期选择器用法，点击输入框弹出日历面板选择日期。"
-        code={`import { DatePicker } from '@myui/components';
+        code={`import { DatePicker } from '@paidaxinghaha/my-ui-react';
 
 const [value, setValue] = useState<Date | null>(null);
 
@@ -119,7 +119,7 @@ const [value, setValue] = useState<Date | null>(null);
       <CodeBlock
         title="日期范围选择"
         description="通过 range 属性启用日期范围选择模式。"
-        code={`import { DatePicker } from '@myui/components';
+        code={`import { DatePicker } from '@paidaxinghaha/my-ui-react';
 
 const [range, setRange] = useState<[Date | null, Date | null]>([null, null]);
 

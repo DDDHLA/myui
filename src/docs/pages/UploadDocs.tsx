@@ -112,7 +112,7 @@ const UploadDocs = () => {
       <CodeBlock
         title="基础用法"
         description="点击按钮选择文件上传。"
-        code={`import { Upload, Button } from '@myui/components'
+        code={`import { Upload, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -130,7 +130,7 @@ function App() {
       <CodeBlock
         title="拖拽上传"
         description="支持拖拽文件到指定区域上传。"
-        code={`import { Upload } from '@myui/components'
+        code={`import { Upload } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Upload drag multiple />
@@ -142,7 +142,7 @@ function App() {
       <CodeBlock
         title="多文件上传"
         description="设置 multiple 属性支持多文件选择。"
-        code={`import { Upload, Button } from '@myui/components'
+        code={`import { Upload, Button } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -171,7 +171,7 @@ function App() {
       <CodeBlock
         title="文件类型限制"
         description="通过 accept 属性限制上传文件类型。"
-        code={`import { Upload, Button } from '@myui/components'
+        code={`import { Upload, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -199,7 +199,7 @@ function App() {
       <CodeBlock
         title="文件大小和数量限制"
         description="通过 maxSize 和 maxCount 属性限制文件大小和数量。"
-        code={`import { Upload, Button } from '@myui/components'
+        code={`import { Upload, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -227,7 +227,7 @@ function App() {
       <CodeBlock
         title="图片列表样式"
         description="设置 listType='picture' 显示缩略图列表。"
-        code={`import { Upload, Button } from '@myui/components'
+        code={`import { Upload, Button } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -262,7 +262,7 @@ function App() {
       <CodeBlock
         title="照片墙"
         description="设置 listType='picture-card' 使用照片墙样式。"
-        code={`import { Upload } from '@myui/components'
+        code={`import { Upload } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -295,7 +295,7 @@ function App() {
       <CodeBlock
         title="自定义上传前校验"
         description="使用 beforeUpload 在上传前进行校验。"
-        code={`import { Upload, Button } from '@myui/components'
+        code={`import { Upload, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -331,7 +331,7 @@ function App() {
       <CodeBlock
         title="禁用状态"
         description="设置 disabled 禁用上传功能。"
-        code={`import { Upload, Button } from '@myui/components'
+        code={`import { Upload, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

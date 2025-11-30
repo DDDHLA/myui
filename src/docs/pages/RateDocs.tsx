@@ -37,7 +37,7 @@ const RateDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的用法。"
-        code={`import { Rate } from '@myui/components'
+        code={`import { Rate } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const [value, setValue] = useState(3)

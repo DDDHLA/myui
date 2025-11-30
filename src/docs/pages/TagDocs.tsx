@@ -71,7 +71,7 @@ const TagDocs = () => {
       <CodeBlock
         title="基本用法"
         description="基本标签的用法，可以通过添加 closable 变为可关闭标签。可关闭标签具有 onClose 事件。"
-        code={`import { Tag } from '@myui/components'
+        code={`import { Tag } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const log = (e) => {
@@ -111,7 +111,7 @@ function App() {
       <CodeBlock
         title="多彩标签"
         description="我们添加了多种预设色彩的标签样式，用作不同场景使用。"
-        code={`import { Tag } from '@myui/components'
+        code={`import { Tag } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -145,7 +145,7 @@ function App() {
       <CodeBlock
         title="图标按钮"
         description="当需要在 Tag 内嵌入 Icon 时，可以设置 icon 属性。"
-        code={`import { Tag } from '@myui/components'
+        code={`import { Tag } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -168,7 +168,7 @@ function App() {
         title="可编辑标签"
         description="通过设置 editable 属性，用户可以双击编辑标签文本。编辑完成后，调用 onConfirm 回调。"
         code={`import React, { useState } from 'react';
-import { Tag } from '@myui/components';
+import { Tag } from '@paidaxinghaha/my-ui-react';
 
 function App() {
   const [tagText, setTagText] = useState('Editable Tag');

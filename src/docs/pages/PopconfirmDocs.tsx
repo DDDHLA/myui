@@ -56,7 +56,7 @@ const PopconfirmDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的用法,点击按钮弹出确认框。"
-        code={`import { Popconfirm, Button, Message } from '@myui/components';
+        code={`import { Popconfirm, Button, Message } from '@paidaxinghaha/my-ui-react';
 
 const handleConfirm = () => {
   Message.success('操作已确认');
@@ -82,7 +82,7 @@ const handleConfirm = () => {
       <CodeBlock
         title="带描述信息"
         description="可以添加描述信息,提供更多上下文。"
-        code={`import { Popconfirm, Button } from '@myui/components';
+        code={`import { Popconfirm, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popconfirm
   title="确定要删除这条记录吗?"
@@ -106,7 +106,7 @@ const handleConfirm = () => {
       <CodeBlock
         title="不同位置"
         description="支持上、下、左、右四个方向。"
-        code={`import { Popconfirm, Button } from '@myui/components';
+        code={`import { Popconfirm, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popconfirm placement="top" title="确定吗?" onConfirm={handleConfirm}>
   <Button>Top</Button>
@@ -143,7 +143,7 @@ const handleConfirm = () => {
       <CodeBlock
         title="自定义按钮文字"
         description="可以自定义确认和取消按钮的文字。"
-        code={`import { Popconfirm, Button } from '@myui/components';
+        code={`import { Popconfirm, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popconfirm
   title="确定要提交表单吗?"
@@ -171,7 +171,7 @@ const handleConfirm = () => {
       <CodeBlock
         title="自定义图标"
         description="可以自定义确认框的图标。"
-        code={`import { Popconfirm, Button } from '@myui/components';
+        code={`import { Popconfirm, Button } from '@paidaxinghaha/my-ui-react';
 
 const customIcon = (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -211,7 +211,7 @@ const customIcon = (
       <CodeBlock
         title="异步确认"
         description="onConfirm 可以返回 Promise,确认按钮会显示 loading 状态。"
-        code={`import { Popconfirm, Button, Message } from '@myui/components';
+        code={`import { Popconfirm, Button, Message } from '@paidaxinghaha/my-ui-react';
 
 const handleAsyncConfirm = async () => {
   return new Promise<void>((resolve) => {
@@ -244,7 +244,7 @@ const handleAsyncConfirm = async () => {
       <CodeBlock
         title="自定义按钮属性"
         description="可以通过 okButtonProps 和 cancelButtonProps 自定义按钮属性。"
-        code={`import { Popconfirm, Button } from '@myui/components';
+        code={`import { Popconfirm, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popconfirm
   title="确定要删除吗?"
@@ -270,7 +270,7 @@ const handleAsyncConfirm = async () => {
       <CodeBlock
         title="禁用状态"
         description="设置 disabled 禁用确认框。"
-        code={`import { Popconfirm, Button } from '@myui/components';
+        code={`import { Popconfirm, Button } from '@paidaxinghaha/my-ui-react';
 
 <Popconfirm title="确定吗?" disabled>
   <Button>禁用的确认框</Button>

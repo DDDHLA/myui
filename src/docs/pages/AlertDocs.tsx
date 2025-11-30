@@ -69,7 +69,7 @@ const AlertDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的用法,适用于简短的警告提示。"
-        code={`import { Alert } from '@myui/components'
+        code={`import { Alert } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Alert message="这是一条信息提示" />
@@ -81,7 +81,7 @@ function App() {
       <CodeBlock
         title="四种类型"
         description="共有四种样式:success、info、warning、error。"
-        code={`import { Alert } from '@myui/components'
+        code={`import { Alert } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -105,7 +105,7 @@ function App() {
       <CodeBlock
         title="带标题"
         description="含有标题和辅助性文字介绍的警告提示。"
-        code={`import { Alert } from '@myui/components'
+        code={`import { Alert } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -151,7 +151,7 @@ function App() {
       <CodeBlock
         title="可关闭"
         description="显示关闭按钮,点击可关闭警告提示。"
-        code={`import { Alert } from '@myui/components'
+        code={`import { Alert } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -191,7 +191,7 @@ function App() {
       <CodeBlock
         title="不显示图标"
         description="不显示图标的警告提示。"
-        code={`import { Alert } from '@myui/components'
+        code={`import { Alert } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -213,7 +213,7 @@ function App() {
       <CodeBlock
         title="无边框"
         description="不显示边框的警告提示。"
-        code={`import { Alert } from '@myui/components'
+        code={`import { Alert } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -235,7 +235,7 @@ function App() {
       <CodeBlock
         title="辅助操作"
         description="可以在右侧添加辅助操作。"
-        code={`import { Alert, Button } from '@myui/components'
+        code={`import { Alert, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -289,7 +289,7 @@ function App() {
       <CodeBlock
         title="自定义图标"
         description="可以自定义图标。"
-        code={`import { Alert } from '@myui/components'
+        code={`import { Alert } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

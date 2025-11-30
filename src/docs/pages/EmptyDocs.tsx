@@ -26,7 +26,7 @@ const EmptyDocs = () => {
       <CodeBlock
         title="基础用法"
         description="简单的展示空状态。"
-        code={`import { Empty } from '@myui/components'
+        code={`import { Empty } from '@paidaxinghaha/my-ui-react'
 
 <Empty />`}
       >

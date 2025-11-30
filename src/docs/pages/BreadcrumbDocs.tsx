@@ -108,7 +108,7 @@ const BreadcrumbDocs = () => {
       <CodeBlock
         title="基本使用"
         description="最基础的面包屑导航。"
-        code={`import { Breadcrumb } from '@myui/components'
+        code={`import { Breadcrumb } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { label: '首页', path: '/' },
@@ -126,7 +126,7 @@ function App() {
       <CodeBlock
         title="带图标"
         description="面包屑项可以配置图标。"
-        code={`import { Breadcrumb } from '@myui/components'
+        code={`import { Breadcrumb } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { label: '首页', path: '/', icon: 'home' },
@@ -144,7 +144,7 @@ function App() {
       <CodeBlock
         title="自定义分隔符"
         description="可以自定义分隔符。"
-        code={`import { Breadcrumb } from '@myui/components'
+        code={`import { Breadcrumb } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { label: '首页', path: '/' },
@@ -172,7 +172,7 @@ function App() {
       <CodeBlock
         title="最大显示数量"
         description="当面包屑项过多时,可以设置最大显示数量,中间部分会被省略。"
-        code={`import { Breadcrumb } from '@myui/components'
+        code={`import { Breadcrumb } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { label: '首页', path: '/' },
@@ -193,7 +193,7 @@ function App() {
       <CodeBlock
         title="点击事件"
         description="可以为面包屑项添加点击事件。"
-        code={`import { Breadcrumb } from '@myui/components'
+        code={`import { Breadcrumb } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   {

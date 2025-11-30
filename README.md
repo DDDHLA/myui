@@ -16,19 +16,19 @@
 ## 📦 安装
 
 ```bash
-npm install @myui/components
+npm install @paidaxinghaha/my-ui-react
 # 或
-yarn add @myui/components
+yarn add @paidaxinghaha/my-ui-react
 # 或
-pnpm add @myui/components
+pnpm add @paidaxinghaha/my-ui-react
 ```
 
 ## 🚀 快速开始
 
 ```tsx
 import React from 'react'
-import { ThemeProvider, Button, Input, Card } from '@myui/components'
-import '@myui/components/dist/style.css'
+import { ThemeProvider, Button, Input, Card } from '@paidaxinghaha/my-ui-react'
+import '@paidaxinghaha/my-ui-react/dist/style.css'
 
 function App() {
   return (
@@ -51,7 +51,7 @@ export default App
 ### Button 按钮
 
 ```tsx
-import { Button } from '@myui/components'
+import { Button } from '@paidaxinghaha/my-ui-react'
 
 // 基础用法
 <Button variant="primary">主要按钮</Button>
@@ -74,7 +74,7 @@ import { Button } from '@myui/components'
 ### Input 输入框
 
 ```tsx
-import { Input } from '@myui/components'
+import { Input } from '@paidaxinghaha/my-ui-react'
 
 // 基础用法
 <Input placeholder="请输入内容" />
@@ -92,7 +92,7 @@ import { Input } from '@myui/components'
 ### Card 卡片
 
 ```tsx
-import { Card } from '@myui/components'
+import { Card } from '@paidaxinghaha/my-ui-react'
 
 // 基础用法
 <Card>
@@ -117,7 +117,7 @@ import { Card } from '@myui/components'
 MyUI 支持浅色和深色主题，可以通过 `ThemeProvider` 和 `useTheme` Hook 来管理主题。
 
 ```tsx
-import { ThemeProvider, useTheme, Button } from '@myui/components'
+import { ThemeProvider, useTheme, Button } from '@paidaxinghaha/my-ui-react'
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()

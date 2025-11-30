@@ -34,8 +34,8 @@ const TransferDocs = () => {
       <CodeBlock
         title="基本用法"
         description="最基础的穿梭框用法。"
-        code={`import { Transfer } from '@myui/components';
-import type { TransferItem } from '@myui/components';
+        code={`import { Transfer } from '@paidaxinghaha/my-ui-react';
+import type { TransferItem } from '@paidaxinghaha/my-ui-react';
 
 const mockData: TransferItem[] = Array.from({ length: 20 }).map((_, i) => ({
   key: i.toString(),
@@ -69,7 +69,7 @@ const App = () => {
       <CodeBlock
         title="带搜索框"
         description="带搜索框的穿梭框，可以快速筛选数据。"
-        code={`import { Transfer } from '@myui/components';
+        code={`import { Transfer } from '@paidaxinghaha/my-ui-react';
 // ... mockData setup
 
 const App = () => {

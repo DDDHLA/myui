@@ -99,7 +99,7 @@ const TypeWriterDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的用法，显示一段文字的打字效果。"
-        code={`import { TypeWriter } from '@myui/components'
+        code={`import { TypeWriter } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -121,7 +121,7 @@ function App() {
       <CodeBlock
         title="不同速度"
         description="通过调整 speed 属性控制打字速度，适应不同场景。"
-        code={`import { TypeWriter } from '@myui/components'
+        code={`import { TypeWriter } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -191,7 +191,7 @@ function App() {
       <CodeBlock
         title="自定义光标"
         description="可以自定义光标样式或隐藏光标。"
-        code={`import { TypeWriter } from '@myui/components'
+        code={`import { TypeWriter } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -272,7 +272,7 @@ function App() {
       <CodeBlock
         title="循环播放"
         description="设置 loop 属性后，文字会不断重复播放。"
-        code={`import { TypeWriter } from '@myui/components'
+        code={`import { TypeWriter } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -300,8 +300,8 @@ function App() {
       <CodeBlock
         title="延迟开始"
         description="可以设置延迟时间，让动画在稍后开始。"
-        code={`import { TypeWriter } from '@myui/components'
-import { Button } from '@myui/components'
+        code={`import { TypeWriter } from '@paidaxinghaha/my-ui-react'
+import { Button } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -346,7 +346,7 @@ function App() {
       <CodeBlock
         title="AI 对话示例"
         description="在 AI 聊天界面中模拟流式输出效果。"
-        code={`import { TypeWriter } from '@myui/components'
+        code={`import { TypeWriter } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -394,7 +394,7 @@ function App() {
       <CodeBlock
         title="代码输出示例"
         description="模拟代码编辑器的打字效果。"
-        code={`import { TypeWriter } from '@myui/components'
+        code={`import { TypeWriter } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const code = \`function hello() {

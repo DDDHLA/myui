@@ -46,7 +46,7 @@ const TourDocs = () => {
       <CodeBlock
         title="基础用法"
         description="Tour 可以指向任何 HTML 元素，通过 target 属性指定目标元素的选择器。"
-        code={`import { Tour, Button } from '@myui/components'
+        code={`import { Tour, Button } from '@paidaxinghaha/my-ui-react'
 
 const [open, setOpen] = useState(false)
 
@@ -127,7 +127,7 @@ const [open, setOpen] = useState(false)
       <CodeBlock
         title="不同位置"
         description="通过 placement 属性设置弹窗位置。"
-        code={`import { Tour, Button } from '@myui/components'
+        code={`import { Tour, Button } from '@paidaxinghaha/my-ui-react'
 
 const [open, setOpen] = useState(false)
 
@@ -217,7 +217,7 @@ const [open, setOpen] = useState(false)
       <CodeBlock
         title="带封面"
         description="使用 cover 属性添加封面图片或内容。"
-        code={`import { Tour, Button } from '@myui/components'
+        code={`import { Tour, Button } from '@paidaxinghaha/my-ui-react'
 
 const [open, setOpen] = useState(false)
 
@@ -288,7 +288,7 @@ const [open, setOpen] = useState(false)
       <CodeBlock
         title="无遮罩"
         description="设置 mask={false} 可以关闭遮罩层。"
-        code={`import { Tour, Button } from '@myui/components'
+        code={`import { Tour, Button } from '@paidaxinghaha/my-ui-react'
 
 const [open, setOpen] = useState(false)
 

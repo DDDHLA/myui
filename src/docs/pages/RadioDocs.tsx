@@ -120,7 +120,7 @@ const RadioDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的用法。"
-        code={`import { Radio } from '@myui/components'
+        code={`import { Radio } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Radio defaultChecked>Radio</Radio>
@@ -132,7 +132,7 @@ function App() {
       <CodeBlock
         title="禁用状态"
         description="Radio 不可用状态。"
-        code={`import { Radio } from '@myui/components'
+        code={`import { Radio } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -154,7 +154,7 @@ function App() {
       <CodeBlock
         title="Radio 组"
         description="一组互斥的 Radio 配合使用。"
-        code={`import { Radio, RadioGroup } from '@myui/components'
+        code={`import { Radio, RadioGroup } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -189,7 +189,7 @@ function App() {
       <CodeBlock
         title="快速生成"
         description="通过 options 配置快速生成 Radio 组。"
-        code={`import { RadioGroup } from '@myui/components'
+        code={`import { RadioGroup } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -224,7 +224,7 @@ function App() {
       <CodeBlock
         title="垂直排列"
         description="通过 direction 属性设置垂直排列。"
-        code={`import { RadioGroup } from '@myui/components'
+        code={`import { RadioGroup } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -254,7 +254,7 @@ function App() {
       <CodeBlock
         title="三种尺寸"
         description="提供三种尺寸:small、medium、large。"
-        code={`import { Radio } from '@myui/components'
+        code={`import { Radio } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -282,7 +282,7 @@ function App() {
       <CodeBlock
         title="颜色主题"
         description="提供多种颜色主题。"
-        code={`import { Radio } from '@myui/components'
+        code={`import { Radio } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -314,7 +314,7 @@ function App() {
       <CodeBlock
         title="全组禁用"
         description="整组禁用的 Radio 组。"
-        code={`import { RadioGroup } from '@myui/components'
+        code={`import { RadioGroup } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

@@ -117,7 +117,7 @@ const MentionsDocs = () => {
         title="基本用法"
         description="最简单的用法，通过 @ 触发提及。"
         code={`import { useState } from 'react'
-import { Mentions } from '@myui/components'
+import { Mentions } from '@paidaxinghaha/my-ui-react'
 
 const users = [
   { value: 'zhangsan', label: '张三' },
@@ -150,7 +150,7 @@ function App() {
         title="自定义前缀"
         description="可以自定义触发字符，支持单个字符或字符数组。"
         code={`import { useState } from 'react'
-import { Mentions } from '@myui/components'
+import { Mentions } from '@paidaxinghaha/my-ui-react'
 
 const tags = [
   { value: 'react', label: 'React' },
@@ -189,7 +189,7 @@ function App() {
         title="异步加载"
         description="匹配内容列表可以异步加载。"
         code={`import { useState } from 'react'
-import { Mentions } from '@myui/components'
+import { Mentions } from '@paidaxinghaha/my-ui-react'
 
 const users = [
   { value: 'zhangsan', label: '张三' },
@@ -228,7 +228,7 @@ function App() {
       <CodeBlock
         title="自定义渲染"
         description="自定义下拉列表选项的渲染内容。"
-        code={`import { Mentions } from '@myui/components'
+        code={`import { Mentions } from '@paidaxinghaha/my-ui-react'
 
 const users = [
   {

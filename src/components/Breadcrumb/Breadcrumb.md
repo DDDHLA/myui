@@ -5,7 +5,7 @@
 ## 基本使用
 
 ```tsx
-import { Breadcrumb } from '@myui/components';
+import { Breadcrumb } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { label: '首页', path: '/' },
@@ -21,7 +21,7 @@ function App() {
 ## 带图标
 
 ```tsx
-import { Breadcrumb } from '@myui/components';
+import { Breadcrumb } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { label: '首页', path: '/', icon: 'home' },
@@ -37,7 +37,7 @@ function App() {
 ## 自定义分隔符
 
 ```tsx
-import { Breadcrumb } from '@myui/components';
+import { Breadcrumb } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { label: '首页', path: '/' },
@@ -61,7 +61,7 @@ function App() {
 当面包屑项过多时，可以设置最大显示数量，中间部分会被省略。
 
 ```tsx
-import { Breadcrumb } from '@myui/components';
+import { Breadcrumb } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { label: '首页', path: '/' },
@@ -80,7 +80,7 @@ function App() {
 ## 自定义渲染
 
 ```tsx
-import { Breadcrumb, BreadcrumbItem } from '@myui/components';
+import { Breadcrumb, BreadcrumbItem } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { label: '首页', path: '/' },
@@ -103,7 +103,7 @@ function App() {
 ## 点击事件
 
 ```tsx
-import { Breadcrumb } from '@myui/components';
+import { Breadcrumb } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   {

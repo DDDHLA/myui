@@ -5,7 +5,7 @@
 ## 基本使用
 
 ```tsx
-import { Menu } from '@myui/components';
+import { Menu } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -27,7 +27,7 @@ function App() {
 ## 水平菜单
 
 ```tsx
-import { Menu } from '@myui/components';
+import { Menu } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { key: 'home', label: '首页' },
@@ -44,7 +44,7 @@ function App() {
 ## 子菜单
 
 ```tsx
-import { Menu } from '@myui/components';
+import { Menu } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -85,7 +85,7 @@ function App() {
 内联模式展开的子菜单会显示在菜单内部。
 
 ```tsx
-import { Menu } from '@myui/components';
+import { Menu } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -123,7 +123,7 @@ function App() {
 ## 折叠内联菜单
 
 ```tsx
-import { Menu } from '@myui/components';
+import { Menu } from '@paidaxinghaha/my-ui-react';
 import { useState } from 'react';
 
 const items = [
@@ -162,7 +162,7 @@ function App() {
 ## 深色主题
 
 ```tsx
-import { Menu } from '@myui/components';
+import { Menu } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -193,7 +193,7 @@ function App() {
 ## 禁用和危险项
 
 ```tsx
-import { Menu } from '@myui/components';
+import { Menu } from '@paidaxinghaha/my-ui-react';
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -209,7 +209,7 @@ function App() {
 ## 受控模式
 
 ```tsx
-import { Menu } from '@myui/components';
+import { Menu } from '@paidaxinghaha/my-ui-react';
 import { useState } from 'react';
 
 const items = [

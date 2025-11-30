@@ -413,7 +413,7 @@ const TreeSelectDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的树选择器用法。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 const treeData = [
   {
@@ -450,7 +450,7 @@ function App() {
       <CodeBlock
         title="受控模式"
         description="通过 value 和 onChange 控制选中的值。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -484,7 +484,7 @@ function App() {
       <CodeBlock
         title="不同尺寸"
         description="提供三种尺寸：sm（小）、md（中）、lg（大）。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -508,7 +508,7 @@ function App() {
       <CodeBlock
         title="复选框模式"
         description="设置 checkable 属性启用复选框，支持父子节点关联。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -545,7 +545,7 @@ function App() {
       <CodeBlock
         title="多选模式"
         description="设置 multiple 属性启用多选功能。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -579,7 +579,7 @@ function App() {
       <CodeBlock
         title="可搜索"
         description="设置 searchable 属性启用搜索功能，自动展开包含搜索结果的节点。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -605,7 +605,7 @@ function App() {
       <CodeBlock
         title="可清空"
         description="设置 clearable 属性显示清空按钮。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -625,7 +625,7 @@ function App() {
       <CodeBlock
         title="默认展开"
         description="使用 defaultExpandAll 或 defaultExpandedKeys 控制默认展开的节点。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -663,7 +663,7 @@ function App() {
       <CodeBlock
         title="受控展开"
         description="通过 expandedKeys 和 onExpand 控制节点的展开状态。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -695,7 +695,7 @@ function App() {
       <CodeBlock
         title="禁用状态"
         description="通过 disabled 属性禁用选择器或禁用某个节点。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 const treeData = [
   {
@@ -733,7 +733,7 @@ function App() {
       <CodeBlock
         title="自定义图标"
         description="通过节点的 icon 属性自定义节点图标。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 const treeData = [
   {
@@ -778,7 +778,7 @@ function App() {
       <CodeBlock
         title="异步加载"
         description="使用 loadData 属性实现子节点的异步加载。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -822,7 +822,7 @@ function App() {
       <CodeBlock
         title="父子不关联"
         description="设置 checkStrictly 为 true，父子节点选中状态互不影响。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -849,7 +849,7 @@ function App() {
       <CodeBlock
         title="限制标签数量"
         description="多选模式下，使用 maxTagCount 限制显示的标签数量。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -877,7 +877,7 @@ function App() {
       <CodeBlock
         title="错误状态"
         description="使用 error 属性显示错误状态。"
-        code={`import { TreeSelect } from '@myui/components'
+        code={`import { TreeSelect } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

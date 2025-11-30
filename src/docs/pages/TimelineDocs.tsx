@@ -33,7 +33,7 @@ const TimelineDocs = () => {
       <CodeBlock
         title="基础用法"
         description="简单的时间轴展示。"
-        code={`import { Timeline, TimelineItem } from '@myui/components'
+        code={`import { Timeline, TimelineItem } from '@paidaxinghaha/my-ui-react'
 
 <Timeline>
   <TimelineItem>创建服务现场 2015-09-01</TimelineItem>

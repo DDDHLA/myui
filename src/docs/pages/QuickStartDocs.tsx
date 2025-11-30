@@ -38,17 +38,17 @@ const QuickStartDocs = () => {
         title="安装"
         description="使用 npm 或 yarn 安装 MyUI 组件库。"
         code={`# 使用 npm
-npm install @myui/components
+npm install @paidaxinghaha/my-ui-react
 
 # 使用 yarn
-yarn add @myui/components
+yarn add @paidaxinghaha/my-ui-react
 
 # 使用 pnpm
-pnpm add @myui/components`}
+pnpm add @paidaxinghaha/my-ui-react`}
         language="bash"
       >
         <div style={{ padding: '16px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px' }}>
-          <code>npm install @myui/components</code>
+          <code>npm install @paidaxinghaha/my-ui-react</code>
         </div>
       </CodeBlock>
       
@@ -56,8 +56,8 @@ pnpm add @myui/components`}
         title="基础使用"
         description="在你的 React 应用中导入和使用 MyUI 组件。"
         code={`import React from 'react'
-import { ThemeProvider, Button, Input } from '@myui/components'
-import '@myui/components/dist/style.css'
+import { ThemeProvider, Button, Input } from '@paidaxinghaha/my-ui-react'
+import '@paidaxinghaha/my-ui-react/dist/style.css'
 
 function App() {
   return (

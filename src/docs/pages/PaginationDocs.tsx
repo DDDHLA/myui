@@ -159,7 +159,7 @@ const PaginationDocs = () => {
       <CodeBlock
         title="基本用法"
         description="基础分页组件。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Pagination total={50} />
@@ -171,7 +171,7 @@ function App() {
       <CodeBlock
         title="更多分页"
         description="更多分页。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Pagination total={500} />
@@ -184,7 +184,7 @@ function App() {
         title="改变每页显示条目数"
         description="改变每页显示条目数。"
         code={`import { useState } from 'react'
-import { Pagination } from '@myui/components'
+import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const [current, setCurrent] = useState(1)
@@ -223,7 +223,7 @@ function App() {
       <CodeBlock
         title="自定义总数显示"
         description="通过 showTotal 自定义总数显示。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -247,7 +247,7 @@ function App() {
       <CodeBlock
         title="迷你分页"
         description="使用 size='small' 设置迷你分页。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -277,7 +277,7 @@ function App() {
       <CodeBlock
         title="简单分页"
         description="简单的翻页。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Pagination simple total={500} />
@@ -290,7 +290,7 @@ function App() {
         title="受控的页码"
         description="通过 current 和 onChange 受控页码。"
         code={`import { useState } from 'react'
-import { Pagination } from '@myui/components'
+import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const [current, setCurrent] = useState(1)
@@ -320,7 +320,7 @@ function App() {
       <CodeBlock
         title="禁用状态"
         description="禁用分页。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -339,7 +339,7 @@ function App() {
       <CodeBlock
         title="对齐方式"
         description="通过 align 设置对齐方式。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -361,7 +361,7 @@ function App() {
       <CodeBlock
         title="自定义按钮文本"
         description="自定义上一页和下一页的文本。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -379,7 +379,7 @@ function App() {
       <CodeBlock
         title="显示较少页面内容"
         description="通过 showLessItems 显示较少的页面内容。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -406,7 +406,7 @@ function App() {
         title="完整功能"
         description="展示所有功能组合使用。"
         code={`import { useState } from 'react'
-import { Pagination } from '@myui/components'
+import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const [current, setCurrent] = useState(1)
@@ -457,7 +457,7 @@ function App() {
       <CodeBlock
         title="自定义渲染页码"
         description="通过 itemRender 自定义页码的渲染。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -529,7 +529,7 @@ function App() {
       <CodeBlock
         title="隐藏单页分页器"
         description="通过 hideOnSinglePage 隐藏只有一页时的分页器。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -557,7 +557,7 @@ function App() {
       <CodeBlock
         title="响应式分页"
         description="分页组件支持响应式布局，在小屏幕下自动调整。"
-        code={`import { Pagination } from '@myui/components'
+        code={`import { Pagination } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

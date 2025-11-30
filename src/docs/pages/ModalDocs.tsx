@@ -168,7 +168,7 @@ const ModalDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的弹窗用法，点击按钮打开弹窗。"
-        code={`import { Modal } from '@myui/components'
+        code={`import { Modal } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -215,7 +215,7 @@ function App() {
       <CodeBlock
         title="不同尺寸"
         description="提供 sm、md、lg、xl、full 五种尺寸。"
-        code={`import { Modal } from '@myui/components'
+        code={`import { Modal } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -263,7 +263,7 @@ function App() {
       <CodeBlock
         title="弹窗位置"
         description="可以设置弹窗在屏幕中的位置，支持居中和顶部。"
-        code={`import { Modal } from '@myui/components'
+        code={`import { Modal } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -302,7 +302,7 @@ function App() {
       <CodeBlock
         title="自定义底部"
         description="通过 footer 属性自定义底部内容，传 null 可以隐藏底部。"
-        code={`import { Modal } from '@myui/components'
+        code={`import { Modal } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -363,7 +363,7 @@ function App() {
       <CodeBlock
         title="无标题和底部"
         description="省略 title 和设置 footer={null} 可以隐藏标题栏和底部。"
-        code={`import { Modal } from '@myui/components'
+        code={`import { Modal } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -422,7 +422,7 @@ function App() {
       <CodeBlock
         title="确认对话框"
         description="使用 onOk 和 onCancel 创建确认对话框。"
-        code={`import { Modal } from '@myui/components'
+        code={`import { Modal } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const handleOk = () => {
@@ -474,7 +474,7 @@ function App() {
       <CodeBlock
         title="异步操作"
         description="onOk 支持返回 Promise，点击确认按钮会显示加载状态。"
-        code={`import { Modal } from '@myui/components'
+        code={`import { Modal } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -531,7 +531,7 @@ function App() {
       <CodeBlock
         title="全屏模式"
         description="设置 fullscreen 属性可以让弹窗全屏显示。"
-        code={`import { Modal } from '@myui/components'
+        code={`import { Modal } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -579,7 +579,7 @@ function App() {
       <CodeBlock
         title="嵌套弹窗"
         description="弹窗内可以打开另一个弹窗。"
-        code={`import { Modal } from '@myui/components'
+        code={`import { Modal } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {

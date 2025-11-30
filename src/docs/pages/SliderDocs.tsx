@@ -44,7 +44,7 @@ const SliderDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的滑块用法。"
-        code={`import { Slider } from '@myui/components'
+        code={`import { Slider } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const [value, setValue] = useState(30)

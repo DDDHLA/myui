@@ -19,7 +19,7 @@
 ## 基础用法
 
 ```tsx
-import { Mentions } from '@myui/components';
+import { Mentions } from '@paidaxinghaha/my-ui-react';
 
 const users = [
   { value: 'zhangsan', label: '张三' },

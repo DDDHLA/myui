@@ -79,7 +79,7 @@ const ButtonDocs = () => {
       <CodeBlock
         title="基础用法"
         description="按钮的基础用法，支持多种类型和状态。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -107,7 +107,7 @@ function App() {
       <CodeBlock
         title="按钮类型"
         description="按钮有多种类型：轮廓按钮、幽灵按钮和链接按钮。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -129,7 +129,7 @@ function App() {
       <CodeBlock
         title="按钮尺寸"
         description="按钮有大、中、小三种尺寸。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -151,7 +151,7 @@ function App() {
       <CodeBlock
         title="带图标的按钮"
         description="按钮可以配置左侧或右侧图标。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const SearchIcon = (
@@ -193,7 +193,7 @@ function App() {
       <CodeBlock
         title="加载状态"
         description="点击按钮后进行数据加载操作，在按钮上显示加载状态。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -227,7 +227,7 @@ function App() {
       <CodeBlock
         title="块级按钮"
         description="按钮可以占满容器的宽度。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

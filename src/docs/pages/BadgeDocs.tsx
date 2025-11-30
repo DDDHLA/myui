@@ -59,7 +59,7 @@ const BadgeDocs = () => {
       <CodeBlock
         title="基本用法"
         description="简单的徽章展示，当 count 为 0 时，默认不显示，但是可以使用 showZero 修改为显示。"
-        code={`import { Badge, Avatar } from '@myui/components'
+        code={`import { Badge, Avatar } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -90,7 +90,7 @@ function App() {
       <CodeBlock
         title="封顶数字"
         description="超过 overflowCount 的会显示为 ${overflowCount}+，默认的 overflowCount 为 99。"
-        code={`import { Badge, Avatar } from '@myui/components'
+        code={`import { Badge, Avatar } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -130,7 +130,7 @@ function App() {
       <CodeBlock
         title="独立使用"
         description="不包裹任何元素即是独立使用，可自定样式展示。"
-        code={`import { Badge } from '@myui/components'
+        code={`import { Badge } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -152,7 +152,7 @@ function App() {
       <CodeBlock
         title="小红点"
         description="没有具体的数字。"
-        code={`import { Badge, Avatar } from '@myui/components'
+        code={`import { Badge, Avatar } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -180,7 +180,7 @@ function App() {
       <CodeBlock
         title="状态点"
         description="用于表示状态的小圆点。"
-        code={`import { Badge } from '@myui/components'
+        code={`import { Badge } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

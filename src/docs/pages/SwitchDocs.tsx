@@ -130,7 +130,7 @@ const SwitchDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的用法。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -159,7 +159,7 @@ function App() {
       <CodeBlock
         title="带文字标签"
         description="可以为开关添加文字说明。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -181,7 +181,7 @@ function App() {
       <CodeBlock
         title="不同尺寸"
         description="开关有大、中、小三种尺寸。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -203,7 +203,7 @@ function App() {
       <CodeBlock
         title="颜色变体"
         description="开关支持多种颜色变体。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -227,7 +227,7 @@ function App() {
       <CodeBlock
         title="自定义颜色"
         description="可以自定义开关选中和未选中时的颜色。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -273,7 +273,7 @@ function App() {
       <CodeBlock
         title="带图标"
         description="可以在滑块中显示图标。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const CheckIcon = (
@@ -323,7 +323,7 @@ function App() {
       <CodeBlock
         title="内置标签文本"
         description="可以在开关内部显示文本。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -361,7 +361,7 @@ function App() {
       <CodeBlock
         title="禁用状态"
         description="开关不可用状态。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -383,7 +383,7 @@ function App() {
       <CodeBlock
         title="加载状态"
         description="开关处于加载状态时的表现。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -423,7 +423,7 @@ function App() {
       <CodeBlock
         title="带描述"
         description="可以为开关添加描述文本。"
-        code={`import { Switch } from '@myui/components'
+        code={`import { Switch } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

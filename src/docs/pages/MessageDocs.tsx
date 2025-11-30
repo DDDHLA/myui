@@ -37,7 +37,7 @@ const MessageDocs = () => {
       <CodeBlock
         title="基础用法"
         description="从顶部出现，3 秒后自动消失。"
-        code={`import { Message, Button } from '@myui/components'
+        code={`import { Message, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -55,7 +55,7 @@ function App() {
       <CodeBlock
         title="不同类型的提示"
         description="包括成功、失败、警告、普通四种样式。"
-        code={`import { Message, Button } from '@myui/components'
+        code={`import { Message, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -79,7 +79,7 @@ function App() {
       <CodeBlock
         title="修改延时"
         description="自定义时长，10s 后自动关闭。"
-        code={`import { Message, Button } from '@myui/components'
+        code={`import { Message, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -97,7 +97,7 @@ function App() {
       <CodeBlock
         title="自定义图标"
         description="可以自定义消息的图标。"
-        code={`import { Message, Button } from '@myui/components'
+        code={`import { Message, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

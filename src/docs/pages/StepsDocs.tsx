@@ -131,7 +131,7 @@ const StepsDocs = () => {
       <CodeBlock
         title="基本用法"
         description="简单的步骤条。"
-        code={`import { Steps } from '@myui/components'
+        code={`import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -152,7 +152,7 @@ function App() {
       <CodeBlock
         title="迷你版"
         description="迷你版的步骤条，通过设置 size='small' 启用。"
-        code={`import { Steps } from '@myui/components'
+        code={`import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -182,7 +182,7 @@ function App() {
       <CodeBlock
         title="带图标的步骤条"
         description="通过设置 items 的 icon 属性，可以启用自定义图标。"
-        code={`import { Steps } from '@myui/components'
+        code={`import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -235,7 +235,7 @@ function App() {
         title="步骤切换"
         description="通常配合内容及按钮使用，表示一个流程的处理进度。"
         code={`import { useState } from 'react'
-import { Steps, Button } from '@myui/components'
+import { Steps, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const [current, setCurrent] = useState(0)
@@ -304,7 +304,7 @@ function App() {
       <CodeBlock
         title="垂直方向的步骤条"
         description="简单的垂直方向的步骤条。"
-        code={`import { Steps } from '@myui/components'
+        code={`import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -334,7 +334,7 @@ function App() {
       <CodeBlock
         title="步骤运行错误"
         description="使用 status 可以指定当前步骤的状态。"
-        code={`import { Steps } from '@myui/components'
+        code={`import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -364,7 +364,7 @@ function App() {
       <CodeBlock
         title="点状步骤条"
         description="包含步骤点的进度条。"
-        code={`import { Steps } from '@myui/components'
+        code={`import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -394,7 +394,7 @@ function App() {
       <CodeBlock
         title="点状步骤条（垂直）"
         description="垂直方向的点状步骤条。"
-        code={`import { Steps } from '@myui/components'
+        code={`import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -427,7 +427,7 @@ function App() {
         title="可点击的步骤条"
         description="设置 onChange 后，Steps 变为可点击状态。"
         code={`import { useState } from 'react'
-import { Steps } from '@myui/components'
+import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const [current, setCurrent] = useState(1)
@@ -453,7 +453,7 @@ function App() {
         title="导航步骤条"
         description="导航类型的步骤条。"
         code={`import { useState } from 'react'
-import { Steps } from '@myui/components'
+import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const [current, setCurrent] = useState(0)
@@ -489,7 +489,7 @@ function App() {
       <CodeBlock
         title="垂直标签布局"
         description="标签放置在图标下方的步骤条。"
-        code={`import { Steps } from '@myui/components'
+        code={`import { Steps } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

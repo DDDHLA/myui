@@ -37,7 +37,7 @@ const SkeletonDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的占位效果。"
-        code={`import { Skeleton } from '@myui/components'
+        code={`import { Skeleton } from '@paidaxinghaha/my-ui-react'
 
 <Skeleton />`}
       >
@@ -105,7 +105,7 @@ const SkeletonDocs = () => {
       <CodeBlock
         title="按钮占位"
         description="按钮的骨架屏。"
-        code={`import { SkeletonButton } from '@myui/components'
+        code={`import { SkeletonButton } from '@paidaxinghaha/my-ui-react'
 
 <SkeletonButton size="sm" />
 <SkeletonButton size="md" />
@@ -125,7 +125,7 @@ const SkeletonDocs = () => {
       <CodeBlock
         title="输入框占位"
         description="输入框的骨架屏。"
-        code={`import { SkeletonInput } from '@myui/components'
+        code={`import { SkeletonInput } from '@paidaxinghaha/my-ui-react'
 
 <SkeletonInput size="sm" />
 <SkeletonInput size="md" />
@@ -141,7 +141,7 @@ const SkeletonDocs = () => {
       <CodeBlock
         title="图片占位"
         description="图片的骨架屏。"
-        code={`import { SkeletonImage } from '@myui/components'
+        code={`import { SkeletonImage } from '@paidaxinghaha/my-ui-react'
 
 <SkeletonImage />`}
       >

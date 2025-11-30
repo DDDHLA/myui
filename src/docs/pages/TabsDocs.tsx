@@ -174,7 +174,7 @@ const TabsDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的标签页用法。"
-        code={`import { Tabs } from '@myui/components'
+        code={`import { Tabs } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const items = [

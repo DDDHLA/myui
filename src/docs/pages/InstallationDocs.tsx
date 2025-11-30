@@ -36,33 +36,33 @@ const InstallationDocs = () => {
       <CodeBlock
         title="NPM 安装"
         description="推荐使用 npm 包管理器安装 MyUI。"
-        code={`npm install @myui/components`}
+        code={`npm install @paidaxinghaha/my-ui-react`}
         language="bash"
       >
         <div style={{ padding: '16px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px' }}>
-          <code>npm install @myui/components</code>
+          <code>npm install @paidaxinghaha/my-ui-react</code>
         </div>
       </CodeBlock>
       
       <CodeBlock
         title="Yarn 安装"
         description="如果你使用 Yarn 作为包管理器。"
-        code={`yarn add @myui/components`}
+        code={`yarn add @paidaxinghaha/my-ui-react`}
         language="bash"
       >
         <div style={{ padding: '16px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px' }}>
-          <code>yarn add @myui/components</code>
+          <code>yarn add @paidaxinghaha/my-ui-react</code>
         </div>
       </CodeBlock>
       
       <CodeBlock
         title="PNPM 安装"
         description="如果你使用 PNPM 作为包管理器。"
-        code={`pnpm add @myui/components`}
+        code={`pnpm add @paidaxinghaha/my-ui-react`}
         language="bash"
       >
         <div style={{ padding: '16px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px' }}>
-          <code>pnpm add @myui/components</code>
+          <code>pnpm add @paidaxinghaha/my-ui-react</code>
         </div>
       </CodeBlock>
       
@@ -75,10 +75,10 @@ const InstallationDocs = () => {
         <CodeBlock
           title="导入全局样式"
           description="在应用的入口文件（如 main.tsx 或 index.tsx）中导入样式。"
-          code={`import '@myui/components/dist/style.css'`}
+          code={`import '@paidaxinghaha/my-ui-react/dist/style.css'`}
         >
           <div style={{ padding: '16px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px' }}>
-            <code>import '@myui/components/dist/style.css'</code>
+            <code>import '@paidaxinghaha/my-ui-react/dist/style.css'</code>
           </div>
         </CodeBlock>
       </div>

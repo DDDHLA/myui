@@ -35,7 +35,7 @@ const WatermarkDocs = () => {
       <CodeBlock
         title="文字水印"
         description="最基础的用法，在内容上添加文字水印。"
-        code={`import { Watermark } from '@myui/components';
+        code={`import { Watermark } from '@paidaxinghaha/my-ui-react';
 
 <Watermark text="MyUI">
   <div style={{ height: 300 }}>
@@ -55,7 +55,7 @@ const WatermarkDocs = () => {
       <CodeBlock
         title="多行文字水印"
         description="通过传递一个字符串数组来创建多行水印。"
-        code={`import { Watermark } from '@myui/components';
+        code={`import { Watermark } from '@paidaxinghaha/my-ui-react';
 
 <Watermark text={['MyUI', 'Internal Use Only']}>
   <div style={{ height: 300 }}>
@@ -74,7 +74,7 @@ const WatermarkDocs = () => {
       <CodeBlock
         title="自定义样式"
         description="可以自定义水印的字体大小、颜色、旋转角度和间距。"
-        code={`import { Watermark } from '@myui/components';
+        code={`import { Watermark } from '@paidaxinghaha/my-ui-react';
 
 <Watermark 
   text="Custom Style"

@@ -173,7 +173,7 @@ const CardDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的卡片用法，展示基本内容。"
-        code={`import { Card } from '@myui/components'
+        code={`import { Card } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -193,7 +193,7 @@ function App() {
       <CodeBlock
         title="不同变体"
         description="Card 组件支持多种视觉样式变体。"
-        code={`import { Card } from '@myui/components'
+        code={`import { Card } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -257,7 +257,7 @@ function App() {
       <CodeBlock
         title="带标题和描述"
         description="使用 cardTitle、subtitle 和 description 属性快速创建结构化内容。"
-        code={`import { Card } from '@myui/components'
+        code={`import { Card } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -287,7 +287,7 @@ function App() {
       <CodeBlock
         title="带图片的卡片"
         description="支持在卡片中显示图片，可以设置图片位置和高度。"
-        code={`import { Card } from '@myui/components'
+        code={`import { Card } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -319,7 +319,7 @@ function App() {
       <CodeBlock
         title="带操作按钮"
         description="使用 actions 属性在卡片底部添加操作按钮。"
-        code={`import { Card, Button } from '@myui/components'
+        code={`import { Card, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -357,7 +357,7 @@ function App() {
       <CodeBlock
         title="带标签和徽章"
         description="使用 tags 和 badge 属性添加标签和徽章。"
-        code={`import { Card } from '@myui/components'
+        code={`import { Card } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -389,7 +389,7 @@ function App() {
       <CodeBlock
         title="可折叠卡片"
         description="使用 collapsible 属性创建可折叠的卡片。"
-        code={`import { Card } from '@myui/components'
+        code={`import { Card } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const [collapsed, setCollapsed] = useState(false)
@@ -425,7 +425,7 @@ function App() {
       <CodeBlock
         title="不同状态"
         description="Card 组件支持多种交互状态。"
-        code={`import { Card } from '@myui/components'
+        code={`import { Card } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -505,7 +505,7 @@ function App() {
       <CodeBlock
         title="使用子组件"
         description="使用 CardHeader、CardBody、CardFooter、CardImage 子组件构建更灵活的布局。"
-        code={`import { Card, CardHeader, CardBody, CardFooter, CardImage, Button } from '@myui/components'
+        code={`import { Card, CardHeader, CardBody, CardFooter, CardImage, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

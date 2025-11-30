@@ -115,7 +115,7 @@ const IconDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的用法，指定图标名称即可。"
-        code={`import { Icon } from '@myui/components'
+        code={`import { Icon } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

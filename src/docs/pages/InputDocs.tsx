@@ -76,7 +76,7 @@ const InputDocs = () => {
       <CodeBlock
         title="基础用法"
         description="基本使用。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -101,7 +101,7 @@ function App() {
       <CodeBlock
         title="带标签的输入框"
         description="输入框可以配置标签和辅助文本。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -127,7 +127,7 @@ function App() {
       <CodeBlock
         title="带图标的输入框"
         description="输入框可以配置左侧或右侧图标。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const SearchIcon = (
@@ -185,7 +185,7 @@ function App() {
       <CodeBlock
         title="不同尺寸"
         description="输入框有大、中、小三种尺寸。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -207,7 +207,7 @@ function App() {
       <CodeBlock
         title="错误状态"
         description="输入框可以显示错误状态和错误信息。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

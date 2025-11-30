@@ -118,7 +118,7 @@ const SplitterDocs = () => {
       <CodeBlock
         title="基础用法 (水平)"
         description="最简单的水平分隔面板，两个面板平分空间。"
-        code={`import { Splitter, SplitterPanel } from '@myui/components';
+        code={`import { Splitter, SplitterPanel } from '@paidaxinghaha/my-ui-react';
 
 function App() {
   return (
@@ -150,7 +150,7 @@ function App() {
       <CodeBlock
         title="基础用法 (垂直)"
         description="设置 direction='vertical' 创建垂直分隔面板。"
-        code={`import { Splitter, SplitterPanel } from '@myui/components';
+        code={`import { Splitter, SplitterPanel } from '@paidaxinghaha/my-ui-react';
 
 function App() {
   return (
@@ -182,7 +182,7 @@ function App() {
       <CodeBlock
         title="默认尺寸和最小/最大尺寸"
         description="通过 defaultSize、minSize 和 maxSize 控制面板的初始尺寸及可调整范围。"
-        code={`import { Splitter, SplitterPanel } from '@myui/components';
+        code={`import { Splitter, SplitterPanel } from '@paidaxinghaha/my-ui-react';
 
 function App() {
   const [sizes, setSizes] = useState<number[]>([]);
@@ -239,7 +239,7 @@ function App() {
       <CodeBlock
         title="可折叠面板"
         description="设置 collapsible 属性使面板可折叠，并可通过 initialCollapsed 初始折叠。点击分割器上的箭头进行折叠/展开操作。"
-        code={`import { Splitter, SplitterPanel } from '@myui/components';
+        code={`import { Splitter, SplitterPanel } from '@paidaxinghaha/my-ui-react';
 
 function App() {
   return (

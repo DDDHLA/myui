@@ -241,7 +241,7 @@ const TableDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的表格用法，展示基本数据。"
-        code={`import { Table } from '@myui/components'
+        code={`import { Table } from '@paidaxinghaha/my-ui-react'
 
 const columns = [
   { key: 'name', title: '姓名', dataIndex: 'name', width: 120 },
@@ -266,7 +266,7 @@ function App() {
       <CodeBlock
         title="不同尺寸"
         description="提供三种尺寸：sm（小）、md（中）、lg（大）。"
-        code={`import { Table } from '@myui/components'
+        code={`import { Table } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -297,7 +297,7 @@ function App() {
       <CodeBlock
         title="边框和斑马纹"
         description="通过 bordered 和 striped 属性控制样式。"
-        code={`import { Table } from '@myui/components'
+        code={`import { Table } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -324,7 +324,7 @@ function App() {
       <CodeBlock
         title="自定义渲染和排序"
         description="使用 render 函数自定义单元格内容，使用 sortable 属性启用排序。"
-        code={`import { Table, Button } from '@myui/components'
+        code={`import { Table, Button } from '@paidaxinghaha/my-ui-react'
 
 const columns = [
   { key: 'name', title: '姓名', dataIndex: 'name' },
@@ -372,7 +372,7 @@ function App() {
       <CodeBlock
         title="分页"
         description="使用 pagination 属性开启分页功能。"
-        code={`import { Table } from '@myui/components'
+        code={`import { Table } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -400,7 +400,7 @@ function App() {
       <CodeBlock
         title="行选择"
         description="通过 rowSelection 属性启用行选择功能。"
-        code={`import { Table } from '@myui/components'
+        code={`import { Table } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -439,7 +439,7 @@ function App() {
       <CodeBlock
         title="加载状态"
         description="使用 loading 属性显示加载状态。"
-        code={`import { Table } from '@myui/components'
+        code={`import { Table } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Table columns={columns} dataSource={data} loading />
@@ -451,7 +451,7 @@ function App() {
       <CodeBlock
         title="空状态"
         description="当数据为空时显示空状态提示。"
-        code={`import { Table } from '@myui/components'
+        code={`import { Table } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return <Table columns={columns} dataSource={[]} />

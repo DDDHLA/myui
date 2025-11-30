@@ -201,7 +201,7 @@ const MenuDocs = () => {
       <CodeBlock
         title="基本使用"
         description="最基础的垂直菜单。"
-        code={`import { Menu } from '@myui/components'
+        code={`import { Menu } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -229,7 +229,7 @@ function App() {
       <CodeBlock
         title="水平菜单"
         description="水平排列的菜单。"
-        code={`import { Menu } from '@myui/components'
+        code={`import { Menu } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { key: 'home', label: '首页' },
@@ -248,7 +248,7 @@ function App() {
       <CodeBlock
         title="子菜单"
         description="支持多级嵌套的菜单。"
-        code={`import { Menu } from '@myui/components'
+        code={`import { Menu } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -294,7 +294,7 @@ function App() {
       <CodeBlock
         title="内联模式"
         description="内联展开的菜单。"
-        code={`import { Menu } from '@myui/components'
+        code={`import { Menu } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -328,7 +328,7 @@ function App() {
       <CodeBlock
         title="折叠内联菜单"
         description="内联菜单支持折叠功能。"
-        code={`import { Menu } from '@myui/components'
+        code={`import { Menu } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 const items = [
@@ -388,7 +388,7 @@ function App() {
       <CodeBlock
         title="深色主题"
         description="深色风格的菜单。"
-        code={`import { Menu } from '@myui/components'
+        code={`import { Menu } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -420,7 +420,7 @@ function App() {
       <CodeBlock
         title="禁用和危险项"
         description="菜单项可以设置禁用或危险状态。"
-        code={`import { Menu } from '@myui/components'
+        code={`import { Menu } from '@paidaxinghaha/my-ui-react'
 
 const items = [
   { key: 'home', label: '首页', icon: 'home' },
@@ -438,7 +438,7 @@ function App() {
       <CodeBlock
         title="受控模式"
         description="通过 selectedKey 和 openKeys 完全控制菜单状态。"
-        code={`import { Menu } from '@myui/components'
+        code={`import { Menu } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 const items = [

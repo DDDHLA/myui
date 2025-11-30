@@ -48,7 +48,7 @@ const DrawerDocs = () => {
       <CodeBlock
         title="基本用法"
         description="从右侧滑出的抽屉，点击按钮打开，点击蒙层或关闭按钮关闭。"
-        code={`import { Drawer, Button } from '@myui/components';
+        code={`import { Drawer, Button } from '@paidaxinghaha/my-ui-react';
 import { useState } from 'react';
 
 function App() {
@@ -89,7 +89,7 @@ function App() {
       <CodeBlock
         title="不同方向"
         description="支持从上、下、左、右四个方向滑出。"
-        code={`import { Drawer, Button } from '@myui/components';
+        code={`import { Drawer, Button } from '@paidaxinghaha/my-ui-react';
 import { useState } from 'react';
 
 function App() {
@@ -144,7 +144,7 @@ function App() {
       <CodeBlock
         title="自定义尺寸与底部内容"
         description="可以自定义抽屉的宽度或高度，以及添加底部操作区域。"
-        code={`import { Drawer, Button } from '@myui/components';
+        code={`import { Drawer, Button } from '@paidaxinghaha/my-ui-react';
 import { useState } from 'react';
 
 function App() {
@@ -196,7 +196,7 @@ function App() {
       <CodeBlock
         title="无标题、无蒙层、无关闭按钮"
         description="可以根据需求隐藏标题、蒙层或关闭按钮。"
-        code={`import { Drawer, Button } from '@myui/components';
+        code={`import { Drawer, Button } from '@paidaxinghaha/my-ui-react';
 import { useState } from 'react';
 
 function App() {
@@ -239,7 +239,7 @@ function App() {
       <CodeBlock
         title="局部容器抽屉"
         description="抽屉可以在指定的容器内打开，而不是全屏。通过设置 getContainer 属性来指定容器。"
-        code={`import { Drawer, Button } from '@myui/components';
+        code={`import { Drawer, Button } from '@paidaxinghaha/my-ui-react';
 import { useState, useRef } from 'react';
 
 function App() {

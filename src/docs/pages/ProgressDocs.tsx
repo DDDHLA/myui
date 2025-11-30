@@ -86,7 +86,7 @@ const ProgressDocs = () => {
       <CodeBlock
         title="基础用法"
         description="标准的进度条。"
-        code={`import { Progress } from '@myui/components'
+        code={`import { Progress } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -110,7 +110,7 @@ function App() {
       <CodeBlock
         title="进度条状态"
         description="不同状态的进度条。"
-        code={`import { Progress } from '@myui/components'
+        code={`import { Progress } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -134,7 +134,7 @@ function App() {
       <CodeBlock
         title="圆形进度条"
         description="圆形的进度条。"
-        code={`import { Progress } from '@myui/components'
+        code={`import { Progress } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -158,7 +158,7 @@ function App() {
       <CodeBlock
         title="仪表盘"
         description="仪表盘样式的进度条。"
-        code={`import { Progress } from '@myui/components'
+        code={`import { Progress } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -182,7 +182,7 @@ function App() {
       <CodeBlock
         title="动态进度"
         description="会动的进度条。"
-        code={`import { Progress } from '@myui/components'
+        code={`import { Progress } from '@paidaxinghaha/my-ui-react'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -222,7 +222,7 @@ function App() {
       <CodeBlock
         title="自定义文字格式"
         description="通过 format 属性自定义进度文字。"
-        code={`import { Progress } from '@myui/components'
+        code={`import { Progress } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -250,7 +250,7 @@ function App() {
       <CodeBlock
         title="不同尺寸"
         description="线形进度条和圆形进度条都支持自定义尺寸。"
-        code={`import { Progress } from '@myui/components'
+        code={`import { Progress } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -286,7 +286,7 @@ function App() {
       <CodeBlock
         title="自定义颜色"
         description="通过 strokeColor 自定义进度条颜色。"
-        code={`import { Progress } from '@myui/components'
+        code={`import { Progress } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

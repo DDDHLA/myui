@@ -28,7 +28,7 @@ const TooltipDocs = () => {
       <CodeBlock
         title="基本用法"
         description="最简单的用法。"
-        code={`import { Tooltip, Button } from '@myui/components';
+        code={`import { Tooltip, Button } from '@paidaxinghaha/my-ui-react';
 
 <Tooltip title="This is a tooltip">
   <Button>Hover Me</Button>
@@ -44,7 +44,7 @@ const TooltipDocs = () => {
       <CodeBlock
         title="不同位置"
         description="支持上、下、左、右四个方向。"
-        code={`import { Tooltip, Button } from '@myui/components';
+        code={`import { Tooltip, Button } from '@paidaxinghaha/my-ui-react';
 
 <Tooltip title="Top" placement="top">
   <Button>Top</Button>

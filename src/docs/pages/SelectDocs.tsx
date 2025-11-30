@@ -173,7 +173,7 @@ const SelectDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的选择器用法。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 
 const options = [
   { label: '选项一', value: '1' },
@@ -201,7 +201,7 @@ function App() {
       <CodeBlock
         title="受控模式"
         description="通过 value 和 onChange 控制选中的值。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -235,7 +235,7 @@ function App() {
       <CodeBlock
         title="不同尺寸"
         description="提供三种尺寸：sm（小）、md（中）、lg（大）。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -257,7 +257,7 @@ function App() {
       <CodeBlock
         title="多选模式"
         description="设置 multiple 属性启用多选功能。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -294,7 +294,7 @@ function App() {
       <CodeBlock
         title="可搜索"
         description="设置 searchable 属性启用搜索功能。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -320,7 +320,7 @@ function App() {
       <CodeBlock
         title="可清空"
         description="设置 clearable 属性显示清空按钮。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -344,7 +344,7 @@ function App() {
       <CodeBlock
         title="禁用状态"
         description="通过 disabled 属性禁用选择器或禁用某个选项。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 
 const options = [
   { label: '选项一', value: '1' },
@@ -370,7 +370,7 @@ function App() {
       <CodeBlock
         title="分组选项"
         description="通过 group 属性对选项进行分组。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 
 const options = [
   { label: '苹果', value: 'apple', group: '水果' },
@@ -399,7 +399,7 @@ function App() {
       <CodeBlock
         title="加载状态"
         description="使用 loading 属性显示加载状态。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -423,7 +423,7 @@ function App() {
       <CodeBlock
         title="限制标签数量"
         description="多选模式下，使用 maxTagCount 限制显示的标签数量。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -451,7 +451,7 @@ function App() {
       <CodeBlock
         title="错误状态"
         description="使用 error 属性显示错误状态。"
-        code={`import { Select } from '@myui/components'
+        code={`import { Select } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

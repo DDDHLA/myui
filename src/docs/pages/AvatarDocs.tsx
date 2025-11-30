@@ -52,7 +52,7 @@ const AvatarDocs = () => {
       <CodeBlock
         title="基本用法"
         description="支持三种类型：图片、图标和字符。"
-        code={`import { Avatar } from '@myui/components'
+        code={`import { Avatar } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -76,7 +76,7 @@ function App() {
       <CodeBlock
         title="尺寸"
         description="头像有四种尺寸：sm、md、lg、xl。"
-        code={`import { Avatar } from '@myui/components'
+        code={`import { Avatar } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -100,7 +100,7 @@ function App() {
       <CodeBlock
         title="形状"
         description="支持两种形状：circle（圆形）和 square（方形）。"
-        code={`import { Avatar } from '@myui/components'
+        code={`import { Avatar } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -120,7 +120,7 @@ function App() {
       <CodeBlock
         title="头像组"
         description="头像组可以把多个头像叠在一起显示。"
-        code={`import { Avatar, AvatarGroup } from '@myui/components'
+        code={`import { Avatar, AvatarGroup } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (

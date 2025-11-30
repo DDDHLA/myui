@@ -82,7 +82,7 @@ function ButtonDocs() {
       <CodeBlock
         title="基础用法"
         description="按钮的基础用法，支持多种类型和状态。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -110,7 +110,7 @@ function App() {
       <CodeBlock
         title="按钮类型"
         description="按钮有多种类型：轮廓按钮、幽灵按钮和链接按钮。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -132,7 +132,7 @@ function App() {
       <CodeBlock
         title="按钮尺寸"
         description="按钮有大、中、小三种尺寸。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -154,7 +154,7 @@ function App() {
       <CodeBlock
         title="带图标的按钮"
         description="按钮可以配置左侧或右侧图标。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const SearchIcon = (
@@ -196,7 +196,7 @@ function App() {
       <CodeBlock
         title="加载状态"
         description="点击按钮后进行数据加载操作，在按钮上显示加载状态。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -228,7 +228,7 @@ function App() {
       <CodeBlock
         title="块级按钮"
         description="按钮可以占满容器的宽度。"
-        code={`import { Button } from '@myui/components'
+        code={`import { Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -322,7 +322,7 @@ function InputDocs() {
       <CodeBlock
         title="基础用法"
         description="基本使用。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 import { useState } from 'react'
 
 function App() {
@@ -347,7 +347,7 @@ function App() {
       <CodeBlock
         title="带标签的输入框"
         description="输入框可以配置标签和辅助文本。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -373,7 +373,7 @@ function App() {
       <CodeBlock
         title="带图标的输入框"
         description="输入框可以配置左侧或右侧图标。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   const SearchIcon = (
@@ -431,7 +431,7 @@ function App() {
       <CodeBlock
         title="不同尺寸"
         description="输入框有大、中、小三种尺寸。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -453,7 +453,7 @@ function App() {
       <CodeBlock
         title="错误状态"
         description="输入框可以显示错误状态和错误信息。"
-        code={`import { Input } from '@myui/components'
+        code={`import { Input } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -905,17 +905,17 @@ function QuickStartDocs() {
         title="安装"
         description="使用 npm 或 yarn 安装 MyUI 组件库。"
         code={`# 使用 npm
-npm install @myui/components
+npm install @paidaxinghaha/my-ui-react
 
 # 使用 yarn
-yarn add @myui/components
+yarn add @paidaxinghaha/my-ui-react
 
 # 使用 pnpm
-pnpm add @myui/components`}
+pnpm add @paidaxinghaha/my-ui-react`}
         language="bash"
       >
         <div style={{ padding: '16px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px' }}>
-          <code>npm install @myui/components</code>
+          <code>npm install @paidaxinghaha/my-ui-react</code>
         </div>
       </CodeBlock>
       
@@ -923,8 +923,8 @@ pnpm add @myui/components`}
         title="基础使用"
         description="在你的 React 应用中导入和使用 MyUI 组件。"
         code={`import React from 'react'
-import { ThemeProvider, Button, Input } from '@myui/components'
-import '@myui/components/dist/style.css'
+import { ThemeProvider, Button, Input } from '@paidaxinghaha/my-ui-react'
+import '@paidaxinghaha/my-ui-react/dist/style.css'
 
 function App() {
   return (
@@ -1017,7 +1017,7 @@ function IconDocs() {
       <CodeBlock
         title="基础用法"
         description="最简单的用法，指定图标名称即可。"
-        code={`import { Icon } from '@myui/components'
+        code={`import { Icon } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -1245,22 +1245,22 @@ function InstallationDocs() {
       <CodeBlock
         title="NPM 安装"
         description="推荐使用 npm 包管理器安装 MyUI。"
-        code={`npm install @myui/components`}
+        code={`npm install @paidaxinghaha/my-ui-react`}
         language="bash"
       >
         <div style={{ padding: '16px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px' }}>
-          <code>npm install @myui/components</code>
+          <code>npm install @paidaxinghaha/my-ui-react</code>
         </div>
       </CodeBlock>
       
       <CodeBlock
         title="Yarn 安装"
         description="如果你使用 Yarn 作为包管理器。"
-        code={`yarn add @myui/components`}
+        code={`yarn add @paidaxinghaha/my-ui-react`}
         language="bash"
       >
         <div style={{ padding: '16px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px' }}>
-          <code>yarn add @myui/components</code>
+          <code>yarn add @paidaxinghaha/my-ui-react</code>
         </div>
       </CodeBlock>
     </div>

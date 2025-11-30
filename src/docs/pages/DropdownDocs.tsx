@@ -171,7 +171,7 @@ const DropdownDocs = () => {
       <CodeBlock
         title="基础用法"
         description="最简单的下拉菜单。"
-        code={`import { Dropdown, Button } from '@myui/components'
+        code={`import { Dropdown, Button } from '@paidaxinghaha/my-ui-react'
 
 const menu = [
   { key: '1', label: '菜单项 1' },
@@ -195,7 +195,7 @@ function App() {
       <CodeBlock
         title="触发方式"
         description="通过 trigger 属性设置触发方式,可以是 hover 或 click。"
-        code={`import { Dropdown, Button } from '@myui/components'
+        code={`import { Dropdown, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -223,7 +223,7 @@ function App() {
       <CodeBlock
         title="带图标的菜单"
         description="为菜单项添加图标。"
-        code={`import { Dropdown, Button } from '@myui/components'
+        code={`import { Dropdown, Button } from '@paidaxinghaha/my-ui-react'
 
 const menuWithIcons = [
   {
@@ -264,7 +264,7 @@ function App() {
       <CodeBlock
         title="禁用状态"
         description="可以禁用整个下拉菜单或单个菜单项。"
-        code={`import { Dropdown, Button } from '@myui/components'
+        code={`import { Dropdown, Button } from '@paidaxinghaha/my-ui-react'
 
 const menuWithDisabled = [
   { key: '1', label: '菜单项 1' },
@@ -298,7 +298,7 @@ function App() {
       <CodeBlock
         title="弹出位置"
         description="通过 placement 属性设置弹出位置。"
-        code={`import { Dropdown, Button } from '@myui/components'
+        code={`import { Dropdown, Button } from '@paidaxinghaha/my-ui-react'
 
 function App() {
   return (
@@ -350,7 +350,7 @@ function App() {
       <CodeBlock
         title="子菜单"
         description="支持多级菜单。"
-        code={`import { Dropdown, Button } from '@myui/components'
+        code={`import { Dropdown, Button } from '@paidaxinghaha/my-ui-react'
 
 const menuWithSubmenu = [
   { key: '1', label: '菜单项 1' },
