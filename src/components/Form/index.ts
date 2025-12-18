@@ -1,4 +1,5 @@
-export { default, useFormContext } from "./Form";
+export { default } from "./Form";
+export { useFormContext } from "./FormContext";
 export { default as FormItem } from "./FormItem";
 export { useForm } from "./useForm";
 export type { FormProps } from "./Form";

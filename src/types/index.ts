@@ -43,7 +43,7 @@ export interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size">,
     BaseProps {
   size?: Size;
-  error?: boolean;
+  error?: boolean | string;
   helperText?: string;
   label?: string;
   leftIcon?: ReactNode;
@@ -216,7 +216,7 @@ export interface SelectProps
 
   // 样式
   size?: Size;
-  error?: boolean;
+  error?: boolean | string;
 
   // 文本
   notFoundContent?: ReactNode;
@@ -455,7 +455,7 @@ export interface TreeSelectProps
 
   // 样式
   size?: Size;
-  error?: boolean;
+  error?: boolean | string;
   maxTagCount?: number;
   maxTagPlaceholder?: (omittedValues: (string | number)[]) => ReactNode;
   treeHeight?: number;
@@ -562,7 +562,7 @@ export interface DatePickerProps
 
   // 样式
   size?: Size;
-  error?: boolean;
+  error?: boolean | string;
   bordered?: boolean;
 
   // 弹窗

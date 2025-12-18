@@ -74,7 +74,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             className="myui-input"
             disabled={disabled}
             aria-describedby={helperTextId}
-            aria-invalid={error}
+            aria-invalid={!!error}
             onFocus={handleFocus}
             onBlur={handleBlur}
             {...props}

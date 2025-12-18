@@ -1,13 +1,13 @@
 import { useState, useCallback, ChangeEvent } from "react";
 
 export interface FieldData {
-  value: any;
+  value: unknown;
   error?: string;
   touched?: boolean;
 }
 
 export interface FormValues {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface FormErrors {
@@ -22,13 +22,13 @@ export interface ValidationRule {
   maxLength?: number | { value: number; message: string };
   pattern?: RegExp | { value: RegExp; message: string };
   validator?: (
-    value: any,
+    value: unknown,
     values: FormValues
   ) => string | undefined | Promise<string | undefined>;
 }
 
 export interface FieldConfig {
-  initialValue?: any;
+  initialValue?: unknown;
   rules?: ValidationRule[];
 }
 
@@ -50,7 +50,7 @@ export const useForm = (options: UseFormOptions = {}) => {
   const validateField = useCallback(
     async (
       name: string,
-      value: any,
+      value: unknown,
       rules?: ValidationRule[]
     ): Promise<string | undefined> => {
       if (!rules || rules.length === 0) return undefined;
@@ -147,7 +147,7 @@ export const useForm = (options: UseFormOptions = {}) => {
 
   // 设置字段值
   const setFieldValue = useCallback(
-    (name: string, value: any) => {
+    (name: string, value: unknown) => {
       const newValues = { ...values, [name]: value };
       setValues(newValues);
 
@@ -163,7 +163,8 @@ export const useForm = (options: UseFormOptions = {}) => {
     (name: string, error: string | undefined) => {
       setErrors((prev) => {
         if (error === undefined) {
-          const { [name]: _, ...rest } = prev;
+          const rest = { ...prev };
+          delete rest[name];
           return rest;
         }
         return { ...prev, [name]: error };
@@ -182,7 +183,7 @@ export const useForm = (options: UseFormOptions = {}) => {
     (name: string, rules?: ValidationRule[]) => {
       return {
         name,
-        value: values[name] ?? "",
+        value: (values[name] as string | number | string[] | undefined) ?? "",
         error: touched[name] ? errors[name] : undefined,
         onChange: (
           e: ChangeEvent<

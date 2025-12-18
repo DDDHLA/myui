@@ -1,17 +1,7 @@
-import React, { createContext, useContext, FormEvent, ReactNode } from 'react'
+import React, { FormEvent, ReactNode } from 'react'
 import { cn } from '@/utils'
+import { FormContext } from './FormContext'
 import './Form.css'
-
-// Form Context
-interface FormContextValue {
-  layout?: 'horizontal' | 'vertical' | 'inline'
-  size?: 'sm' | 'md' | 'lg'
-  disabled?: boolean
-}
-
-const FormContext = createContext<FormContextValue>({})
-
-export const useFormContext = () => useContext(FormContext)
 
 // Form Props
 export interface FormProps {

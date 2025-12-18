@@ -61,8 +61,9 @@ const FormDemo: React.FC = () => {
       rules: [
         { required: '请输入年龄' },
         {
-          validator: (value: string) => {
-            const num = parseInt(value)
+          validator: (value: unknown) => {
+            const strValue = String(value)
+            const num = parseInt(strValue)
             if (isNaN(num)) return '请输入有效的数字'
             if (num < 18) return '年龄必须大于18岁'
             if (num > 100) return '请输入有效的年龄'

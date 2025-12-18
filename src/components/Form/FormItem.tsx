@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { cn } from '@/utils'
-import { useFormContext } from './Form'
+import { useFormContext } from './FormContext'
 import './Form.css'
 
 export interface FormItemProps {
