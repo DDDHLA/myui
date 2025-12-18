@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5133",
     "dev:3050": "vite --port 3050",
     "build": "vite build",
     "build:check": "tsc && vite build",
