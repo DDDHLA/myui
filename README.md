@@ -23,6 +23,12 @@ yarn add @paidaxinghaha/my-ui-react
 pnpm add @paidaxinghaha/my-ui-react
 ```
 
+## 🔗 链接
+
+- 源码仓库: https://github.com/paidaxinghaha/my-ui-react
+- Issue 反馈: https://github.com/paidaxinghaha/my-ui-react/issues
+- NPM: https://www.npmjs.com/package/@paidaxinghaha/my-ui-react
+
 ## 🚀 快速开始
 
 ```tsx

@@ -3,7 +3,7 @@
 ## 包信息
 
 - **包名**: `@paidaxinghaha/my-ui-react`
-- **版本**: 1.0.0
+- **版本**: 1.0.1
 - **NPM 地址**: https://www.npmjs.com/package/@paidaxinghaha/my-ui-react
 
 ## 安装方式
@@ -54,5 +54,5 @@ npm publish
 
 - 发布前确保已登录 NPM: `npm login`
 - 确保 `package.json` 中的版本号已更新
-- 确保所有测试通过
-- 确保构建成功
+- 发布前执行：`npm run lint && npm run type-check && npm run build:lib`
+- 确认 `package.json` 中 `main/module/exports/types` 与构建产物一致，`dist/style.css` 已包含在 `files` 中
