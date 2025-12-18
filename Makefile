@@ -1,52 +1,28 @@
 # MyUI Docker 部署 Makefile
 
-.PHONY: help deploy update quick-update hot-update rollback status logs stop start restart clean
+.PHONY: help deploy status logs stop start restart clean backup dev build
 
 # 默认目标
 help:
 	@echo "MyUI Docker 部署命令:"
 	@echo ""
-	@echo "  make deploy      - 首次部署"
-	@echo "  make update      - 完整更新部署 (交互式)"
-	@echo "  make quick       - 快速更新 (无交互)"
-	@echo "  make hot         - 热更新 (零停机)"
-	@echo "  make rollback    - 回滚到之前版本"
+	@echo "  make deploy      - 🚀 部署/更新服务"
 	@echo ""
-	@echo "  make status      - 查看容器状态"
-	@echo "  make logs        - 查看容器日志"
-	@echo "  make stop        - 停止容器"
-	@echo "  make start       - 启动容器"
-	@echo "  make restart     - 重启容器"
-	@echo "  make clean       - 清理资源"
+	@echo "  make status      - 📊 查看容器状态"
+	@echo "  make logs        - 📝 查看容器日志"
+	@echo "  make stop        - 🛑 停止容器"
+	@echo "  make start       - ▶️  启动容器"
+	@echo "  make restart     - 🔄 重启容器"
+	@echo "  make clean       - 🧹 清理资源"
 	@echo ""
-	@echo "  make backup      - 备份当前镜像"
-	@echo "  make dev         - 启动开发服务器"
-	@echo "  make build       - 仅构建镜像"
+	@echo "  make backup      - 💾 备份当前镜像"
+	@echo "  make dev         - 🛠️  启动开发服务器"
+	@echo "  make build       - 🔨 仅构建镜像"
 
-# 首次部署
+# 部署/更新
 deploy:
-	@echo "🚀 首次部署 MyUI..."
+	@echo "🚀 部署 MyUI..."
 	./deploy.sh
-
-# 完整更新部署
-update:
-	@echo "🔄 完整更新部署..."
-	./update-deploy.sh
-
-# 快速更新
-quick:
-	@echo "⚡ 快速更新..."
-	./quick-update.sh
-
-# 热更新
-hot:
-	@echo "🔥 热更新..."
-	./hot-update.sh
-
-# 回滚
-rollback:
-	@echo "🔙 回滚..."
-	./rollback.sh
 
 # 查看状态
 status:
