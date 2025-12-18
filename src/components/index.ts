@@ -53,6 +53,9 @@ import "./Mentions/style.css";
 import "./TypeWriter/TypeWriter.css";
 import "./Descriptions/Descriptions.css";
 import "./Tour/Tour.css";
+import "./Masonry/Masonry.css";
+import "./AnimatedNumber/AnimatedNumber.css";
+import "./Form/Form.css";
 
 // 导出组件
 export { Button, type ButtonProps } from "./Button";
@@ -234,6 +237,28 @@ export {
   type DescriptionItem,
 } from "./Descriptions";
 export { Tour, type TourProps, type TourStep } from "./Tour";
+export { default as Masonry, type MasonryProps } from "./Masonry";
+export {
+  default as AnimatedNumber,
+  type AnimatedNumberProps,
+} from "./AnimatedNumber";
+export {
+  default as Form,
+  FormItem,
+  useForm,
+  useFormContext,
+  type FormProps,
+  type FormItemProps,
+  type FormValues,
+  type FormErrors,
+  type ValidationRule,
+  type FieldConfig,
+  type UseFormOptions,
+} from "./Form";
+
+export * from "./VirtualList";
+export * from "./ColorPicker";
+export * from "./Parallax";
 
 // 导出 Hooks
 export * from "@/hooks";

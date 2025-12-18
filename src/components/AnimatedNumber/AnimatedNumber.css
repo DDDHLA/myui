@@ -1,0 +1,15 @@
+.myui-animated-number {
+  display: inline-flex;
+  align-items: baseline;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.myui-animated-number__prefix,
+.myui-animated-number__suffix {
+  opacity: 0.7;
+}
+
+.myui-animated-number__value {
+  font-weight: var(--font-weight-semibold);
+}

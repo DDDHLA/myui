@@ -57,7 +57,13 @@ import {
   MentionsDocs,
   TypeWriterDocs,
   DescriptionsDocs,
-  TourDocs
+  TourDocs,
+  MasonryDocs,
+  AnimatedNumberDocs,
+  FormDocs,
+  VirtualListDocs,
+  ColorPickerDocs,
+  ParallaxDocs
 } from './pages'
 
 // 路由配置
@@ -297,5 +303,29 @@ export const routes: RouteObject[] = [
   {
     path: '/tour',
     element: <TourDocs />
+  },
+  {
+    path: '/masonry',
+    element: <MasonryDocs />
+  },
+  {
+    path: '/animated-number',
+    element: <AnimatedNumberDocs />
+  },
+  {
+    path: '/form',
+    element: <FormDocs />
+  },
+  {
+    path: '/virtual-list',
+    element: <VirtualListDocs />
+  },
+  {
+    path: '/color-picker',
+    element: <ColorPickerDocs />
+  },
+  {
+    path: '/parallax',
+    element: <ParallaxDocs />
   }
 ]

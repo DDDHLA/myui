@@ -1,0 +1,101 @@
+.animated-number-demo {
+  padding: 24px;
+}
+
+.animated-number-demo h2 {
+  margin: 0 0 32px 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.animated-number-demo__section {
+  margin-bottom: 48px;
+}
+
+.animated-number-demo__section h3 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.animated-number-demo__large {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.animated-number-demo__medium {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.animated-number-demo__card {
+  flex: 1;
+  min-width: 250px;
+}
+
+.animated-number-demo__stat {
+  padding: 32px;
+  text-align: center;
+}
+
+.animated-number-demo__stat-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.animated-number-demo__stat-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.animated-number-demo__dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.animated-number-demo__dashboard-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.animated-number-demo__dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.animated-number-demo__dashboard-item {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.animated-number-demo__dashboard-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.animated-number-demo__dashboard-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.animated-number-demo__dashboard-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+}

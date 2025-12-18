@@ -1,0 +1,69 @@
+.masonry-demo {
+  padding: 24px;
+}
+
+.masonry-demo__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.masonry-demo__header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.masonry-demo__section {
+  margin-bottom: 48px;
+}
+
+.masonry-demo__section h3 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.masonry-demo__item {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.masonry-demo__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.masonry-demo__item-content {
+  padding: 20px;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.masonry-demo__item-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.masonry-demo__item-content p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.masonry-demo__item--small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}

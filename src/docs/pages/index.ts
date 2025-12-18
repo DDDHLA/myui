@@ -56,4 +56,11 @@ export { default as MentionsDocs } from "./MentionsDocs";
 export { default as TypeWriterDocs } from "./TypeWriterDocs";
 export { default as DescriptionsDocs } from "./DescriptionsDocs";
 export { default as TourDocs } from "./TourDocs";
+export { default as MasonryDocs } from "./MasonryDocs";
+export { default as AnimatedNumberDocs } from "./AnimatedNumberDocs";
+export { default as FormDocs } from "./FormDocs";
+export { default as VirtualListDocs } from "./VirtualListDocs";
+export { default as ColorPickerDocs } from "./ColorPickerDocs";
+export { default as ParallaxDocs } from "./ParallaxDocs";
+
 export { default as ComingSoonPage } from "./ComingSoonPage";

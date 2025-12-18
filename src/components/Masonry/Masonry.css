@@ -1,0 +1,15 @@
+.myui-masonry {
+  display: flex;
+  width: 100%;
+}
+
+.myui-masonry__column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.myui-masonry__item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}

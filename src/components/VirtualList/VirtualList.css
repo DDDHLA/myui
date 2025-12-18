@@ -1,0 +1,28 @@
+.myui-virtual-list {
+  position: relative;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-container);
+}
+
+.myui-virtual-list__phantom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.myui-virtual-list__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.myui-virtual-list__item {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}

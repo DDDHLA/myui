@@ -35,6 +35,7 @@ const MENU_ITEMS = [
     title: '数据录入',
     key: 'data-entry',
     items: [
+      { title: 'Form 表单', key: 'form' },
       { title: 'Input 输入框', key: 'input' },
       { title: 'Checkbox 复选框', key: 'checkbox' },
       { title: 'Radio 单选框', key: 'radio' },
@@ -48,6 +49,7 @@ const MENU_ITEMS = [
       { title: 'DatePicker 日期选择器', key: 'datepicker' },
       { title: 'Cascader 级联选择', key: 'cascader' },
       { title: 'Mentions 提及', key: 'mentions' },
+      { title: 'ColorPicker 颜色选择器', key: 'color-picker' },
       { title: 'Recorder 录音', key: 'recorder' }
     ]
   },
@@ -68,9 +70,12 @@ const MENU_ITEMS = [
       { title: 'Timeline 时间轴', key: 'timeline' },
       { title: 'Carousel 走马灯', key: 'carousel' },
       { title: 'Statistic 统计数值', key: 'statistic' },
+      { title: 'AnimatedNumber 数字滚动', key: 'animated-number' },
       { title: 'Collapse 折叠面板', key: 'collapse' },
       { title: 'Descriptions 描述列表', key: 'descriptions' },
-      { title: 'TypeWriter 流式输出', key: 'typewriter' }
+      { title: 'TypeWriter 流式输出', key: 'typewriter' },
+      { title: 'VirtualList 虚拟列表', key: 'virtual-list' },
+      { title: 'Masonry 瀑布流', key: 'masonry' }
     ]
   },
   {
@@ -117,7 +122,8 @@ const MENU_ITEMS = [
     title: '其他',
     key: 'other',
     items: [
-      { title: 'Image 图片', key: 'image' }
+      { title: 'Image 图片', key: 'image' },
+      { title: 'Parallax 视差滚动', key: 'parallax' }
     ]
   }
 ]

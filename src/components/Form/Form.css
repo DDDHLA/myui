@@ -1,0 +1,130 @@
+.myui-form {
+  width: 100%;
+}
+
+/* Form Item */
+.myui-form-item {
+  margin-bottom: var(--spacing-4);
+}
+
+.myui-form-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Vertical Layout */
+.myui-form-item--vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.myui-form-item--vertical .myui-form-item__label {
+  margin-bottom: var(--spacing-2);
+}
+
+/* Horizontal Layout */
+.myui-form-item--horizontal {
+  display: flex;
+  align-items: flex-start;
+}
+
+.myui-form-item--horizontal .myui-form-item__label {
+  padding-top: var(--spacing-2);
+  margin-right: var(--spacing-3);
+  text-align: right;
+  flex: 0 0 120px;
+}
+
+.myui-form-item--horizontal .myui-form-item__content {
+  flex: 1;
+}
+
+/* Inline Layout */
+.myui-form--inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+.myui-form--inline .myui-form-item {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.myui-form--inline .myui-form-item__label {
+  margin-right: var(--spacing-2);
+  margin-bottom: 0;
+}
+
+/* Label */
+.myui-form-item__label {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.myui-form-item__required-mark {
+  color: var(--color-error);
+  margin-right: 4px;
+}
+
+/* Content */
+.myui-form-item__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.myui-form-item__control {
+  width: 100%;
+}
+
+/* Error Message */
+.myui-form-item__error {
+  margin-top: var(--spacing-1);
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+  line-height: 1.5;
+  animation: slideDown 0.2s ease-out;
+}
+
+/* Help Text */
+.myui-form-item__help {
+  margin-top: var(--spacing-1);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Error State */
+.myui-form-item--error .myui-form-item__label {
+  color: var(--color-error);
+}
+
+/* Disabled State */
+.myui-form--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Size Variants */
+.myui-form--sm {
+  font-size: var(--font-size-sm);
+}
+
+.myui-form--lg {
+  font-size: var(--font-size-lg);
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
